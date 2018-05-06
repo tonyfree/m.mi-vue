@@ -24,3 +24,43 @@ vue init webpack m.mi
 # 3.0使用init命令需安装
 cnpm i -g @vue/cli-init
 ```
+
+## lesson02--[适配方案viewport](https://www.w3cplus.com/mobile/vw-layout-in-vue.html)
++ 前身：[lib-flexible](https://github.com/amfe/lib-flexible)
++ 安装插件
+```
+cnpm i cssnano cssnano-preset-advanced postcss-aspect-ratio-mini postcss-cssnext postcss-import postcss-px-to-viewport postcss-url postcss-viewport-units postcss-write-svg -D
+```
++ 配置postcss
+```
+"postcss": {
+    "plugins": {
+      "postcss-import": {},
+      "postcss-url": {},
+      "postcss-aspect-ratio-mini": {},
+      "postcss-write-svg": {
+        "utf8": false
+      },
+      "postcss-cssnext": {},
+      "postcss-px-to-viewport": {
+        "viewportWidth": 375,
+        "viewportHeight": 667,
+        "unitPrecision": 3,
+        "viewportUnit": "vw",
+        "selectorBlackList": [
+          ".ignore",
+          ".hairlines"
+        ],
+        "minPixelValue": 1,
+        "mediaQuery": false
+      },
+      "postcss-viewport-units": {},
+      "cssnano": {
+        "preset": "advanced",
+        "autoprefixer": false,
+        "postcss-zindex": false
+      }
+    }
+  },
+```
+
