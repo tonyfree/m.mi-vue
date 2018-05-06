@@ -1,6 +1,16 @@
 # m.mi
 Refactor the mi mall with vue, vue-router, vex, etc.
 
+
+## lesson03--登录
++ 添加路由组件Login.vue、并修改路由配置（线上登录使用了新的域名处理，非路由）（此处暂时不讲路由）
++ 引入模块：[normalize.css](https://github.com/necolas/normalize.css)
+```
+cnpm i  normalize.css -S
+```
++ 创建modules文件夹和reset.css
++ 加载normalize.css和reset.css、修改App.vue
+
 ## lesson02--[适配方案viewport](https://www.w3cplus.com/mobile/vw-layout-in-vue.html)
 + 前身：[lib-flexible](https://github.com/amfe/lib-flexible)
 + 安装插件
@@ -63,6 +73,4 @@ vue init webpack m.mi
 # 3.0使用init命令需安装
 cnpm i -g @vue/cli-init
 ```
-
-
 
