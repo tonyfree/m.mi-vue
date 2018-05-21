@@ -6,12 +6,24 @@
     </div>
     <div>
       <!-- 输入框 -->
-      <label class="login_user" for="">
+      <label class="login_user">
+        <div class="country_list">
+          <div class="countrycode_selector" >
+            <span class="country_code">
+              <tt class="countrycode-value">+86</tt>
+              <i class="icon_arrow_down">></i>
+            </span>
+          </div>
+        </div>
         <input class="item_account" autocomplete="off" type="text"  placeholder="邮箱/手机号码/小米ID">
       </label>
       <label class="pwd_panel">
         <input class="item_account" type="password" placeholder="密码" autocomplete="off">
-        <i class="eye pwd-eye">eye</i>
+        <i>eye</i>
+      </label>
+      <label class="pwd_panel">
+        <input class="item_account" type="number" placeholder="短信验证码" autocomplete="off">
+        <a href="javascript:;" class="sms_code">获取验证码</a>
       </label>
       
       <!-- 错误信息 -->
@@ -75,11 +87,44 @@
 .login_user, .pwd_panel {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border-bottom: 1px solid #d3d3d3;
+}
+.pwd_panel {
+  justify-content: space-between;
+}
+.country_list {
+  padding: 1px 10px 1px 0;
+  margin-right: 8px;
+  color: #4a4a4a;
+  display: block;
+  overflow: hidden;
+}
+.countrycode_selector {
+  position: relative;
+  animation: fade-in ease-in-out .5s;
+}
+@keyframes fade-in {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+.country_code {
+  display: flex;
+  align-items: center;
+}
+.countrycode-value {
+  margin-right: 2px;
+  color: #9b9b9b;
+  font-size: 16px;
 }
 .item_account {
   padding: 16px 0;
+}
+.sms_code {
+  color: #2ea5e5;
 }
 .err_tip {
   margin-bottom: 5px;
