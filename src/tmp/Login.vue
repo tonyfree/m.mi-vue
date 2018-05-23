@@ -11,7 +11,7 @@
           <div class="countrycode_selector" >
             <span class="country_code">
               <tt class="countrycode-value">+86</tt>
-              <i class="icon_arrow_down">></i>
+              <i class="icon_arrow_down"></i>
             </span>
           </div>
         </div>
@@ -19,7 +19,7 @@
       </label>
       <label class="pwd_panel">
         <input class="item_account" type="password" placeholder="密码" autocomplete="off">
-        <i>eye</i>
+        <i class="iconfont icon-biyan"></i>
       </label>
       <label class="pwd_panel">
         <input class="item_account" type="number" placeholder="短信验证码" autocomplete="off">
@@ -28,7 +28,7 @@
       
       <!-- 错误信息 -->
       <div class="err_tip">
-        <em class="icon_error">err</em>
+        <i class="iconfont icon-error icon_error"></i>
         <span class="error-con">请输入密码</span>
       </div>
   
@@ -56,8 +56,6 @@
             <a class="icon_type btn_weixin" data-type="weixin"  title="微信登录" target="_blank"><i class="btn_sns_icontype icon_default_weixin"></i></a>
           </div>
         </div>
-        <!-- 其他登录方式 e -->
-        <p class="acq_tips" style="display: none;"></p>
       </div>
     </div>
   </div>
@@ -78,7 +76,7 @@
   height: 48px;
   margin: 0 auto 15px;
   display: block;
-  background-image: url(../assets/milogo.png);
+  background-image: url(../assets/images/milogo.png);
 }
 .header_tit_txt {
   font-size: 16px;
@@ -120,17 +118,30 @@
   color: #9b9b9b;
   font-size: 16px;
 }
+.icon_arrow_down {
+    /* margin-left: 2px; */
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent transparent #9b9b9b #9b9b9b;
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
 .item_account {
   padding: 16px 0;
 }
 .sms_code {
   color: #2ea5e5;
+  font-size: 14px;
 }
 .err_tip {
   margin-bottom: 5px;
   padding-top: 14px;
   color: #F66;
   text-align: left;
+  font-size: 14px;
 }
 .icon_error {
   font-size: 16px;
@@ -197,7 +208,7 @@
   background-color: #00be00;
 }
 .btn_sns_icontype {
-  background: url(../assets/icons_type.png) no-repeat;
+  background: url(../assets/images/icons_type.png) no-repeat;
   display: block;
   width: 18px;
   height: 18px;
