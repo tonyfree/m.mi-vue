@@ -25,13 +25,11 @@
         <input class="item_account" type="number" placeholder="短信验证码" autocomplete="off">
         <a href="javascript:;" class="sms_code">获取验证码</a>
       </label>
-      
       <!-- 错误信息 -->
       <div class="err_tip">
         <i class="iconfont icon-error icon_error"></i>
         <span class="error-con">请输入密码</span>
       </div>
-  
       <div class="btns_bg">
         <input class="btnadpt" type="button" value="登录">
       </div>
@@ -229,4 +227,3 @@
   background-position: -84px 0;
 }
 </style>
-

@@ -3,13 +3,17 @@ Refactor the mi mall with vue, vue-router, vex, etc.
 
 
 ## lesson03--登录
-+ 添加路由组件Login.vue、并修改路由配置（线上登录使用了新的域名处理，非路由）（此处暂时不讲路由）
+
 + 引入模块：[normalize.css](https://github.com/necolas/normalize.css)
 ```
 cnpm i  normalize.css -S
 ```
-+ 创建modules文件夹和reset.css
++ 在assets下创建css文件夹和reset.css
 + 加载normalize.css和reset.css、修改App.vue
++ 在views下创建index.js，把路由的routes配置放在index.js中
++ 创建tmp文件夹，存放静态组件
++ 添加路由组件Login.vue、并修改路由配置（线上登录使用了新的域名处理，非路由）（此处暂时不讲路由）
++ 引入字体图标(阿里图标库)
 
 ## lesson02--[适配方案viewport](https://www.w3cplus.com/mobile/vw-layout-in-vue.html)
 + 前身：[lib-flexible](https://github.com/amfe/lib-flexible)

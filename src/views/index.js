@@ -2,7 +2,7 @@ import Home from './Home.vue'
 import About from './About.vue'
 import Login from './Login.vue'
 
-export default[
+export default [
   {
     path: '/',
     name: 'home',
