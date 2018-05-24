@@ -39,6 +39,17 @@ cnpm i cssnano cssnano-preset-advanced postcss-aspect-ratio-mini postcss-cssnext
     }
   },
 ```
++ 添加buggyfill
+```
+  <script src="//g.alicdn.com/fdilab/lib3rd/viewport-units-buggyfill/0.6.2/??viewport-units-buggyfill.hacks.min.js,viewport-units-buggyfill.min.js"></script>
+  <script>
+    window.onload = function () {
+      window.viewportUnitsBuggyfill.init({
+        hacks: window.viewportUnitsBuggyfillHacks
+      })
+    }
+  </script> 
+```
 
 ## lesson01 -- 脚手架[vue-cli](https://github.com/vuejs/vue-cli)
 ```
