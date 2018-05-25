@@ -65,7 +65,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import md5 from 'blueimp-md5'
 export default {
   data () {
@@ -119,8 +118,7 @@ export default {
         return
       }
       if (this.countdown !== 60) return
-      let url = 'http://rap2api.taobao.org/app/mock/13801/api/getCode'
-      axios.post(url).then(res => {
+      this.$fetch('getCode').then(res => {
         this.timer = setInterval(() => {
           this.codeMsg = `重新发送(${this.countdown})` 
           this.countdown--
@@ -150,7 +148,6 @@ export default {
     },
     confirm () {
       this.loading = true
-      let url = 'http://rap2api.taobao.org/app/mock/13801/api/login'
       let data = {
         userName: this.userName
       }
@@ -159,13 +156,13 @@ export default {
       } else {
         data.pwd = md5(this.pwd)
       }
-      axios.post(url, data).then(res => {
-        let status = res.data.status
+      this.$fetch('login', data).then(res => {
+        let status = res.status
         if (status === 200) {
           // todo: 跳转到登录来源
           console.log('跳转到登录来源')
         } else {
-          this.errMsg = res.data.message
+          this.errMsg = res.message
         }
         this.loading = false
       }).catch(err => {
