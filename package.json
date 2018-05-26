@@ -44,6 +44,11 @@
       "@vue/standard"
     ]
   },
+  "standard": {
+    "ignore": [
+      "./src/mock/*.js"
+    ]
+  },
   "postcss": {
     "plugins": {
       "postcss-import": {},

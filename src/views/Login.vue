@@ -81,7 +81,7 @@ export default {
       timer: null
     }
   },
-  computed : {
+  computed: {
     mainBtn () {
       return this.isSmsLogin ? '立即登录/注册' : '登录'
     },
@@ -89,19 +89,19 @@ export default {
       return this.isSmsLogin ? '用户名密码登录' : '手机短信登录/注册'
     },
     placeholderTxt () {
-      return this.isSmsLogin ? '手机号码': '邮箱/手机号码/小米ID'
+      return this.isSmsLogin ? '手机号码' : '邮箱/手机号码/小米ID'
     },
     pwdType () {
       return this.isOpen ? 'text' : 'password'
     },
-    codeStyle ()  {
+    codeStyle () {
       return this.countdown === 60 ? {
-          color:'#2ea5e5',
-          cursor: 'pointer'
-        } : {
-          color:'#999',
-          cursor: 'default'
-        }
+        color: '#2ea5e5',
+        cursor: 'pointer'
+      } : {
+        color: '#999',
+        cursor: 'default'
+      }
     }
   },
   methods: {
@@ -120,7 +120,7 @@ export default {
       if (this.countdown !== 60) return
       this.$fetch('getCode').then(res => {
         this.timer = setInterval(() => {
-          this.codeMsg = `重新发送(${this.countdown})` 
+          this.codeMsg = `重新发送(${this.countdown})`
           this.countdown--
           if (this.countdown === 0) {
             clearInterval(this.timer)
@@ -133,7 +133,7 @@ export default {
     },
     submit () {
       if (!this.userName) {
-        this.errMsg =  this.isSmsLogin ? '请输入手机号' : '请输入账号' 
+        this.errMsg = this.isSmsLogin ? '请输入手机号' : '请输入账号'
         return
       }
       if (this.isSmsLogin && !this.code) {
@@ -166,6 +166,7 @@ export default {
         }
         this.loading = false
       }).catch(err => {
+        console.error(err)
         this.loading = false
       })
     },
