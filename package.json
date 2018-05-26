@@ -46,7 +46,7 @@
   },
   "standard": {
     "ignore": [
-      "./src/mock/*.js"
+      "./src/mock/"
     ]
   },
   "postcss": {
