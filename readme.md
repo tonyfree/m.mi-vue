@@ -1,19 +1,49 @@
-### vue-cli和vue-loader版本说明
-+ vue-cli >= 3.0.0-beta.10
-+ vue-loader >= 15.0.0
+### [适配方案viewport](https://www.w3cplus.com/mobile/vw-layout-in-vue.html)
++ 前身：[lib-flexible](https://github.com/amfe/lib-flexible)
++ 安装插件
 ```
-cnpm install -g @vue/cli@3.0.0-beta.11
+cnpm i cssnano cssnano-preset-advanced postcss-aspect-ratio-mini postcss-cssnext postcss-import postcss-px-to-viewport postcss-url postcss-viewport-units postcss-write-svg -D
 ```
-
-vue-cli版本|对应的vue-loader版本
--------|-------
-3.0.0-beta.9|14.2.1
-3.0.0-beta.10|15.1.0
-3.0.0-beta.11|15.1.0
-
-+ vue-loader v15和v14：[v14](https://vue-loader-v14.vuejs.org/zh-cn/)、[v15](https://vue-loader.vuejs.org/zh/)、[从v14迁移](https://vue-loader.vuejs.org/zh/migrating.html)
-+ v15和v14默认webpack配置 
-
-### 单vue文件组件
-+ [教程-单文件组件](https://cn.vuejs.org/v2/guide/single-file-components.html)：顶级元素、预处理器、CSS作用域
-+ 不能使用单文件组件的场景
++ 配置postcss
+```
+"postcss": {
+    "plugins": {
+      "postcss-import": {},
+      "postcss-url": {},
+      "postcss-aspect-ratio-mini": {},
+      "postcss-write-svg": {
+        "utf8": false
+      },
+      "postcss-cssnext": {},
+      "postcss-px-to-viewport": {
+        "viewportWidth": 375,
+        "viewportHeight": 667,
+        "unitPrecision": 3,
+        "viewportUnit": "vw",
+        "selectorBlackList": [
+          ".ignore",
+          ".hairlines"
+        ],
+        "minPixelValue": 1,
+        "mediaQuery": false
+      },
+      "postcss-viewport-units": {},
+      "cssnano": {
+        "preset": "advanced",
+        "autoprefixer": false,
+        "postcss-zindex": false
+      }
+    }
+  },
+```
++ 添加buggyfill
+```
+  <script src="//g.alicdn.com/fdilab/lib3rd/viewport-units-buggyfill/0.6.2/??viewport-units-buggyfill.hacks.min.js,viewport-units-buggyfill.min.js"></script>
+  <script>
+    window.onload = function () {
+      window.viewportUnitsBuggyfill.init({
+        hacks: window.viewportUnitsBuggyfillHacks
+      })
+    }
+  </script> 
+```
