@@ -11,3 +11,7 @@
 + views下创建index.js，把路由的routes配置放在index.js中
 + 创建tmp文件夹，存放样式组件(不含逻辑处理)
 + 在tmp下创建MiLogin.vue组件
+
+### MiLogin.vue组件
++ 结构、样式、图片
++ reset.css初始化样式优化
