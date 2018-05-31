@@ -19,7 +19,7 @@
       </label>
       <label class="pwd_panel">
         <input class="item_account" type="password" placeholder="密码" autocomplete="off">
-        <i class="iconfont icon-biyan"></i>
+        <i class="eye pwd-eye">eye</i>
       </label>
       <label class="pwd_panel">
         <input class="item_account" type="number" placeholder="短信验证码" autocomplete="off">
@@ -27,7 +27,7 @@
       </label>
       <!-- 错误信息 -->
       <div class="err_tip">
-        <i class="iconfont icon-error icon_error"></i>
+        <em class="icon_error">err</em>
         <span class="error-con">请输入密码</span>
       </div>
       <div class="btns_bg">
