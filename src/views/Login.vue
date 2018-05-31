@@ -32,7 +32,7 @@
       </div>
       <div class="btns_bg">
         <input v-show="!loading" class="btnadpt" type="button" :value="mainBtn" @click="submit" >
-        <div v-show="loading" class="loading-cover" v>
+        <div v-show="loading" class="loading-cover" >
           <span class="loading-spinner">
             <i class="iconfont icon-loading"></i>
           </span>
