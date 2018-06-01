@@ -15,14 +15,14 @@
             </span>
           </div>
         </div>
-        <input class="item_account" autocomplete="off" type="text"  :placeholder="placeholderTxt" v-model="username" @input="clearErr">
+        <input class="item_account" autocomplete="off" type="text"  :placeholder="placeholderTxt" v-model.trim="username" @input="clearErr">
       </label>
       <label v-show="!isSmsLogin" class="pwd_panel">
-        <input class="item_account" :type="pwdType" placeholder="密码" autocomplete="off" v-model="pwd" @input="clearErr">
+        <input class="item_account" :type="pwdType" placeholder="密码" autocomplete="off" v-model.trim="pwd" @input="clearErr">
         <i class="iconfont" :class="{'icon-biyan':!isOpen, 'icon-kanjianmima-':isOpen}" @click="toggleOpen"></i>
       </label>
       <label v-show="isSmsLogin" class="pwd_panel">
-        <input class="item_account" type="number" placeholder="短信验证码" autocomplete="off" v-model="code">
+        <input class="item_account" type="number" placeholder="短信验证码" autocomplete="off" v-model.trim="code" @input="clearErr">
         <a href="javascript:;" class="sms_code" :style="codeStyle" @click="getCode">{{codeMsg}}</a>
       </label>
       <!-- 错误信息 -->
@@ -113,6 +113,10 @@ export default {
         this.errMsg = '请输入手机号'
         return
       }
+      if (!this.checkMobile()) {
+        this.errMsg = '手机号码格式不正确'
+        return
+      }
       if (this.countdown !== 60) return
       let url = 'http://rap2api.taobao.org/app/mock/13801//api/getCode'
       axios.post(url).then(res => {
@@ -132,6 +136,30 @@ export default {
       this.errMsg = ''
     },
     submit () {
+      // 校验
+      if (this.isSmsLogin) {
+        if (!this.username) {
+          this.errMsg = '请输入手机号'
+          return
+        }
+        if (!this.checkMobile()) {
+          this.errMsg = '手机号码格式不正确'
+          return
+        }
+        if (!this.code) {
+          this.errMsg = '请输入短信验证码'
+          return
+        }
+      } else {
+        if (!this.username) {
+          this.errMsg = '请输入账号'
+          return
+        }
+        if (!this.pwd) {
+          this.errMsg = '请输入密码'
+          return
+        }
+      }
       let data = {
         username: this.username
       }
@@ -150,6 +178,10 @@ export default {
           this.errMsg = res.data.message
         }
       })
+    },
+    checkMobile () {
+      const reg = /^((1[3-8][0-9])+\d{8})$/
+      return reg.test(this.username)
     }
   }
 }
@@ -321,5 +353,8 @@ export default {
 .icon_default_weixin {
   width: 23px;
   background-position: -84px 0;
+}
+.icon-kanjianmima- {
+  color: #ff6700;
 }
 </style>

@@ -1,5 +1,3 @@
-> 课堂源码：https://github.com/tonyfree/m.mi
-
 ### 样式处理
 + 替换public/favicon.ico
 + 引入模块：[normalize.css](https://github.com/necolas/normalize.css)
