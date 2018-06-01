@@ -24,6 +24,10 @@
 + 表单输入绑定(v-model)
 + axios、RAP2
 + 优化：函数节流、数据加密、scripts-serve
+```
+cnpm i axios -S
+cnpm i blueimp-md5 -S
+```
 
 ### 风格指南
 + 单文件组件的文件名是单词大写开头 (PascalCase)

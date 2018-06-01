@@ -32,7 +32,11 @@
         <span class="error-con">{{errMsg}}</span>
       </div>
       <div class="btns_bg">
-        <input class="btnadpt" type="button" :value="mainBtn" @click="submit">
+        <!-- <input class="btnadpt" type="button" :value="mainBtn" @click="submit"> -->
+        <button  class="btnadpt" :class="{'is_loading':isLoading}" @click="submit">
+          <i v-show="isLoading" class="icon-loading iconfont icon-error"></i>
+          {{mainBtn}}
+        </button>
       </div>
       <div class="other_panel">
         <a href="javascript:;" class="btnadpt btn_gray" @click="changeBtn">{{subBtn}}</a>
@@ -75,7 +79,8 @@ export default {
       errMsg: '',
       username: '',
       pwd: '',
-      code: ''
+      code: '',
+      isLoading: false
     }
   },
   computed: {
@@ -160,6 +165,10 @@ export default {
           return
         }
       }
+      // 节流处理
+      if (this.isLoading) return
+      this.isLoading = true
+
       let data = {
         username: this.username
       }
@@ -177,6 +186,10 @@ export default {
         } else {
           this.errMsg = res.data.message
         }
+        this.isLoading = false
+      }).catch(err => {
+        console.err(err)
+        this.isLoading = false
       })
     },
     checkMobile () {
@@ -356,5 +369,32 @@ export default {
 }
 .icon-kanjianmima- {
   color: #ff6700;
+}
+.icon-loading {
+  display: inline-block;
+  animation: rotating 2s linear infinite;
+}
+@keyframes rotating {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(1turn);
+  }
+}
+.is_loading {
+  position: relative;
+  pointer-events: none;
+}
+.is_loading::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  border-radius: inherit;
+  background-color: hsla(0,0%,100%,.35);
 }
 </style>
