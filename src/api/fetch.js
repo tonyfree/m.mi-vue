@@ -1,5 +1,6 @@
 import axios from 'axios'
 import url from './index.js'
+import mock from '../mock/index.js'
 
 function fetch (api, data) {
   return new Promise((resolve, reject) => {
@@ -8,6 +9,7 @@ function fetch (api, data) {
     }).catch(err => {
       // reject(err)
       console.error(err)
+      resolve(mock[api])
     })
   })
 }
