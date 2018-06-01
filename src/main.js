@@ -5,7 +5,9 @@ import store from './store'
 import 'normalize.css'
 import './assets/css/reset.css'
 import './assets/fonts/iconfont.css'
+import fetch from './api/fetch.js'
 
+Vue.prototype.$fetch = fetch
 Vue.config.productionTip = false
 
 new Vue({

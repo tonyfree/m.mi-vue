@@ -66,9 +66,8 @@
 
 <script>
 // 1.每一个vue组件就是一个实例
-import axios from 'axios'
 import md5 from 'blueimp-md5'
-import url from '@/api/'
+
 export default {
   data () {
     return {
@@ -124,7 +123,7 @@ export default {
         return
       }
       if (this.countdown !== 60) return
-      axios.post(url.getCode, {username: this.username}).then(res => {
+      this.$fetch('getCode', {username: this.username}).then(res => {
         this.timer = setInterval(() => {
           this.codeMsg = `重新发送${this.countdown}`
           this.countdown--
@@ -177,7 +176,7 @@ export default {
       } else {
         data.pwd = md5(this.pwd)
       }
-      axios.post(url.login, data).then(res => {
+      this.$fetch('login', data).then(res => {
         let status = res.data.status
         if (status === 200) {
           // todo: 跳转到登录来源
