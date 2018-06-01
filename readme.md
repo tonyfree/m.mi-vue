@@ -45,3 +45,5 @@ cnpm i blueimp-md5 -S
 1. 密码不可见切换图标颜色
 2. 校验：手机号码合法性校验，非空校验
 3. 登录函数节流，局部加载的形式
+> http://element.eleme.io/#/zh-CN/component/button
+> https://developers.weixin.qq.com/miniprogram/design/#%E5%87%8F%E5%B0%91%E7%AD%89%E5%BE%85%EF%BC%8C%E5%8F%8D%E9%A6%88%E5%8F%8A%E6%97%B6
