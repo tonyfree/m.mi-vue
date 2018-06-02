@@ -21,32 +21,11 @@
         </div>
       </div>
       <div class="nav">
-        <div class="nav-item">
+        <!-- <div class="nav-item">
           <span style="color: rgb(237, 91, 0); border-color: rgb(237, 91, 0);">推荐</span>
-        </div>
-        <div class="nav-item">
-          <span style="color: rgb(116, 116, 116); border-color: rgb(242, 242, 242);">手机</span>
-        </div>
-        <div class="nav-item">
-          <span style="color: rgb(116, 116, 116); border-color: rgb(242, 242, 242);">智能</span>
-        </div>
-        <div class="nav-item">
-          <span style="color: rgb(116, 116, 116); border-color: rgb(242, 242, 242);">电视</span>
-        </div>
-        <div class="nav-item">
-          <span style="color: rgb(116, 116, 116); border-color: rgb(242, 242, 242);">电脑</span>
-        </div>
-        <div class="nav-item">
-          <span style="color: rgb(116, 116, 116); border-color: rgb(242, 242, 242);">双摄</span>
-        </div>
-        <div class="nav-item">
-          <span style="color: rgb(116, 116, 116); border-color: rgb(242, 242, 242);">全面屏</span>
-        </div>
-        <div class="nav-item">
-          <span style="color: rgb(116, 116, 116); border-color: rgb(242, 242, 242);">生活周边</span>
-        </div>
-        <div class="nav-item">
-          <span style="color: rgb(116, 116, 116); border-color: rgb(242, 242, 242);">盒子</span>
+        </div> -->
+        <div class="nav-item" v-for="nav in navList" :key="nav.page_id">
+          <span style="color: rgb(116, 116, 116); border-color: rgb(242, 242, 242);">{{nav.name}}</span>
         </div>
       </div>
     </header>
@@ -63,11 +42,13 @@
 export default {
   data () {
     return {
-      navList: null
+      navList: null,
+      msg: 'hello'
     }
   },
   created () {
-    this.getNavList()
+    // this.getNavList()
+    this.navList = require('@/mock/home.js').navList.data.list
   },
   methods: {
     getNavList () {

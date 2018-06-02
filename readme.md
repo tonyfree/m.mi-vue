@@ -4,13 +4,17 @@
 + 创建mock文件夹, 本地备份mock数据
 + 当rap接口异常时调用本地mock数据
 ```
+# js安全整数是53位
+Number.MAX_SAFE_INTEGER = 9007199254740991 = 2^53 - 1
+
 cnpm i mockjs -S
 ```
 
 ### MiHome.vue组件
++ 生命周期: [生命周期钩子](https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90)、[生命周期图示](https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA)
++ [响应式原理](https://cn.vuejs.org/v2/guide/reactivity.html)
 + 列表渲染(v-for、key)
 + 列表过渡(transition-group)
-+ 响应式原理
 + iscroll、nprogress
 ```
 cnpm i iscorll -S
