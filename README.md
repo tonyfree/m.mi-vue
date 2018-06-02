@@ -9,8 +9,16 @@ Refactor the mi mall with vue, vue-router, vex, etc.
 + 安装安插、配置postcss
 + 添加兼容性处理：buggyfill
 
-### [lesson03--首页]()
-+ 初始样式重置、目录修改、引入字体图标
-+ {{}}、v-bind、v-on、v-if、v-show、v-model等指令
-+ axios、RAP2
-+ 优化：函数节流、数据加密
+### [lesson03--登录](https://github.com/tonyfree/m.mi/tree/lesson03)
++ 样式处理(normalize.css、reset.css、字体图标)
++ 路由处理
++ MiLogin.vue组件(Vue实例、模板语法、计算属性、Class和Style绑定、条件渲染和事件处理)
++ axios、接口管理平台RAP2
++ 优化：函数节流、数据加密、scripts-serve
+
+### [lesson04--首页](https://github.com/tonyfree/m.mi/tree/lesson04)
++ API封装优化(rap的url和fetch封装)
++ Mock数据本地备份
++ MiHome.vue组件(列表渲染、列表过渡)
++ 响应式原理
++ iscroll、nprogress
