@@ -11,3 +11,8 @@ a, a:hover {
 fieldset {
   border: 0;
 }
+
+/* html::-webkit-scrollbar {
+  display: none;
+  width:0px;
+} */
