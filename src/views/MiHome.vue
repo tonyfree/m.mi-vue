@@ -59,6 +59,26 @@
 </div>
 </template>
 
+<script>
+export default {
+  data () {
+    return {
+      navList: null
+    }
+  },
+  created () {
+    this.getNavList()
+  },
+  methods: {
+    getNavList () {
+      this.$fetch('navList').then(res => {
+        this.navList = res.data.list
+      })
+    }
+  }
+}
+</script>
+
 <style scoped>
 .app-view {
   position: absolute;
