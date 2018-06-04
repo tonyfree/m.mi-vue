@@ -15,7 +15,7 @@ cnpm i mockjs -S
 + [响应式原理](https://cn.vuejs.org/v2/guide/reactivity.html)
 + 列表渲染(v-for、key)
 + 列表过渡(transition-group)
-+ swiper、nprogress
++ [swiper](https://github.com/nolimits4web/swiper)、[nprogress](https://github.com/rstacruz/nprogress)
 ```
 cnpm i swiper -S
 cnpm i nprogress -S

@@ -43,6 +43,9 @@
 
 <script>
 import Swiper from 'swiper'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+NProgress.configure({ showSpinner: false })
 
 export default {
   data () {
@@ -55,12 +58,12 @@ export default {
   },
   created () {
     this.getNavList()
-    this.getHomePage()
   },
   methods: {
     getNavList () {
       this.$fetch('navList').then(res => {
         this.navList = res.data.list
+        this.getHomePage()
         this.$nextTick(() => {
           this.homeSwiper = new Swiper('.swiper-container', {
             slidesPerView: this.slidesPerView,
@@ -76,11 +79,13 @@ export default {
         toIndex = index - this.slidesPerView / 2
       }
       this.homeSwiper.slideTo(toIndex, 1000, false)
-      this.getHomePage()    
+      !this.navList[index].hasData && this.getHomePage()
     },
     getHomePage () {
+      NProgress.start()
       this.$fetch('homePage', {page_id: this.navList[this.curIndex].page_id}).then(res => {
         this.navList[this.curIndex].hasData = true
+        NProgress.done()
       })
     }
   }
@@ -193,3 +198,12 @@ export default {
   font-size: 72px;
 }
 </style>
+<style>
+#nprogress .bar {
+  background-color: rgba(237, 91, 0, 0.5);
+}
+#nprogress .peg {
+  box-shadow: 0 0 10px rgba(237, 91, 0, 0.5), 0 0 5px rgba(237, 91, 0, 0.5);
+}
+</style>
+
