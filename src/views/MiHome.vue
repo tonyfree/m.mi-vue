@@ -65,6 +65,10 @@ export default {
   created () {
     this.getNavList()
   },
+  destroyed () {
+    this.homeSwiper.destroy()
+    NProgress.remove()
+  },
   methods: {
     getNavList () {
       this.$fetch('navList').then(res => {
