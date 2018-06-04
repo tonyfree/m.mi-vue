@@ -1,0 +1,18 @@
+input {
+  border: 0;
+  outline: none;
+  padding: 16px 0;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+fieldset {
+  border: 0;
+}
+
+/* html::-webkit-scrollbar {
+  display: none;
+  width:0px;
+} */
