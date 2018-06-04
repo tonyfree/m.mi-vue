@@ -14,6 +14,13 @@ let navList = Mock.mock({
   }
 })
 
+let homePage = Mock.mock({
+  "status": 200,
+  "message": "",
+  "data": {}
+})
+
 export {
-  navList
+  navList,
+  homePage
 }

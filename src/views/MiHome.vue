@@ -21,15 +21,12 @@
         </div>
       </div>
       <div class="nav swiper-container">
-        <!-- <div class="nav-item">
-          <span style="color: rgb(237, 91, 0); border-color: rgb(237, 91, 0);">推荐</span>
-        </div> -->
-        <div class="swiper-wrapper" ref="swiperWrapper">
+        <div v-if="navList&&navList.length" class="swiper-wrapper">
           <div class="nav-item swiper-slide"
             :class="{'nav_active':curIndex==index}"
             v-for="(nav,index) in navList"
             :key="nav.page_id"
-            @click="changeIndex(index, $event)">
+            @click="changeIndex(index)">
             <span>{{nav.name}}</span>
           </div>
         </div>
@@ -57,28 +54,34 @@ export default {
     }
   },
   created () {
-    // this.getNavList()
-    this.navList = require('@/mock/home.js').navList.data.list
-  },
-  mounted () {
-    this.homeSwiper = new Swiper('.swiper-container', {
-      slidesPerView: this.slidesPerView,
-      freeMode: true
-    })
+    this.getNavList()
+    this.getHomePage()
   },
   methods: {
     getNavList () {
       this.$fetch('navList').then(res => {
         this.navList = res.data.list
+        this.$nextTick(() => {
+          this.homeSwiper = new Swiper('.swiper-container', {
+            slidesPerView: this.slidesPerView,
+            freeMode: true
+          })
+        })
       })
     },
-    changeIndex (index, e) {
+    changeIndex (index) {
       this.curIndex = index
       let toIndex = 0
       if (index > this.slidesPerView / 2) {
         toIndex = index - this.slidesPerView / 2
       }
       this.homeSwiper.slideTo(toIndex, 1000, false)
+      this.getHomePage()    
+    },
+    getHomePage () {
+      this.$fetch('homePage', {page_id: this.navList[this.curIndex].page_id}).then(res => {
+        this.navList[this.curIndex].hasData = true
+      })
     }
   }
 }
