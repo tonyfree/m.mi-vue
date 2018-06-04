@@ -22,21 +22,26 @@
       </div>
       <div class="nav swiper-container">
         <div v-if="navList&&navList.length" class="swiper-wrapper">
-          <div class="nav-item swiper-slide"
-            :class="{'nav_active':curIndex==index}"
+          <div 
             v-for="(nav,index) in navList"
             :key="nav.page_id"
+            class="nav-item swiper-slide"
+            :class="{'nav_active':curIndex == index}"
             @click="changeIndex(index)">
             <span>{{nav.name}}</span>
           </div>
         </div>
       </div>
     </header>
-    <div class="page-wrap">
-      <div class="bodys">
-        bodys
+    <transition-group class="page-wrap" tag="div" :name="transitionName" >
+      <div 
+        v-for="(nav,index) in navList" 
+        :key="nav.page_id" 
+        v-show="index==curIndex"
+        class="bodys" >
+        {{nav.name}}
       </div>
-    </div>
+    </transition-group>
   </div>
 </div>
 </template>
@@ -53,7 +58,8 @@ export default {
       navList: null,
       curIndex: 0,
       homeSwiper: null,
-      slidesPerView: 6
+      slidesPerView: 6,
+      transitionName: ''
     }
   },
   created () {
@@ -73,6 +79,7 @@ export default {
       })
     },
     changeIndex (index) {
+      this.transitionName = index > this.curIndex ? 'page-left' : 'page-right' 
       this.curIndex = index
       let toIndex = 0
       if (index > this.slidesPerView / 2) {
@@ -196,6 +203,31 @@ export default {
   height: 800px;
   line-height: 800px;
   font-size: 72px;
+}
+
+.page-left-enter-active, .page-left-leave-active {
+  transition: all .5s;
+}
+.page-left-enter {
+  transform: translateX(100%);
+}
+.page-left-enter-to, .page-left-leave {
+  transform: translateX(0);
+}
+.page-left-leave-to {
+  transform: translateX(-100%);
+}
+.page-right-enter-active, .page-right-leave-active {
+  transition: all .5s;
+}
+.page-right-enter {
+  transform: translateX(-100%);
+}
+.page-right-enter-to, .page-right-leave {
+  transform: translateX(0);
+}
+.page-right-leave-to {
+  transform: translateX(100%);
 }
 </style>
 <style>
