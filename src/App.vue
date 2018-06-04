@@ -5,8 +5,19 @@
       <router-link to="/about">About</router-link>
     </div> -->
     <router-view/>
+    <TheFooter />
   </div>
 </template>
+
+<script>
+// import TheFooter from '../tmp/TheFooter.vue'
+import TheFooter from '@/components/TheFooter.vue'
+export default {
+  components: {
+    TheFooter
+  }
+}
+</script>
 
 <style>
 #app {

@@ -1,7 +1,7 @@
 <template>
   <footer class="app-bottom-navigator-wrapper app-shell-footer">
     <div class="fill-height box-flex align-center">
-      <a
+      <!-- <a
         v-for="(nav,index) in navigation"
         :key="nav.icon"
         class="flex"
@@ -9,7 +9,15 @@
         @click="curIndex=index">
         <i class="iconfont" :class="index==curIndex?nav.iconon:nav.icon"></i>
         <span>{{nav.name}}</span>
-      </a>
+      </a> -->
+      <router-link
+        v-for="(nav,index) in navigation"
+        :key="nav.icon"
+        class="flex"
+        :to="nav.link">
+        <i class="iconfont" :class="index==curIndex?nav.iconon:nav.icon"></i>
+        <span>{{nav.name}}</span>  
+      </router-link>
     </div>
   </footer>
 </template>
@@ -19,22 +27,26 @@ const navigation = [
   {
     name: '首页',
     icon: 'icon-home',
-    iconon: 'icon-homefill'
+    iconon: 'icon-homefill',
+    link: 'home'
   },
   {
     name: '分类',
     icon: 'icon-goods',
-    iconon: 'icon-goodsfill'
+    iconon: 'icon-goodsfill',
+    link: 'category'
   },
   {
     name: '购物车',
     icon: 'icon-cart',
-    iconon: 'icon-cartfill'
+    iconon: 'icon-cartfill',
+    link: 'cart'
   },
   {
     name: '我的',
     icon: 'icon-people',
-    iconon: 'icon-peoplefill'
+    iconon: 'icon-peoplefill',
+    link: 'user'
   }
 ]
 export default {
