@@ -21,31 +21,36 @@
         </div>
       </div>
       <div class="nav swiper-container">
-        <!-- <div class="nav-item">
-          <span style="color: rgb(237, 91, 0); border-color: rgb(237, 91, 0);">推荐</span>
-        </div> -->
-        <div class="swiper-wrapper" ref="swiperWrapper">
-          <div class="nav-item swiper-slide"
-            :class="{'nav_active':curIndex==index}"
+        <div v-if="navList&&navList.length" class="swiper-wrapper">
+          <div 
             v-for="(nav,index) in navList"
             :key="nav.page_id"
-            @click="changeIndex(index, $event)">
+            class="nav-item swiper-slide"
+            :class="{'nav_active':curIndex == index}"
+            @click="changeIndex(index)">
             <span>{{nav.name}}</span>
           </div>
         </div>
       </div>
     </header>
-    <div class="page-wrap">
-      <div class="bodys">
-        bodys
+    <transition-group class="page-wrap" tag="div" :name="transitionName" >
+      <div 
+        v-for="(nav,index) in navList" 
+        :key="nav.page_id" 
+        v-show="index==curIndex"
+        class="bodys" >
+        {{nav.name}}
       </div>
-    </div>
+    </transition-group>
   </div>
 </div>
 </template>
 
 <script>
 import Swiper from 'swiper'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+NProgress.configure({ showSpinner: false })
 
 export default {
   data () {
@@ -53,32 +58,42 @@ export default {
       navList: null,
       curIndex: 0,
       homeSwiper: null,
-      slidesPerView: 6
+      slidesPerView: 6,
+      transitionName: ''
     }
   },
   created () {
-    // this.getNavList()
-    this.navList = require('@/mock/home.js').navList.data.list
-  },
-  mounted () {
-    this.homeSwiper = new Swiper('.swiper-container', {
-      slidesPerView: this.slidesPerView,
-      freeMode: true
-    })
+    this.getNavList()
   },
   methods: {
     getNavList () {
       this.$fetch('navList').then(res => {
         this.navList = res.data.list
+        this.getHomePage()
+        this.$nextTick(() => {
+          this.homeSwiper = new Swiper('.swiper-container', {
+            slidesPerView: this.slidesPerView,
+            freeMode: true
+          })
+        })
       })
     },
-    changeIndex (index, e) {
+    changeIndex (index) {
+      this.transitionName = index > this.curIndex ? 'page-left' : 'page-right' 
       this.curIndex = index
       let toIndex = 0
       if (index > this.slidesPerView / 2) {
         toIndex = index - this.slidesPerView / 2
       }
       this.homeSwiper.slideTo(toIndex, 1000, false)
+      !this.navList[index].hasData && this.getHomePage()
+    },
+    getHomePage () {
+      NProgress.start()
+      this.$fetch('homePage', {page_id: this.navList[this.curIndex].page_id}).then(res => {
+        this.navList[this.curIndex].hasData = true
+        NProgress.done()
+      })
     }
   }
 }
@@ -189,4 +204,38 @@ export default {
   line-height: 800px;
   font-size: 72px;
 }
+
+.page-left-enter-active, .page-left-leave-active {
+  transition: all .5s;
+}
+.page-left-enter {
+  transform: translateX(100%);
+}
+.page-left-enter-to, .page-left-leave {
+  transform: translateX(0);
+}
+.page-left-leave-to {
+  transform: translateX(-100%);
+}
+.page-right-enter-active, .page-right-leave-active {
+  transition: all .5s;
+}
+.page-right-enter {
+  transform: translateX(-100%);
+}
+.page-right-enter-to, .page-right-leave {
+  transform: translateX(0);
+}
+.page-right-leave-to {
+  transform: translateX(100%);
+}
 </style>
+<style>
+#nprogress .bar {
+  background-color: rgba(237, 91, 0, 0.5);
+}
+#nprogress .peg {
+  box-shadow: 0 0 10px rgba(237, 91, 0, 0.5), 0 0 5px rgba(237, 91, 0, 0.5);
+}
+</style>
+

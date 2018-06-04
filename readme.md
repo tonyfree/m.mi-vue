@@ -19,6 +19,6 @@ Refactor the mi mall with vue, vue-router, vex, etc.
 ### [lesson04--首页](https://github.com/tonyfree/m.mi/tree/lesson04)
 + API封装优化(rap的url和fetch封装)
 + Mock数据本地备份
++ 生命周期、响应式原理
 + MiHome.vue组件(列表渲染、列表过渡)
-+ 响应式原理
 + swiper、nprogress
