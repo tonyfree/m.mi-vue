@@ -1,25 +1,51 @@
 <template>
   <footer class="app-bottom-navigator-wrapper app-shell-footer">
     <div class="fill-height box-flex align-center">
-      <a class="flex" data-stat-id="401412da34b5fdbc">
-        <i class="image-icons app-bottom-icon icon-home"></i>
+      <a
+        v-for="(nav,index) in navigation"
+        :key="nav.icon"
+        class="flex"
+        :class="index==curIndex?'on':''"
+        @click="curIndex=index">
+        <i class="iconfont" :class="index==curIndex?nav.iconon:nav.icon"></i>
         <span>首页</span>
-      </a>
-      <a class="flex on" data-stat-id="5d3730c2c7dd75e7">
-        <i class="image-icons app-bottom-icon icon-category"></i>
-        <span>分类</span>
-      </a>
-      <a class="flex" data-stat-id="47682d137d1cef22">
-        <i class="image-icons app-bottom-icon icon-cart"></i>
-        <span>购物车</span>
-      </a>
-      <a class="flex" data-stat-id="234879e482356cfa">
-        <i class="image-icons app-bottom-icon icon-user"></i>
-        <span>我的</span>
       </a>
     </div>
   </footer>
 </template>
+
+<script>
+const navigation = [
+  {
+    name: '首页',
+    icon: 'icon-home',
+    iconon: 'icon-homefill'
+  },
+  {
+    name: '分类',
+    icon: 'icon-goods',
+    iconon: 'icon-goodsfill'
+  },
+  {
+    name: '购物车',
+    icon: 'icon-cart',
+    iconon: 'icon-cartfill'
+  },
+  {
+    name: '我的',
+    icon: 'icon-people',
+    iconon: 'icon-peoplefill'
+  }
+]
+export default {
+  data () {
+    return {
+      curIndex: 0,
+      navigation
+    }
+  }
+}
+</script>
 
 <style scoped>
 .app-shell-footer {
@@ -32,7 +58,30 @@
 .app-bottom-navigator-wrapper {
   height: 52px;
   background: #fff;
-  box-shadow: 0 3px 14px 2px rgba(0,0,0,.12);
+  box-shadow: 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.fill-height {
+  height: 100%;
+}
+.align-center {
+  align-items: center;
+}
+.box-flex {
+  display: flex;
+}
+.flex {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.iconfont {
+  font-size: 24px;
+}
+.flex span {
+  font-size: 12px;
+}
+.on {
+  color: #ff6700;
 }
 </style>
-

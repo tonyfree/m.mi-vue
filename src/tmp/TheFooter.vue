@@ -1,20 +1,20 @@
 <template>
   <footer class="app-bottom-navigator-wrapper app-shell-footer">
     <div class="fill-height box-flex align-center">
-      <a class="flex" data-stat-id="401412da34b5fdbc">
-        <i class="image-icons app-bottom-icon icon-home"></i>
+      <a class="flex on">
+        <i class="iconfont icon-homefill"></i>
         <span>首页</span>
       </a>
-      <a class="flex on" data-stat-id="5d3730c2c7dd75e7">
-        <i class="image-icons app-bottom-icon icon-category"></i>
+      <a class="flex">
+        <i class="iconfont icon-goods"></i>
         <span>分类</span>
       </a>
-      <a class="flex" data-stat-id="47682d137d1cef22">
-        <i class="image-icons app-bottom-icon icon-cart"></i>
+      <a class="flex">
+        <i class="iconfont icon-cart"></i>
         <span>购物车</span>
       </a>
-      <a class="flex" data-stat-id="234879e482356cfa">
-        <i class="image-icons app-bottom-icon icon-user"></i>
+      <a class="flex">
+        <i class="iconfont icon-people"></i>
         <span>我的</span>
       </a>
     </div>
@@ -45,7 +45,18 @@
 }
 .flex {
   flex: 1 1 auto;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.iconfont {
+  font-size: 24px;
+}
+.flex span {
+  font-size: 12px;
+}
+.on {
+  color: #ff6700;
 }
 </style>
 
