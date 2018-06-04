@@ -8,7 +8,7 @@
         :class="index==curIndex?'on':''"
         @click="curIndex=index">
         <i class="iconfont" :class="index==curIndex?nav.iconon:nav.icon"></i>
-        <span>首页</span>
+        <span>{{nav.name}}</span>
       </a>
     </div>
   </footer>
