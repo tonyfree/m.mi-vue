@@ -20,12 +20,18 @@
           </div>
         </div>
       </div>
-      <div class="nav">
+      <div class="nav swiper-container">
         <!-- <div class="nav-item">
           <span style="color: rgb(237, 91, 0); border-color: rgb(237, 91, 0);">推荐</span>
         </div> -->
-        <div class="nav-item" v-for="nav in navList" :key="nav.page_id">
-          <span style="color: rgb(116, 116, 116); border-color: rgb(242, 242, 242);">{{nav.name}}</span>
+        <div class="swiper-wrapper" ref="swiperWrapper">
+          <div class="nav-item swiper-slide"
+            :class="{'nav_active':curIndex==index}"
+            v-for="(nav,index) in navList"
+            :key="nav.page_id"
+            @click="changeIndex(index, $event)">
+            <span>{{nav.name}}</span>
+          </div>
         </div>
       </div>
     </header>
@@ -39,22 +45,40 @@
 </template>
 
 <script>
+import Swiper from 'swiper'
+
 export default {
   data () {
     return {
       navList: null,
-      msg: 'hello'
+      curIndex: 0,
+      homeSwiper: null,
+      slidesPerView: 6
     }
   },
   created () {
     // this.getNavList()
     this.navList = require('@/mock/home.js').navList.data.list
   },
+  mounted () {
+    this.homeSwiper = new Swiper('.swiper-container', {
+      slidesPerView: this.slidesPerView,
+      freeMode: true
+    })
+  },
   methods: {
     getNavList () {
       this.$fetch('navList').then(res => {
         this.navList = res.data.list
       })
+    },
+    changeIndex (index, e) {
+      this.curIndex = index
+      let toIndex = 0
+      if (index > this.slidesPerView / 2) {
+        toIndex = index - this.slidesPerView / 2
+      }
+      this.homeSwiper.slideTo(toIndex, 1000, false)
     }
   }
 }
@@ -124,20 +148,30 @@ export default {
   font-size: 24px;
 }
 .nav {
-  overflow-x: auto;
+  /* overflow-x: auto; */
   background: #f2f2f2;
   font-size: 14px;
   white-space: nowrap;
   z-index: 2;
 }
+/* .swiper-wrapper {
+  width: 600px;
+} */
 .nav .nav-item {
   display: inline-block;
   padding: 0 14px;
+  width: auto !important;
 }
 .nav .nav-item span {
   display: inline-block;
   line-height: 32px;
   border-bottom: 2px solid rgba(237, 91, 0, 0);
+  color: rgb(116, 116, 116);
+  border-color: rgb(242, 242, 242);
+}
+.nav-item.nav_active span {
+  color: rgb(237, 91, 0);
+  border-color: rgb(237, 91, 0);
 }
 .page-wrap {
   position: relative;

@@ -15,9 +15,9 @@ cnpm i mockjs -S
 + [响应式原理](https://cn.vuejs.org/v2/guide/reactivity.html)
 + 列表渲染(v-for、key)
 + 列表过渡(transition-group)
-+ iscroll、nprogress
++ swiper、nprogress
 ```
-cnpm i iscorll -S
+cnpm i swiper -S
 cnpm i nprogress -S
 ```
 
