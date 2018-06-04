@@ -43,16 +43,21 @@
       </div>
     </transition-group>
   </div>
+  <TheFooter />
 </div>
 </template>
 
 <script>
+import TheFooter from '../tmp/TheFooter.vue'
 import Swiper from 'swiper'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 NProgress.configure({ showSpinner: false })
 
 export default {
+  components: {
+    TheFooter
+  },
   data () {
     return {
       navList: null,
