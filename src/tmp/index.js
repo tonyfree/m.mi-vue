@@ -7,6 +7,10 @@ import MiUser from './MiUser.vue'
 export default [
   {
     path: '/',
+    redirect: 'home'
+  },
+  {
+    path: '/home',
     name: 'home',
     component: MiHome
   },

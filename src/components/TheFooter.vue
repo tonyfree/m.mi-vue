@@ -11,12 +11,13 @@
         <span>{{nav.name}}</span>
       </a> -->
       <router-link
-        v-for="(nav,index) in navigation"
+        v-for="nav in navigation"
         :key="nav.icon"
         class="flex"
+        active-class="on"
         :to="nav.link">
-        <i class="iconfont" :class="index==curIndex?nav.iconon:nav.icon"></i>
-        <span>{{nav.name}}</span>  
+        <i class="iconfont" :class="nav.link==$route.name?nav.iconon:nav.icon"></i>
+        <span>{{nav.name}}</span>
       </router-link>
     </div>
   </footer>
@@ -86,6 +87,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: #999;
 }
 .iconfont {
   font-size: 24px;

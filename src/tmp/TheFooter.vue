@@ -48,6 +48,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: #999;
 }
 .iconfont {
   font-size: 24px;
