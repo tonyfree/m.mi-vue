@@ -22,7 +22,7 @@
       </div>
       <div class="nav swiper-container">
         <div v-if="navList&&navList.length" class="swiper-wrapper">
-          <div 
+          <div
             v-for="(nav,index) in navList"
             :key="nav.page_id"
             class="nav-item swiper-slide"
@@ -34,9 +34,9 @@
       </div>
     </header>
     <transition-group class="page-wrap" tag="div" :name="transitionName" >
-      <div 
-        v-for="(nav,index) in navList" 
-        :key="nav.page_id" 
+      <div
+        v-for="(nav,index) in navList"
+        :key="nav.page_id"
         v-show="index==curIndex"
         class="bodys" >
         {{nav.name}}
@@ -65,6 +65,10 @@ export default {
   created () {
     this.getNavList()
   },
+  destroyed () {
+    this.homeSwiper.destroy()
+    NProgress.remove()
+  },
   methods: {
     getNavList () {
       this.$fetch('navList').then(res => {
@@ -79,7 +83,7 @@ export default {
       })
     },
     changeIndex (index) {
-      this.transitionName = index > this.curIndex ? 'page-left' : 'page-right' 
+      this.transitionName = index > this.curIndex ? 'page-left' : 'page-right'
       this.curIndex = index
       let toIndex = 0
       if (index > this.slidesPerView / 2) {
@@ -238,4 +242,3 @@ export default {
   box-shadow: 0 0 10px rgba(237, 91, 0, 0.5), 0 0 5px rgba(237, 91, 0, 0.5);
 }
 </style>
-

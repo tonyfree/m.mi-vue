@@ -5,8 +5,19 @@
       <router-link to="/about">About</router-link>
     </div> -->
     <router-view/>
+    <TheFooter />
   </div>
 </template>
+
+<script>
+// import TheFooter from '../tmp/TheFooter.vue'
+import TheFooter from '@/components/TheFooter.vue'
+export default {
+  components: {
+    TheFooter
+  }
+}
+</script>
 
 <style>
 #app {
@@ -14,7 +25,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  /* color: #2c3e50; */
 }
 /* #nav {
   padding: 30px;
