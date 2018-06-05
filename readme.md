@@ -30,4 +30,5 @@ cnpm i nprogress -S
 + 还有什么方法可以解决js动态生成dom节点无法获取作用域样式问题
 + 用过渡实现登录页电话号码区号的动画效果
 + 离开登录页时，注销定时器
++ 预习vue-router
 + 扩展：tab切换时焦点居中显示(基于swiper、iscroll、vant)
