@@ -4,7 +4,7 @@
 + 从MiHome.vue迁移到App.vue
 
 ### 路由
-+ 单页面应用：[网易云音乐](https://music.163.com/)、[饿了么](https://www.ele.me)、[vue-router文档](https://router.vuejs.org)
++ 单页面应用：[小米商城](https://m.mi.com/)、[网易云音乐](https://music.163.com/)、[饿了么](https://www.ele.me)、[vue-router文档](https://router.vuejs.org)
 + 创建组件：MiCategory、MiCart、MiUser
 + [起步指南](https://router.vuejs.org/zh/guide/#html)
 ```html
@@ -59,5 +59,5 @@ const app = new Vue({
 
 // 现在，应用已经启动了！
 ```
-+ 通过navigation配置来实现路由跳转
++ 通过navigation配置来实现路由跳转(重定向)
 + 焦点状态的处理：active-class、$route.name
