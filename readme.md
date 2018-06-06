@@ -63,6 +63,8 @@ const app = new Vue({
 + 焦点状态的处理：active-class
 + 路由对象：$route
 + 过渡动效
++ 路由元信息
++ 路由懒加载
 
 
 ### 作业
