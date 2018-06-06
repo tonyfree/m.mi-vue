@@ -16,7 +16,7 @@
         </div>
         <div class="app-header-right">
           <div class="app-header-item">
-            <i class="iconfont icon-people"></i>
+            <i class="iconfont icon-people" @click="toUser"></i>
           </div>
         </div>
       </div>
@@ -113,6 +113,10 @@ export default {
         this.navList[this.curIndex].hasData = true
         NProgress.done()
       })
+    },
+    toUser () {
+      console.log(111)
+      this.$router.push('user')
     }
   }
 }
