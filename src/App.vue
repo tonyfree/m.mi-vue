@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
-    <router-view/>
+    <transition :name="transitionName">
+      <router-view/>
+    </transition>
     <TheFooter />
   </div>
 </template>
@@ -15,6 +13,16 @@ import TheFooter from '@/components/TheFooter.vue'
 export default {
   components: {
     TheFooter
+  },
+  data () {
+    return {
+      transitionName: ''
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      this.transitionName = to.meta.index < from.meta.index ? 'page-right' : 'page-left'
+    }
   }
 }
 </script>
@@ -27,16 +35,28 @@ export default {
   text-align: center;
   /* color: #2c3e50; */
 }
-/* #nav {
-  padding: 30px;
+.page-left-enter-active, .page-left-leave-active {
+  transition: all .5s;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.page-left-enter {
+  transform: translateX(100%);
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-} */
+.page-left-enter-to, .page-left-leave {
+  transform: translateX(0);
+}
+.page-left-leave-to {
+  transform: translateX(-100%);
+}
+.page-right-enter-active, .page-right-leave-active {
+  transition: all .5s;
+}
+.page-right-enter {
+  transform: translateX(-100%);
+}
+.page-right-enter-to, .page-right-leave {
+  transform: translateX(0);
+}
+.page-right-leave-to {
+  transform: translateX(100%);
+}
 </style>

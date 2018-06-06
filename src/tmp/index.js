@@ -1,8 +1,8 @@
-import MiLogin from './MiLogin.vue'
-import MiHome from './MiHome.vue'
-import MiCategory from './MiCategory.vue'
-import MiCart from './MiCart.vue'
-import MiUser from './MiUser.vue'
+const MiLogin = () => import('./MiLogin.vue')
+const MiHome = () => import('./MiHome.vue')
+const MiCategory = () => import('./MiCategory.vue')
+const MiCart = () => import('./MiCart.vue')
+const MiUser = () => import('./MiUser.vue')
 
 export default [
   {
@@ -12,7 +12,10 @@ export default [
   {
     path: '/home',
     name: 'home',
-    component: MiHome
+    component: MiHome,
+    meta: {
+      index: 0
+    }
   },
   {
     path: '/login',
@@ -22,16 +25,25 @@ export default [
   {
     path: '/category',
     name: 'category',
-    component: MiCategory
+    component: MiCategory,
+    meta: {
+      index: 1
+    }
   },
   {
     path: '/cart',
     name: 'cart',
-    component: MiCart
+    component: MiCart,
+    meta: {
+      index: 2
+    }
   },
   {
     path: '/user',
     name: 'user',
-    component: MiUser
+    component: MiUser,
+    meta: {
+      index: 3
+    }
   }
 ]

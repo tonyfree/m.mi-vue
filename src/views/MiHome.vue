@@ -16,7 +16,7 @@
         </div>
         <div class="app-header-right">
           <div class="app-header-item">
-            <i class="iconfont icon-people"></i>
+            <i class="iconfont icon-people" @click="toUser"></i>
           </div>
         </div>
       </div>
@@ -113,6 +113,10 @@ export default {
         this.navList[this.curIndex].hasData = true
         NProgress.done()
       })
+    },
+    toUser () {
+      console.log(111)
+      this.$router.push('user')
     }
   }
 }
@@ -222,31 +226,6 @@ export default {
   height: 800px;
   line-height: 800px;
   font-size: 72px;
-}
-
-.page-left-enter-active, .page-left-leave-active {
-  transition: all .5s;
-}
-.page-left-enter {
-  transform: translateX(100%);
-}
-.page-left-enter-to, .page-left-leave {
-  transform: translateX(0);
-}
-.page-left-leave-to {
-  transform: translateX(-100%);
-}
-.page-right-enter-active, .page-right-leave-active {
-  transition: all .5s;
-}
-.page-right-enter {
-  transform: translateX(-100%);
-}
-.page-right-enter-to, .page-right-leave {
-  transform: translateX(0);
-}
-.page-right-leave-to {
-  transform: translateX(100%);
 }
 </style>
 <style>
