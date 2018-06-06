@@ -147,28 +147,11 @@ export default {
   box-shadow: 0 2px 4px -1px rgba(0,0,0,.2);
   background: #f2f2f2;
 }
-.app-header-wrapper>div, .app-header-wrapper {
-  display: flex;
-  align-items: center;
-}
-.app-header-wrapper {
-  justify-content: space-between;
-  height: 50px;
-  background: #f2f2f2;
-  color: #666;
-  padding: 0;
-}
-.app-header-item {
-  display: block;
-  width: 32px;
-  margin: 0 10px;
-}
+
 .app-header-item img {
   width: 80%;
 }
-.app-header-middle {
-  flex: 1;
-}
+
 .app-header-title {
   display: flex;
   justify-content: flex-start;
