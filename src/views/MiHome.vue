@@ -95,6 +95,7 @@ export default {
       })
     },
     changeIndex (index) {
+      document.querySelector('.page-wrap').scrollTo(0, 0)
       this.transitionName = index > this.curIndex ? 'page-left' : 'page-right'
       this.curIndex = index
       let toIndex = 0

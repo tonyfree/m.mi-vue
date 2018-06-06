@@ -31,4 +31,4 @@ cnpm i nprogress -S
 + 用过渡实现登录页电话号码区号的动画效果
 + 离开登录页时，注销定时器
 + 预习vue-router
-+ 扩展：tab切换时焦点居中显示(基于swiper、iscroll、vant)
++ 扩展：tab切换时焦点居中显示(基于swiper、[iscroll](https://github.com/cubiq/iscroll)、[vant](https://www.youzanyun.com/zanui/vant#/zh-CN/tab))
