@@ -60,4 +60,12 @@ const app = new Vue({
 // 现在，应用已经启动了！
 ```
 + 通过navigation配置来实现路由跳转(重定向)
-+ 焦点状态的处理：active-class、$route.name
++ 焦点状态的处理：active-class
++ 路由对象：$route
++ 过渡动效
+
+
+### 作业
++ 首页顶部到用户中心的路由跳转
++ [vue-router文档](https://router.vuejs.org/zh/)
++ [vue-router:examples](https://github.com/vuejs/vue-router/tree/dev/examples)
