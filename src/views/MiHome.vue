@@ -62,6 +62,14 @@ export default {
       transitionName: ''
     }
   },
+  watch: {
+    navList: {
+      deep: true,
+      handler (val, oldVal) {
+        // console.log(val)
+      }
+    }
+  },
   created () {
     this.getNavList()
   },
@@ -72,7 +80,11 @@ export default {
   methods: {
     getNavList () {
       this.$fetch('navList').then(res => {
-        this.navList = res.data.list
+        let list = res.data.list
+        list.forEach(item => {
+          item.hasData = false
+        })
+        this.navList = list
         this.getHomePage()
         this.$nextTick(() => {
           this.homeSwiper = new Swiper('.swiper-container', {
@@ -83,6 +95,7 @@ export default {
       })
     },
     changeIndex (index) {
+      document.querySelector('.page-wrap').scrollTo(0, 0)
       this.transitionName = index > this.curIndex ? 'page-left' : 'page-right'
       this.curIndex = index
       let toIndex = 0
@@ -94,7 +107,9 @@ export default {
     },
     getHomePage () {
       NProgress.start()
-      this.$fetch('homePage', {page_id: this.navList[this.curIndex].page_id}).then(res => {
+      this.$fetch('homePage', {
+        page_id: this.navList[this.curIndex].page_id
+      }).then(res => {
         this.navList[this.curIndex].hasData = true
         NProgress.done()
       })
