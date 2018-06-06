@@ -1,8 +1,8 @@
-import MiLogin from './MiLogin.vue'
-import MiHome from './MiHome.vue'
-import MiCategory from './MiCategory.vue'
-import MiCart from './MiCart.vue'
-import MiUser from './MiUser.vue'
+const MiLogin = () => import('./MiLogin.vue')
+const MiHome = () => import('./MiHome.vue')
+const MiCategory = () => import('./MiCategory.vue')
+const MiCart = () => import('./MiCart.vue')
+const MiUser = () => import('./MiUser.vue')
 
 export default [
   {
