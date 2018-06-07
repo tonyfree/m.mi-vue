@@ -1,47 +1,49 @@
 <template>
-<div class="app-view-wrapper">
-  <div class="app-view">
-    <header class="header">
-      <div class="app-header-wrapper">
-        <div class="app-header-left">
-          <div class="app-header-item logo">
-            <img src="../assets/images/searchlogo.png" alt="">
+<div class="app-shell">
+  <div class="app-view-wrapper">
+    <div class="app-view app-view-with-footer">
+      <header class="header">
+        <div class="app-header-wrapper">
+          <div class="app-header-left">
+            <div class="app-header-item logo">
+              <img src="../assets/images/searchlogo.png" alt="">
+            </div>
+          </div>
+          <div class="app-header-middle">
+            <div class="app-header-title">
+              <i class="iconfont icon-search"></i>&nbsp;&nbsp;
+              搜索商品名称
+            </div>
+          </div>
+          <div class="app-header-right">
+            <div class="app-header-item">
+              <i class="iconfont icon-people" @click="toUser"></i>
+            </div>
           </div>
         </div>
-        <div class="app-header-middle">
-          <div class="app-header-title">
-            <i class="iconfont icon-search"></i>&nbsp;&nbsp;
-            搜索商品名称
+        <div class="nav swiper-container">
+          <div v-if="navList&&navList.length" class="swiper-wrapper">
+            <div
+              v-for="(nav,index) in navList"
+              :key="nav.page_id"
+              class="nav-item swiper-slide"
+              :class="{'nav_active':curIndex == index}"
+              @click="changeIndex(index)">
+              <span>{{nav.name}}</span>
+            </div>
           </div>
         </div>
-        <div class="app-header-right">
-          <div class="app-header-item">
-            <i class="iconfont icon-people" @click="toUser"></i>
-          </div>
+      </header>
+      <transition-group class="page-wrap" tag="div" :name="transitionName" >
+        <div
+          v-for="(nav,index) in navList"
+          :key="nav.page_id"
+          v-show="index==curIndex"
+          class="bodys" >
+          {{nav.name}}
         </div>
-      </div>
-      <div class="nav swiper-container">
-        <div v-if="navList&&navList.length" class="swiper-wrapper">
-          <div
-            v-for="(nav,index) in navList"
-            :key="nav.page_id"
-            class="nav-item swiper-slide"
-            :class="{'nav_active':curIndex == index}"
-            @click="changeIndex(index)">
-            <span>{{nav.name}}</span>
-          </div>
-        </div>
-      </div>
-    </header>
-    <transition-group class="page-wrap" tag="div" :name="transitionName" >
-      <div
-        v-for="(nav,index) in navList"
-        :key="nav.page_id"
-        v-show="index==curIndex"
-        class="bodys" >
-        {{nav.name}}
-      </div>
-    </transition-group>
+      </transition-group>
+    </div>
   </div>
 </div>
 </template>
@@ -123,21 +125,6 @@ export default {
 </script>
 
 <style scoped>
-.app-view {
-  position: absolute;
-  z-index: 999;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  /* height: 100%; */
-  overflow-x: hidden;
-  overflow-y: auto;
-  will-change: transform;
-  background: #fff;
-  color: #3c3c3c;
-  padding-bottom: 52px;
-}
 .header {
   position: fixed;
   top: -1px;
