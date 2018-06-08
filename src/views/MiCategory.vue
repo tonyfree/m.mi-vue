@@ -1,7 +1,8 @@
 <template>
   <div class="app-shell">
-    <MiSearch/>
-    <div class="app-view-wrapper">
+    <MiSearch :loading="loading"/>
+    <img v-if="loading" src="../assets/images/loading.png" class="loading_img">
+    <div v-else class="app-view-wrapper">
       <div class="container app-view app-view-with-header app-view-with-footer">
         <div class="list-navbar">
           <ul>
@@ -65,7 +66,8 @@ export default {
   data () {
     return {
       categoryList: null,
-      curIndex: 0
+      curIndex: 0,
+      loading: true
     }
   },
   created () {
@@ -215,5 +217,8 @@ export default {
   white-space: nowrap;
   font-size: 12px;
   color: rgba(0,0,0,.54);
+}
+.loading_img {
+  width: 100%;
 }
 </style>

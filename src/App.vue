@@ -21,6 +21,11 @@ export default {
   },
   watch: {
     '$route' (to, from) {
+      // 页面刷新时不需要过渡
+      if (!from.meta.index) {
+        this.transitionName = ''
+        return
+      }
       this.transitionName = to.meta.index < from.meta.index ? 'page-right' : 'page-left'
     }
   }
