@@ -1,6 +1,6 @@
 <template>
   <div class="app-shell">
-    <MiSearch :loading="loading"/>
+    <MiSearch :loading="loading" title="分类"/>
     <img v-if="loading" src="../assets/images/loading.png" class="loading_img">
     <div v-else class="app-view-wrapper">
       <div class="container app-view app-view-with-header app-view-with-footer">
