@@ -261,7 +261,7 @@
 .container .list-navbar {
   position: fixed;
   top: 49px;
-  bottom: 52px;
+  bottom: 140px;
   left: 0;
   width: 80px;
   border-right: 1px solid #efefef;
@@ -303,7 +303,7 @@
   left: 80px;
   right: 0;
   top: 49px;
-  bottom: 52px;
+  bottom: 160px;
   padding: 2px 16px;
   overflow: auto;
 }

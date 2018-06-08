@@ -17,7 +17,7 @@
             </li>
           </ul>
         </div>
-        <div class="list-wrap">
+        <div class="list-wrap" @touchstart="wrapScroll">
           <div
             v-for="(list,index) in categoryList"
             :key="list.category_id"
@@ -56,7 +56,9 @@ export default {
     return {
       categoryList: null,
       curIndex: 0,
-      loading: true
+      loading: true,
+      offsetTop: [],
+      scrollTimer: null
     }
   },
   created () {
@@ -68,12 +70,37 @@ export default {
         this.categoryList = res.data.lists
         this.loading = false
         bus.$emit('loading', false)
+        this.$nextTick(() => {
+          this.categoryList.forEach((item,index) => {
+            this.offsetTop.push(this.$refs['category'+index][0].offsetTop)
+          })
+        })
       })
     },
     changeIndex (index) {
       this.curIndex = index
-      let top = this.$refs['category'+index][0].offsetTop
-      document.querySelector('.list-wrap').scrollTo(0, top)
+      let listWrap = document.querySelector('.list-wrap')
+      let top = this.offsetTop[index]
+      listWrap.removeEventListener('scroll', this.scrollHandler) 
+      listWrap.scrollTo(0, top)
+
+    },
+    wrapScroll (e) {
+      document.querySelector('.list-wrap').addEventListener('scroll', this.scrollHandler)
+    },
+    scrollHandler () {
+      clearTimeout(this.scrollTimer)
+      this.scrollTimer = setTimeout(() => {
+        let scrollTop = document.querySelector('.list-wrap').scrollTop
+        let len = this.offsetTop.length
+        for (let index = 0; index < len; index++) {
+          if (scrollTop >= this.offsetTop[index] && scrollTop < this.offsetTop[index+1]) {
+            this.curIndex = index
+            break
+          }
+        }
+        // document.querySelector('.list-navbar>ul').scrollTo(0, (this.curIndex-10)*50)
+      }, 100)
     }
   }
 }
@@ -130,7 +157,7 @@ export default {
   left: 80px;
   right: 0;
   top: 49px;
-  bottom: 52px;
+  bottom: 160px;
   padding: 2px 16px;
   overflow: auto;
 }
