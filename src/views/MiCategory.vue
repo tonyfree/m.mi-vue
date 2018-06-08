@@ -77,6 +77,7 @@ export default {
     getLists () {
       this.$fetch('category').then(res => {
         this.categoryList = res.data.lists
+        this.loading = false
       })
     },
     changeIndex (index) {

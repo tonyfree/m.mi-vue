@@ -1,26 +1,34 @@
 <template>
   <header class="app-header-wrapper app-shell-header">
-    <div class="app-header-left">
-      <a class="app-header-item">
-        <i class="iconfont icon-back"></i>
-      </a>
-    </div>
-    <div class="app-header-middle">
-      <div class="app-header-title">分类</div>
-    </div>
-    <div class="app-header-right">
-      <a class="app-header-item">
-        <i class="iconfont icon-search"></i>
-      </a>
-    </div>
+    <template v-if="!loading">
+      <div class="app-header-left">
+        <a class="app-header-item">
+          <i class="iconfont icon-back"></i>
+        </a>
+      </div>
+      <div class="app-header-middle">
+        <div class="app-header-title">{{title}}</div>
+      </div>
+      <div class="app-header-right">
+        <a class="app-header-item">
+          <i class="iconfont icon-search"></i>
+        </a>
+      </div>
+    </template>
   </header>
 </template>
 
 <script>
 export default {
   props: {
-    loading: {},
-    title: {}
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    title: {
+      type: String,
+      default: ''
+    }
   }
 } 
 </script>
