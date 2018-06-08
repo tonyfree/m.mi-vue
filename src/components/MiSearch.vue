@@ -1,5 +1,5 @@
 <template>
-  <header class="app-header-wrapper app-shell-header">
+  <header class="app-header-wrapper app-shell-header" :class="loading?'loading':''">
     <template v-if="!loading">
       <div class="app-header-left">
         <a class="app-header-item">
@@ -40,6 +40,9 @@ export default {
   top: 0;
   left: 0;
   right: 0;
+}
+.loading {
+  box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.12);
 }
 .app-header-title {
   width: 100%;

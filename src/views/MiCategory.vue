@@ -59,6 +59,7 @@
 
 <script>
 import MiSearch from '../components/MiSearch.vue'
+import bus from '../bus.js'
 export default {
   components: {
     MiSearch
@@ -78,6 +79,7 @@ export default {
       this.$fetch('category').then(res => {
         this.categoryList = res.data.lists
         this.loading = false
+        bus.$emit('loading', false)
       })
     },
     changeIndex (index) {
