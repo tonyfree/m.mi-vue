@@ -183,7 +183,7 @@ export default {
   position: relative;
 }
 .component-list-main .category_title span:after, .component-list-main .category_title span:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 0;
