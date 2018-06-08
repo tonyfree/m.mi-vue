@@ -16,6 +16,15 @@
   </header>
 </template>
 
+<script>
+export default {
+  props: {
+    loading: {},
+    title: {}
+  }
+} 
+</script>
+
 <style scoped>
 .app-shell-header {
   position: fixed;

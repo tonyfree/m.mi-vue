@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import MiSearch from '../tmp/MiSearch.vue'
+import MiSearch from '../components/MiSearch.vue'
 export default {
   components: {
     MiSearch
