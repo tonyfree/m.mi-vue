@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import bus from '../bus.js'
 import Swiper from 'swiper'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -87,7 +88,7 @@ export default {
           item.hasData = false
         })
         this.navList = list
-        this.getHomePage()
+        this.getHomePage('init')
         this.$nextTick(() => {
           this.homeSwiper = new Swiper('.swiper-container', {
             slidesPerView: this.slidesPerView,
@@ -107,13 +108,16 @@ export default {
       this.homeSwiper.slideTo(toIndex, 1000, false)
       !this.navList[index].hasData && this.getHomePage()
     },
-    getHomePage () {
+    getHomePage (flag) {
       NProgress.start()
       this.$fetch('homePage', {
         page_id: this.navList[this.curIndex].page_id
       }).then(res => {
         this.navList[this.curIndex].hasData = true
         NProgress.done()
+        if (flag === 'init') {
+          bus.$emit('loading', false)
+        }
       })
     },
     toUser () {

@@ -21,3 +21,6 @@
 ### 补充
 + 图片懒加载：[vue-lazyload](https://github.com/hilongjw/vue-lazyload)
 + 控制台报错说明(适配方案、列表渲染)
+
+### 作业
++ 首页添加loading处理
