@@ -6,7 +6,9 @@ import 'normalize.css'
 import './assets/css/reset.css'
 import './assets/fonts/iconfont.css'
 import fetch from './api/fetch.js'
+import VueLazyload from 'vue-lazyload'
 
+Vue.use(VueLazyload)
 Vue.prototype.$fetch = fetch
 Vue.config.productionTip = false
 

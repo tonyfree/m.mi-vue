@@ -7,7 +7,7 @@
         class="product">
         <a class="exposure item">
           <div class="img">
-            <img class="big" :src="product.img_url" lazy="loaded">
+            <img class="big" v-lazy="product.img_url">
           </div>
           <div class="name">{{product.product_name}}</div>
         </a>
@@ -44,7 +44,7 @@ export default {
   width: 52px;
   height: 52px;
   margin: 0 auto;
-  background: #fff;
+  background: #f2f2f2;
   overflow: hidden;
 }
 .component-list-main .category_group .product .img img {

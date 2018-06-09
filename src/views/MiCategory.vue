@@ -26,7 +26,7 @@
             <div class="component-list-main">
               <div class="cells_auto_fill">
                 <a class="exposure items">
-                  <img :src="list.category_img" lazy="loaded">
+                  <img v-lazy="list.category_img">
                 </a>
               </div>
               <template v-for="item in list.category_list">
@@ -71,8 +71,8 @@ export default {
         this.loading = false
         bus.$emit('loading', false)
         this.$nextTick(() => {
-          this.categoryList.forEach((item,index) => {
-            this.offsetTop.push(this.$refs['category'+index][0].offsetTop)
+          this.categoryList.forEach((item, index) => {
+            this.offsetTop.push(this.$refs['category' + index][0].offsetTop)
           })
         })
       })
@@ -81,9 +81,8 @@ export default {
       this.curIndex = index
       let listWrap = document.querySelector('.list-wrap')
       let top = this.offsetTop[index]
-      listWrap.removeEventListener('scroll', this.scrollHandler) 
+      listWrap.removeEventListener('scroll', this.scrollHandler)
       listWrap.scrollTo(0, top)
-
     },
     wrapScroll (e) {
       document.querySelector('.list-wrap').addEventListener('scroll', this.scrollHandler)
@@ -94,7 +93,7 @@ export default {
         let scrollTop = document.querySelector('.list-wrap').scrollTop
         let len = this.offsetTop.length
         for (let index = 0; index < len; index++) {
-          if (scrollTop >= this.offsetTop[index] && scrollTop < this.offsetTop[index+1]) {
+          if (scrollTop >= this.offsetTop[index] && scrollTop < this.offsetTop[index + 1]) {
             this.curIndex = index
             break
           }
@@ -168,6 +167,7 @@ export default {
 .cells_auto_fill .items img {
   width: 260px;
   height: 104px;
+  background: #f2f2f2;
 }
 .component-list-main .category_title {
   background: #fff;

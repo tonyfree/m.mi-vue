@@ -19,5 +19,5 @@
 + 右侧滑动对应左侧nav焦点状态
 
 ### 补充
-+ 图片懒加载
-+ 控制台报错说明(适配方案)
++ 图片懒加载：[vue-lazyload](https://github.com/hilongjw/vue-lazyload)
++ 控制台报错说明(适配案)
