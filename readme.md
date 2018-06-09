@@ -20,4 +20,4 @@
 
 ### 补充
 + 图片懒加载：[vue-lazyload](https://github.com/hilongjw/vue-lazyload)
-+ 控制台报错说明(适配案)
++ 控制台报错说明(适配方案、列表渲染)
