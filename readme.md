@@ -33,3 +33,4 @@ Refactor the mi mall with vue, vue-router, vex, etc.
 + 组件通信(props down、全局bus)
 + loading状态优化
 + 部分交互处理
++ 图片懒加载
