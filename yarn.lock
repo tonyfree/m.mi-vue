@@ -2435,6 +2435,10 @@ domhandler@2.1:
   dependencies:
     domelementtype "1"
 
+dompurify@^1.0.4:
+  version "1.0.4"
+  resolved "http://registry.npm.taobao.org/dompurify/download/dompurify-1.0.4.tgz#b0655d07856c1ef76fd27ae18e8ab1174ed18819"
+
 domutils@1.1:
   version "1.1.6"
   resolved "http://registry.npm.taobao.org/domutils/download/domutils-1.1.6.tgz#bddc3de099b9a2efacc51c623f28f416ecc57485"

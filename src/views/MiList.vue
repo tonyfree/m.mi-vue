@@ -3,66 +3,25 @@
     <div class="app-view-wrapper">
       <div class="app-view app-view-with-header app-view-with-footer">
         <ol>
-          <li class="item ui-flex align-center">
+          <li
+            v-for="list in commodityList"
+            :key="list.product_id"
+            class="item ui-flex align-center">
             <a class="item-img exposure">
-              <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/cbbf4728cf72469446dd98a51c564537.jpg" lazy="loaded">
+              <img v-lazy="list.img_url">
               <span>
-                <img src="//i8.mifile.cn/v1/a1/289039eb-c3ed-7c26-69c3-5b07b72a797d.webp?w=120&amp;h=48">
+                <img :src="list.icon_img">
               </span>
             </a>
             <div class="item-intro box-flex flex">
               <div class="item-name flex">
-                <p>小米8 6GB+64GB</p>
+                <p>{{list.name}}</p>
               </div>
               <div class="item-brief flex">
-                <p>
-                  <font color="#ff4a00">「新品开售」</font>全球首款双频GPS / 骁龙845处理器 / 红外人脸解锁 / AI变焦双摄 / 三星 AMOLED 屏 / AI语音助手 / 多功能NFC
-                </p>
+                <p v-html="list.product_desc"></p>
               </div>
               <div class="item-intro-price flex">
-                <span class="price">&nbsp;2699</span>
-              </div>
-            </div>
-          </li>
-          <li class="item ui-flex align-center">
-            <a class="item-img exposure">
-              <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/cbbf4728cf72469446dd98a51c564537.jpg" lazy="loaded">
-              <span>
-                <img src="//i8.mifile.cn/v1/a1/289039eb-c3ed-7c26-69c3-5b07b72a797d.webp?w=120&amp;h=48">
-              </span>
-            </a>
-            <div class="item-intro box-flex flex">
-              <div class="item-name flex">
-                <p>小米8 6GB+128GB</p>
-              </div>
-              <div class="item-brief flex">
-                <p>
-                  <font color="#ff4a00">「新品开售」</font>全球首款双频GPS / 骁龙845处理器 / 红外人脸解锁 / AI变焦双摄 / 三星 AMOLED 屏 / AI语音助手 / 多功能NFC
-                </p>
-              </div>
-              <div class="item-intro-price flex">
-                <span class="price">&nbsp;2999</span>
-              </div>
-            </div>
-          </li>
-          <li class="item ui-flex align-center">
-            <a class="item-img exposure">
-              <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/cbbf4728cf72469446dd98a51c564537.jpg" lazy="loaded">
-              <span>
-                <img src="//i8.mifile.cn/v1/a1/289039eb-c3ed-7c26-69c3-5b07b72a797d.webp?w=120&amp;h=48">
-              </span>
-            </a>
-            <div class="item-intro box-flex flex">
-              <div class="item-name flex">
-                <p>小米8 6GB+256GB</p>
-              </div>
-              <div class="item-brief flex">
-                <p>
-                  <font color="#ff4a00">「新品开售」</font>全球首款双频GPS / 骁龙845处理器 / 红外人脸解锁 / AI变焦双摄 / 三星 AMOLED 屏 / AI语音助手 / 多功能NFC
-                </p>
-              </div>
-              <div class="item-intro-price flex">
-                <span class="price">&nbsp;3299</span>
+                <span class="price">&nbsp;{{list.price}}</span>
               </div>
             </div>
           </li>
@@ -75,10 +34,41 @@
 
 <script>
 import MiRecommend from '@/components/MiRecommend.vue'
+import fetch from '@/api/fetch.js'
+import DOMPurify from 'dompurify'
 export default {
   components: {
     MiRecommend
+  },
+  data () {
+    return {
+      commodityList: null
+    }
+  },
+  beforeRouteEnter (to, from, next) {
+    if (from.name) {
+      fetch('commodity').then(res => {
+        next(vm => vm.setLists(res))
+      })
+    } else {
+      next(vm => vm.getLists())
+    }
+  },
+  methods: {
+    getLists () {
+      this.$fetch('commodity').then(res => {
+        this.setLists(res)
+      })
+    },
+    setLists (res) {
+      let list = res.data.list
+      list.forEach(item => {
+        item.product_desc =DOMPurify.sanitize(item.product_desc)
+      })
+      this.commodityList = list
+    }
   }
+
 }  
 </script>
 

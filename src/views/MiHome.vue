@@ -78,11 +78,11 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
     if (from.name) {
-      next(vm => vm.getNavList())
-    } else {
       fetch('navList').then(res => {
         next(vm => vm.setNavList(res))
       })
+    } else {
+      next(vm => vm.getNavList())
     }
   },
   // created () {
