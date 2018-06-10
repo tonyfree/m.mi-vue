@@ -228,7 +228,9 @@ export default {
   position: relative;
   overflow: hidden;
 }
-
+.loading {
+  box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.12);
+}
 .loading_img {
   width: 100%;
 }

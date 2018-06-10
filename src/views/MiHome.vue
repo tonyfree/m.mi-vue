@@ -53,11 +53,11 @@
 </template>
 
 <script>
-import bus from '../bus.js'
 import Swiper from 'swiper'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import fetch from '@/api/fetch.js'
+import bus from '@/bus.js'
 NProgress.configure({ showSpinner: false })
 
 export default {
@@ -80,13 +80,13 @@ export default {
     }
   },
   beforeRouteEnter (to, from, next) {
-     if (from.name) {
+    if (from.name) {
+      next(vm => vm.getNavList())
+    } else {
       NProgress.start()
       fetch('navList').then(res => {
         next(vm => vm.setNavList(res))
       })
-    } else {
-      next(vm => vm.getNavList())
     }
   },
   // created () {
@@ -139,9 +139,6 @@ export default {
       }).then(res => {
         this.navList[this.curIndex].hasData = true
         NProgress.done()
-        if (flag === 'init') {
-          bus.$emit('loading', false)
-        }
       })
     },
     toUser () {
@@ -223,9 +220,6 @@ export default {
   height: 800px;
   line-height: 800px;
   font-size: 72px;
-}
-.loading {
-  box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.12);
 }
 .loading_img {
   width: 100%;
