@@ -1,33 +1,22 @@
 <template>
   <div class="recommend-box space-top">
     <div class="recommend-top-img">
-      <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/e95ade2750a7fde92369b416c7d3176d.jpg" lazy="loaded">
+      <img src="../assets/images/recommend.jpg">
     </div>
     <div class="recommend-list layout row wrap align-center align-content-start justify-space-between">
-      <div class="goods-item">
+      <div
+        v-for="list in lists"
+        :key="list.action.path"
+        class="goods-item">
         <a class="exposure">
           <div class="goods-img-box">
-            <img class="lazy" src="//i8.mifile.cn/v1/a1/48af122b-362c-dae5-8305-899805faf635!360x360.webp" lazy="loaded">
+            <img v-lazy="list.image_url">
           </div>
           <div class="goods-info">
-            <div class="goods-name no-wrap">红米5 16GB</div>
+            <div class="goods-name no-wrap">{{list.name}}</div>
             <div class="goods-price price">
-              ￥699
-              <del class="price">￥799</del>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="goods-item">
-        <a class="exposure">
-          <div class="goods-img-box">
-            <img class="lazy" src="//i8.mifile.cn/v1/a1/6bc9a546-b8d9-e886-e203-e476a405c40c!360x360.webp" lazy="loaded">
-          </div>
-          <div class="goods-info">
-            <div class="goods-name no-wrap">红米5 Plus 32GB</div>
-            <div class="goods-price price">
-              ￥799
-              <del class="price">￥999</del>
+              ￥{{list.price}}
+              <del class="price" v-show="list.showMarketPrice">￥{{list.market_price}}</del>
             </div>
           </div>
         </a>
@@ -35,6 +24,30 @@
     </div>
   </div>  
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      lists: null
+    }
+  },
+  created () {
+    this.getLists()
+  },
+  methods: {
+    getLists () {
+      this.$fetch('recommend').then(res => {
+        let list = res.data.recom_list
+        list.forEach(item => {
+          item.showMarketPrice = Math.random() > 0.5
+        })
+        this.lists = list
+      })
+    }
+  }
+}
+</script>
 
 <style scoped>
 .recommend-box {
