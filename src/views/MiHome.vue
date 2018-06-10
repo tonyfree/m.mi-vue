@@ -1,6 +1,10 @@
 <template>
 <div class="app-shell">
-  <div class="app-view-wrapper">
+  <template v-if="loading">
+    <header class="app-header-wrapper app-shell-header loading"></header>
+    <img src="../assets/images/loading.png" class="loading_img">
+  </template>
+  <div v-else class="app-view-wrapper">
     <div class="app-view app-view-with-footer">
       <header class="header">
         <div class="app-header-wrapper">
@@ -50,9 +54,8 @@
 
 <script>
 import Swiper from 'swiper'
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
-NProgress.configure({ showSpinner: false })
+import fetch from '@/api/fetch.js'
+import bus from '@/bus.js'
 
 export default {
   data () {
@@ -61,7 +64,8 @@ export default {
       curIndex: 0,
       homeSwiper: null,
       slidesPerView: 6,
-      transitionName: ''
+      transitionName: '',
+      loading: true
     }
   },
   watch: {
@@ -72,27 +76,41 @@ export default {
       }
     }
   },
-  created () {
-    this.getNavList()
+  beforeRouteEnter (to, from, next) {
+    if (from.name) {
+      fetch('navList').then(res => {
+        next(vm => vm.setNavList(res))
+      })
+    } else {
+      next(vm => vm.getNavList())
+    }
   },
+  // created () {
+  //   this.getNavList()
+  // },
   destroyed () {
     this.homeSwiper.destroy()
-    NProgress.remove()
+    this.$NProgress.remove()
   },
   methods: {
     getNavList () {
       this.$fetch('navList').then(res => {
-        let list = res.data.list
-        list.forEach(item => {
-          item.hasData = false
-        })
-        this.navList = list
-        this.getHomePage()
-        this.$nextTick(() => {
-          this.homeSwiper = new Swiper('.swiper-container', {
-            slidesPerView: this.slidesPerView,
-            freeMode: true
-          })
+        this.setNavList(res)
+      })
+    },
+    setNavList (res) {
+      this.loading = false
+      bus.$emit('loading', false)
+      let list = res.data.list
+      list.forEach(item => {
+        item.hasData = false
+      })
+      this.navList = list
+      this.getHomePage('init')
+      this.$nextTick(() => {
+        this.homeSwiper = new Swiper('.swiper-container', {
+          slidesPerView: this.slidesPerView,
+          freeMode: true
         })
       })
     },
@@ -107,17 +125,18 @@ export default {
       this.homeSwiper.slideTo(toIndex, 1000, false)
       !this.navList[index].hasData && this.getHomePage()
     },
-    getHomePage () {
-      NProgress.start()
+    getHomePage (flag) {
+      if (flag !== 'init') {
+        this.$NProgress.start()
+      }
       this.$fetch('homePage', {
         page_id: this.navList[this.curIndex].page_id
       }).then(res => {
         this.navList[this.curIndex].hasData = true
-        NProgress.done()
+        this.$NProgress.done()
       })
     },
     toUser () {
-      console.log(111)
       this.$router.push('user')
     }
   }
@@ -198,11 +217,4 @@ export default {
   font-size: 72px;
 }
 </style>
-<style>
-#nprogress .bar {
-  background-color: rgba(237, 91, 0, 0.5);
-}
-#nprogress .peg {
-  box-shadow: 0 0 10px rgba(237, 91, 0, 0.5), 0 0 5px rgba(237, 91, 0, 0.5);
-}
-</style>
+

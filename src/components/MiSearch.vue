@@ -1,7 +1,7 @@
 <template>
   <header class="app-header-wrapper app-shell-header" :class="loading?'loading':''">
     <template v-if="!loading">
-      <div class="app-header-left">
+      <div class="app-header-left" @click="goback">
         <a class="app-header-item">
           <i class="iconfont icon-back"></i>
         </a>
@@ -29,8 +29,13 @@ export default {
       type: String,
       default: ''
     }
+  },
+  methods: {
+    goback () {
+      this.$router.go(-1)
+    }
   }
-} 
+}
 </script>
 
 <style scoped>

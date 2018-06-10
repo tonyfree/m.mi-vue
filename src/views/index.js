@@ -3,6 +3,7 @@ const MiHome = () => import('./MiHome.vue')
 const MiCategory = () => import('./MiCategory.vue')
 const MiCart = () => import('./MiCart.vue')
 const MiUser = () => import('./MiUser.vue')
+const MiList = () => import('./MiList.vue')
 
 export default [
   {
@@ -45,5 +46,10 @@ export default [
     meta: {
       index: 3
     }
+  },
+  {
+    path: '/commodity/list/:id',
+    name: 'list',
+    component: MiList
   }
 ]

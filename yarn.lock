@@ -2435,6 +2435,10 @@ domhandler@2.1:
   dependencies:
     domelementtype "1"
 
+dompurify@^1.0.4:
+  version "1.0.4"
+  resolved "http://registry.npm.taobao.org/dompurify/download/dompurify-1.0.4.tgz#b0655d07856c1ef76fd27ae18e8ab1174ed18819"
+
 domutils@1.1:
   version "1.1.6"
   resolved "http://registry.npm.taobao.org/domutils/download/domutils-1.1.6.tgz#bddc3de099b9a2efacc51c623f28f416ecc57485"
@@ -7117,6 +7121,10 @@ vue-eslint-parser@^2.0.3:
 vue-hot-reload-api@^2.3.0:
   version "2.3.0"
   resolved "http://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.0.tgz#97976142405d13d8efae154749e88c4e358cf926"
+
+vue-lazyload@^1.2.4:
+  version "1.2.4"
+  resolved "http://registry.npm.taobao.org/vue-lazyload/download/vue-lazyload-1.2.4.tgz#e6c8de1e6e11ef6f61a9bbcee508b893586215ef"
 
 vue-loader@^15.1.0:
   version "15.2.1"

@@ -10,11 +10,13 @@
   "dependencies": {
     "axios": "^0.18.0",
     "blueimp-md5": "^2.10.0",
+    "dompurify": "^1.0.4",
     "mockjs": "^1.0.1-beta3",
     "normalize.css": "^8.0.0",
     "nprogress": "^0.2.0",
     "swiper": "^4.3.2",
     "vue": "^2.5.16",
+    "vue-lazyload": "^1.2.4",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

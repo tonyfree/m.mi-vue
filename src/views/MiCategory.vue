@@ -26,7 +26,7 @@
             <div class="component-list-main">
               <div class="cells_auto_fill">
                 <a class="exposure items">
-                  <img :src="list.category_img" lazy="loaded">
+                  <img v-lazy="list.category_img">
                 </a>
               </div>
               <template v-for="item in list.category_list">
@@ -44,9 +44,11 @@
 </template>
 
 <script>
-import MiSearch from '../components/MiSearch.vue'
-import CategoryGroup from '../components/CategoryGroup.vue'
-import bus from '../bus.js'
+import MiSearch from '@/components/MiSearch.vue'
+import CategoryGroup from '@/components/CategoryGroup.vue'
+import bus from '@/bus.js'
+import fetch from '@/api/fetch.js'
+
 export default {
   components: {
     MiSearch,
@@ -61,19 +63,35 @@ export default {
       scrollTimer: null
     }
   },
-  created () {
-    this.getLists()
+  beforeRouteEnter (to, from, next) {
+    if (from.name) {
+      fetch('category').then(res => {
+        next(vm => vm.setLists(res))
+      })
+    } else {
+      next(vm => vm.getLists())
+    }
+  },
+  // created () {
+  //   this.getLists()
+  // },
+  destroyed () {
+    this.$NProgress.remove()
   },
   methods: {
     getLists () {
       this.$fetch('category').then(res => {
-        this.categoryList = res.data.lists
-        this.loading = false
-        bus.$emit('loading', false)
-        this.$nextTick(() => {
-          this.categoryList.forEach((item,index) => {
-            this.offsetTop.push(this.$refs['category'+index][0].offsetTop)
-          })
+        this.setLists(res)
+      })
+    },
+    setLists (res) {
+      this.$NProgress.done()
+      this.loading = false
+      bus.$emit('loading', false)
+      this.categoryList = res.data.lists
+      this.$nextTick(() => {
+        this.categoryList.forEach((item, index) => {
+          this.offsetTop.push(this.$refs['category' + index][0].offsetTop)
         })
       })
     },
@@ -81,9 +99,8 @@ export default {
       this.curIndex = index
       let listWrap = document.querySelector('.list-wrap')
       let top = this.offsetTop[index]
-      listWrap.removeEventListener('scroll', this.scrollHandler) 
+      listWrap.removeEventListener('scroll', this.scrollHandler)
       listWrap.scrollTo(0, top)
-
     },
     wrapScroll (e) {
       document.querySelector('.list-wrap').addEventListener('scroll', this.scrollHandler)
@@ -94,7 +111,7 @@ export default {
         let scrollTop = document.querySelector('.list-wrap').scrollTop
         let len = this.offsetTop.length
         for (let index = 0; index < len; index++) {
-          if (scrollTop >= this.offsetTop[index] && scrollTop < this.offsetTop[index+1]) {
+          if (scrollTop >= this.offsetTop[index] && scrollTop < this.offsetTop[index + 1]) {
             this.curIndex = index
             break
           }
@@ -115,7 +132,7 @@ export default {
 .container .list-navbar {
   position: fixed;
   top: 40px;
-  bottom: 140px;
+  bottom: 40px;
   left: 0;
   width: 80px;
   border-right: 1px solid #efefef;
@@ -157,7 +174,7 @@ export default {
   left: 80px;
   right: 0;
   top: 49px;
-  bottom: 160px;
+  bottom: 50px;
   padding: 2px 16px;
   overflow: auto;
 }
@@ -168,6 +185,7 @@ export default {
 .cells_auto_fill .items img {
   width: 260px;
   height: 104px;
+  background: #f2f2f2;
 }
 .component-list-main .category_title {
   background: #fff;
@@ -206,8 +224,7 @@ export default {
   position: relative;
   overflow: hidden;
 }
-
-.loading_img {
-  width: 100%;
+.loading {
+  box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.12);
 }
 </style>

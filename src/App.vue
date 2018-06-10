@@ -8,8 +8,9 @@
 </template>
 
 <script>
-// import TheFooter from '../tmp/TheFooter.vue'
+// import TheFooter from '@/tmp/TheFooter.vue'
 import TheFooter from '@/components/TheFooter.vue'
+
 export default {
   components: {
     TheFooter
@@ -67,7 +68,7 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 100%;
+  /* height: 100%; */
   overflow-x: hidden;
   overflow-y: auto;
   will-change: transform;
@@ -79,6 +80,36 @@ export default {
 }
 .app-view-with-header {
   padding-top: 50px;
+}
+.align-center {
+  align-items: center;
+}
+.ui-flex {
+  display: flex;
+}
+.exposure {
+  display: block;
+}
+.flex {
+  flex: 1 1 auto;
+}
+.box-flex {
+  display: flex;
+}
+.layout {
+  display: flex;
+}
+.layout.wrap {
+  flex-wrap: wrap;
+}
+.layout.row {
+  flex-direction: row;
+}
+.justify-space-between {
+  justify-content: space-between;
+}
+.align-content-start {
+  align-content: flex-start;
 }
 
 /* 头部通用样式 */
@@ -128,5 +159,9 @@ export default {
 }
 .page-right-leave-to {
   transform: translateX(100%);
+}
+
+.loading_img {
+  width: 100%;
 }
 </style>

@@ -1,17 +1,19 @@
 <template>
   <div class="category_group box-flex">
     <div class="box">
-      <div
+      <router-link
         v-for="product in products"
         :key="product.category_id"
-        class="product">
+        class="product"
+        tag="div"
+        :to="{name: 'list', params: {id: product.category_id}}">
         <a class="exposure item">
           <div class="img">
-            <img class="big" :src="product.img_url" lazy="loaded">
+            <img class="big" v-lazy="product.img_url">
           </div>
           <div class="name">{{product.product_name}}</div>
         </a>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -44,7 +46,7 @@ export default {
   width: 52px;
   height: 52px;
   margin: 0 auto;
-  background: #fff;
+  background: #f2f2f2;
   overflow: hidden;
 }
 .component-list-main .category_group .product .img img {
