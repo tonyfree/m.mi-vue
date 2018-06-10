@@ -53,6 +53,7 @@ import bus from '../bus.js'
 import Swiper from 'swiper'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import fetch from '@/api/fetch.js'
 NProgress.configure({ showSpinner: false })
 
 export default {
@@ -73,27 +74,41 @@ export default {
       }
     }
   },
-  created () {
-    this.getNavList()
+  beforeRouteEnter (to, from, next) {
+     if (from.name) {
+      NProgress.start()
+      fetch('navList').then(res => {
+        next(vm => vm.setNavList(res))
+      })
+    } else {
+      next(vm => vm.getNavList())
+    }
   },
+  // created () {
+  //   this.getNavList()
+  // },
   destroyed () {
     this.homeSwiper.destroy()
     NProgress.remove()
   },
   methods: {
     getNavList () {
+      NProgress.start()
       this.$fetch('navList').then(res => {
-        let list = res.data.list
-        list.forEach(item => {
-          item.hasData = false
-        })
-        this.navList = list
-        this.getHomePage('init')
-        this.$nextTick(() => {
-          this.homeSwiper = new Swiper('.swiper-container', {
-            slidesPerView: this.slidesPerView,
-            freeMode: true
-          })
+        this.setNavList(res)
+      })
+    },
+    setNavList (res) {
+      let list = res.data.list
+      list.forEach(item => {
+        item.hasData = false
+      })
+      this.navList = list
+      this.getHomePage('init')
+      this.$nextTick(() => {
+        this.homeSwiper = new Swiper('.swiper-container', {
+          slidesPerView: this.slidesPerView,
+          freeMode: true
         })
       })
     },
@@ -109,7 +124,9 @@ export default {
       !this.navList[index].hasData && this.getHomePage()
     },
     getHomePage (flag) {
-      NProgress.start()
+      if (flag !== 'init') {
+        NProgress.start()
+      }
       this.$fetch('homePage', {
         page_id: this.navList[this.curIndex].page_id
       }).then(res => {
@@ -121,7 +138,6 @@ export default {
       })
     },
     toUser () {
-      console.log(111)
       this.$router.push('user')
     }
   }

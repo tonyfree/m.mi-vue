@@ -78,6 +78,9 @@ export default {
   // created () {
   //   this.getLists()
   // },
+  destroyed () {
+    NProgress.remove()
+  },
   methods: {
     getLists () {
       NProgress.start()
