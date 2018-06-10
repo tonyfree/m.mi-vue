@@ -8,6 +8,7 @@
 </template>
 
 <script>
+// import TheFooter from '@/tmp/TheFooter.vue'
 import TheFooter from '@/components/TheFooter.vue'
 
 export default {
@@ -79,6 +80,21 @@ export default {
 }
 .app-view-with-header {
   padding-top: 50px;
+}
+.align-center {
+  align-items: center;
+}
+.ui-flex {
+  display: flex;
+}
+.exposure {
+  display: block;
+}
+.flex {
+  flex: 1 1 auto;
+}
+.box-flex {
+  display: flex;
 }
 
 /* 头部通用样式 */

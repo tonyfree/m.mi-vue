@@ -17,7 +17,7 @@ Vue.prototype.$NProgress = NProgress
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
-  NProgress.start()
+  // NProgress.start()
   next()
 })
 
