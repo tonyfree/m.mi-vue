@@ -132,7 +132,7 @@ export default {
 .container .list-navbar {
   position: fixed;
   top: 40px;
-  bottom: 140px;
+  bottom: 40px;
   left: 0;
   width: 80px;
   border-right: 1px solid #efefef;
@@ -174,7 +174,7 @@ export default {
   left: 80px;
   right: 0;
   top: 49px;
-  bottom: 160px;
+  bottom: 50px;
   padding: 2px 16px;
   overflow: auto;
 }

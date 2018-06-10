@@ -68,7 +68,7 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 100%;
+  /* height: 100%; */
   overflow-x: hidden;
   overflow-y: auto;
   will-change: transform;
@@ -95,6 +95,21 @@ export default {
 }
 .box-flex {
   display: flex;
+}
+.layout {
+  display: flex;
+}
+.layout.wrap {
+  flex-wrap: wrap;
+}
+.layout.row {
+  flex-direction: row;
+}
+.justify-space-between {
+  justify-content: space-between;
+}
+.align-content-start {
+  align-content: flex-start;
 }
 
 /* 头部通用样式 */
