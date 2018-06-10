@@ -44,9 +44,10 @@
 </template>
 
 <script>
-import MiSearch from '../components/MiSearch.vue'
-import CategoryGroup from '../components/CategoryGroup.vue'
-import bus from '../bus.js'
+import MiSearch from '@/components/MiSearch.vue'
+import CategoryGroup from '@/components/CategoryGroup.vue'
+import bus from '@/bus.js'
+import fetch from '@/api/fetch.js'
 export default {
   components: {
     MiSearch,
@@ -61,19 +62,31 @@ export default {
       scrollTimer: null
     }
   },
+  beforeRouteEnter (to, from, next) {
+    if (from.name) {
+      fetch('category').then(res => {
+        next(vm => vm.setLists(res))
+      })
+    } else {
+      next(vm => vm.getLists())
+    }
+  },
   created () {
     this.getLists()
   },
   methods: {
     getLists () {
       this.$fetch('category').then(res => {
-        this.categoryList = res.data.lists
-        this.loading = false
-        bus.$emit('loading', false)
-        this.$nextTick(() => {
-          this.categoryList.forEach((item, index) => {
-            this.offsetTop.push(this.$refs['category' + index][0].offsetTop)
-          })
+        this.setLists(res)
+      })
+    },
+    setLists (res) {
+      this.categoryList = res.data.lists
+      this.loading = false
+      bus.$emit('loading', false)
+      this.$nextTick(() => {
+        this.categoryList.forEach((item, index) => {
+          this.offsetTop.push(this.$refs['category' + index][0].offsetTop)
         })
       })
     },
