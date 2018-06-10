@@ -1,21 +1,12 @@
 <template>
   <footer class="app-bottom-navigator-wrapper app-shell-footer">
     <div v-if="!loading" class="fill-height box-flex align-center">
-      <!-- <a
-        v-for="(nav,index) in navigation"
-        :key="nav.icon"
-        class="flex"
-        :class="index==curIndex?'on':''"
-        @click="curIndex=index">
-        <i class="iconfont" :class="index==curIndex?nav.iconon:nav.icon"></i>
-        <span>{{nav.name}}</span>
-      </a> -->
       <router-link
         v-for="nav in navigation"
         :key="nav.icon"
         class="flex"
         active-class="on"
-        :to="nav.link">
+        :to="{name: nav.link}">
         <i class="iconfont" :class="nav.link==$route.name?nav.iconon:nav.icon"></i>
         <span>{{nav.name}}</span>
       </router-link>
