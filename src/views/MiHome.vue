@@ -1,6 +1,10 @@
 <template>
 <div class="app-shell">
-  <div class="app-view-wrapper">
+  <template v-if="loading">
+    <header class="app-header-wrapper app-shell-header loading"></header>
+    <img src="../assets/images/loading.png" class="loading_img">
+  </template>
+  <div v-else class="app-view-wrapper">
     <div class="app-view app-view-with-footer">
       <header class="header">
         <div class="app-header-wrapper">
@@ -63,7 +67,8 @@ export default {
       curIndex: 0,
       homeSwiper: null,
       slidesPerView: 6,
-      transitionName: ''
+      transitionName: '',
+      loading: true
     }
   },
   watch: {
@@ -99,6 +104,8 @@ export default {
       })
     },
     setNavList (res) {
+      this.loading = false
+      bus.$emit('loading', false)
       let list = res.data.list
       list.forEach(item => {
         item.hasData = false
@@ -216,6 +223,12 @@ export default {
   height: 800px;
   line-height: 800px;
   font-size: 72px;
+}
+.loading {
+  box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.12);
+}
+.loading_img {
+  width: 100%;
 }
 </style>
 <style>
