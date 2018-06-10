@@ -6,7 +6,7 @@ const commodity = Mock.mock({
   "data": {
     "list|3": [
       {
-        "product_id": 8146,
+        "product_id": "@id",
         "name": "小米8 6GB+64GB",
         "product_desc": "<font color='#ff4a00'>「新品开售」</font>全球首款双频GPS / 骁龙845处理器 / 红外人脸解锁 / AI变焦双摄 / 三星 AMOLED 屏 / AI语音助手 / 多功能NFC",
         "price": "2699",

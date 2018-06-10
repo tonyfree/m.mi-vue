@@ -216,8 +216,5 @@ export default {
   line-height: 800px;
   font-size: 72px;
 }
-.loading_img {
-  width: 100%;
-}
 </style>
 

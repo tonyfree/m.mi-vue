@@ -160,4 +160,8 @@ export default {
 .page-right-leave-to {
   transform: translateX(100%);
 }
+
+.loading_img {
+  width: 100%;
+}
 </style>

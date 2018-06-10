@@ -1,6 +1,8 @@
 <template>
   <div class="app-shell">
-    <div class="app-view-wrapper">
+    <MiSearch :loading="loading" title="商品列表"/>
+    <img v-if="loading" src="../assets/images/loading.png" class="loading_img">
+    <div v-else class="app-view-wrapper">
       <div class="app-view app-view-with-header app-view-with-footer">
         <ol>
           <li
@@ -33,16 +35,20 @@
 </template>
 
 <script>
+import MiSearch from '@/components/MiSearch.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
 import fetch from '@/api/fetch.js'
 import DOMPurify from 'dompurify'
+import bus from '@/bus.js'
 export default {
   components: {
-    MiRecommend
+    MiRecommend,
+    MiSearch
   },
   data () {
     return {
-      commodityList: null
+      commodityList: null,
+      loading: true
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -61,6 +67,8 @@ export default {
       })
     },
     setLists (res) {
+      this.loading = false
+      bus.$emit('loading', false)
       let list = res.data.list
       list.forEach(item => {
         item.product_desc =DOMPurify.sanitize(item.product_desc)
