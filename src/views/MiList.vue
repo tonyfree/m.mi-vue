@@ -67,10 +67,20 @@
             </div>
           </li>
         </ol>
+        <MiRecommend />
       </div>
     </div>
   </div>      
 </template>
+
+<script>
+import MiRecommend from '@/components/MiRecommend.vue'
+export default {
+  components: {
+    MiRecommend
+  }
+}  
+</script>
 
 <style scoped>
 .item:not(:last-child) {

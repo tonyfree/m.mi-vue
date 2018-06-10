@@ -49,6 +49,7 @@ export default [
   },
   {
     path: '/commodity/list/:id',
+    name: 'list',
     component: MiList
   }
 ]

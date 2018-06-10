@@ -1,7 +1,8 @@
-### 数据加载优化
+### 分类和首页的数据加载优化
 + 路由切换时无loading状态
 + 加载进度条
 + NProgress全局化
 
-### 商品列表
-+ 
+### 商品列表和猜你喜欢
++ 数据结构和渲染
++ HTML文本([v-html](https://cn.vuejs.org/v2/guide/syntax.html#%E5%8E%9F%E5%A7%8B-HTML)、[防xss攻击](https://github.com/cure53/DOMPurify))
