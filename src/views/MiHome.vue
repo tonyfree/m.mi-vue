@@ -54,11 +54,8 @@
 
 <script>
 import Swiper from 'swiper'
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
 import fetch from '@/api/fetch.js'
 import bus from '@/bus.js'
-NProgress.configure({ showSpinner: false })
 
 export default {
   data () {
@@ -83,7 +80,6 @@ export default {
     if (from.name) {
       next(vm => vm.getNavList())
     } else {
-      NProgress.start()
       fetch('navList').then(res => {
         next(vm => vm.setNavList(res))
       })
@@ -94,11 +90,10 @@ export default {
   // },
   destroyed () {
     this.homeSwiper.destroy()
-    NProgress.remove()
+    this.$NProgress.remove()
   },
   methods: {
     getNavList () {
-      NProgress.start()
       this.$fetch('navList').then(res => {
         this.setNavList(res)
       })
@@ -132,13 +127,13 @@ export default {
     },
     getHomePage (flag) {
       if (flag !== 'init') {
-        NProgress.start()
+        this.$NProgress.start()
       }
       this.$fetch('homePage', {
         page_id: this.navList[this.curIndex].page_id
       }).then(res => {
         this.navList[this.curIndex].hasData = true
-        NProgress.done()
+        this.$NProgress.done()
       })
     },
     toUser () {
@@ -225,11 +220,4 @@ export default {
   width: 100%;
 }
 </style>
-<style>
-#nprogress .bar {
-  background-color: rgba(237, 91, 0, 0.5);
-}
-#nprogress .peg {
-  box-shadow: 0 0 10px rgba(237, 91, 0, 0.5), 0 0 5px rgba(237, 91, 0, 0.5);
-}
-</style>
+

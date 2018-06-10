@@ -8,8 +8,8 @@
 </template>
 
 <script>
-// import TheFooter from '../tmp/TheFooter.vue'
 import TheFooter from '@/components/TheFooter.vue'
+
 export default {
   components: {
     TheFooter

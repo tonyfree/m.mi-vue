@@ -48,9 +48,7 @@ import MiSearch from '@/components/MiSearch.vue'
 import CategoryGroup from '@/components/CategoryGroup.vue'
 import bus from '@/bus.js'
 import fetch from '@/api/fetch.js'
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
-NProgress.configure({ showSpinner: false })
+
 export default {
   components: {
     MiSearch,
@@ -67,7 +65,6 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
     if (from.name) {
-      NProgress.start()
       fetch('category').then(res => {
         next(vm => vm.setLists(res))
       })
@@ -79,20 +76,19 @@ export default {
   //   this.getLists()
   // },
   destroyed () {
-    NProgress.remove()
+    this.$NProgress.remove()
   },
   methods: {
     getLists () {
-      NProgress.start()
       this.$fetch('category').then(res => {
         this.setLists(res)
       })
     },
     setLists (res) {
-      NProgress.done()
-      this.categoryList = res.data.lists
+      this.$NProgress.done()
       this.loading = false
       bus.$emit('loading', false)
+      this.categoryList = res.data.lists
       this.$nextTick(() => {
         this.categoryList.forEach((item, index) => {
           this.offsetTop.push(this.$refs['category' + index][0].offsetTop)
@@ -233,14 +229,5 @@ export default {
 }
 .loading_img {
   width: 100%;
-}
-</style>
-<style>
-/* 加载进度条 */
-#nprogress .bar {
-  background-color: rgba(237, 91, 0, 0.5);
-}
-#nprogress .peg {
-  box-shadow: 0 0 10px rgba(237, 91, 0, 0.5), 0 0 5px rgba(237, 91, 0, 0.5);
 }
 </style>
