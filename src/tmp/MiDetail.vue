@@ -6,11 +6,11 @@
           <header>
             <div class="fill-height layout align-center">
               <a class="header-btn">
-                <i class="image-icons header-icon icon-back"></i>
+                <i class="iconfont icon-back"></i>
               </a>
               <div class="placeholder"></div>
               <a class="header-btn share-btn">
-                <i class="image-icons header-icon icon-share"></i>
+                <i class="iconfont icon-share"></i>
               </a>
             </div>
           </header>
@@ -485,11 +485,18 @@ header {
 }
 header .header-btn {
   display: block;
-  width: .6rem;
-  height: .6rem;
-  margin: 0 .2rem;
+  width: 32px;
+  height: 32px;
+  margin: 0 10px;
   color: #ddd;
   background: rgba(0,0,0,.6);
   border-radius: 50%;
+}
+.iconfont {
+  font-size: 20px;
+  line-height: 32px;
+}
+header .placeholder {
+  flex: 1;
 }
 </style>
