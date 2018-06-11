@@ -15,7 +15,7 @@
             </div>
           </header>
           <div class="swiper-container gallery-view swiper-container-horizontal">
-            <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+            <div class="swiper-wrapper">
               <div class="swiper-slide h792 swiper-slide-active" style="width: 375px;">
                 <img class="img swiper-lazy swiper-lazy-loaded" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/a4842f9afc615164af83c2088a412fc0.jpg?thumb=1&amp;w=720&amp;h=792">
               </div>
@@ -47,7 +47,7 @@
               前置2000万“治愈系”自拍 / 后置2000万 AI双摄 / “杨柳腰”纤薄机身 / 标配骁龙660 AIE处理器
             </div>
             <div class="goods-price layout align-end justify-start">
-              <div class="price cur-price">1599</div>
+              <div class="price cur-price">￥1599</div>
             </div>
           </div>
           <div class="product-section more">
@@ -498,5 +498,49 @@ header .header-btn {
 }
 header .placeholder {
   flex: 1;
+}
+.container .gallery-view {
+  background: #ccc;
+  width: 100%;
+  height: 412px;
+  position: relative;
+}
+.container .gallery-view .img {
+  display: block;
+  width: 375px;
+  height: 412px;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+}
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+.container .overview {
+  background: #fff;
+  text-align: left;
+  padding: 10px 16px 0;
+}
+.container .overview .goods-name {
+  font-size: 18px;
+  line-height: 28px;
+}
+.container .overview .goods-brief {
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(0,0,0,.54);
+}
+.container .overview .goods-price {
+  padding: 10px 0;
+}
+.container .overview .goods-price .cur-price {
+  color: #ff6700;
+  font-size: 24px;
+  font-weight: 700;
 }
 </style>
