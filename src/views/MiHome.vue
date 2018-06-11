@@ -89,7 +89,8 @@ export default {
   //   this.getNavList()
   // },
   destroyed () {
-    this.homeSwiper.destroy()
+    console.log(this.homeSwiper)
+    // this.homeSwiper.destroy()
     this.$NProgress.remove()
   },
   methods: {
