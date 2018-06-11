@@ -4,6 +4,7 @@ const MiCategory = () => import('./MiCategory.vue')
 const MiCart = () => import('./MiCart.vue')
 const MiUser = () => import('./MiUser.vue')
 const MiList = () => import('./MiList.vue')
+const MiDetail = () => import('./MiDetail.vue')
 
 export default [
   {
@@ -49,6 +50,12 @@ export default [
   },
   {
     path: '/commodity/list/:id',
+    name: 'list',
     component: MiList
+  },
+  {
+    path: '/commodity/detail/:id',
+    name: 'detail',
+    component: MiDetail
   }
 ]
