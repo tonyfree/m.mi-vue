@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition :name="transitionName">
+    <transition :name="transitionName" @after-leave="afterLeave">
       <router-view/>
     </transition>
     <TheFooter />
@@ -10,6 +10,7 @@
 <script>
 // import TheFooter from '@/tmp/TheFooter.vue'
 import TheFooter from '@/components/TheFooter.vue'
+import bus from '@/bus.js'
 
 export default {
   components: {
@@ -17,17 +18,29 @@ export default {
   },
   data () {
     return {
-      transitionName: ''
+      transitionName: 'page-left'
     }
   },
   watch: {
     '$route' (to, from) {
       // 页面刷新时不需要过渡
-      if (!from.meta.index) {
+      if (!from.name) {
         this.transitionName = ''
         return
       }
-      this.transitionName = to.meta.index < from.meta.index ? 'page-right' : 'page-left'
+      if (to.meta.index && from.meta.index) {
+        this.transitionName = to.meta.index < from.meta.index ? 'page-right' : 'page-left'
+      }
+    }
+  },
+  created () {
+    bus.$on('transitionName', (val) => {
+      this.transitionName = val
+    })
+  },
+  methods: {
+    afterLeave () {
+      this.transitionName = 'page-left'
     }
   }
 }

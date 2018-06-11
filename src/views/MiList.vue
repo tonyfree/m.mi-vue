@@ -53,7 +53,9 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
     if (from.name) {
-      fetch('commodity').then(res => {
+      fetch('commodity', {
+        category_id: to.params.id
+      }).then(res => {
         next(vm => vm.setLists(res))
       })
     } else {
@@ -62,7 +64,9 @@ export default {
   },
   methods: {
     getLists () {
-      this.$fetch('commodity').then(res => {
+      this.$fetch('commodity', {
+        category_id: this.$route.params.id
+      }).then(res => {
         this.setLists(res)
       })
     },

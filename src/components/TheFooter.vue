@@ -45,7 +45,6 @@ const navigation = [
 export default {
   data () {
     return {
-      curIndex: 0,
       navigation,
       loading: true
     }

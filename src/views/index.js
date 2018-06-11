@@ -15,7 +15,7 @@ export default [
     name: 'home',
     component: MiHome,
     meta: {
-      index: 0
+      index: 1
     }
   },
   {
@@ -28,7 +28,7 @@ export default [
     name: 'category',
     component: MiCategory,
     meta: {
-      index: 1
+      index: 2
     }
   },
   {
@@ -36,7 +36,7 @@ export default [
     name: 'cart',
     component: MiCart,
     meta: {
-      index: 2
+      index: 3
     }
   },
   {
@@ -44,7 +44,7 @@ export default [
     name: 'user',
     component: MiUser,
     meta: {
-      index: 3
+      index: 4
     }
   },
   {
