@@ -14,3 +14,9 @@ yarn add dompurify -S
 
 ### 猜你喜欢
 + 数据结构和渲染
+
+### 路由切换过渡优化
++ 默认'page-left',刷新时为''
++ 底部导航切换时根据路由信息判断
++ 顶部搜索组件后退时，通过全局bus设置为'page'
++ 过渡完成后还原：[过渡JavaScript钩子--after-leave](https://cn.vuejs.org/v2/guide/transitions.html#JavaScript-%E9%92%A9%E5%AD%90)
