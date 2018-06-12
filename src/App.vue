@@ -48,11 +48,15 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  position: static;
+  font-family: Helvetica Neue,Tahoma,Arial,PingFangSC-Regular,Hiragino Sans GB,Microsoft Yahei,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  /* color: #2c3e50; */
+  color: #3c3c3c;
+  user-select: none;
+  touch-action: manipulation;
+  text-size-adjust: none;
 }
 
 /* 通用样式 */
@@ -123,6 +127,15 @@ export default {
 }
 .align-content-start {
   align-content: flex-start;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.align-start {
+  align-items: flex-start;
+}
+.ui-flex {
+  display: flex;
 }
 
 /* 头部通用样式 */

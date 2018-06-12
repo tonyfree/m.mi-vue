@@ -312,7 +312,7 @@
   display: block;
 }
 .cells_auto_fill .items img{
-  width: 260px; 
+  width: 260px;
   height: 104px;
 }
 .component-list-main .category_title {

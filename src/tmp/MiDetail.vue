@@ -164,7 +164,7 @@
                       待电怎么样，还有充电速度怎么样
                     </div>
                   </div>
-                  <div data-v-39b0ff85="" class="more border-top-1px">查看全部8条评论</div>
+                  <!-- <div data-v-39b0ff85="" class="more border-top-1px">查看全部8条评论</div> -->
                 </div>
               </div>
             </div>
@@ -193,257 +193,221 @@
                     <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/8920ef08f50965a43b08dee549511a04.jpg?w=1080&amp;h=713" lazy="loaded">
                   </div>
                 </section>
-                <section style="">
+                <section style="display:none;">
                   <div class="desc-img-box">
                     <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/171cd5f240fcf62bc93d1c520e050dab.jpg?w=1080&amp;h=1474" lazy="loaded">
                   </div>
                 </section>
-                <section style="">
+                <section style="display:none;">
                   <div class="desc-img-box">
                     <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/3f7eecf3f77f28cd71669913b005e412.jpg?w=1080&amp;h=1382" lazy="loaded">
                   </div>
                 </section>
-                <section style="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/020b8b5a0c9c923babed2628e32f0615.jpg?w=1080&amp;h=1475" lazy="loaded">
+                <section style="display:none;">
+                  <div class="desc-img-box">
+                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/020b8b5a0c9c923babed2628e32f0615.jpg?w=1080&amp;h=1475" lazy="loaded">
                   </div>
                 </section>
-                <section data-v-7ab76df1="" style="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/ca626a8f020ce91d912ff8d169d2ba88.jpg?w=1080&amp;h=960" lazy="loaded">
+                <section style="display:none;">
+                  <div class="desc-img-box">
+                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/ca626a8f020ce91d912ff8d169d2ba88.jpg?w=1080&amp;h=960" lazy="loaded">
                   </div>
                 </section>
-                <section data-v-7ab76df1="" style="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/aa27c0965135cde1d9f94e3609c9b241.jpg?w=1080&amp;h=774" lazy="loaded">
+                <section style="display:none;">
+                  <div class="desc-img-box">
+                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/aa27c0965135cde1d9f94e3609c9b241.jpg?w=1080&amp;h=774" lazy="loaded">
                   </div>
                 </section>
-                <section data-v-7ab76df1="" style="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2dd9770847f0335513460853aa4b60ca.jpg?w=1080&amp;h=1716" lazy="loaded">
+                <section style="display:none;">
+                  <div class="desc-img-box">
+                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2dd9770847f0335513460853aa4b60ca.jpg?w=1080&amp;h=1716" lazy="loaded">
                   </div>
                 </section>
-                <section data-v-7ab76df1="" style="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/e8630b7ae21209ed7469be6de4ddb2a1.jpg?w=1080&amp;h=877" lazy="loaded">
+                <section style="display:none;">
+                  <div class="desc-img-box">
+                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/e8630b7ae21209ed7469be6de4ddb2a1.jpg?w=1080&amp;h=877" lazy="loaded">
                   </div>
                 </section>
-                <section data-v-7ab76df1="" style="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f4555a1c851b8d88b87cbe6988f25670.jpg?w=1080&amp;h=1664" lazy="loaded">
+                <section style="display:none;">
+                  <div class="desc-img-box">
+                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f4555a1c851b8d88b87cbe6988f25670.jpg?w=1080&amp;h=1664" lazy="loaded">
                   </div>
                 </section>
-                <section data-v-7ab76df1="" style="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/048e8b533d1a7a5affe82720f1cfba71.jpg?w=1080&amp;h=1977" lazy="loaded">
+                <section style="display:none;">
+                  <div class="desc-img-box">
+                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/048e8b533d1a7a5affe82720f1cfba71.jpg?w=1080&amp;h=1977" lazy="loaded">
                   </div>
                 </section>
-                <section data-v-7ab76df1="" style="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/ed24a95fcbc201d27e859c48529a6d8e.jpg?w=1080&amp;h=833" lazy="loaded">
+                <section style="display:none;">
+                  <div class="desc-img-box">
+                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/ed24a95fcbc201d27e859c48529a6d8e.jpg?w=1080&amp;h=833" lazy="loaded">
                   </div>
                 </section>
-                <section data-v-7ab76df1="" style="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
+                <section style="display:none;">
+                  <div class="desc-img-box">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
                   </div>
                 </section>
-              </div>
-              <div data-v-7ab76df1="" class="tab-item" style="display: none;">
-                <section data-v-7ab76df1="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/109a72cb245d3079e5040d19597859db.jpg?w=1080&amp;h=1448" lazy="loaded">
-                  </div>
-                </section>
-                <section data-v-7ab76df1="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/ad74cfd378579c5caed16a54479e2b84.jpg?w=1080&amp;h=2092" lazy="loaded">
-                  </div>
-                </section>
-                <section data-v-7ab76df1="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/26e9a5f6a7f0d7be40164bb046d968c1.jpg?w=1080&amp;h=1800" lazy="loaded">
-                  </div>
-                </section>
-                <section data-v-7ab76df1="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/5f6882f7c40723bb3a6c52fdf4b8dd4c.jpg?w=1080&amp;h=1630" lazy="loaded">
-                  </div>
-                </section>
-                <section data-v-7ab76df1="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/8645c26384b93c1d982b1b0e5bcb4b14.jpg?w=1080&amp;h=2668" lazy="loaded">
-                  </div>
-                </section>
-                <section data-v-7ab76df1="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
-                  </div>
-                </section>
-                <section data-v-7ab76df1="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
-                  </div>
-                </section>
-                <section data-v-7ab76df1="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
-                  </div>
-                </section>
-                <section data-v-7ab76df1="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
-                  </div>
-                </section>
-                <section data-v-7ab76df1="">
-                  <div data-v-7ab76df1="" class="desc-img-box">
-                    <img data-v-7ab76df1="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
-                  </div>
-                </section>
+                <a class="show-all-desc">查看全部图文详情 &gt;</a>
               </div>
             </div>
           </div>
-          <div data-v-c1eaedb8="" data-v-7ab76df1="" class="recommend-box space-top">
-            <div data-v-c1eaedb8="" class="recommend-title">为你推荐</div>
-            <div data-v-c1eaedb8="" class="recommend-list layout row wrap align-center align-content-start justify-space-between J_linksign-customize">
-              <div data-v-c1eaedb8="" class="goods-item">
-                <a data-v-c1eaedb8="" data-log_code="recom_product_12-0#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=6259" class="exposure">
-                  <div data-v-c1eaedb8="" class="goods-img-box">
-                    <img data-v-c1eaedb8="" class="lazy" src="//i8.mifile.cn/v1/a1/f0ea0c6b-96b5-c85b-d2b4-e4aeaabea277!360x360.webp" lazy="loaded">
+          <div class="recommend-box space-top">
+            <div class="recommend-title">为你推荐</div>
+            <div class="recommend-list layout row wrap align-center align-content-start justify-space-between J_linksign-customize">
+              <div class="goods-item">
+                <a data-log_code="recom_product_12-0#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=6259" class="exposure">
+                  <div class="goods-img-box">
+                    <img class="lazy" src="//i8.mifile.cn/v1/a1/f0ea0c6b-96b5-c85b-d2b4-e4aeaabea277!360x360.webp" lazy="loaded">
                   </div>
-                  <div data-v-c1eaedb8="" class="goods-info">
-                    <div data-v-c1eaedb8="" class="goods-name no-wrap">小米5X 64GB</div>
-                    <div data-v-c1eaedb8="" class="goods-price price">1499</div>
-                  </div>
-                </a>
-              </div>
-              <div data-v-c1eaedb8="" class="goods-item">
-                <a data-v-c1eaedb8="" data-log_code="recom_product_12-1#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=8030" class="exposure">
-                  <div data-v-c1eaedb8="" class="goods-img-box">
-                    <img data-v-c1eaedb8="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/8612f157af2c116b7e3fc47356cdb7be.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
-                  </div>
-                  <div data-v-c1eaedb8="" class="goods-info">
-                    <div data-v-c1eaedb8="" class="goods-name no-wrap">红米S2 4GB+64GB</div>
-                    <div data-v-c1eaedb8="" class="goods-price price">1299</div>
+                  <div class="goods-info">
+                    <div class="goods-name no-wrap">小米5X 64GB</div>
+                    <div class="goods-price price">1499</div>
                   </div>
                 </a>
               </div>
-              <div data-v-c1eaedb8="" class="goods-item">
-                <a data-v-c1eaedb8="" data-log_code="recom_product_12-2#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=7768" class="exposure">
-                  <div data-v-c1eaedb8="" class="goods-img-box">
-                    <img data-v-c1eaedb8="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/850d316b25648c9862c7c22aefba9280.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
+              <div class="goods-item">
+                <a data-log_code="recom_product_12-1#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=8030" class="exposure">
+                  <div class="goods-img-box">
+                    <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/8612f157af2c116b7e3fc47356cdb7be.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
                   </div>
-                  <div data-v-c1eaedb8="" class="goods-info">
-                    <div data-v-c1eaedb8="" class="goods-name no-wrap">红米Note 5</div>
-                    <div data-v-c1eaedb8="" class="goods-price price">1399<!----></div>
+                  <div class="goods-info">
+                    <div class="goods-name no-wrap">红米S2 4GB+64GB</div>
+                    <div class="goods-price price">1299</div>
                   </div>
                 </a>
               </div>
-              <div data-v-c1eaedb8="" class="goods-item">
-                <a data-v-c1eaedb8="" data-log_code="recom_product_12-3#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=6701" class="exposure">
-                  <div data-v-c1eaedb8="" class="goods-img-box">
-                    <img data-v-c1eaedb8="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/d68da7f79cc9800a34b1b48e1a439e44.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
+              <div class="goods-item">
+                <a data-log_code="recom_product_12-2#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=7768" class="exposure">
+                  <div class="goods-img-box">
+                    <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/850d316b25648c9862c7c22aefba9280.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
                   </div>
-                  <div data-v-c1eaedb8="" class="goods-info">
-                    <div data-v-c1eaedb8="" class="goods-name no-wrap">小米MIX 2 </div>
-                    <div data-v-c1eaedb8="" class="goods-price price">
+                  <div class="goods-info">
+                    <div class="goods-name no-wrap">红米Note 5</div>
+                    <div class="goods-price price">1399<!----></div>
+                  </div>
+                </a>
+              </div>
+              <div class="goods-item">
+                <a data-log_code="recom_product_12-3#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=6701" class="exposure">
+                  <div class="goods-img-box">
+                    <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/d68da7f79cc9800a34b1b48e1a439e44.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
+                  </div>
+                  <div class="goods-info">
+                    <div class="goods-name no-wrap">小米MIX 2 </div>
+                    <div class="goods-price price">
                       2599
-                      <del data-v-c1eaedb8="" class="price">3299</del>
+                      <del class="price">3299</del>
                     </div>
                   </div>
                 </a>
               </div>
-              <div data-v-c1eaedb8="" class="goods-item">
-                <a data-v-c1eaedb8="" data-log_code="recom_product_12-4#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=7909" class="exposure">
-                  <div data-v-c1eaedb8="" class="goods-img-box">
-                    <img data-v-c1eaedb8="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/e54e6d531611a372e1509c1f1e85c9b3.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
+              <div class="goods-item">
+                <a data-log_code="recom_product_12-4#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=7909" class="exposure">
+                  <div class="goods-img-box">
+                    <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/e54e6d531611a372e1509c1f1e85c9b3.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
                   </div>
-                  <div data-v-c1eaedb8="" class="goods-info">
-                    <div data-v-c1eaedb8="" class="goods-name no-wrap">小米6X 标准高透贴膜</div>
-                    <div data-v-c1eaedb8="" class="goods-price price">19<!----></div>
-                  </div>
-                </a>
-              </div>
-              <div data-v-c1eaedb8="" class="goods-item">
-                <a data-v-c1eaedb8="" data-log_code="recom_product_12-5#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=7910" class="exposure">
-                  <div data-v-c1eaedb8="" class="goods-img-box">
-                    <img data-v-c1eaedb8="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/6156db2b5b3b270e87e8bcbe140cabc2.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
-                  </div>
-                  <div data-v-c1eaedb8="" class="goods-info">
-                    <div data-v-c1eaedb8="" class="goods-name no-wrap">小米6X保护壳</div>
-                    <div data-v-c1eaedb8="" class="goods-price price">29<!----></div>
+                  <div class="goods-info">
+                    <div class="goods-name no-wrap">小米6X 标准高透贴膜</div>
+                    <div class="goods-price price">19<!----></div>
                   </div>
                 </a>
               </div>
-              <div data-v-c1eaedb8="" class="goods-item">
-                <a data-v-c1eaedb8="" data-log_code="recom_product_12-6#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=4917" class="exposure">
-                  <div data-v-c1eaedb8="" class="goods-img-box">
-                    <img data-v-c1eaedb8="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/570c5d0701fd7a4a56688654ad4f1133.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
+              <div class="goods-item">
+                <a data-log_code="recom_product_12-5#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=7910" class="exposure">
+                  <div class="goods-img-box">
+                    <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/6156db2b5b3b270e87e8bcbe140cabc2.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
                   </div>
-                  <div data-v-c1eaedb8="" class="goods-info">
-                    <div data-v-c1eaedb8="" class="goods-name no-wrap">最生活毛巾</div>
-                    <div data-v-c1eaedb8="" class="goods-price price">19.9<!----></div>
-                  </div>
-                </a>
-              </div>
-              <div data-v-c1eaedb8="" class="goods-item">
-                <a data-v-c1eaedb8="" data-log_code="recom_product_12-7#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=5059" class="exposure">
-                  <div data-v-c1eaedb8="" class="goods-img-box">
-                    <img data-v-c1eaedb8="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/359594c6feed269a51eec5d0e59e42b1.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
-                  </div>
-                  <div data-v-c1eaedb8="" class="goods-info">
-                    <div data-v-c1eaedb8="" class="goods-name no-wrap">活塞耳机 </div>
-                    <div data-v-c1eaedb8="" class="goods-price price">29<!----></div>
+                  <div class="goods-info">
+                    <div class="goods-name no-wrap">小米6X保护壳</div>
+                    <div class="goods-price price">29<!----></div>
                   </div>
                 </a>
               </div>
-              <div data-v-c1eaedb8="" class="goods-item">
-                <a data-v-c1eaedb8="" data-log_code="recom_product_12-8#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=7244" class="exposure">
-                  <div data-v-c1eaedb8="" class="goods-img-box">
-                    <img data-v-c1eaedb8="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/806866db7cfac7efdb561e9d796b4a33.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
+              <div class="goods-item">
+                <a data-log_code="recom_product_12-6#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=4917" class="exposure">
+                  <div class="goods-img-box">
+                    <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/570c5d0701fd7a4a56688654ad4f1133.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
                   </div>
-                  <div data-v-c1eaedb8="" class="goods-info">
-                    <div data-v-c1eaedb8="" class="goods-name no-wrap">米兔指尖积木</div>
-                    <div data-v-c1eaedb8="" class="goods-price price">9.9<!----></div>
-                  </div>
-                </a>
-              </div>
-              <div data-v-c1eaedb8="" class="goods-item">
-                <a data-v-c1eaedb8="" data-log_code="recom_product_12-9#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=7092" class="exposure">
-                  <div data-v-c1eaedb8="" class="goods-img-box">
-                    <img data-v-c1eaedb8="" class="lazy" src="//i8.mifile.cn/v1/a1/2f258afa-bf3c-e02f-54ce-e490a922ffae!360x360.webp" lazy="loaded">
-                  </div>
-                  <div data-v-c1eaedb8="" class="goods-info">
-                    <div data-v-c1eaedb8="" class="goods-name no-wrap">USB充电器</div>
-                    <div data-v-c1eaedb8="" class="goods-price price">29.9<!----></div>
+                  <div class="goods-info">
+                    <div class="goods-name no-wrap">最生活毛巾</div>
+                    <div class="goods-price price">19.9<!----></div>
                   </div>
                 </a>
               </div>
-              <div data-v-c1eaedb8="" class="goods-item">
-                <a data-v-c1eaedb8="" data-log_code="recom_product_12-10#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=6825" class="exposure">
-                  <div data-v-c1eaedb8="" class="goods-img-box">
-                    <img data-v-c1eaedb8="" class="lazy" src="//i8.mifile.cn/v1/a1/b9964239-82d5-7564-7a73-a117008157fb!360x360.webp" lazy="loaded">
+              <div class="goods-item">
+                <a data-log_code="recom_product_12-7#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=5059" class="exposure">
+                  <div class="goods-img-box">
+                    <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/359594c6feed269a51eec5d0e59e42b1.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
                   </div>
-                  <div data-v-c1eaedb8="" class="goods-info">
-                    <div data-v-c1eaedb8="" class="goods-name no-wrap">Type C数据线</div>
-                    <div data-v-c1eaedb8="" class="goods-price price">16.9<!----></div>
+                  <div class="goods-info">
+                    <div class="goods-name no-wrap">活塞耳机 </div>
+                    <div class="goods-price price">29<!----></div>
                   </div>
                 </a>
               </div>
-              <div data-v-c1eaedb8="" class="goods-item">
-                <a data-v-c1eaedb8="" data-log_code="recom_product_12-11#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=7463" class="exposure">
-                  <div data-v-c1eaedb8="" class="goods-img-box">
-                    <img data-v-c1eaedb8="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/d75a2f3b510b1f003f9eef17e757fc7f.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
+              <div class="goods-item">
+                <a data-log_code="recom_product_12-8#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=7244" class="exposure">
+                  <div class="goods-img-box">
+                    <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/806866db7cfac7efdb561e9d796b4a33.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
                   </div>
-                  <div data-v-c1eaedb8="" class="goods-info">
-                    <div data-v-c1eaedb8="" class="goods-name no-wrap">新小米移动电源2 (10000mAh)</div>
-                    <div data-v-c1eaedb8="" class="goods-price price">79<!----></div>
+                  <div class="goods-info">
+                    <div class="goods-name no-wrap">米兔指尖积木</div>
+                    <div class="goods-price price">9.9<!----></div>
+                  </div>
+                </a>
+              </div>
+              <div class="goods-item">
+                <a data-log_code="recom_product_12-9#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=7092" class="exposure">
+                  <div class="goods-img-box">
+                    <img class="lazy" src="//i8.mifile.cn/v1/a1/2f258afa-bf3c-e02f-54ce-e490a922ffae!360x360.webp" lazy="loaded">
+                  </div>
+                  <div class="goods-info">
+                    <div class="goods-name no-wrap">USB充电器</div>
+                    <div class="goods-price price">29.9<!----></div>
+                  </div>
+                </a>
+              </div>
+              <div class="goods-item">
+                <a data-log_code="recom_product_12-10#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=6825" class="exposure">
+                  <div class="goods-img-box">
+                    <img class="lazy" src="//i8.mifile.cn/v1/a1/b9964239-82d5-7564-7a73-a117008157fb!360x360.webp" lazy="loaded">
+                  </div>
+                  <div class="goods-info">
+                    <div class="goods-name no-wrap">Type C数据线</div>
+                    <div class="goods-price price">16.9<!----></div>
+                  </div>
+                </a>
+              </div>
+              <div class="goods-item">
+                <a data-log_code="recom_product_12-11#eid=24:0:0:0:0:0:0:0:0:0&amp;tid=DetailRec-78cpaAwFqwUTL0eVFuqCzg==&amp;page=product&amp;pid=7463" class="exposure">
+                  <div class="goods-img-box">
+                    <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/d75a2f3b510b1f003f9eef17e757fc7f.jpg?thumb=1&amp;w=360&amp;h=360" lazy="loaded">
+                  </div>
+                  <div class="goods-info">
+                    <div class="goods-name no-wrap">新小米移动电源2 (10000mAh)</div>
+                    <div class="goods-price price">79<!----></div>
                   </div>
                 </a>
               </div>
             </div>
           </div>
         </div>
+        <footer>
+          <div class="fill-height layout align-center">
+            <a class="footer-btn router-link-active">
+              <i class="iconfont icon-home"></i>
+              <span>首页</span>
+            </a>
+            <a class="footer-btn">
+              <i class="iconfont icon-cart"></i>
+              <span>购物车</span>
+            </a>
+            <div class="action-box flex">
+              <a class="btn buy-btn">加入购物车</a>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   </div>
@@ -542,5 +506,399 @@ header .placeholder {
   color: #ff6700;
   font-size: 24px;
   font-weight: 700;
+}
+.container .product-section {
+  position: relative;
+  padding: 10px 16px 0;
+  background: #fff;
+  border-top: 1px;
+  text-align: left;
+}
+.border-top-1px {
+  position: relative;
+}
+
+.border-top-1px:before {
+  height: 1px;
+  content: "";
+  width: 100%;
+  border-top: 1px solid #999;
+  position: absolute;
+  border-color: #f4f4f4;
+  top: -10px;
+  right: 0;
+  transform: scaleY(.5);
+}
+.container .product-section .title {
+  width: 41px;
+  font-size: 12px;
+  color: rgba(0,0,0,.54);
+  line-height: 20px;
+}
+.pt1-2x {
+  padding-top: 2px;
+}
+.container .product-section .act-icon {
+  position: relative;
+  padding-right: 10%;
+  white-space: nowrap;
+}
+.mb2x {
+  margin-bottom: 4px;
+}
+.container .product-section .act-icon .icon-desc {
+  color: #f56600;
+  border-radius: 1px;
+  padding: 1.5px 2.5px 0.5px;
+  margin: 0 0 0.5px;
+  font-size: 8px;
+}
+.container .product-section .act-icon .icon-desc:before {
+  border-color: #f56600;
+}
+.border-1px {
+  position: relative;
+}
+.border-1px:before {
+  content: "";
+  pointer-events: none;
+  box-sizing: border-box;
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  left: 0;
+  top: 0;
+  border-radius: 0;
+  border: 1px solid #999;
+  transform: scale(.5);
+  transform-origin: 0 0;
+}
+.container .product-section .act-icon .icon-title {
+  margin-left: 4.17px;
+  font-size: 12px;
+  line-height: 20px;
+  color: rgba(0,0,0,.87);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.more:after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-left: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  transform: translate3d(0,-50%,0) rotate(135deg);
+}
+.container .product-section.padding-16-32 {
+  padding: 8px 16px;
+}
+.mt2x {
+  margin-top: 4px;
+}
+.container .product-section .info {
+  font-size: 12px;
+  color: rgba(0,0,0,.87);
+  line-height: 20px;
+  padding-right: 10px;
+}
+.container .product-section .service-policy-item {
+  font-size: 12px;
+  line-height: 20px;
+  margin-right: 10px;
+  flex: 0 1 auto;
+}
+.container .product-section .img-icon {
+  height: 10px;
+  width: auto;
+}
+.mr1x {
+  margin-right: 4px;
+}
+.container .product-section .fsc1 {
+  font-size: 10px;
+  color: rgba(0,0,0,.54);
+}
+.container .comment-view {
+  text-align: left;
+  background: #fff;
+}
+.space-top {
+  margin-top: 8px;
+}
+.container .comment-view .comment-info {
+  padding: 16px 0;
+  margin: 0 16px;
+  font-size: 12px;
+}
+.border-bottom-1px {
+  position: relative;
+}
+.container .comment-view .border-bottom-1px:before {
+  border-color: #f4f4f4;
+}
+.border-bottom-1px:before {
+  height: 1px;
+  content: "";
+  width: 100%;
+  border-top: 1px solid #999;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  transform: scaleY(.5);
+  -webkit-transform: scaleY(.5);
+}
+.container .comment-view .comment-count,
+.container .comment-view .comment-degree span {
+  color: rgba(0,0,0,.54);
+}
+.container .comment-view .comment-degree {
+  color: #ff6700;
+  text-align: right;
+}
+.entry-more {
+  position: relative;
+  padding-right: 20px!important;
+}
+.entry-more:after {
+  content: " ";
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -3.5px;
+  transform: rotate(45deg);
+}
+.box-flex>*, .box-inline-flex>* {
+  flex: 1 1 auto;
+}
+
+.comment-box {
+  background: #fff;
+  text-align: left;
+}
+.comment-box .item {
+    padding: 12px 16px 16px;
+}
+.comment-box .item .comment-header .avatar-img-box {
+  margin-right: 12px;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 100%;
+}
+.comment-box .item .comment-header .avatar-img-box img {
+  width: 100%;
+}
+.comment-box .item .comment-header .name {
+  font-size: 13px;
+}
+.comment-box .item .comment-header .comment-date {
+  margin-top: 2.5px;
+  color: rgba(0,0,0,.54);
+  font-size: 11px;
+}
+.comment-box .item .comment-header .like {
+  padding-left: 25px;
+  background: transparent url(../assets/images/comment-like.png) no-repeat 0;
+  background-size: auto 100%;
+  width: 25px;
+  height: 18px;
+  line-height: 18px;
+  color: #ff6700;
+  font-size: 11px;
+}
+.comment-box .item .comment-content .text {
+  padding: 16px 0;
+  line-height: 20px;
+  font-size: 13px;
+}
+.comment-box .item .comment-content .photos {
+  margin-bottom: 6px;
+}
+.comment-box .item .comment-content .photos img {
+  width: 83px;
+  height: 83px;
+  margin: 0 4px 4px 0;
+}
+.comment-box .item .comment-reply {
+  padding: 8px;
+  background: #f6f6f6;
+}
+.comment-box .item .comment-reply .comment-replay-item {
+  overflow: hidden;
+  padding: 2.5px 0;
+}
+.comment-box .item .comment-reply .comment-replay-item .text {
+  font-size: 11px;
+  line-height: 22px;
+}
+.comment-box .item .comment-reply .comment-replay-item.official .avatar {
+  background: transparent url(../assets/images/milogo.png) no-repeat 50%;
+  background-size: cover;
+}
+.comment-box .item .comment-reply .comment-replay-item .avatar {
+  float: left;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+.comment-box .item .comment-reply .comment-replay-item.official span {
+  color: #ff6700;
+}
+
+.container .description-view .tab-header {
+  height: 44px;
+}
+.container .description-view .tab-header-inner {
+  height: 44px;
+  background: #fff;
+  will-change: scroll-position;
+}
+.container .description-view .tab-header-inner .flex.on {
+  color: #ff6700;
+}
+.container .description-view .tab-header-inner .flex {
+  display: block;
+  font-size: 13px;
+  width: 100%;
+  border-right: 1px solid #f4f4f4;
+}
+.container .description-view .tab-view {
+  background: #fff;
+}
+.container .description-view .tab-view section {
+  overflow: hidden;
+}
+.container .description-view .tab-view img {
+  display: block;
+  width: 100%;
+  vertical-align: middle;
+}
+.container .description-view .show-all-desc {
+  display: block;
+  background: #fff;
+  line-height: 44px;
+  font-size: 13px;
+  color: #ff6700;
+}
+
+.recommend-box {
+  background: #fff;
+  text-align: left;
+}
+.recommend-box .recommend-title {
+  line-height: 40px;
+  padding: 0 16px;
+  font-size: 15px;
+}
+.recommend-box .recommend-list {
+  overflow: hidden;
+}
+.layout.row {
+  flex-direction: row;
+}
+.align-content-start {
+  align-content: flex-start;
+}
+.layout.wrap {
+  flex-wrap: wrap;
+}
+.recommend-box .recommend-list .goods-item {
+  flex: 0 1 49.5%;
+  overflow: hidden;
+}
+.recommend-box .recommend-list .goods-item a {
+  display: block;
+}
+.recommend-box .recommend-list .goods-img-box {
+  position: relative;
+}
+.recommend-box .recommend-list .goods-img-box img {
+  display: block;
+  width: 185px;
+  height: 185px;
+}
+.recommend-box .recommend-list .goods-info {
+  padding: 9px 13px 11px;
+}
+.recommend-box .recommend-list .goods-name {
+  font-size: 14px;
+}
+.recommend-box .recommend-list .goods-price {
+  font-size: 16px;
+  display: inline-block;
+  color: #ff6700;
+  margin-top: 5px;
+}
+.price {
+  position: relative;
+  padding-left: 10px;
+  line-height: 16px;
+}
+.price:before {
+  content: "\A5";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 16px;
+  text-decoration: none;
+}
+.recommend-box .recommend-list .goods-price del {
+  font-size: 11px;
+  margin-left: 5px;
+  color: rgba(0,0,0,.54);
+  text-decoration: line-through;
+}
+footer {
+  height: 52px;
+  background: #fff;
+  box-shadow: 0 3px 14px 2px rgba(0,0,0,.12);
+  position: fixed;
+  bottom: -52px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+footer .footer-btn {
+  display: block;
+  text-decoration: none;
+  width: 72px;
+  color: rgba(0,0,0,.54);
+  border-left: 1px solid #f4f4f4;
+  display: flex;
+  flex-direction: column;
+}
+footer .footer-btn:first-child {
+  border-left: none;
+}
+.iconfont {
+  font-size: 20px;
+}
+footer .footer-btn span {
+  font-size: 11px;
+}
+footer .action-box .buy-btn {
+  height: 52px;
+  line-height: 52px;
+}
+.btn {
+  display: block;
+  outline: 0;
+  background: #ff6700;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  font-size: 14px;
 }
 </style>
