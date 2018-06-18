@@ -62,6 +62,9 @@ export default {
       next(vm => vm.getLists())
     }
   },
+  destroyed () {
+    this.$NProgress.remove()
+  },
   methods: {
     getLists () {
       this.$fetch('commodity', {
@@ -71,6 +74,7 @@ export default {
       })
     },
     setLists (res) {
+      this.$NProgress.done()
       this.loading = false
       bus.$emit('loading', false)
       let list = res.data.list
