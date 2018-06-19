@@ -7,7 +7,8 @@ const url = {
   homePage: '/api/homePage',
   category: '/api/category',
   commodity: '/api/commodityList',
-  recommend: '/api/recommendBlank'
+  recommend: '/api/recommendBlank',
+  productView: '/api/productView'
 }
 
 Object.keys(url).forEach(key => {

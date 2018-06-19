@@ -386,15 +386,15 @@
                   </div>
                   <div class="goods-info">
                     <div class="goods-name no-wrap">新小米移动电源2 (10000mAh)</div>
-                    <div class="goods-price price">79<!----></div>
+                    <div class="goods-price price">79</div>
                   </div>
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="ui-mask"></div>
-        <div class="pop">
+        <div class="ui-mask" style="display:none;"></div>
+        <div class="pop" style="display:none;">
           <div class="close">
             <i class="iconfont icon-close"></i>
           </div>
