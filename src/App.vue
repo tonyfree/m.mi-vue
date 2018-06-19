@@ -3,7 +3,7 @@
     <transition :name="transitionName" @after-leave="afterLeave">
       <router-view/>
     </transition>
-    <TheFooter />
+    <!-- <TheFooter /> -->
   </div>
 </template>
 
