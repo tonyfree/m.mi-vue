@@ -396,7 +396,7 @@
         <div class="ui-mask"></div>
         <div class="pop">
           <div class="close">
-            <i class="image-icons icon-close"></i>
+            <i class="iconfont icon-close"></i>
           </div>
           <div class="pro-info layout row align-center justify-space-around">
             <div class="product-img">
@@ -417,20 +417,20 @@
               </div>
               <div class="options-group align-center justify-start layout wrap">
                 <div class="option-item border-1px align-center justify-center ui-flex on line justify-space-between">
-                  <p data-v-7ab76df1="">4GB+64GB</p>
-                  <p data-v-7ab76df1="">1599元</p>
+                  <p>4GB+64GB</p>
+                  <p>1599元</p>
                 </div>
                 <div class="option-item border-1px align-center justify-center ui-flex line justify-space-between">
-                  <p data-v-7ab76df1="">4GB+32GB</p>
-                  <p data-v-7ab76df1="">1399元</p>
+                  <p>4GB+32GB</p>
+                  <p>1399元</p>
                 </div>
                 <div class="option-item border-1px align-center justify-center ui-flex cos line justify-space-between">
-                  <p data-v-7ab76df1="">6GB+64GB</p>
-                  <p data-v-7ab76df1="">1799元</p>
+                  <p>6GB+64GB</p>
+                  <p>1799元</p>
                 </div>
                 <div class="option-item border-1px align-center justify-center ui-flex line justify-space-between">
-                  <p data-v-7ab76df1="">6GB+128GB</p>
-                  <p data-v-7ab76df1="">1999元</p>
+                  <p>6GB+128GB</p>
+                  <p>1999元</p>
                 </div>
               </div>
             </div>
@@ -441,19 +441,19 @@
               </div>
               <div class="options-group align-center justify-start layout wrap">
                 <div class="option-item border-1px align-center justify-center ui-flex">
-                  <p data-v-7ab76df1="">流沙金</p>
+                  <p>流沙金</p>
                 </div>
                 <div class="option-item border-1px align-center justify-center ui-flex on">
-                  <p data-v-7ab76df1="">曜石黑</p>
+                  <p>曜石黑</p>
                 </div>
                 <div class="option-item border-1px align-center justify-center ui-flex">
-                  <p data-v-7ab76df1="">赤焰红</p>
+                  <p>赤焰红</p>
                   </div>
                 <div class="option-item border-1px align-center justify-center ui-flex">
-                  <p data-v-7ab76df1="">冰川蓝</p>
+                  <p>冰川蓝</p>
                 </div>
                 <div class="option-item border-1px align-center justify-center ui-flex">
-                  <p data-v-7ab76df1="">樱花粉</p>
+                  <p>樱花粉</p>
                 </div>
               </div>
             </div>
@@ -461,13 +461,13 @@
               <div class="option-title">购买数量</div>
               <div class="xm-input-number">
                 <div class="input-sub">
-                  <i class="image-icons icon-line"></i>
+                  <i class="iconfont icon-move"></i>
                 </div>
                 <div class="input-num">
-                  <span data-v-7ab76df1="">1</span>
+                  <span>1</span>
                 </div>
                 <div class="input-add active">
-                  <i class="image-icons icon-cross"></i>
+                  <i class="iconfont icon-add"></i>
                 </div>
               </div>
             </div>
@@ -482,12 +482,14 @@
                 <div class="options-group">
                   <div class="ui-flex align-center justify-start">
                     <div class="option-item border-1px w49">
-                      <p data-v-7ab76df1="">意外保障服务  179元</p>
+                      <p>意外保障服务  179元</p>
                     </div>
                   </div>
                   <div class="options-agree">
-                    <div class="choose unchecked"></div>
-                    <span data-v-7ab76df1="">我已阅读</span>
+                    <div class="choose">
+                      <i class="iconfont icon-round"></i>
+                    </div>
+                    <span>我已阅读</span>
                     <a href="https://order.mi.com/static/jrUrl?url=https%3A%2F%2Fapi.jr.mi.com%2Finsurance%2Fdocument%2Fphone_accidentIns.html%3Ffrom%3Dins_phonedetail_bxtk%26insuranceSku%3D19411%26couponFrom%3Drule" class="org">服务条款 | </a>
                     <a href="https://order.mi.com/static/jrUrl?url=https%3A%2F%2Fapi.jr.mi.com%2Finsurance%2Fdocument%2Fphone_accidentIns.html%3Ffrom%3Dins_phonedetail_cjwt%26insuranceSku%3D19411%26couponFrom%3Dquestion" class="org">常见问题</a>
                   </div>
@@ -1042,19 +1044,20 @@ footer .action-box .buy-btn {
   height: 26px;
 }
 .pop .close .icon-close {
-  width: 20px;
+  /* width: 20px;
   height: 20px;
-  background-image: url(../assets/images/icon-close.png);
+  background-image: url(../assets/images/icon-close.png); */
+  font-size: 20px;
+  line-height: 20px;
+  color: #bababa;
 }
-.image-icons {
+/* .image-icons {
   display: inline-block;
-  /* width: 36px;
-  height: 36px; */
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: cover;
-}
+} */
 .pop .pro-info {
   min-height: 75px;
 }
@@ -1144,17 +1147,26 @@ footer .action-box .buy-btn {
   display: inline-block;
   border: 1px solid #eee;
 }
-.pop .xm-input-number .icon-line {
+/* .pop .xm-input-number .icon-line {
   background-image: url(../assets/images/icon-line.png);
-}
-.pop .xm-input-number .icon-cross {
+} */
+/* .pop .xm-input-number .icon-cross {
   background-image: url(../assets/images/icon-cross.png);
-}
-.pop .xm-input-number .image-icons {
+} */
+/* .pop .xm-input-number .image-icons {
   opacity: .3;
   width: 30px;
   height: 30px;
   background-size: 15px 15px;
+} */
+.icon-move, .icon-add {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #857c7c;
+}
+.icon-move {
+  color: #bababa;
 }
 .pop .xm-input-number .input-num {
   display: inline-block;
@@ -1201,16 +1213,21 @@ footer .action-box .buy-btn {
 }
 .pop .choose {
   display: inline-block;
-  width: 30px;
-  padding: 0 10px;
+  /* width: 30px; */
+  padding: 0 4px 0 8px;
   height: 20px;
   position: relative;
-  top: 5px;
+  top: 3px;
 }
-.pop .choose.unchecked {
+.pop .choose i {
+  font-size: 24px;
+  line-height: 20px;
+  color: #ddd;
+}
+/* .pop .choose.unchecked {
   background: url(../assets/images/check_normal.png) 50% 50% no-repeat;
   background-size: 20px 20px;
-}
+} */
 .pop .options-agree .org {
   color: #f56600;
 }
