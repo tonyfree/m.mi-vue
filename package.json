@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "blueimp-md5": "^2.10.0",
-    "dompurify": "^1.0.4",
+    "dompurify": "^1.0.5",
     "mockjs": "^1.0.1-beta3",
     "normalize.css": "^8.0.0",
     "nprogress": "^0.2.0",
