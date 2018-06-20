@@ -1245,3 +1245,12 @@ footer .action-box .buy-btn {
   -webkit-transform: scaleY(.5);
 }
 </style>
+
+<style>
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 5px;
+}
+.swiper-pagination-bullet-active {
+  background: #fff;
+}
+</style>
