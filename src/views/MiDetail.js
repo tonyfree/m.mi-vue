@@ -6,7 +6,8 @@ export default {
     return {
       product: null,
       galleryView: null,
-      productInfo: null
+      titleView: null,
+      canJoinActs: null
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -32,7 +33,8 @@ export default {
       let data = res.data
       this.product = data
       this.galleryView = data.view_content.galleryView.galleryView
-      this.productInfo = data.product_info
+      this.titleView = data.view_content.titleView.titleView
+      this.canJoinActs = this.titleView.canJoinActs[0]
       this.$nextTick(() => {
         new Swiper('.swiper-container', {
           pagination: {

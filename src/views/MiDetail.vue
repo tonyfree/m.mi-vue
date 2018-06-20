@@ -26,19 +26,19 @@
             <div class="swiper-pagination"></div>
           </div>
           <div class="overview">
-            <div class="goods-name ui-flex align-center justify-start">{{productInfo.name}}</div>
-            <div class="goods-brief" v-html="productInfo.product_desc"></div>
+            <div class="goods-name ui-flex align-center justify-start">{{titleView.name}}</div>
+            <div class="goods-brief" v-html="titleView.product_desc"></div>
             <div class="goods-price layout align-end justify-start">
-              <div class="price cur-price">1599</div>
+              <div class="price cur-price">{{titleView.price}}</div>
             </div>
           </div>
-          <div class="product-section more">
+          <div class="product-section more" v-if="canJoinActs">
             <div class="border-top-1px ui-flex align-start justify-start J_linksign-customize">
               <div class="title">促销</div>
               <div class="flex pt1-2x">
                 <div class="ui-flex align-center justify-start act-icon mb2x">
-                  <div class="icon-desc border-1px">赠品</div>
-                  <div class="icon-title">赠移动电源</div>
+                  <div class="icon-desc border-1px">{{canJoinActs.type_desc}}</div>
+                  <div class="icon-title">{{canJoinActs.title}}</div>
                 </div>
               </div>
             </div>
