@@ -26,13 +26,10 @@
             <div class="swiper-pagination"></div>
           </div>
           <div class="overview">
-            <div class="goods-name ui-flex align-center justify-start">小米6X</div>
-            <div class="goods-brief">
-              <font color="#ff4a00">「4GB+32GB立减100元」「4GB+64GB赠价值49元移动电源」</font>
-              前置2000万“治愈系”自拍 / 后置2000万 AI双摄 / “杨柳腰”纤薄机身 / 标配骁龙660 AIE处理器
-            </div>
+            <div class="goods-name ui-flex align-center justify-start">{{productInfo.name}}</div>
+            <div class="goods-brief" v-html="productInfo.product_desc"></div>
             <div class="goods-price layout align-end justify-start">
-              <div class="price cur-price">￥1599</div>
+              <div class="price cur-price">1599</div>
             </div>
           </div>
           <div class="product-section more">
