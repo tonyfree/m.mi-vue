@@ -698,8 +698,8 @@ header .placeholder {
   position: absolute;
   right: 16px;
   top: 50%;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-left: 1px solid currentColor;
   border-top: 1px solid currentColor;
   transform: translate3d(0,-50%,0) rotate(135deg);
@@ -1252,7 +1252,7 @@ footer .action-box .buy-btn {
   width: 100%;
   border-top: 1px solid #f4f4f4;
   position: absolute;
-  top: -1px;
+  top: -8px;
   right: 0;
   transform: scaleY(.5);
   -webkit-transform: scaleY(.5);
