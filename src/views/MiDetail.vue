@@ -14,31 +14,16 @@
               </a>
             </div>
           </header>
-          <div class="swiper-container gallery-view swiper-container-horizontal">
+          <div class="swiper-container gallery-view">
             <div class="swiper-wrapper">
-              <div class="swiper-slide h792 swiper-slide-active" style="width: 375px;">
-                <img class="img swiper-lazy swiper-lazy-loaded" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/a4842f9afc615164af83c2088a412fc0.jpg?thumb=1&amp;w=720&amp;h=792">
-              </div>
-              <div class="swiper-slide h792 swiper-slide-next" style="width: 375px;">
-                <img class="img swiper-lazy swiper-lazy-loaded" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/bef0f60896e9adcc9251fe9940bf8317.jpg?thumb=1&amp;w=720&amp;h=792">
-              </div>
-              <div class="swiper-slide h792" style="width: 375px;">
-                <img class="img swiper-lazy swiper-lazy-loaded" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/640cd4de9154ab608110093bfa257b59.jpg?thumb=1&amp;w=720&amp;h=792">
-              </div>
-              <div class="swiper-slide h792" style="width: 375px;">
-                <img class="img swiper-lazy swiper-lazy-loaded" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/785d1bc33ef9af9123f81a5572d13d87.jpg?thumb=1&amp;w=720&amp;h=792">
-              </div>
-              <div class="swiper-slide h792" style="width: 375px;">
-                <img class="img swiper-lazy swiper-lazy-loaded" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/991e5b368684c9b974e1c9e9ea48de41.jpg?thumb=1&amp;w=720&amp;h=792">
+              <div
+                v-for="(imgUrl,index) in galleryView"
+                :key="index"
+                class="swiper-slide">
+                <img class="img" :src="imgUrl">
               </div>
             </div>
-            <div class="swiper-pagination swiper-pagination-white swiper-pagination-bullets">
-              <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
-              <span class="swiper-pagination-bullet"></span>
-              <span class="swiper-pagination-bullet"></span>
-              <span class="swiper-pagination-bullet"></span>
-              <span class="swiper-pagination-bullet"></span>
-            </div>
+            <div class="swiper-pagination"></div>
           </div>
           <div class="overview">
             <div class="goods-name ui-flex align-center justify-start">小米6X</div>

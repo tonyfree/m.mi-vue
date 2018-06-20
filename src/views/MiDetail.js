@@ -1,4 +1,6 @@
 import fetch from '@/api/fetch.js'
+import Swiper from 'swiper'
+import 'swiper/dist/css/swiper.min.css'
 export default {
   data () {
     return {
@@ -29,6 +31,14 @@ export default {
       let data = res.data
       this.product = data
       this.galleryView = data.view_content.galleryView.galleryView
+      this.$nextTick(() => {
+        new Swiper('.swiper-container', {
+          pagination: {
+            el: '.swiper-pagination'
+          },
+          loop: true
+        })
+      })
     }
   }
 }
