@@ -2,7 +2,7 @@
   <div class="app-shell">
     <div class="app-view-wrapper">
       <div class="app-view">
-        <div class="container fluid">
+        <div class="container fluid" v-if="productData">
           <header>
             <div class="fill-height layout align-center">
               <a class="header-btn">
@@ -20,7 +20,8 @@
                 v-for="(imgUrl,index) in galleryView"
                 :key="index"
                 class="swiper-slide">
-                <img class="img" :src="imgUrl">
+                <img class="img swiper-lazy" :data-src="imgUrl">
+                <div class="swiper-lazy-preloader"></div>
               </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -32,7 +33,7 @@
               <div class="price cur-price">{{titleView.price}}</div>
             </div>
           </div>
-          <div class="product-section more" v-if="canJoinActs">
+          <div class="product-section more">
             <div class="border-top-1px ui-flex align-start justify-start J_linksign-customize">
               <div class="title">促销</div>
               <div class="flex pt1-2x">

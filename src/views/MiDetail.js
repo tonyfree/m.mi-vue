@@ -4,7 +4,7 @@ import 'swiper/dist/css/swiper.min.css'
 export default {
   data () {
     return {
-      product: null,
+      productData: null,
       galleryView: null,
       titleView: null,
       canJoinActs: null
@@ -31,7 +31,7 @@ export default {
     },
     setProductData (res) {
       let data = res.data
-      this.product = data
+      this.productData = data
       this.galleryView = data.view_content.galleryView.galleryView
       this.titleView = data.view_content.titleView.titleView
       this.canJoinActs = this.titleView.canJoinActs[0]
@@ -40,7 +40,10 @@ export default {
           pagination: {
             el: '.swiper-pagination'
           },
-          loop: true
+          loop: true,
+          lazy: {
+            loadPrevNext: true
+          }
         })
       })
     }
