@@ -9,7 +9,9 @@ import './assets/fonts/iconfont.css'
 import fetch from './api/fetch.js'
 import VueLazyload from 'vue-lazyload'
 import NProgress from 'nprogress'
+import mixins from './mixin.js'
 
+Vue.mixin(mixins)
 NProgress.configure({ showSpinner: false })
 Vue.use(VueLazyload)
 Vue.prototype.$fetch = fetch

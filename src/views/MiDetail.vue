@@ -5,7 +5,7 @@
         <div class="container fluid" v-if="productData">
           <header>
             <div class="fill-height layout align-center">
-              <a class="header-btn">
+              <a class="header-btn" @click="goback">
                 <i class="iconfont icon-back"></i>
               </a>
               <div class="placeholder"></div>
@@ -125,14 +125,14 @@
 
         <footer>
           <div class="fill-height layout align-center">
-            <a class="footer-btn router-link-active">
+            <router-link :to="{name:'home'}" class="footer-btn">
               <i class="iconfont icon-home"></i>
               <span>首页</span>
-            </a>
-            <a class="footer-btn">
+            </router-link>
+            <router-link :to="{name:'cart'}" class="footer-btn">
               <i class="iconfont icon-cart"></i>
               <span>购物车</span>
-            </a>
+            </router-link>
             <div class="action-box flex" @click="showMask=true,showSDK=true">
               <a class="btn buy-btn">加入购物车</a>
             </div>

@@ -5,6 +5,7 @@ import MiComment from '@/components/MiComment.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
 import {default_goods_id, buy_option, goods_info} from '@/mock/sdk.js'
 import { runInThisContext } from 'vm';
+import { DH_UNABLE_TO_CHECK_GENERATOR } from 'constants';
 export default {
   components: {
     MiComment,
@@ -105,7 +106,7 @@ export default {
       })
       this.buyOption = buy_option
       this.$nextTick(() => {
-        new Swiper('.swiper-container', {
+        let xx = new Swiper('.swiper-container', {
           pagination: {
             el: '.swiper-pagination'
           },
