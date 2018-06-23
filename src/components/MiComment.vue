@@ -3,25 +3,20 @@
     <div class="item">
       <div class="comment-header layout align-center">
         <div class="avatar-img-box">
-          <img src="//s1.mi-img.com/mfsv2/avatar/fdsc3/p017UcFwpbQW/GJilSq8FbRrOUx_90.jpg">
+          <img :src="comment.user_avatar">
         </div>
         <div class="user-info flex">
-          <p class="name">黄之南</p>
-          <p class="comment-date">2018-06-04</p>
+          <p class="name">{{comment.user_name}}</p>
+          <p class="comment-date">{{comment.add_time}}</p>
         </div>
         <div class="like">
           <span>超爱</span>
         </div>
       </div>
       <div class="comment-content">
-        <div class="text">恰好今天毕业了，用中午刚到的小米6x拍了几张毕业留恋照。没几天就要高考了，希望能给我带来好运。。。</div>
+        <div class="text">{{comment.comment_content}}</div>
         <div class="photos p6">
-          <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/b115797abcb3ef5199a53b51c7743014.webp" lazy="loaded">
-          <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/0bc7aaa403cca148faff52adc7ea912e.webp" lazy="loaded">
-          <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/8e4669e01f931a74fa698b13d1460c3a.webp" lazy="loaded">
-          <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/c180c65344d83f5cf905d5c9624306be.webp" lazy="loaded">
-          <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/68adc354dd5ce45b8c0fceb030d75dd7.webp" lazy="loaded">
-          <img class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/5450e974962d0145552db5e25de628be.webp" lazy="loaded">
+          <img v-for="(img,index) in comment.comment_images" :key="index"  v-lazy="img">
         </div>
       </div>
       <div class="comment-reply">
@@ -29,34 +24,16 @@
           <div class="text">
             <div class="avatar"></div>
             <span>官方回复：</span>
-            又到六月高考日，梓梓学子挥汗如雨。从来是天道酬勤，一笔在手，淋漓大气生。今看你，论文韬武略，古今经典；家谋国计，上品斯文。一气呵成，行云流水，锦绣华章不染尘。还须问？上战场夺魁居榜首，临考场横扫千军！祝愿高考旗开得胜，前程似锦。感谢您对小米的支持。
+            {{comment.reply_content}}
           </div>
         </div>
-        <div class="comment-replay-item">
+        <div v-for="reply in comment.user_replys" :key="reply.comment_id" class="comment-replay-item">
           <div class="text">
             <div class="avatar">
-              <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/f790b51a76afd7b41522048fa779d69d.jpg">
+              <img :src="reply.user_avatar">
             </div>
-            <span>相信lie：</span>
-            是全网通嘛
-          </div>
-        </div>
-        <div class="comment-replay-item">
-          <div class="text">
-            <div class="avatar">
-              <img src="https://s1.mi-img.com/mfsv2/avatar/fdsc3/p01UFdS2LciC/7HzZGBbR3CXp0f.jpg">
-            </div>
-            <span>咖啡少年不加糖：</span>
-            哪里的考生
-          </div>
-        </div>
-        <div class="comment-replay-item">
-          <div class="text">
-            <div class="avatar">
-              <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/c52c11c915d43e0ac3286161eec4fcaf.jpg">
-            </div>
-            <span>涂山月初：</span>
-            待电怎么样，还有充电速度怎么样
+            <span>{{reply.user_name}}：</span>
+           {{reply.reply_content}}
           </div>
         </div>
         <!-- <div class="more border-top-1px">查看全部8条评论</div> -->
@@ -64,6 +41,17 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    comment: {
+      type: Object,
+      required: true
+    }
+  }
+}  
+</script>
 
 <style scoped>
 .comment-box {

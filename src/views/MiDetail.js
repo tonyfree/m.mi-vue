@@ -1,7 +1,7 @@
 import fetch from '@/api/fetch.js'
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
-import MiComment from '../tmp/MiComment.vue'
+import MiComment from '@/components/MiComment.vue'
 export default {
   components: {
     MiComment
