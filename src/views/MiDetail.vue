@@ -81,13 +81,13 @@
           </div>
           <div class="comment-view space-top">
             <a href="/comment/list/2181500027" class="comment-info border-bottom-1px box-flex align-center justify-space-between entry-more">
-              <div class="comment-count">用户评价(8825)</div>
+              <div class="comment-count">用户评价({{commentView.detail.comments_total}})</div>
               <div class="comment-degree">
-                96.6%
+                {{commentView.detail.satisfy_per}}%
                 <span>满意</span>
               </div>
             </a>
-            <MiComment />
+            <MiComment :comment="commentView.list[0]" />
           </div>
           <div class="description-view space-top">
             <div class="tab-header">
