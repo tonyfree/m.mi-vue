@@ -50,7 +50,7 @@ export default {
       required: true
     }
   }
-}  
+}
 </script>
 
 <style scoped>
@@ -130,4 +130,3 @@ export default {
   color: #ff6700;
 }
 </style>
-

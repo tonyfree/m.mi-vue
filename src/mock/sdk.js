@@ -1,4 +1,5 @@
 /* eslint-disable */
+let default_goods_id = "2181500027"
 
 let buy_option = [
   {
@@ -3900,6 +3901,7 @@ let goods_info = [
 ]
 
 export {
+  default_goods_id,
   buy_option,
   goods_info
 }

@@ -217,4 +217,3 @@ export default {
   font-size: 72px;
 }
 </style>
-

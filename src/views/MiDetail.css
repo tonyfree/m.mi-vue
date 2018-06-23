@@ -96,6 +96,19 @@ header .placeholder {
   font-size: 24px;
   font-weight: 700;
 }
+.price {
+  position: relative;
+  padding-left: .5em;
+  line-height: 1em;
+}
+.price:before {
+  content: "\A5";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: .76em;
+  text-decoration: none;
+}
 .container .product-section {
   position: relative;
   padding: 10px 16px 0;
@@ -591,4 +604,16 @@ footer .action-box .buy-btn {
   right: 0;
   transform: scaleY(.5);
   -webkit-transform: scaleY(.5);
+}
+.sdk-enter-active, .sdk-leave-active {
+  transition: all .5s;
+}
+.sdk-enter {
+  transform: translateY(100%);
+}
+.sdk-enter-to, .sdk-leave {
+  transform: translateX(0);
+}
+.sdk-leave-to {
+  transform: translateY(100%);
 }

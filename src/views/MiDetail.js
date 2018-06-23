@@ -3,7 +3,7 @@ import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import MiComment from '@/components/MiComment.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
-import { buy_option, goods_info} from '@mock/sdk.js'
+import {default_goods_id, buy_option, goods_info} from '@/mock/sdk.js'
 export default {
   components: {
     MiComment,
@@ -22,12 +22,9 @@ export default {
       showMask: false,
       showSDK: false,
       buyOption: null,
-      goodsInfo: null
-    }
-  },
-  computed: {
-    tabContent () {
-      return this.descTabsView[this.descTabsViewIndex].tabContent
+      goodsInfo: null,
+      selectedGood: null,
+      selectedSDK: []
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -70,8 +67,28 @@ export default {
       this.canJoinActs = this.titleView.canJoinActs[0]
       this.commentView = viewContent.commentView.commentView
       this.descTabsView = descTabsView
-      this.buyOption = buy_option
       this.goodsInfo = goods_info
+      this.selectedGood = this.goodsInfo.find(item => {
+        return item.goods_id == default_goods_id
+      })
+      this.selectedSDK = JSON.parse(JSON.stringify(this.selectedGood.prop_list))
+      let buyOption = buy_option
+      buyOption.forEach(item => {
+        item.hasPrice = item.list[0].price != ''
+        item.list.forEach(list => {
+          list.isOn = false
+        })
+      })
+      this.selectedGood.prop_list.forEach(item => {
+        let curOpion = buyOption.find(option => {
+          return option.prop_cfg_id === item.prop_cfg_id
+        })
+        let curIndex = curOpion.list.findIndex(list => {
+          return list.prop_value_id === item.prop_value_id   
+        })
+        curOpion.list[curIndex].isOn = true
+      })
+      this.buyOption = buy_option
       this.$nextTick(() => {
         new Swiper('.swiper-container', {
           pagination: {
@@ -82,6 +99,25 @@ export default {
             loadPrevNext: true
           }
         })
+      })
+    },
+    chooseItem (option, index) {
+      let curIndex = 0
+      option.list.forEach((item, i) => {
+        if (i === index) {
+          curIndex = i
+          item.isOn = true
+        } else {
+          item.isOn = false
+        }
+      })
+      let curSDKIndex = this.selectedSDK.findIndex(item => {
+        return item.prop_cfg_id === option.prop_cfg_id
+      })
+      this.selectedSDK[curSDKIndex].prop_value_id = option.list[curIndex].prop_value_id
+
+      this.selectedGood = this.goodsInfo.find(item => {
+        return JSON.stringify(item.prop_list) === JSON.stringify(this.selectedSDK)
       })
     },
     addToCart () {
