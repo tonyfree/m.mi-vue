@@ -431,6 +431,34 @@ let goods_info = [
             "service_short_name": "意外保障服务",
             "service_url": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/4a15d767c1fe.html",
             "source": "common"
+          },
+          {
+            "act_diff": "",
+            "act_id": "",
+            "act_price": "",
+            "goods_id": 2182100060,
+            "goods_name": "小米6X 4GB+32GB 冰川蓝 ",
+            "item_id": "",
+            "new_insurance_cat": true,
+            "phone_accidentIns": [
+              {
+                "desc": "服务条款",
+                "url": "https://order.mi.com/static/jrUrl?url=https%3A%2F%2Fapi.jr.mi.com%2Finsurance%2Fdocument%2Fphone_accidentIns.html%3Ffrom%3Dins_phonedetail_bxtk%26insuranceSku%3D19411%26couponFrom%3Drule"
+              },
+              {
+                "desc": "常见问题",
+                "url": "https://order.mi.com/static/jrUrl?url=https%3A%2F%2Fapi.jr.mi.com%2Finsurance%2Fdocument%2Fphone_accidentIns.html%3Ffrom%3Dins_phonedetail_cjwt%26insuranceSku%3D19411%26couponFrom%3Dquestion"
+              }
+            ],
+            "phone_accidentIns_sku": "19986",
+            "service_desc": "手机意外碎屏",
+            "service_goods_id": "2182100024",
+            "service_image_url": "//i1.mifile.cn/a1/pms_1527066090.48923917.jpg",
+            "service_name": "小米6X 碎屏保障服务",
+            "service_price": "99",
+            "service_short_name": "碎屏保障服务",
+            "service_url": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/4a15d767c1fe.html",
+            "source": "common"
           }
         ],
         "service_url": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/4a15d767c1fe.html",
@@ -1364,12 +1392,20 @@ let goods_info = [
             "new_insurance_cat": true,
             "phone_accidentIns": [
               {
-                "desc": "服务条款",
-                "url": "https://order.mi.com/static/jrUrl?url=https%3A%2F%2Fapi.jr.mi.com%2Finsurance%2Fdocument%2Fphone_accidentIns.html%3Ffrom%3Dins_phonedetail_bxtk%26insuranceSku%3D19411%26couponFrom%3Drule"
+                "desc":"保险条款",
+                "url":"https://order.mi.com/static/jrUrl?url=https%3A%2F%2Fapi.jr.mi.com%2Finsurance%2Fdocument%2Fphone_accidentIns.html%3Ffrom%3Dins_phonedetail_bxtk%26insuranceSku%3D16184%26couponFrom%3Drule"
               },
               {
-                "desc": "常见问题",
-                "url": "https://order.mi.com/static/jrUrl?url=https%3A%2F%2Fapi.jr.mi.com%2Finsurance%2Fdocument%2Fphone_accidentIns.html%3Ffrom%3Dins_phonedetail_cjwt%26insuranceSku%3D19411%26couponFrom%3Dquestion"
+                "desc":"投保须知",
+                "url":"https://order.mi.com/static/jrUrl?url=https%3A%2F%2Fapi.jr.mi.com%2Finsurance%2Fdocument%2Fphone_accidentIns.html%3Ffrom%3Dins_phonedetail_tbxz%26insuranceSku%3D16184%26couponFrom%3Dinstruction"
+              },
+              {
+                "desc":"常见问题",
+                "url":"https://order.mi.com/static/jrUrl?url=https%3A%2F%2Fapi.jr.mi.com%2Finsurance%2Fdocument%2Fphone_accidentIns.html%3Ffrom%3Dins_phonedetail_cjwt%26insuranceSku%3D16184%26couponFrom%3Dquestion"
+              },
+              {
+                "desc":"客户告知",
+                "url":"https://order.mi.com/static/jrUrl?url=https%3A%2F%2Fapi.jr.mi.com%2Finsurance%2Fdocument%2Fphone_accidentIns.html%3Ffrom%3Dlocal%26insuranceSku%3D16184%26couponFrom%3Dnotification"
               }
             ],
             "phone_accidentIns_sku": "19411",

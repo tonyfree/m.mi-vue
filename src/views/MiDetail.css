@@ -449,6 +449,11 @@ footer .action-box .buy-btn {
   font-size: 12px;
   color: rgba(0,0,0,.87);
 }
+.pop .option-title span {
+  color: rgba(0,0,0,.54);
+  margin-left: .5em;
+  vertical-align: middle;
+}
 .max5 {
   max-height: 300px;
   overflow-x: hidden;
@@ -577,6 +582,9 @@ footer .action-box .buy-btn {
   font-size: 24px;
   line-height: 20px;
   color: #ddd;
+}
+.pop .choose.checked i {
+  color: #f56600;
 }
 /* .pop .choose.unchecked {
   background: url(../assets/images/check_normal.png) 50% 50% no-repeat;

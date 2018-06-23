@@ -24,7 +24,8 @@ export default {
       buyOption: null,
       goodsInfo: null,
       selectedGood: null,
-      selectedSDK: []
+      selectedSDK: [],
+      serviceBargins: null
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -67,10 +68,21 @@ export default {
       this.canJoinActs = this.titleView.canJoinActs[0]
       this.commentView = viewContent.commentView.commentView
       this.descTabsView = descTabsView
+      goods_info.forEach(item => {
+        item.service_bargins.forEach(list => {
+          list.service_info.forEach(info => {
+            info.selected = false
+          })
+        })
+      })
       this.goodsInfo = goods_info
       this.selectedGood = this.goodsInfo.find(item => {
         return item.goods_id == default_goods_id
       })
+      this.selectedGood.service_bargins.forEach(item => {
+        item.selectedServiceDesc = ''
+      })
+      this.serviceBargins = this.selectedGood.service_bargins
       this.selectedSDK = JSON.parse(JSON.stringify(this.selectedGood.prop_list))
       let buyOption = buy_option
       buyOption.forEach(item => {
@@ -119,9 +131,18 @@ export default {
       this.selectedGood = this.goodsInfo.find(item => {
         return JSON.stringify(item.prop_list) === JSON.stringify(this.selectedSDK)
       })
+      this.serviceBargins = this.selectedGood.service_bargins
+    },
+    changeService (bargin, info, infoIndex) {
+      bargin.selectedServiceDesc = !info.selected ? info.service_desc : ''
+      bargin.service_info.forEach((item, index) => {
+        index === infoIndex ? (item.selected = !item.selected) : (item.selected = false)
+      })
     },
     addToCart () {
-
+      this.showMask = false
+      this.showSDK = false
+      // todo:放到购物车模块实现
     }
   }
 }
