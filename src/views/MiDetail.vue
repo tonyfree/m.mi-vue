@@ -48,7 +48,7 @@
             <div class="ui-flex align-start justify-start J_linksign-customize">
               <div class="title">已选</div>
               <div class="flex">
-                <div class="info">{{selectedGood.name}} x1</div>
+                <div class="info">{{selectedGood.name}} x{{selectedGood.buyNumber}}</div>
               </div>
             </div>
           </div>
@@ -178,16 +178,20 @@
                   </div>
                 </div>
               </div>
-              <div class="border-top-1px pd32 layout align-center justify-space-between">
+              <div v-if="selectedGood" class="border-top-1px pd32 layout align-center justify-space-between">
                 <div class="option-title">购买数量</div>
                 <div class="xm-input-number">
-                  <div class="input-sub">
+                  <div class="input-sub"
+                    :class="{active:selectedGood.buyNumber>1}"
+                    @click="decrease">
                     <i class="iconfont icon-move"></i>
                   </div>
                   <div class="input-num">
-                    <span>1</span>
+                    <span>{{selectedGood.buyNumber}}</span>
                   </div>
-                  <div class="input-add active">
+                  <div class="input-add"
+                    :class="{active:selectedGood.buyNumber<selectedGood.buy_limit}"
+                    @click="increase">
                     <i class="iconfont icon-add"></i>
                   </div>
                 </div>

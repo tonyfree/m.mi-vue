@@ -540,7 +540,7 @@ footer .action-box .buy-btn {
   text-align: center;
 }
 .pop .xm-input-number .input-add.active, .pop .xm-input-number .input-sub.active {
-  background-color: #f4f4f4;
+  background-color: #ddd;
 }
 .pop .service-url {
   display: inline-block;

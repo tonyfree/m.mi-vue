@@ -4,6 +4,7 @@ import 'swiper/dist/css/swiper.min.css'
 import MiComment from '@/components/MiComment.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
 import {default_goods_id, buy_option, goods_info} from '@/mock/sdk.js'
+import { runInThisContext } from 'vm';
 export default {
   components: {
     MiComment,
@@ -69,6 +70,8 @@ export default {
       this.commentView = viewContent.commentView.commentView
       this.descTabsView = descTabsView
       goods_info.forEach(item => {
+        item.buyNumber = 1
+        item.buy_limit = parseInt(item.buy_limit)
         item.service_bargins.forEach(list => {
           list.service_info.forEach(info => {
             info.selected = false
@@ -132,6 +135,14 @@ export default {
         return JSON.stringify(item.prop_list) === JSON.stringify(this.selectedSDK)
       })
       this.serviceBargins = this.selectedGood.service_bargins
+    },
+    decrease () {
+      if (this.selectedGood.buyNumber === 1) return
+      this.selectedGood.buyNumber--
+    },
+    increase () {
+      if (this.selectedGood.buyNumber === this.selectedGood.buy_limit) return
+      this.selectedGood.buyNumber++
     },
     changeService (bargin, info, infoIndex) {
       bargin.selectedServiceDesc = !info.selected ? info.service_desc : ''
