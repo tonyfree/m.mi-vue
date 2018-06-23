@@ -12,7 +12,14 @@ export default {
       galleryView: null,
       titleView: null,
       canJoinActs: null,
-      commentView: null
+      commentView: null,
+      descTabsView: null,
+      descTabsViewIndex: 0
+    }
+  },
+  computed: {
+    tabContent () {
+      return this.descTabsView[this.descTabsViewIndex].tabContent
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -36,12 +43,24 @@ export default {
     },
     setProductData (res) {
       let data = res.data
-      this.productData = data
       let viewContent = data.view_content
+      let descTabsView = viewContent.descTabsView.descTabsView
+      descTabsView.forEach(item => {
+        let tabContent = item.tabContent
+        if (tabContent.length > 3) {
+          item.showTabContent = tabContent.slice(0, 3)
+          item.moreTabContent = tabContent.slice(3)
+        } else {
+          item.showTabContent = tabContent
+        }
+        item.showMore = false
+      })
+      this.productData = data
       this.galleryView = viewContent.galleryView.galleryView
       this.titleView = viewContent.titleView.titleView
       this.canJoinActs = this.titleView.canJoinActs[0]
       this.commentView = viewContent.commentView.commentView
+      this.descTabsView = descTabsView
       this.$nextTick(() => {
         new Swiper('.swiper-container', {
           pagination: {

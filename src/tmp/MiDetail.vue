@@ -250,6 +250,58 @@
                 </section>
                 <a class="show-all-desc">查看全部图文详情 &gt;</a>
               </div>
+              <div class="tab-item" style="display: none;">
+                <section>
+                  <div class="desc-img-box">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
+                  </div>
+                </section>
+                <section>
+                  <div class="desc-img-box">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
+                  </div>
+                </section>
+                <section>
+                  <div class="desc-img-box">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
+                  </div>
+                </section>
+                <section>
+                  <div class="desc-img-box">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
+                  </div>
+                </section>
+                <section>
+                  <div class="desc-img-box">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
+                  </div>
+                </section>
+                <section>
+                  <div class="desc-img-box">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
+                  </div>
+                </section>
+                <section>
+                  <div class="desc-img-box">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
+                  </div>
+                </section>
+                <section>
+                  <div class="desc-img-box">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
+                  </div>
+                </section>
+                <section>
+                  <div class="desc-img-box">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
+                  </div>
+                </section>
+                <section>
+                  <div class="desc-img-box">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
+                  </div>
+                </section>
+              </div>
             </div>
           </div>
           <div class="recommend-box space-top">

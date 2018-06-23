@@ -27,7 +27,7 @@
             {{comment.reply_content}}
           </div>
         </div>
-        <div v-for="reply in comment.user_replys" :key="reply.comment_id" class="comment-replay-item">
+        <div v-for="reply in comment.user_replys" :key="reply.reply_id" class="comment-replay-item">
           <div class="text">
             <div class="avatar">
               <img :src="reply.user_avatar">

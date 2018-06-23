@@ -92,83 +92,31 @@
           <div class="description-view space-top">
             <div class="tab-header">
               <div class="tab-header-inner border-bottom-1px box-flex align-center">
-                <a class="flex on">概述</a>
-                <a class="flex">参数</a>
+                <a
+                  v-for="(desc,index) in descTabsView"
+                  :key="index"
+                  class="flex"
+                  :class="descTabsViewIndex==index?'on':''"
+                  @click="descTabsViewIndex=index">{{desc.name}}</a>
               </div>
             </div>
             <div class="tab-view">
-              <div class="tab-item" style="">
-                <section>
+              <div
+                v-show="descTabsViewIndex==index"
+                v-for="(desc,index) in descTabsView"
+                :key="'desc'+index"
+                class="tab-item">
+                <section v-for="(showDesc,index) in desc.showTabContent" :key="'showDesc'+index">
                   <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/e996427a3e66b49399abcd4d0f03387b.jpg?w=1080&amp;h=1920" lazy="loaded">
+                    <img :src="showDesc.plainView.img">
                   </div>
                 </section>
-                <section>
+                <section v-show="desc.showMore" v-for="(showDesc,index) in desc.moreTabContent" :key="'moreDesc'+index">
                   <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/d5cf4d958e3ee021b68fc07c23550c62.jpg?w=1080&amp;h=855" lazy="loaded">
+                    <img :src="showDesc.plainView.img">
                   </div>
                 </section>
-                <section>
-                  <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/8920ef08f50965a43b08dee549511a04.jpg?w=1080&amp;h=713" lazy="loaded">
-                  </div>
-                </section>
-                <section style="display:none;">
-                  <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/171cd5f240fcf62bc93d1c520e050dab.jpg?w=1080&amp;h=1474" lazy="loaded">
-                  </div>
-                </section>
-                <section style="display:none;">
-                  <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/3f7eecf3f77f28cd71669913b005e412.jpg?w=1080&amp;h=1382" lazy="loaded">
-                  </div>
-                </section>
-                <section style="display:none;">
-                  <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/020b8b5a0c9c923babed2628e32f0615.jpg?w=1080&amp;h=1475" lazy="loaded">
-                  </div>
-                </section>
-                <section style="display:none;">
-                  <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/ca626a8f020ce91d912ff8d169d2ba88.jpg?w=1080&amp;h=960" lazy="loaded">
-                  </div>
-                </section>
-                <section style="display:none;">
-                  <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/aa27c0965135cde1d9f94e3609c9b241.jpg?w=1080&amp;h=774" lazy="loaded">
-                  </div>
-                </section>
-                <section style="display:none;">
-                  <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2dd9770847f0335513460853aa4b60ca.jpg?w=1080&amp;h=1716" lazy="loaded">
-                  </div>
-                </section>
-                <section style="display:none;">
-                  <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/e8630b7ae21209ed7469be6de4ddb2a1.jpg?w=1080&amp;h=877" lazy="loaded">
-                  </div>
-                </section>
-                <section style="display:none;">
-                  <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f4555a1c851b8d88b87cbe6988f25670.jpg?w=1080&amp;h=1664" lazy="loaded">
-                  </div>
-                </section>
-                <section style="display:none;">
-                  <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/048e8b533d1a7a5affe82720f1cfba71.jpg?w=1080&amp;h=1977" lazy="loaded">
-                  </div>
-                </section>
-                <section style="display:none;">
-                  <div class="desc-img-box">
-                    <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/ed24a95fcbc201d27e859c48529a6d8e.jpg?w=1080&amp;h=833" lazy="loaded">
-                  </div>
-                </section>
-                <section style="display:none;">
-                  <div class="desc-img-box">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" lazy="loading">
-                  </div>
-                </section>
-                <a class="show-all-desc">查看全部图文详情 &gt;</a>
+                <a v-show="!desc.showMore" class="show-all-desc" @click.stop="desc.showMore=true">查看全部图文详情 &gt;</a>
               </div>
             </div>
           </div>
