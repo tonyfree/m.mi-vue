@@ -31,7 +31,7 @@
         <MiRecommend />
       </div>
     </div>
-  </div>      
+  </div>
 </template>
 
 <script>
@@ -79,13 +79,12 @@ export default {
       bus.$emit('loading', false)
       let list = res.data.list
       list.forEach(item => {
-        item.product_desc =DOMPurify.sanitize(item.product_desc)
+        item.product_desc = DOMPurify.sanitize(item.product_desc)
       })
       this.commodityList = list
     }
   }
-
-}  
+}
 </script>
 
 <style scoped>

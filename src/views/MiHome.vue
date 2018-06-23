@@ -89,7 +89,14 @@ export default {
   //   this.getNavList()
   // },
   destroyed () {
-    this.homeSwiper.destroy()
+    console.log(this.homeSwiper)
+    if (Array.isArray(this.homeSwiper)) {
+      this.homeSwiper.forEach(item => {
+        item.destroy()
+      })
+    } else {
+      this.homeSwiper.destroy()
+    }
     this.$NProgress.remove()
   },
   methods: {
@@ -217,4 +224,3 @@ export default {
   font-size: 72px;
 }
 </style>
-

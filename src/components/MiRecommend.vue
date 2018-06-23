@@ -1,6 +1,7 @@
 <template>
   <div class="recommend-box space-top">
-    <div class="recommend-top-img">
+    <div v-if="id" class="recommend-title">为你推荐</div>
+    <div v-else class="recommend-top-img">
       <img src="../assets/images/recommend.jpg">
     </div>
     <div class="recommend-list layout row wrap align-center align-content-start justify-space-between">
@@ -22,23 +23,43 @@
         </a>
       </div>
     </div>
-  </div>  
+  </div>
 </template>
 
 <script>
 export default {
+  props: {
+    id: {
+      type: String
+    }
+  },
   data () {
     return {
       lists: null
     }
   },
   created () {
-    this.getLists()
+    if (this.id) {
+      this.getReommend()
+    } else {
+      this.getReommendBlank()
+    }
   },
   methods: {
-    getLists () {
-      this.$fetch('recommend').then(res => {
+    getReommendBlank () {
+      this.$fetch('forRecommend').then(res => {
         let list = res.data.recom_list
+        list.forEach(item => {
+          item.showMarketPrice = Math.random() > 0.5
+        })
+        this.lists = list
+      })
+    },
+    getReommend () {
+      this.$fetch('recommend', {
+        product_id: this.id
+      }).then(res => {
+        let list = res.data.recommend_list
         list.forEach(item => {
           item.showMarketPrice = Math.random() > 0.5
         })
@@ -53,6 +74,11 @@ export default {
 .recommend-box {
   background: #fff;
   text-align: left;
+}
+.recommend-box .recommend-title {
+  line-height: 40px;
+  padding: 0 16px;
+  font-size: 15px;
 }
 .recommend-box .recommend-top-img {
   width: 375px;
@@ -78,6 +104,7 @@ export default {
   display: block;
   width: 100%;
   min-height: 186px;
+  background-color: #eee;
 }
 .recommend-box .recommend-list .goods-info {
   padding: 9px 13px 11px;

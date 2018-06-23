@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import bus from '@/bus.js'
 export default {
   props: {
     loading: {
@@ -29,12 +28,6 @@ export default {
     title: {
       type: String,
       default: ''
-    }
-  },
-  methods: {
-    goback () {
-      this.$router.go(-1)
-      bus.$emit('transitionName', 'page-right')
     }
   }
 }
