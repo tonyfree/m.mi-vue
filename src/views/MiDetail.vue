@@ -230,7 +230,6 @@
                         v-for="(accidentIns,index) in info.phone_accidentIns"
                         :key="index"
                         href="accidentIns.url" class="org">{{accidentIns.desc}} | </a>
-                      
                     </div>
                   </div>
                 </div>
