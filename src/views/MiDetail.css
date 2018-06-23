@@ -41,7 +41,7 @@ header .header-btn {
   border-radius: 50%;
 }
 header .iconfont {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 32px;
 }
 header .placeholder {
@@ -299,7 +299,7 @@ header .placeholder {
   color: #ff6700;
 }
 
-.recommend-box {
+/* .recommend-box {
   background: #fff;
   text-align: left;
 }
@@ -365,7 +365,7 @@ header .placeholder {
   margin-left: 5px;
   color: rgba(0,0,0,.54);
   text-decoration: line-through;
-}
+} */
 footer {
   height: 52px;
   background: #fff;

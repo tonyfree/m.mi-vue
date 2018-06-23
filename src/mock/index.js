@@ -2,8 +2,9 @@ import {login, getCode} from './login.js'
 import {navList, homePage} from './home.js'
 import {category} from './category.js'
 import {commodity} from './commodity.js'
-import {recommend} from './recommend.js'
+import {forRecommend} from './forRecommend.js'
 import {productView} from './productView.js'
+import {recommend} from './recommend.js'
 
 export default {
   login,
@@ -12,6 +13,7 @@ export default {
   homePage,
   category,
   commodity,
-  recommend,
-  productView
+  forRecommend,
+  productView,
+  recommend
 }

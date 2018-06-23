@@ -2,9 +2,11 @@ import fetch from '@/api/fetch.js'
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import MiComment from '@/components/MiComment.vue'
+import MiRecommend from '@/components/MiRecommend.vue'
 export default {
   components: {
-    MiComment
+    MiComment,
+    MiRecommend
   },
   data () {
     return {
@@ -14,7 +16,8 @@ export default {
       canJoinActs: null,
       commentView: null,
       descTabsView: null,
-      descTabsViewIndex: 0
+      descTabsViewIndex: 0,
+      id: ''
     }
   },
   computed: {
@@ -27,7 +30,7 @@ export default {
       fetch('productView', {
         commodity_id: to.params.id
       }).then(res => {
-        next(vm => vm.setProductData(res))
+        next(vm => vm.setProductData(res, to.params.id))
       })
     } else {
       next(vm => vm.getProductData())
@@ -38,10 +41,11 @@ export default {
       this.$fetch('productView', {
         commodity_id: this.$route.params.id
       }).then(res => {
-        this.setProductData(res)
+        this.setProductData(res, this.$route.params.id)
       })
     },
-    setProductData (res) {
+    setProductData (res, id) {
+      this.id = id
       let data = res.data
       let viewContent = data.view_content
       let descTabsView = viewContent.descTabsView.descTabsView
