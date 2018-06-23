@@ -44,7 +44,7 @@
               </div>
             </div>
           </div>
-          <div class="product-section more mt2x padding-16-32">
+          <div class="product-section more mt2x padding-16-32" @click="showMask=true,showSDK=true">
             <div class="ui-flex align-start justify-start J_linksign-customize">
               <div class="title">已选</div>
               <div class="flex">
@@ -122,9 +122,26 @@
           </div>
           <MiRecommend :id="id"/>
         </div>
-        <div class="ui-mask" style="display:none;"></div>
-        <div class="pop" style="display:none;">
-          <div class="close">
+
+        <footer>
+          <div class="fill-height layout align-center">
+            <a class="footer-btn router-link-active">
+              <i class="iconfont icon-home"></i>
+              <span>首页</span>
+            </a>
+            <a class="footer-btn">
+              <i class="iconfont icon-cart"></i>
+              <span>购物车</span>
+            </a>
+            <div class="action-box flex" @click="showMask=true,showSDK=true">
+              <a class="btn buy-btn">加入购物车</a>
+            </div>
+          </div>
+        </footer>
+
+        <div class="ui-mask" v-show="showMask"></div>
+        <div class="pop" v-show="showSDK">
+          <div class="close"  @click="showMask=false,showSDK=false">
             <i class="iconfont icon-close"></i>
           </div>
           <div class="pro-info layout row align-center justify-space-around">
@@ -163,7 +180,7 @@
                 </div>
               </div>
             </div>
-            <div class="border-top-1px mt2x sdk_color">
+            <div class="border-top-1px mt2x no_price">
               <div class="option-title pt32">
                 颜色
                 <span style="display: none;">请选择： 颜色</span>
@@ -227,27 +244,12 @@
               </div>
             </div>
           </div>
-          <div class="btn-bottom">
+          <div class="btn-bottom" @click="addToCart">
             <div class="action-box flex">
               <a data-log_code="" class="btn buy-btn">加入购物车</a>
             </div>
           </div>
         </div>
-        <footer>
-          <div class="fill-height layout align-center">
-            <a class="footer-btn router-link-active">
-              <i class="iconfont icon-home"></i>
-              <span>首页</span>
-            </a>
-            <a class="footer-btn">
-              <i class="iconfont icon-cart"></i>
-              <span>购物车</span>
-            </a>
-            <div class="action-box flex">
-              <a class="btn buy-btn">加入购物车</a>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
   </div>

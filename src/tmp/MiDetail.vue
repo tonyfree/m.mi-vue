@@ -577,13 +577,16 @@
 </template>
 
 <style scoped>
+.app-view {
+  padding-bottom: 52px;
+}
 .container {
   position: relative;
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 52px;
+  /* padding-bottom: 52px; */
   background: #efefef;
   margin-right: auto;
   margin-left: auto;
@@ -1026,7 +1029,7 @@ footer {
   background: #fff;
   box-shadow: 0 3px 14px 2px rgba(0,0,0,.12);
   position: fixed;
-  bottom: -52px;
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 100;

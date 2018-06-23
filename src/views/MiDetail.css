@@ -1,10 +1,12 @@
+.app-view {
+  padding-bottom: 52px;
+}
 .container {
   position: relative;
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 52px;
   background: #efefef;
   margin-right: auto;
   margin-left: auto;
@@ -30,6 +32,9 @@ header {
 .layout {
   display: flex;
   flex-wrap: nowrap;
+}
+.layout.wrap {
+  flex-wrap: wrap;
 }
 header .header-btn {
   display: block;
@@ -299,79 +304,12 @@ header .placeholder {
   color: #ff6700;
 }
 
-/* .recommend-box {
-  background: #fff;
-  text-align: left;
-}
-.recommend-box .recommend-title {
-  line-height: 40px;
-  padding: 0 16px;
-  font-size: 15px;
-}
-.recommend-box .recommend-list {
-  overflow: hidden;
-}
-.layout.row {
-  flex-direction: row;
-}
-.align-content-start {
-  align-content: flex-start;
-}
-.layout.wrap {
-  flex-wrap: wrap;
-}
-.recommend-box .recommend-list .goods-item {
-  flex: 0 1 49.5%;
-  overflow: hidden;
-}
-.recommend-box .recommend-list .goods-item a {
-  display: block;
-}
-.recommend-box .recommend-list .goods-img-box {
-  position: relative;
-}
-.recommend-box .recommend-list .goods-img-box img {
-  display: block;
-  width: 185px;
-  height: 185px;
-}
-.recommend-box .recommend-list .goods-info {
-  padding: 9px 13px 11px;
-}
-.recommend-box .recommend-list .goods-name {
-  font-size: 14px;
-}
-.recommend-box .recommend-list .goods-price {
-  font-size: 16px;
-  display: inline-block;
-  color: #ff6700;
-  margin-top: 5px;
-}
-.price {
-  position: relative;
-  padding-left: 10px;
-  line-height: 16px;
-}
-.price:before {
-  content: "\A5";
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 16px;
-  text-decoration: none;
-}
-.recommend-box .recommend-list .goods-price del {
-  font-size: 11px;
-  margin-left: 5px;
-  color: rgba(0,0,0,.54);
-  text-decoration: line-through;
-} */
 footer {
   height: 52px;
   background: #fff;
   box-shadow: 0 3px 14px 2px rgba(0,0,0,.12);
   position: fixed;
-  bottom: -52px;
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 100;
@@ -535,7 +473,7 @@ footer .action-box .buy-btn {
 .pop .option-item.on:before {
   border-color: #f56600;
 }
-.sdk_color .option-item p {
+.no_price .option-item p {
   width: 100%;
 }
 .pop .pd32 {

@@ -3,6 +3,7 @@ import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import MiComment from '@/components/MiComment.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
+import { buy_option, goods_info} from '@mock/sdk.js'
 export default {
   components: {
     MiComment,
@@ -17,7 +18,11 @@ export default {
       commentView: null,
       descTabsView: null,
       descTabsViewIndex: 0,
-      id: ''
+      id: '',
+      showMask: false,
+      showSDK: false,
+      buyOption: null,
+      goodsInfo: null
     }
   },
   computed: {
@@ -65,6 +70,8 @@ export default {
       this.canJoinActs = this.titleView.canJoinActs[0]
       this.commentView = viewContent.commentView.commentView
       this.descTabsView = descTabsView
+      this.buyOption = buy_option
+      this.goodsInfo = goods_info
       this.$nextTick(() => {
         new Swiper('.swiper-container', {
           pagination: {
@@ -76,6 +83,9 @@ export default {
           }
         })
       })
+    },
+    addToCart () {
+
     }
   }
 }
