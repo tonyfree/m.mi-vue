@@ -87,70 +87,7 @@
                 <span>满意</span>
               </div>
             </a>
-            <div data-v-39b0ff85="" class="comment-box">
-              <div data-v-39b0ff85="" class="item">
-                <div data-v-39b0ff85="" class="comment-header layout align-center">
-                  <div data-v-39b0ff85="" class="avatar-img-box">
-                    <img data-v-39b0ff85="" src="//s1.mi-img.com/mfsv2/avatar/fdsc3/p017UcFwpbQW/GJilSq8FbRrOUx_90.jpg">
-                  </div>
-                  <div data-v-39b0ff85="" class="user-info flex">
-                    <p data-v-39b0ff85="" class="name">黄之南</p>
-                    <p data-v-39b0ff85="" class="comment-date">2018-06-04</p>
-                  </div>
-                  <div data-v-39b0ff85="" class="like">
-                    <span data-v-39b0ff85="">超爱</span>
-                  </div>
-                </div>
-                <div data-v-39b0ff85="" class="comment-content">
-                  <div data-v-39b0ff85="" class="text">恰好今天毕业了，用中午刚到的小米6x拍了几张毕业留恋照。没几天就要高考了，希望能给我带来好运。。。</div>
-                  <div data-v-39b0ff85="" class="photos p6">
-                    <img data-v-39b0ff85="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/b115797abcb3ef5199a53b51c7743014.webp" lazy="loaded">
-                    <img data-v-39b0ff85="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/0bc7aaa403cca148faff52adc7ea912e.webp" lazy="loaded">
-                    <img data-v-39b0ff85="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/8e4669e01f931a74fa698b13d1460c3a.webp" lazy="loaded">
-                    <img data-v-39b0ff85="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/c180c65344d83f5cf905d5c9624306be.webp" lazy="loaded">
-                    <img data-v-39b0ff85="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/68adc354dd5ce45b8c0fceb030d75dd7.webp" lazy="loaded">
-                    <img data-v-39b0ff85="" class="lazy" src="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/5450e974962d0145552db5e25de628be.webp" lazy="loaded">
-                  </div>
-                </div>
-                <div data-v-39b0ff85="" class="comment-reply">
-                  <div data-v-39b0ff85="" class="comment-replay-item official">
-                    <div data-v-39b0ff85="" class="text">
-                      <div data-v-39b0ff85="" class="avatar"></div>
-                      <span data-v-39b0ff85="">官方回复：</span>
-                      又到六月高考日，梓梓学子挥汗如雨。从来是天道酬勤，一笔在手，淋漓大气生。今看你，论文韬武略，古今经典；家谋国计，上品斯文。一气呵成，行云流水，锦绣华章不染尘。还须问？上战场夺魁居榜首，临考场横扫千军！祝愿高考旗开得胜，前程似锦。感谢您对小米的支持。
-                    </div>
-                  </div>
-                  <div data-v-39b0ff85="" class="comment-replay-item">
-                    <div data-v-39b0ff85="" class="text">
-                      <div data-v-39b0ff85="" class="avatar">
-                        <img data-v-39b0ff85="" src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/f790b51a76afd7b41522048fa779d69d.jpg">
-                      </div>
-                      <span data-v-39b0ff85="">相信lie：</span>
-                      是全网通嘛
-                    </div>
-                  </div>
-                  <div data-v-39b0ff85="" class="comment-replay-item">
-                    <div data-v-39b0ff85="" class="text">
-                      <div data-v-39b0ff85="" class="avatar">
-                        <img data-v-39b0ff85="" src="https://s1.mi-img.com/mfsv2/avatar/fdsc3/p01UFdS2LciC/7HzZGBbR3CXp0f.jpg">
-                      </div>
-                      <span data-v-39b0ff85="">咖啡少年不加糖：</span>
-                      哪里的考生
-                    </div>
-                  </div>
-                  <div data-v-39b0ff85="" class="comment-replay-item">
-                    <div data-v-39b0ff85="" class="text">
-                      <div data-v-39b0ff85="" class="avatar">
-                        <img data-v-39b0ff85="" src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/c52c11c915d43e0ac3286161eec4fcaf.jpg">
-                      </div>
-                      <span data-v-39b0ff85="">涂山月初：</span>
-                      待电怎么样，还有充电速度怎么样
-                    </div>
-                  </div>
-                  <!-- <div data-v-39b0ff85="" class="more border-top-1px">查看全部8条评论</div> -->
-                </div>
-              </div>
-            </div>
+            <MiComment />
           </div>
           <div class="description-view space-top">
             <div class="tab-header">
