@@ -1,5 +1,5 @@
 <template>
-  <transition name="sdk">
+  <transition name="sku">
     <div class="pop" v-show="showSKU">
       <div class="close"  @click="closeSKU">
         <i class="iconfont icon-close"></i>
@@ -104,7 +104,7 @@
 </template>
 
 <script>
-import {default_goods_id, buy_option, goods_info} from '@/mock/sdk.js'
+import {default_goods_id, buy_option, goods_info} from '@/mock/sku.js'
 export default {
   props: {
     showSKU: {
@@ -443,16 +443,16 @@ export default {
   left: 0;
   right: 0;
 }
-.sdk-enter-active, .sdk-leave-active {
+.sku-enter-active, .sku-leave-active {
   transition: all .5s;
 }
-.sdk-enter {
+.sku-enter {
   transform: translateY(100%);
 }
-.sdk-enter-to, .sdk-leave {
+.sku-enter-to, .sku-leave {
   transform: translateX(0);
 }
-.sdk-leave-to {
+.sku-leave-to {
   transform: translateY(100%);
 }
 </style>
