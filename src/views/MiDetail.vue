@@ -142,7 +142,7 @@
 
         <div class="ui-mask" v-show="showMask"></div>
         <transition name="sdk">
-          <MiSDK :showSDK="showSDK" @close="closeSDK" @selectSDK="selectSDK"/>
+          <MiSDK :showSDK="showSDK" :productData="productData" @close="closeSDK" @selectSDK="selectSDK"/>
         </transition>
       </div>
     </div>

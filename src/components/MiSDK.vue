@@ -109,6 +109,9 @@ export default {
       type: Boolean,
       default: false,
       required: true
+    },
+    productData: {
+      required: true
     }
   },
   data () {
@@ -133,7 +136,14 @@ export default {
   },
   methods: {
     init () {
-       goods_info.forEach(item => {
+      // let productData = JSON.parse(JSON.stringify(this.productData))
+      // let goods_info = productData.goods_info
+      // let default_goods_id = productData.default_goods_id
+      // let buyOption = productData.buy_option
+
+      // mock数据
+      let buyOption = buy_option
+      goods_info.forEach(item => {
         item.buyNumber = 1
         item.buy_limit = parseInt(item.buy_limit)
         item.service_bargins.forEach(list => {
@@ -151,7 +161,6 @@ export default {
       })
       this.serviceBargins = this.selectedGood.service_bargins
       this.selectedSDK = JSON.parse(JSON.stringify(this.selectedGood.prop_list))
-      let buyOption = buy_option
       buyOption.forEach(item => {
         item.hasPrice = item.list[0].price != ''
         item.list.forEach(list => {
