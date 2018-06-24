@@ -47,7 +47,8 @@
               前置2000万“治愈系”自拍 / 后置2000万 AI双摄 / “杨柳腰”纤薄机身 / 标配骁龙660 AIE处理器
             </div>
             <div class="goods-price layout align-end justify-start">
-              <div class="price cur-price">￥1599</div>
+              <div class="price cur-price">1599</div>
+              <div class="price origin-price">1499</div>
             </div>
           </div>
           <div class="product-section more">
@@ -673,6 +674,15 @@ header .placeholder {
   color: #ff6700;
   font-size: 24px;
   font-weight: 700;
+}
+.container .overview .goods-price .origin-price {
+  margin-left: 8px;
+  color: rgba(0,0,0,.54);
+  font-size: 12px;
+  text-decoration: line-through;
+}
+.align-end {
+  align-items: flex-end;
 }
 .container .product-section {
   position: relative;

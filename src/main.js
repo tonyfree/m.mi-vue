@@ -4,7 +4,8 @@ import router from './router'
 import store from './store'
 import 'normalize.css'
 import 'nprogress/nprogress.css'
-import './assets/css/reset.css'
+import '@/assets/css/reset.css'
+import '@/assets/css/layout.css'
 import './assets/fonts/iconfont.css'
 import fetch from './api/fetch.js'
 import VueLazyload from 'vue-lazyload'
@@ -19,7 +20,7 @@ Vue.prototype.$NProgress = NProgress
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
-  // NProgress.start()
+  NProgress.start()
   next()
 })
 
