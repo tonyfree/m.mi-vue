@@ -96,6 +96,12 @@ header .placeholder {
   font-size: 24px;
   font-weight: 700;
 }
+.container .overview .goods-price .origin-price {
+  margin-left: 8px;
+  color: rgba(0,0,0,.54);
+  font-size: 12px;
+  text-decoration: line-through;
+}
 .price {
   position: relative;
   padding-left: .5em;
@@ -108,6 +114,9 @@ header .placeholder {
   top: 0;
   font-size: .76em;
   text-decoration: none;
+}
+.align-end {
+  align-items: flex-end;
 }
 .container .product-section {
   position: relative;

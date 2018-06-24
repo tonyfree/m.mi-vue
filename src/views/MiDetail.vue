@@ -31,6 +31,7 @@
             <div class="goods-brief" v-html="titleView.product_desc"></div>
             <div class="goods-price layout align-end justify-start">
               <div class="price cur-price">{{selectedGood.price}}</div>
+              <div class="price origin-price" v-show="selectedGood.market_price>selectedGood.price">{{selectedGood.market_price}}</div>
             </div>
           </div>
           <div class="product-section more">
