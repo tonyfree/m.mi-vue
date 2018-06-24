@@ -3,13 +3,13 @@ import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import MiComment from '@/components/MiComment.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
-import {default_goods_id, buy_option, goods_info} from '@/mock/sdk.js'
-import { runInThisContext } from 'vm';
-import { DH_UNABLE_TO_CHECK_GENERATOR } from 'constants';
+import MiSDK from '@/components/MiSDK.vue'
+
 export default {
   components: {
     MiComment,
-    MiRecommend
+    MiRecommend,
+    MiSDK
   },
   data () {
     return {
@@ -23,11 +23,7 @@ export default {
       id: '',
       showMask: false,
       showSDK: false,
-      buyOption: null,
-      goodsInfo: null,
       selectedGood: null,
-      selectedSDK: [],
-      serviceBargins: null,
       detailSwiper: null
     }
   },
@@ -81,41 +77,7 @@ export default {
       this.canJoinActs = this.titleView.canJoinActs[0]
       this.commentView = viewContent.commentView.commentView
       this.descTabsView = descTabsView
-      goods_info.forEach(item => {
-        item.buyNumber = 1
-        item.buy_limit = parseInt(item.buy_limit)
-        item.service_bargins.forEach(list => {
-          list.service_info.forEach(info => {
-            info.selected = false
-          })
-        })
-      })
-      this.goodsInfo = goods_info
-      this.selectedGood = this.goodsInfo.find(item => {
-        return item.goods_id == default_goods_id
-      })
-      this.selectedGood.service_bargins.forEach(item => {
-        item.selectedServiceDesc = ''
-      })
-      this.serviceBargins = this.selectedGood.service_bargins
-      this.selectedSDK = JSON.parse(JSON.stringify(this.selectedGood.prop_list))
-      let buyOption = buy_option
-      buyOption.forEach(item => {
-        item.hasPrice = item.list[0].price != ''
-        item.list.forEach(list => {
-          list.isOn = false
-        })
-      })
-      this.selectedGood.prop_list.forEach(item => {
-        let curOpion = buyOption.find(option => {
-          return option.prop_cfg_id === item.prop_cfg_id
-        })
-        let curIndex = curOpion.list.findIndex(list => {
-          return list.prop_value_id === item.prop_value_id   
-        })
-        curOpion.list[curIndex].isOn = true
-      })
-      this.buyOption = buy_option
+     
       this.$nextTick(() => {
         this.detailSwiper = new Swiper('.swiper-container', {
           pagination: {
@@ -128,44 +90,12 @@ export default {
         })
       })
     },
-    chooseItem (option, index) {
-      let curIndex = 0
-      option.list.forEach((item, i) => {
-        if (i === index) {
-          curIndex = i
-          item.isOn = true
-        } else {
-          item.isOn = false
-        }
-      })
-      let curSDKIndex = this.selectedSDK.findIndex(item => {
-        return item.prop_cfg_id === option.prop_cfg_id
-      })
-      this.selectedSDK[curSDKIndex].prop_value_id = option.list[curIndex].prop_value_id
-
-      this.selectedGood = this.goodsInfo.find(item => {
-        return JSON.stringify(item.prop_list) === JSON.stringify(this.selectedSDK)
-      })
-      this.serviceBargins = this.selectedGood.service_bargins
-    },
-    decrease () {
-      if (this.selectedGood.buyNumber === 1) return
-      this.selectedGood.buyNumber--
-    },
-    increase () {
-      if (this.selectedGood.buyNumber === this.selectedGood.buy_limit) return
-      this.selectedGood.buyNumber++
-    },
-    changeService (bargin, info, infoIndex) {
-      bargin.selectedServiceDesc = !info.selected ? info.service_desc : ''
-      bargin.service_info.forEach((item, index) => {
-        index === infoIndex ? (item.selected = !item.selected) : (item.selected = false)
-      })
-    },
-    addToCart () {
+    closeSDK () {
       this.showMask = false
       this.showSDK = false
-      // todo:放到购物车模块实现
+    },
+    selectSDK (val) {
+      this.selectedGood = val
     }
   }
 }

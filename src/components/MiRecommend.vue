@@ -16,8 +16,8 @@
           <div class="goods-info">
             <div class="goods-name no-wrap">{{list.name}}</div>
             <div class="goods-price price">
-              ￥{{list.price}}
-              <del class="price" v-show="list.showMarketPrice">￥{{list.market_price}}</del>
+              {{list.price}}
+              <del class="price" v-show="list.showMarketPrice">{{list.market_price}}</del>
             </div>
           </div>
         </a>
