@@ -45,7 +45,7 @@
               </div>
             </div>
           </div>
-          <div class="product-section more mt2x padding-16-32" @click="showMask=true,showSDK=true">
+          <div class="product-section more mt2x padding-16-32" @click="showMask=true,showSKU=true">
             <div class="ui-flex align-start justify-start J_linksign-customize">
               <div class="title">已选</div>
               <div class="flex">
@@ -134,16 +134,18 @@
               <i class="iconfont icon-cart"></i>
               <span>购物车</span>
             </router-link>
-            <div class="action-box flex" @click="showMask=true,showSDK=true">
+            <div class="action-box flex" @click="showMask=true,showSKU=true">
               <a class="btn buy-btn">加入购物车</a>
             </div>
           </div>
         </footer>
 
         <div class="ui-mask" v-show="showMask"></div>
-        <transition name="sdk">
-          <MiSDK :showSDK="showSDK" :productData="productData" @close="closeSDK" @selectSDK="selectSDK"/>
-        </transition>
+        <MiSKU
+          :showSKU="showSKU"
+          :productData="productData"
+          @close="closeSKU"
+          @selectSKU="selectSKU"/>
       </div>
     </div>
   </div>

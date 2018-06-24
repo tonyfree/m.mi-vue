@@ -3,13 +3,13 @@ import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import MiComment from '@/components/MiComment.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
-import MiSDK from '@/components/MiSDK.vue'
+import MiSKU from '@/components/MiSKU.vue'
 
 export default {
   components: {
     MiComment,
     MiRecommend,
-    MiSDK
+    MiSKU
   },
   data () {
     return {
@@ -22,7 +22,7 @@ export default {
       descTabsViewIndex: 0,
       id: '',
       showMask: false,
-      showSDK: false,
+      showSKU: false,
       selectedGood: null,
       detailSwiper: null
     }
@@ -90,11 +90,11 @@ export default {
         })
       })
     },
-    closeSDK () {
+    closeSKU () {
       this.showMask = false
-      this.showSDK = false
+      this.showSKU = false
     },
-    selectSDK (val) {
+    selectSKU (val) {
       this.selectedGood = val
     }
   }

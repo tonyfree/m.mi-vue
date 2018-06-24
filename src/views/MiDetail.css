@@ -290,16 +290,3 @@ footer .action-box .buy-btn {
   height: 52px;
   line-height: 52px;
 }
-
-.sdk-enter-active, .sdk-leave-active {
-  transition: all .5s;
-}
-.sdk-enter {
-  transform: translateY(100%);
-}
-.sdk-enter-to, .sdk-leave {
-  transform: translateX(0);
-}
-.sdk-leave-to {
-  transform: translateY(100%);
-}
