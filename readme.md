@@ -23,4 +23,4 @@
 
 ### 作业
 + sdk：购买数量--已选数据跟随变化，增加、减少按钮的样式，数量的大小限制
-+ sdk：服务保障--三层循环(参考：[多服务](https://m.mi.com/commodity/detail/10000099)、[多条款](https://m.mi.com/commodity/detail/6701))、选中服务(样式、唯一性)
++ sdk：服务保障--三层循环(参考：[多服务项目](https://m.mi.com/commodity/detail/7799)、[多服务列表](https://m.mi.com/commodity/detail/10000099)、[多条款](https://m.mi.com/commodity/detail/6701))、选中服务(样式、唯一性)
