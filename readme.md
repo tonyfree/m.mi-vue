@@ -40,3 +40,9 @@ Refactor the mi mall with vue, vue-router, vex, etc.
 + 路由：[路由数据获取](https://router.vuejs.org/zh/guide/advanced/data-fetching.html)、[导航守卫--beforeRouteEnter](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html)、[导航守卫--beforEach](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html)、[动态路由匹配](https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html)
 + HTML文本([v-html](https://cn.vuejs.org/v2/guide/syntax.html#%E5%8E%9F%E5%A7%8B-HTML)、[防xss攻击](https://github.com/cure53/DOMPurify))
 + 过渡：[JavaScript钩子--after-leave](https://cn.vuejs.org/v2/guide/transitions.html#JavaScript-%E9%92%A9%E5%AD%90)
+
+### [lesson08--商品详情](https://github.com/tonyfree/m.mi/tree/lesson08)
++ 图片轮播(Swiper)
++ mixin混入
++ 组件：用户评价、为你推荐(重构猜你喜欢)、SKU组件
++ 父子组件通信
