@@ -89,7 +89,6 @@ export default {
   //   this.getNavList()
   // },
   destroyed () {
-    console.log(this.homeSwiper)
     if (Array.isArray(this.homeSwiper)) {
       this.homeSwiper.forEach(item => {
         item.destroy()

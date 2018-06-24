@@ -27,7 +27,8 @@ export default {
       goodsInfo: null,
       selectedGood: null,
       selectedSDK: [],
-      serviceBargins: null
+      serviceBargins: null,
+      detailSwiper: null
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -41,6 +42,15 @@ export default {
       next(vm => vm.getProductData())
     }
   },
+  destroyed () {
+    if (Array.isArray(this.detailSwiper)) {
+      this.detailSwiper.forEach(item => {
+        item.destroy()
+      })
+    } else {
+      this.detailSwiper.destroy()
+    }
+  },
   methods: {
     getProductData () {
       this.$fetch('productView', {
@@ -50,6 +60,7 @@ export default {
       })
     },
     setProductData (res, id) {
+      this.$NProgress.done()
       this.id = id
       let data = res.data
       let viewContent = data.view_content
@@ -106,7 +117,7 @@ export default {
       })
       this.buyOption = buy_option
       this.$nextTick(() => {
-        let xx = new Swiper('.swiper-container', {
+        this.detailSwiper = new Swiper('.swiper-container', {
           pagination: {
             el: '.swiper-pagination'
           },
