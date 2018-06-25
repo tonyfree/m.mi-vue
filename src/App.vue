@@ -1,46 +1,39 @@
 <template>
   <div id="app">
-    <transition :name="transitionName" @after-leave="afterLeave">
+    <MiSkeleton v-show="viewLoading"/>
+    <transition v-show="!viewLoading"
+      :name="transitionName" @after-leave="afterLeave">
       <router-view/>
     </transition>
-    <!-- <TheFooter /> -->
   </div>
 </template>
 
 <script>
-// import TheFooter from '@/tmp/TheFooter.vue'
-import TheFooter from '@/components/TheFooter.vue'
-import bus from '@/bus.js'
+import MiSkeleton from '@/components/MiSkeleton.vue'
+import {mapState, mapMutations} from 'vuex'
 
 export default {
   components: {
-    TheFooter
+    MiSkeleton
   },
-  data () {
-    return {
-      transitionName: 'page-left'
-    }
-  },
+  computed: mapState(['viewLoading', 'transitionName']),
   watch: {
     '$route' (to, from) {
       // 页面刷新时不需要过渡
       if (!from.name) {
-        this.transitionName = ''
+        this.setTransitionName('')
         return
       }
       if (to.meta.index && from.meta.index) {
-        this.transitionName = to.meta.index < from.meta.index ? 'page-right' : 'page-left'
+        let transitionName = to.meta.index < from.meta.index ? 'page-right' : 'page-left'
+        this.setTransitionName(transitionName)
       }
     }
   },
-  created () {
-    bus.$on('transitionName', (val) => {
-      this.transitionName = val
-    })
-  },
   methods: {
+    ...mapMutations(['setTransitionName']),
     afterLeave () {
-      this.transitionName = 'page-left'
+      this.setTransitionName('page-left')
     }
   }
 }

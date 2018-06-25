@@ -20,6 +20,7 @@ Vue.prototype.$NProgress = NProgress
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
+  store.commit('setViewLoading', true)
   NProgress.start()
   next()
 })

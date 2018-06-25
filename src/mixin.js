@@ -1,9 +1,8 @@
-import bus from '@/bus.js'
 const mixins = {
   methods: {
     goback () {
       this.$router.go(-1)
-      bus.$emit('transitionName', 'page-right')
+      this.$store.commit('setTransitionName', 'page-right')
     }
   }
 }
