@@ -1,6 +1,6 @@
 <template>
   <footer class="app-bottom-navigator-wrapper app-shell-footer">
-    <div v-if="!loading" class="fill-height box-flex align-center">
+    <div class="fill-height box-flex align-center">
       <router-link
         v-for="nav in navigation"
         :key="nav.icon"
@@ -45,14 +45,8 @@ const navigation = [
 export default {
   data () {
     return {
-      navigation,
-      loading: true
+      navigation
     }
-  },
-  created () {
-    bus.$on('loading', (val) => {
-      this.loading = val
-    })
   }
 }
 </script>

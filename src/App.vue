@@ -1,20 +1,20 @@
 <template>
   <div id="app">
-    <transition :name="transitionName" @after-leave="afterLeave">
+    <MiSkeleton v-show="$store.state.viewLoading"/>
+    <transition v-show="!$store.state.viewLoading"
+      :name="transitionName" @after-leave="afterLeave">
       <router-view/>
     </transition>
-    <TheFooter />
   </div>
 </template>
 
 <script>
-// import TheFooter from '@/tmp/TheFooter.vue'
-import TheFooter from '@/components/TheFooter.vue'
+import MiSkeleton from '@/components/MiSkeleton.vue'
 import bus from '@/bus.js'
 
 export default {
   components: {
-    TheFooter
+    MiSkeleton
   },
   data () {
     return {

@@ -1,8 +1,7 @@
 <template>
   <div class="app-shell">
-    <MiSearch :loading="loading" title="分类"/>
-    <img v-if="loading" src="../assets/images/loading.png" class="loading_img">
-    <div v-else class="app-view-wrapper">
+    <MiSearch title="分类"/>
+    <div class="app-view-wrapper">
       <div class="container app-view app-view-with-header app-view-with-footer">
         <div class="list-navbar">
           <ul>
@@ -40,25 +39,26 @@
         </div>
       </div>
     </div>
+    <TheFooter />
   </div>
 </template>
 
 <script>
+import TheFooter from '@/components/TheFooter.vue'
 import MiSearch from '@/components/MiSearch.vue'
 import CategoryGroup from '@/components/CategoryGroup.vue'
-import bus from '@/bus.js'
 import fetch from '@/api/fetch.js'
 
 export default {
   components: {
     MiSearch,
-    CategoryGroup
+    CategoryGroup,
+    TheFooter
   },
   data () {
     return {
       categoryList: null,
       curIndex: 0,
-      loading: true,
       offsetTop: [],
       scrollTimer: null
     }
@@ -85,9 +85,8 @@ export default {
       })
     },
     setLists (res) {
+      this.$store.commit('setViewLoading', false)
       this.$NProgress.done()
-      this.loading = false
-      bus.$emit('loading', false)
       this.categoryList = res.data.lists
       this.$nextTick(() => {
         this.categoryList.forEach((item, index) => {
@@ -223,8 +222,5 @@ export default {
   display: block;
   position: relative;
   overflow: hidden;
-}
-.loading {
-  box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.12);
 }
 </style>

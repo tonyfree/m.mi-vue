@@ -1,10 +1,6 @@
 <template>
 <div class="app-shell">
-  <template v-if="loading">
-    <header class="app-header-wrapper app-shell-header loading"></header>
-    <img src="../assets/images/loading.png" class="loading_img">
-  </template>
-  <div v-else class="app-view-wrapper">
+  <div class="app-view-wrapper">
     <div class="app-view app-view-with-footer">
       <header class="header">
         <div class="app-header-wrapper">
@@ -49,23 +45,26 @@
       </transition-group>
     </div>
   </div>
+  <TheFooter />
 </div>
 </template>
 
 <script>
 import Swiper from 'swiper'
 import fetch from '@/api/fetch.js'
-import bus from '@/bus.js'
+import TheFooter from '@/components/TheFooter.vue'
 
 export default {
+  components: {
+    TheFooter
+  },
   data () {
     return {
       navList: null,
       curIndex: 0,
       homeSwiper: null,
       slidesPerView: 6,
-      transitionName: '',
-      loading: true
+      transitionName: ''
     }
   },
   watch: {
@@ -105,8 +104,6 @@ export default {
       })
     },
     setNavList (res) {
-      this.loading = false
-      bus.$emit('loading', false)
       let list = res.data.list
       list.forEach(item => {
         item.hasData = false
@@ -140,6 +137,7 @@ export default {
       }).then(res => {
         this.navList[this.curIndex].hasData = true
         this.$NProgress.done()
+        this.$store.commit('setViewLoading', false)
       })
     },
     toUser () {

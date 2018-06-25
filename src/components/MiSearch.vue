@@ -1,6 +1,6 @@
 <template>
-  <header class="app-header-wrapper app-shell-header" :class="loading?'loading':''">
-    <template v-if="!loading">
+  <header class="app-header-wrapper app-shell-header">
+    <template>
       <div class="app-header-left" @click="goback">
         <a class="app-header-item">
           <i class="iconfont icon-back"></i>
@@ -21,10 +21,6 @@
 <script>
 export default {
   props: {
-    loading: {
-      type: Boolean,
-      default: false
-    },
     title: {
       type: String,
       default: ''
@@ -40,9 +36,6 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-}
-.loading {
-  box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.12);
 }
 .app-header-title {
   width: 100%;
