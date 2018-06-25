@@ -2,7 +2,7 @@
   <div id="app">
     <MiSkeleton v-show="$store.state.viewLoading"/>
     <transition v-show="!$store.state.viewLoading"
-      :name="transitionName" @after-leave="afterLeave">
+      :name="$store.state.transitionName" @after-leave="afterLeave">
       <router-view/>
     </transition>
   </div>
@@ -10,37 +10,27 @@
 
 <script>
 import MiSkeleton from '@/components/MiSkeleton.vue'
-import bus from '@/bus.js'
 
 export default {
   components: {
     MiSkeleton
   },
-  data () {
-    return {
-      transitionName: 'page-left'
-    }
-  },
   watch: {
     '$route' (to, from) {
       // 页面刷新时不需要过渡
       if (!from.name) {
-        this.transitionName = ''
+        this.$store.commit('setTransitionName', '')
         return
       }
       if (to.meta.index && from.meta.index) {
-        this.transitionName = to.meta.index < from.meta.index ? 'page-right' : 'page-left'
+        let transitionName = to.meta.index < from.meta.index ? 'page-right' : 'page-left'
+        this.$store.commit('setTransitionName', transitionName)
       }
     }
   },
-  created () {
-    bus.$on('transitionName', (val) => {
-      this.transitionName = val
-    })
-  },
   methods: {
     afterLeave () {
-      this.transitionName = 'page-left'
+      this.$store.commit('setTransitionName', 'page-left')
     }
   }
 }

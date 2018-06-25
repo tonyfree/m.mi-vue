@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import bus from '../bus.js'
 const navigation = [
   {
     name: '首页',
