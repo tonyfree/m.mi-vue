@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <MiSkeleton v-show="$store.state.viewLoading"/>
-    <transition v-show="!$store.state.viewLoading"
-      :name="$store.state.transitionName" @after-leave="afterLeave">
+    <MiSkeleton v-show="viewLoading"/>
+    <transition v-show="!viewLoading"
+      :name="transitionName" @after-leave="afterLeave">
       <router-view/>
     </transition>
   </div>
@@ -10,27 +10,30 @@
 
 <script>
 import MiSkeleton from '@/components/MiSkeleton.vue'
+import {mapState, mapMutations} from 'vuex'
 
 export default {
   components: {
     MiSkeleton
   },
+  computed: mapState(['viewLoading', 'transitionName']),
   watch: {
     '$route' (to, from) {
       // 页面刷新时不需要过渡
       if (!from.name) {
-        this.$store.commit('setTransitionName', '')
+        this.setTransitionName('')
         return
       }
       if (to.meta.index && from.meta.index) {
         let transitionName = to.meta.index < from.meta.index ? 'page-right' : 'page-left'
-        this.$store.commit('setTransitionName', transitionName)
+        this.setTransitionName(transitionName)
       }
     }
   },
   methods: {
+    ...mapMutations(['setTransitionName']),
     afterLeave () {
-      this.$store.commit('setTransitionName', 'page-left')
+      this.setTransitionName('page-left')
     }
   }
 }
