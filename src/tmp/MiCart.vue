@@ -320,17 +320,17 @@
             <div class="ui-line"></div>
           </div>
         </div>
+        <div class="bottom-submit box-flex">
+          <div class="price-box flex">
+            <span>共13件 金额：</span>
+            <br>
+            <strong>10153</strong>
+            <span>元</span>
+          </div>
+          <a href="/category" class="btn disable black flex">继续购物</a>
+          <a class="btn flex">去结算</a>
+        </div>
       </div>
-    </div>
-    <div class="bottom-submit box-flex">
-      <div class="price-box flex">
-        <span>共13件 金额：</span>
-        <br>
-        <strong>10153</strong>
-        <span>元</span>
-      </div>
-      <a href="/category" class="btn disable black flex">继续购物</a>
-      <a class="btn flex">去结算</a>
     </div>
   </div>
 </template>
