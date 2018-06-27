@@ -52,85 +52,6 @@ export default {
   text-size-adjust: none;
 }
 
-/* 通用样式 */
-.app-shell {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.app-view-wrapper {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  max-width: 375px;
-  margin: 0 auto;
-}
-.app-view {
-  position: absolute;
-  z-index: 999;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  /* height: 100%; */
-  overflow-x: hidden;
-  overflow-y: auto;
-  will-change: transform;
-  background: #fff;
-  color: #3c3c3c;
-}
-.app-view-with-footer {
-  padding-bottom: 52px;
-}
-.app-view-with-header {
-  padding-top: 50px;
-}
-.align-center {
-  align-items: center;
-}
-.ui-flex {
-  display: flex;
-}
-.exposure {
-  display: block;
-}
-.flex {
-  flex: 1 1 auto;
-}
-.box-flex {
-  display: flex;
-}
-.layout {
-  display: flex;
-}
-.layout.wrap {
-  flex-wrap: wrap;
-}
-.layout.row {
-  flex-direction: row;
-}
-.justify-space-between {
-  justify-content: space-between;
-}
-.align-content-start {
-  align-content: flex-start;
-}
-.justify-start {
-  justify-content: flex-start;
-}
-.align-start {
-  align-items: flex-start;
-}
-.ui-flex {
-  display: flex;
-}
-
 /* 头部通用样式 */
 .app-header-wrapper {
   display: flex;
@@ -178,9 +99,5 @@ export default {
 }
 .page-right-leave-to {
   transform: translateX(100%);
-}
-
-.loading_img {
-  width: 100%;
 }
 </style>
