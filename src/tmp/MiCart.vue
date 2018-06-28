@@ -335,3 +335,51 @@
   </div>
 </template>
 
+<style scoped>
+.nologin>a {
+  height: 52px;
+  padding: 0 28px 0 16px;
+  position: relative;
+  color: rgba(0,0,0,.54);
+}
+.nologin>a:after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-left: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  transform: translate3d(0,-50%,0) rotate(135deg);
+}
+.nologin>a span {
+  font-size: 16px;
+  color: rgba(0,0,0,.87);
+  display: block;
+  text-align: left;
+}
+.nologin>a em {
+  font-style: normal;
+  font-size: 14px;
+  text-align: right;
+}
+.cart-list {
+  background: #fff;
+}
+.cart-list .item {
+  border-bottom: 1px solid #f6f6f6;
+  line-height: 0;
+}
+.cart-list .item .choose {
+  -webkit-box-flex: 0;
+  flex: none;
+  width: 30px;
+  padding: 0 10px;
+  height: 90px;
+}
+.cart-list .item .choose.checked[data-v-5c6b2c62] {
+  background: url(//s1.mi.com/m/images/m/check_press.png) 50% 50% no-repeat;
+  background-size: .4rem .4rem;
+}
+</style>

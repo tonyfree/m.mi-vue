@@ -92,6 +92,10 @@
 .justify-start {
   justify-content: flex-start;
 }
+.justify-center {
+  -webkit-box-pack: center;
+  justify-content: center;
+}
 
 .pt1-2x {
   padding-top: 2px;
