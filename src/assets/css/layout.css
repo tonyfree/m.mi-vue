@@ -92,6 +92,10 @@
 .justify-start {
   justify-content: flex-start;
 }
+.justify-center {
+  -webkit-box-pack: center;
+  justify-content: center;
+}
 
 .pt1-2x {
   padding-top: 2px;
@@ -117,6 +121,15 @@
   width: 49%;
 }
 
+.image-icons {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+}
 .price {
   position: relative;
   padding-left: .5em;
