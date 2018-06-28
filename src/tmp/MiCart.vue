@@ -378,8 +378,158 @@
   padding: 0 10px;
   height: 90px;
 }
-.cart-list .item .choose.checked[data-v-5c6b2c62] {
+.cart-list .item .choose.checked {
   background: url(//s1.mi.com/m/images/m/check_press.png) 50% 50% no-repeat;
-  background-size: .4rem .4rem;
+  background-size: 20px 20px;
+}
+.cart-list .item .imgProduct {
+  -webkit-box-flex: 0;
+  flex: none;
+  display: block;
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-right: 10px;
+  border: 1px solid #eee;
+  border-radius: 2px;
+}
+.cart-list .item .imgProduct img {
+  width: auto;
+  height: 100%;
+}
+.cart-list .item .info {
+  text-align: left;
+}
+.cart-list .item .info .name {
+  font-size: 14px;
+  line-height: 16px;
+  color: #666;
+  margin-bottom: 6px;
+  margin-right: 15px;
+  display: -webkit-box;
+  display: box;
+  box-align: start;
+}
+.cart-list .item .info .name span {
+  display: block;
+}
+.cart-list .item .info .price-without {
+  padding: 6px 0;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 6px;
+}
+.cart-list .item .info .price-without span {
+  margin-right: 5px;
+}
+.cart-list .item .info .xm-input-number {
+  display: inline-block;
+  border: 1px solid #eee;
+}
+.cart-list .item .info .xm-input-number .input-sub {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  vertical-align: middle;
+  background-color: #fafafa;
+  text-align: center;
+}
+.cart-list .item .info .xm-input-number .image-icons {
+  opacity: .3;
+  width: 30px;
+  height: 30px;
+  background-size: 15px 15px;
+}
+.cart-list .item .info .xm-input-number .icon-line {
+  background-image: url(../assets/images/icon-line.png);
+}
+.cart-list .item .info .xm-input-number .input-num {
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 30px;
+  padding: 0 6px;
+  text-align: center;
+  font-size: 16px;
+}
+.cart-list .item .info .xm-input-number .input-add, 
+.cart-list .item .info .xm-input-number .input-sub {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  vertical-align: middle;
+  background-color: #fafafa;
+  text-align: center;
+}
+.cart-list .item .info .xm-input-number .input-add.active, 
+.cart-list .item .info .xm-input-number .input-sub.active {
+  background-color: #f4f4f4;
+}
+.cart-list .item .info .xm-input-number .input-add.active .image-icon, 
+.cart-list .item .info .xm-input-number .input-sub.active .image-icons {
+  opacity: 1;
+}
+.cart-list .item .info .xm-input-number .icon-cross {
+  background-image: url(../assets/images/icon-cross.png);
+}
+.cart-list .item .info .delete {
+  float: right;
+  margin-right: 10px;
+  display: block;
+}
+.cart-list .item .info .delete .icon-delete {
+  width: 30px;
+  height: 30px;
+  background-image: url(../assets/images/icon-delete.png);
+}
+.cart-list .item .append .insurance {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  border: 1px solid #f6f6f6;
+  padding: 7px 10px;
+  border-radius: 2px;
+  background: #f6f6f6;
+  font-size: 12px;
+  margin: 0 10px 10px;
+}
+.cart-list .item .append .insurance .i1 {
+  margin-right: 6px;
+}
+.cart-list .item .append .insurance .i1 img {
+  width: 25px;
+  height: 25px;
+}
+.cart-list .item .append .insurance .i2 {
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  flex: 1;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-right: 10px;
+}
+.cart-list .item .append .insurance .i2 span {
+  -webkit-box-flex: 1;
+  flex: 1;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  overflow: hidden;
+  height: 25px;
+  line-height: 25px;
+  text-align: left;
+}
+.cart-list .item .append .insurance .i3 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 38px;
+  color: #ff5722;
 }
 </style>
