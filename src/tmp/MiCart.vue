@@ -57,16 +57,18 @@
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="insurance">
-                  <div class="i1">
-                    <img src="//s1.mi.com/m/images/m/insurance.png" lazy="loaded">
-                  </div>
-                  <div class="i2">
-                    <span> 电视挂装服务 190元</span>
-                  </div>
-                  <div class="i3">
-                    <span>选购</span>
+                  <div>
+                    <div class="insurance">
+                      <div class="i1">
+                        <img src="//s1.mi.com/m/images/m/insurance.png" lazy="loaded">
+                      </div>
+                      <div class="i2">
+                        <span> 电视挂装服务 190元</span>
+                      </div>
+                      <div class="i3">
+                        <span>选购</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </li>
@@ -125,16 +127,16 @@
                         <div class="input-sub">
                           <i class="image-icons icon-line"></i>
                         </div>
+                        <div class="input-num">
+                          <span>1</span>
+                        </div>
+                        <div class="input-add active">
+                          <i class="image-icons icon-cross"></i>
+                        </div>
                       </div>  
-                      <div class="input-num">
-                        <span>1</span>
+                      <div class="delete">
+                        <i class="image-icons icon-delete"></i>
                       </div>
-                      <div class="input-add active">
-                        <i class="image-icons icon-cross"></i>
-                      </div>
-                    </div>
-                    <div class="delete">
-                      <i class="image-icons icon-delete"></i>
                     </div>
                   </div>
                 </div>
@@ -371,6 +373,9 @@
   border-bottom: 1px solid #f6f6f6;
   line-height: 0;
 }
+.cart-list .item .ui-flex {
+  padding: 12px 0;
+}
 .cart-list .item .choose {
   -webkit-box-flex: 0;
   flex: none;
@@ -531,5 +536,59 @@
   align-items: center;
   width: 38px;
   color: #ff5722;
+}
+.cart-list .point-box {
+  background: #fff;
+}
+.cart-list .point-box .point {
+  font-size: 11px;
+  color: #999;
+  border-top: 1px solid #f6f6f6;
+  padding: 10px 15px;
+  text-align: left;
+}
+.cart-list .point-box .point .act.act_gift {
+  background: #5b77d6;
+}
+.cart-list .point-box .point .act {
+  border-radius: 2px;
+  color: #fff;
+  padding: 1px 3px;
+  margin-right: 5px;
+}
+.cart-list .point-box .point .act.act_special {
+  background: #e53935;
+}
+.bottom-submit {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 99;
+  box-shadow: 0 3px 14px 2px rgba(0,0,0,.12);
+}
+.bottom-submit .price-box {
+  font-size: 13px;
+  color: #999;
+  width: 100%;
+  text-align: center;
+  padding-top: 7px;
+}
+.bottom-submit .price-box strong {
+  font-size: 20px;
+  color: #ff5722;
+  margin-right: .2em;
+}
+.bottom-submit .disable {
+  background: #f4f4f4;
+  /* border: 1px solid #f4f4f4; */
+}
+.bottom-submit .black {
+  color: #333;
+}
+.bottom-submit .btn {
+  display: block;
+  width: 100%;
 }
 </style>
