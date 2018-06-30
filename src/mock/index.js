@@ -5,6 +5,7 @@ import {commodity} from './commodity.js'
 import {forRecommend} from './forRecommend.js'
 import {productView} from './productView.js'
 import {recommend} from './recommend.js'
+import {cartIndex, cartSelect, cartEdit, cartAdd, cartDelete, cartSelService} from './cart.js'
 
 export default {
   login,
@@ -15,5 +16,11 @@ export default {
   commodity,
   forRecommend,
   productView,
-  recommend
+  recommend,
+  cartIndex,
+  cartSelect,
+  cartEdit,
+  cartAdd,
+  cartDelete,
+  cartSelService
 }

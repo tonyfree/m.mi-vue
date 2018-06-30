@@ -159,3 +159,24 @@ let cartIndex = Mock.mock({
     ]
   }
 })
+
+let response = {
+  "code": 0,
+  "description": "success",
+  "result": "ok"
+}
+
+let cartSelect = Mock.mock(response)
+let cartEdit = Mock.mock(response)
+let cartAdd = Mock.mock(response)
+let cartDelete = Mock.mock(response)
+let cartSelService = Mock.mock(response)
+
+export default {
+  cartIndex,
+  cartSelect,
+  cartEdit,
+  cartAdd,
+  cartDelete,
+  cartSelService
+}
