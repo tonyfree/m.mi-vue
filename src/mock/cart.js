@@ -172,7 +172,7 @@ let cartAdd = Mock.mock(response)
 let cartDelete = Mock.mock(response)
 let cartSelService = Mock.mock(response)
 
-export default {
+export {
   cartIndex,
   cartSelect,
   cartEdit,

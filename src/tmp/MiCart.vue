@@ -133,7 +133,7 @@
                         <div class="input-add active">
                           <i class="image-icons icon-cross"></i>
                         </div>
-                      </div>  
+                      </div>
                       <div class="delete">
                         <i class="image-icons icon-delete"></i>
                       </div>
@@ -509,7 +509,7 @@
   text-align: center;
   font-size: 16px;
 }
-.cart-list .item .info .xm-input-number .input-add, 
+.cart-list .item .info .xm-input-number .input-add,
 .cart-list .item .info .xm-input-number .input-sub {
   display: inline-block;
   width: 30px;
@@ -519,11 +519,11 @@
   background-color: #fafafa;
   text-align: center;
 }
-.cart-list .item .info .xm-input-number .input-add.active, 
+.cart-list .item .info .xm-input-number .input-add.active,
 .cart-list .item .info .xm-input-number .input-sub.active {
   background-color: #f4f4f4;
 }
-.cart-list .item .info .xm-input-number .input-add.active .image-icon, 
+.cart-list .item .info .xm-input-number .input-add.active .image-icon,
 .cart-list .item .info .xm-input-number .input-sub.active .image-icons {
   opacity: 1;
 }
