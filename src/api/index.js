@@ -9,7 +9,13 @@ const url = {
   commodity: '/api/commodityList',
   forRecommend: '/api/forRecommend',
   productView: '/api/productView',
-  recommend: '/api/recommend'
+  recommend: '/api/recommend',
+  cartIndex: '/cart/index',
+  cartSelect: '/cart/selcart',
+  cartEdit: '/cart/edit',
+  cartAdd: '/cart/add',
+  cartDelete: '/cart/del',
+  cartSelService: '/cart/selService'
 }
 
 Object.keys(url).forEach(key => {
