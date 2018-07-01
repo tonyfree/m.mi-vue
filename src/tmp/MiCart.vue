@@ -13,7 +13,9 @@
             <ol>
               <li class="item">
                 <div class="ui-flex align-center justify-center">
-                  <div class="choose flex checked"></div>
+                  <div class="choose flex">
+                    <i class="iconfont icon-round"></i>
+                  </div>
                   <a href="/commodity/detail/2175200009" class="imgProduct flex">
                     <img src="//i1.mifile.cn/a1/pms_1516011154.79573723!180x1800.jpg" lazy="loaded">
                   </a>
@@ -28,17 +30,17 @@
                     <div class="num">
                       <div class="xm-input-number">
                         <div class="input-sub">
-                          <i class="image-icons icon-line"></i>
+                          <i class="iconfont icon-move"></i>
                         </div>
                         <div class="input-num">
                           <span>1</span>
                         </div>
                         <div class="input-add active">
-                          <i class="image-icons icon-cross"></i>
+                          <i class="iconfont icon-add"></i>
                         </div>
                       </div>
                       <div class="delete">
-                        <i class="image-icons icon-delete"></i>
+                        <i class="iconfont icon-delete"></i>
                       </div>
                     </div>
                   </div>
@@ -91,17 +93,17 @@
                     <div class="num">
                       <div class="xm-input-number">
                         <div class="input-sub">
-                          <i class="image-icons icon-line"></i>
+                          <i class="iconfont icon-move"></i>
                         </div>
                         <div class="input-num">
                           <span>1</span>
                         </div>
                         <div class="input-add">
-                          <i class="image-icons icon-cross"></i>
+                          <i class="iconfont icon-add"></i>
                         </div>
                       </div>
                       <div class="delete">
-                        <i class="image-icons icon-delete"></i>
+                        <i class="iconfont icon-delete"></i>
                       </div>
                     </div>
                   </div>
@@ -110,7 +112,9 @@
               </li>
               <li class="item">
                 <div class="ui-flex align-center justify-center">
-                  <div class="choose flex checked"></div>
+                  <div class="choose flex checked">
+                    <i class="iconfont icon-roundcheckfill"></i>
+                  </div>
                   <a href="/commodity/detail/2181500029" class="imgProduct flex">
                     <img src="//i1.mifile.cn/a1/pms_1524621101.53792312!180x1800.jpg" lazy="loaded">
                   </a>
@@ -125,17 +129,17 @@
                     <div class="num">
                       <div class="xm-input-number">
                         <div class="input-sub">
-                          <i class="image-icons icon-line"></i>
+                          <i class="iconfont icon-move"></i>
                         </div>
                         <div class="input-num">
                           <span>1</span>
                         </div>
                         <div class="input-add active">
-                          <i class="image-icons icon-cross"></i>
+                          <i class="iconfont icon-add"></i>
                         </div>
-                      </div>  
+                      </div>
                       <div class="delete">
-                        <i class="image-icons icon-delete"></i>
+                        <i class="iconfont icon-delete"></i>
                       </div>
                     </div>
                   </div>
@@ -161,17 +165,17 @@
                     <div class="num">
                       <div class="xm-input-number">
                         <div class="input-sub">
-                          <i class="image-icons icon-line"></i>
+                          <i class="iconfont icon-move"></i>
                         </div>
                         <div class="input-num">
                           <span>1</span>
                         </div>
                         <div class="input-add">
-                          <i class="image-icons icon-cross"></i>
+                          <i class="iconfont icon-add"></i>
                         </div>
                       </div>
                       <div class="delete">
-                        <i class="image-icons icon-delete"></i>
+                        <i class="iconfont icon-delete"></i>
                       </div>
                     </div>
                   </div>
@@ -195,17 +199,17 @@
                     <div class="num">
                       <div class="xm-input-number">
                         <div class="input-sub active">
-                          <i class="image-icons icon-line"></i>
+                          <i class="iconfont icon-move"></i>
                         </div>
                         <div class="input-num">
                           <span>2</span>
                         </div>
                         <div class="input-add">
-                          <i class="image-icons icon-cross"></i>
+                          <i class="iconfont icon-add"></i>
                         </div>
                       </div>
                       <div class="delete">
-                        <i class="image-icons icon-delete"></i>
+                        <i class="iconfont icon-delete"></i>
                       </div>
                     </div>
                   </div>
@@ -243,17 +247,17 @@
                     <div class="num">
                       <div class="xm-input-number">
                         <div class="input-sub active">
-                          <i class="image-icons icon-line"></i>
+                          <i class="iconfont icon-move"></i>
                         </div>
                         <div class="input-num">
                           <span>2</span>
                         </div>
                         <div class="input-add">
-                          <i class="image-icons icon-cross"></i>
+                          <i class="iconfont icon-add"></i>
                         </div>
                       </div>
                       <div class="delete">
-                        <i class="image-icons icon-delete"></i>
+                        <i class="iconfont icon-delete"></i>
                       </div>
                     </div>
                   </div>
@@ -287,13 +291,13 @@
                     <div class="num">
                       <div class="xm-input-number">
                         <div class="input-sub active">
-                          <i class="image-icons icon-line"></i>
+                          <i class="iconfont icon-move"></i>
                         </div>
                         <div class="input-num">
                           <span>5</span>
                         </div>
                         <div class="input-add">
-                          <i class="image-icons icon-cross"></i>
+                          <i class="iconfont icon-add"></i>
                         </div>
                       </div>
                     </div>
@@ -333,10 +337,10 @@
           <a class="btn flex">去结算</a>
         </div>
         <div class="insurance-pop">
-          <div class="ui-mask"></div>
-          <div class="pop">
+          <div class="ui-mask" style="display:none;"></div>
+          <div class="pop" style="display:none;">
             <div class="close">
-              <i class="image-icons icon-close"></i>
+              <i class="image-icons iconfont icon-close"></i>
             </div>
             <div class="h1">购买服务</div>
             <div class="max5">
@@ -344,7 +348,8 @@
                 <div class="option-title pt32">
                   会员服务
                   <a href="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/72d5bc482304.html" class="service-url">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjhFNUZBNEJBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjhFNUZBNENBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGNEE0ODY5NEE2NzUxMUU3QkY4M0QxMUYzMTU1MkNERiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyOEU1RkE0QUE2ODYxMUU3QkY4M0QxMUYzMTU1MkNERiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqoKySAAAALWSURBVHjatJfPS1RRFMef9002Q9BiRlPIzE2TusgWQZQFFS364aJwUZBEYW3atAv6S1y0K3chSEUbqQaSQoqKirJGwppxMaZvIaSTaPo98L1xebxf900d+KDMu/d+7zn33PPOa3KSmQuKYA/YBQogy2d1sAgqoAy+gvW4BZtinufAEXAIzINpMAsWwIoxpgV0gW7QBl6ASWOMlfB+MEAPnoGfCaMjmzjBCD0C7xLOcxQ4D24xrGlN5t7mWirOYxkwBJrBPfDbacy2gcvgFxgFf8KEz4F2cCckQeQ8DzLJJMHyoAo8JtZUSGIOM0fGzR+19YHDFA3ytAPcBL0UzfH37UyoXibYZ7BmzNsAH8EZel4zhWWRq+AuM9Zv4tkNjpNMnQAl8IZCeW6gwCiWffPXed0ugFeyMS18nLt5GXJWQ/RKbAS8Z3g9eiAh7qF4F6/Smm+NJa6xA3xT9Fru6ZMQ0TzP1KFANWTclO9YguwptVzF+zbP6uNELOqFJI82z7fZIFukVjFD4emYBccSXJ2dxv9zEeNEa6/ihO8N3tcO5onDxKpGjP0hmuJxq0U5DLJ9YJAZX2WhiDIJdUuGb5l6StFBFhTt6WjUi4Emz7OZBjw9Zog+5r1ObIreZi1Fc8aZ2orK3LpipWpNkUy6ZJYs54rWgmJC7E4Z7nKKOaI15zLcB8Bri8mSIDOs00uWwqekxit2GG0s8DbCcfc1yAqs1V9cvraaWeQ/WZyx3qxnITzASM3olmSSjVrSVuc0uE5sWqFuav3thSR0D8Altiv/2raCi+ChLjBmB1Jjh9gP3vIIwmwL29wy/8b15FfYCJSSNHvSjaz+r2bP9Q0ULz+ATvZIlRTXxTzTa3zz3TdFg4S1uLwzl9kjtfMYli0a+rPgpFFON9J8whxlu1JjwZhlJ2F+whTYa/Xwmknv9jztJ0zQR1uRIcwbtXqFd7nCYpToo21TgAEAWy6shL93DD4AAAAASUVORK5CYII=">
+                    <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjhFNUZBNEJBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjhFNUZBNENBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGNEE0ODY5NEE2NzUxMUU3QkY4M0QxMUYzMTU1MkNERiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyOEU1RkE0QUE2ODYxMUU3QkY4M0QxMUYzMTU1MkNERiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqoKySAAAALWSURBVHjatJfPS1RRFMef9002Q9BiRlPIzE2TusgWQZQFFS364aJwUZBEYW3atAv6S1y0K3chSEUbqQaSQoqKirJGwppxMaZvIaSTaPo98L1xebxf900d+KDMu/d+7zn33PPOa3KSmQuKYA/YBQogy2d1sAgqoAy+gvW4BZtinufAEXAIzINpMAsWwIoxpgV0gW7QBl6ASWOMlfB+MEAPnoGfCaMjmzjBCD0C7xLOcxQ4D24xrGlN5t7mWirOYxkwBJrBPfDbacy2gcvgFxgFf8KEz4F2cCckQeQ8DzLJJMHyoAo8JtZUSGIOM0fGzR+19YHDFA3ytAPcBL0UzfH37UyoXibYZ7BmzNsAH8EZel4zhWWRq+AuM9Zv4tkNjpNMnQAl8IZCeW6gwCiWffPXed0ugFeyMS18nLt5GXJWQ/RKbAS8Z3g9eiAh7qF4F6/Smm+NJa6xA3xT9Fru6ZMQ0TzP1KFANWTclO9YguwptVzF+zbP6uNELOqFJI82z7fZIFukVjFD4emYBccSXJ2dxv9zEeNEa6/ihO8N3tcO5onDxKpGjP0hmuJxq0U5DLJ9YJAZX2WhiDIJdUuGb5l6StFBFhTt6WjUi4Emz7OZBjw9Zog+5r1ObIreZi1Fc8aZ2orK3LpipWpNkUy6ZJYs54rWgmJC7E4Z7nKKOaI15zLcB8Bri8mSIDOs00uWwqekxit2GG0s8DbCcfc1yAqs1V9cvraaWeQ/WZyx3qxnITzASM3olmSSjVrSVuc0uE5sWqFuav3thSR0D8Altiv/2raCi+ChLjBmB1Jjh9gP3vIIwmwL29wy/8b15FfYCJSSNHvSjaz+r2bP9Q0ULz+ATvZIlRTXxTzTa3zz3TdFg4S1uLwzl9kjtfMYli0a+rPgpFFON9J8whxlu1JjwZhlJ2F+whTYa/Xwmknv9jztJ0zQR1uRIcwbtXqFd7nCYpToo21TgAEAWy6shL93DD4AAAAASUVORK5CYII="> -->
+                    <i class="iconfont icon-question"></i>
                   </a>
                 </div>
                 <div class="options-group">
@@ -359,7 +364,8 @@
                 <div class="option-title pt32">
                   安装服务
                   <a href="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/a739137749cc.html" class="service-url">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjhFNUZBNEJBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjhFNUZBNENBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGNEE0ODY5NEE2NzUxMUU3QkY4M0QxMUYzMTU1MkNERiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyOEU1RkE0QUE2ODYxMUU3QkY4M0QxMUYzMTU1MkNERiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqoKySAAAALWSURBVHjatJfPS1RRFMef9002Q9BiRlPIzE2TusgWQZQFFS364aJwUZBEYW3atAv6S1y0K3chSEUbqQaSQoqKirJGwppxMaZvIaSTaPo98L1xebxf900d+KDMu/d+7zn33PPOa3KSmQuKYA/YBQogy2d1sAgqoAy+gvW4BZtinufAEXAIzINpMAsWwIoxpgV0gW7QBl6ASWOMlfB+MEAPnoGfCaMjmzjBCD0C7xLOcxQ4D24xrGlN5t7mWirOYxkwBJrBPfDbacy2gcvgFxgFf8KEz4F2cCckQeQ8DzLJJMHyoAo8JtZUSGIOM0fGzR+19YHDFA3ytAPcBL0UzfH37UyoXibYZ7BmzNsAH8EZel4zhWWRq+AuM9Zv4tkNjpNMnQAl8IZCeW6gwCiWffPXed0ugFeyMS18nLt5GXJWQ/RKbAS8Z3g9eiAh7qF4F6/Smm+NJa6xA3xT9Fru6ZMQ0TzP1KFANWTclO9YguwptVzF+zbP6uNELOqFJI82z7fZIFukVjFD4emYBccSXJ2dxv9zEeNEa6/ihO8N3tcO5onDxKpGjP0hmuJxq0U5DLJ9YJAZX2WhiDIJdUuGb5l6StFBFhTt6WjUi4Emz7OZBjw9Zog+5r1ObIreZi1Fc8aZ2orK3LpipWpNkUy6ZJYs54rWgmJC7E4Z7nKKOaI15zLcB8Bri8mSIDOs00uWwqekxit2GG0s8DbCcfc1yAqs1V9cvraaWeQ/WZyx3qxnITzASM3olmSSjVrSVuc0uE5sWqFuav3thSR0D8Altiv/2raCi+ChLjBmB1Jjh9gP3vIIwmwL29wy/8b15FfYCJSSNHvSjaz+r2bP9Q0ULz+ATvZIlRTXxTzTa3zz3TdFg4S1uLwzl9kjtfMYli0a+rPgpFFON9J8whxlu1JjwZhlJ2F+whTYa/Xwmknv9jztJ0zQR1uRIcwbtXqFd7nCYpToo21TgAEAWy6shL93DD4AAAAASUVORK5CYII=">
+                    <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjhFNUZBNEJBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjhFNUZBNENBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGNEE0ODY5NEE2NzUxMUU3QkY4M0QxMUYzMTU1MkNERiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyOEU1RkE0QUE2ODYxMUU3QkY4M0QxMUYzMTU1MkNERiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqoKySAAAALWSURBVHjatJfPS1RRFMef9002Q9BiRlPIzE2TusgWQZQFFS364aJwUZBEYW3atAv6S1y0K3chSEUbqQaSQoqKirJGwppxMaZvIaSTaPo98L1xebxf900d+KDMu/d+7zn33PPOa3KSmQuKYA/YBQogy2d1sAgqoAy+gvW4BZtinufAEXAIzINpMAsWwIoxpgV0gW7QBl6ASWOMlfB+MEAPnoGfCaMjmzjBCD0C7xLOcxQ4D24xrGlN5t7mWirOYxkwBJrBPfDbacy2gcvgFxgFf8KEz4F2cCckQeQ8DzLJJMHyoAo8JtZUSGIOM0fGzR+19YHDFA3ytAPcBL0UzfH37UyoXibYZ7BmzNsAH8EZel4zhWWRq+AuM9Zv4tkNjpNMnQAl8IZCeW6gwCiWffPXed0ugFeyMS18nLt5GXJWQ/RKbAS8Z3g9eiAh7qF4F6/Smm+NJa6xA3xT9Fru6ZMQ0TzP1KFANWTclO9YguwptVzF+zbP6uNELOqFJI82z7fZIFukVjFD4emYBccSXJ2dxv9zEeNEa6/ihO8N3tcO5onDxKpGjP0hmuJxq0U5DLJ9YJAZX2WhiDIJdUuGb5l6StFBFhTt6WjUi4Emz7OZBjw9Zog+5r1ObIreZi1Fc8aZ2orK3LpipWpNkUy6ZJYs54rWgmJC7E4Z7nKKOaI15zLcB8Bri8mSIDOs00uWwqekxit2GG0s8DbCcfc1yAqs1V9cvraaWeQ/WZyx3qxnITzASM3olmSSjVrSVuc0uE5sWqFuav3thSR0D8Altiv/2raCi+ChLjBmB1Jjh9gP3vIIwmwL29wy/8b15FfYCJSSNHvSjaz+r2bP9Q0ULz+ATvZIlRTXxTzTa3zz3TdFg4S1uLwzl9kjtfMYli0a+rPgpFFON9J8whxlu1JjwZhlJ2F+whTYa/Xwmknv9jztJ0zQR1uRIcwbtXqFd7nCYpToo21TgAEAWy6shL93DD4AAAAASUVORK5CYII="> -->
+                    <i class="iconfont icon-question"></i>
                   </a>
                 </div>
                 <div class="options-group">
@@ -432,13 +438,21 @@
   -webkit-box-flex: 0;
   flex: none;
   width: 30px;
-  padding: 0 10px;
+  padding: 0 4px;
   height: 90px;
 }
-.cart-list .item .choose.checked {
+.cart-list .item .choose i {
+  font-size: 24px;
+  line-height: 90px;
+  color: #ddd;
+}
+.cart-list .item .choose.checked i {
+  color: #f56600;
+}
+/* .cart-list .item .choose.checked {
   background: url(//s1.mi.com/m/images/m/check_press.png) 50% 50% no-repeat;
   background-size: 20px 20px;
-}
+} */
 .cart-list .item .imgProduct {
   -webkit-box-flex: 0;
   flex: none;
@@ -492,15 +506,7 @@
   background-color: #fafafa;
   text-align: center;
 }
-.cart-list .item .info .xm-input-number .image-icons {
-  opacity: .3;
-  width: 30px;
-  height: 30px;
-  background-size: 15px 15px;
-}
-.cart-list .item .info .xm-input-number .icon-line {
-  background-image: url(../assets/images/icon-line.png);
-}
+
 .cart-list .item .info .xm-input-number .input-num {
   display: inline-block;
   vertical-align: middle;
@@ -509,7 +515,7 @@
   text-align: center;
   font-size: 16px;
 }
-.cart-list .item .info .xm-input-number .input-add, 
+.cart-list .item .info .xm-input-number .input-add,
 .cart-list .item .info .xm-input-number .input-sub {
   display: inline-block;
   width: 30px;
@@ -519,16 +525,34 @@
   background-color: #fafafa;
   text-align: center;
 }
-.cart-list .item .info .xm-input-number .input-add.active, 
+.cart-list .item .info .xm-input-number .input-add.active,
 .cart-list .item .info .xm-input-number .input-sub.active {
   background-color: #f4f4f4;
 }
-.cart-list .item .info .xm-input-number .input-add.active .image-icon, 
+.cart-list .item .info .xm-input-number .input-add.active .image-icon,
 .cart-list .item .info .xm-input-number .input-sub.active .image-icons {
   opacity: 1;
 }
+/* .cart-list .item .info .xm-input-number .icon-line {
+  background-image: url(../assets/images/icon-line.png);
+}
 .cart-list .item .info .xm-input-number .icon-cross {
   background-image: url(../assets/images/icon-cross.png);
+}
+.cart-list .item .info .xm-input-number .image-icons {
+  opacity: .3;
+  width: 30px;
+  height: 30px;
+  background-size: 15px 15px;
+} */
+.icon-move, .icon-add {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #857c7c;
+}
+.icon-move {
+  color: #bababa;
 }
 .cart-list .item .info .delete {
   float: right;
@@ -536,9 +560,11 @@
   display: block;
 }
 .cart-list .item .info .delete .icon-delete {
-  width: 30px;
+  /* width: 30px;
   height: 30px;
-  background-image: url(../assets/images/icon-delete.png);
+  background-image: url(../assets/images/icon-delete.png); */
+  font-size: 20px;
+  line-height: 30px;
 }
 .cart-list .item .append .insurance {
   display: flex;
@@ -644,9 +670,12 @@
   width: 100%;
 }
 .pop .close .icon-close {
-  width: 20px;
+  /* width: 20px;
   height: 20px;
-  background-image: url(../assets/images/icon-close.png);
+  background-image: url(../assets/images/icon-close.png); */
+  font-size: 20px;
+  line-height: 20px;
+  color: #bababa;
 }
 .pop .h1 {
   color: rgba(0,0,0,.87);
@@ -665,12 +694,17 @@
   display: inline-block;
   width: 14px;
   height: 14px;
-  margin-left: 5px;
+  /* margin-left: 5px; */
   vertical-align: middle;
 }
-.pop .service-url img {
+/* .pop .service-url img {
   width: auto;
   height: 90%;
+} */
+.pop .service-url i {
+  font-size: 16px;
+  left: 14px;
+  color: #999;
 }
 .pop .options-group {
   padding-bottom: 16px;
