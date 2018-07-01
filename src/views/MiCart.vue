@@ -1,5 +1,6 @@
 <template>
   <div class="app-shell app-shell-bottom-navigation">
+    <MiSearch title="购物车"/>
     <div class="app-view-wrapper">
       <div class="container fluid app-view app-view-with-header">
         <div class="page-wrap">
@@ -11,7 +12,7 @@
           </div>
           <div class="cart-list">
             <ol>
-              <li class="item">
+              <li v-for="item in cartList" :key="item.goodsId" class="item">
                 <div class="ui-flex align-center justify-center">
                   <div class="choose flex checked"></div>
                   <a href="/commodity/detail/2175200009" class="imgProduct flex">
@@ -390,6 +391,8 @@
     </div>
   </div>
 </template>
+
+<script src="./MiCart.js"></script>
 
 <style scoped>
 .nologin>a {
