@@ -56,11 +56,12 @@ export default {
           buy_limit: items[index].num,
           goodsId: info.service_goods_id,
           image_url: info.service_image_url,
-          num: items[index].num,
+          num: info.num,
           price: info.service_price,
           product_name: info.service_short_name,
           sel_status: 1,
-          parent_goodsId: info.parent_goodsId
+          parent_goodsId: info.parent_goodsId,
+          isService: true
         })
       })
       let giftSelect = []
@@ -85,7 +86,8 @@ export default {
           num: items[index].num,
           product_name: gift.product_name,
           sel_status: 1,
-          parent_goodsId: gift.parent_goodsId
+          parent_goodsId: gift.parent_goodsId,
+          isGift: true
         })
       })
       this.cartList = items

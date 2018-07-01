@@ -26,7 +26,8 @@ let cartIndex = Mock.mock({
                 "service_image_url": "//i1.mifile.cn/a1/T1TexjBsKT1RXrhCrK.jpg",
                 "service_short_name": "影视会员年卡",
                 "service_price": 299,
-                "sel_status": 0
+                "sel_status": 0,
+                "num": 1
               }
             ]
           },
@@ -40,14 +41,16 @@ let cartIndex = Mock.mock({
                 "service_image_url": "//i1.mifile.cn/a1/pms_1523433952.48583019.jpg",
                 "service_short_name": "电视座装服务",
                 "service_price": 80,
-                "sel_status": 0
+                "sel_status": 0,
+                "num": 1
               },
               {
                 "service_goods_id": "990000197006122668",
                 "service_image_url": "//i1.mifile.cn/a1/pms_1523434179.92866217.jpg",
                 "service_short_name": "电视挂装服务",
                 "service_price": 190,
-                "sel_status": 0
+                "sel_status": 0,
+                "num": 1
               }
             ]
           }
@@ -72,7 +75,8 @@ let cartIndex = Mock.mock({
                 "service_image_url": "//i1.mifile.cn/a1/T1TexjBsKT1RXrhCrK.jpg",
                 "service_short_name": "影视会员年卡",
                 "service_price": 299,
-                "sel_status": 0
+                "sel_status": 0,
+                "num": 1
               }
             ]
           },
@@ -86,14 +90,16 @@ let cartIndex = Mock.mock({
                 "service_image_url": "//i1.mifile.cn/a1/pms_1523433952.48583019.jpg",
                 "service_short_name": "电视座装服务",
                 "service_price": 80,
-                "sel_status": 1
+                "sel_status": 1,
+                "num": 1
               },
               {
                 "service_goods_id": "990000197006122668",
                 "service_image_url": "//i1.mifile.cn/a1/pms_1523434179.92866217.jpg",
                 "service_short_name": "电视挂装服务",
                 "service_price": 190,
-                "sel_status": 0
+                "sel_status": 0,
+                "num": 1
               }
             ]
           }
@@ -117,7 +123,9 @@ let cartIndex = Mock.mock({
                 "service_goods_id": "650000197903152244",
                 "service_image_url": "//i1.mifile.cn/a1/pms_1524032278.1757986.jpg",
                 "service_short_name": "意外保障服务",
-                "service_price": 179
+                "service_price": 179,
+                "sel_status": 0,
+                "num": 1
               }
             ]
           }
@@ -146,7 +154,9 @@ let cartIndex = Mock.mock({
                 "service_goods_id": "650000197903152244",
                 "service_image_url": "//i1.mifile.cn/a1/pms_1524032278.1757986.jpg",
                 "service_short_name": "意外保障服务",
-                "service_price": 179
+                "service_price": 179,
+                "sel_status": 0,
+                "num": 1
               }
             ]
           }
