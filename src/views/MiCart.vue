@@ -14,7 +14,9 @@
             <ol>
               <li v-for="item in cartList" :key="item.goodsId" class="item">
                 <div class="ui-flex align-center justify-center">
-                  <div class="choose flex checked"></div>
+                  <div class="choose flex checked">
+                    <i class="iconfont icon-roundcheckfill"></i>
+                  </div>
                   <a href="/commodity/detail/2175200009" class="imgProduct flex">
                     <img src="//i1.mifile.cn/a1/pms_1516011154.79573723!180x1800.jpg" lazy="loaded">
                   </a>
@@ -75,7 +77,9 @@
               </li>
               <li class="item">
                 <div class="ui-flex align-center justify-center">
-                  <div class="choose"></div>
+                  <div class="choose">
+                    <i class="iconfont icon-round"></i>
+                  </div>
                   <a href="/commodity/detail/2180400002" class="imgProduct flex">
                     <img src="//i1.mifile.cn/a1/pms_1523433952.48583019!180x1800.jpg" lazy="loaded">
                   </a>
@@ -436,14 +440,22 @@
 .cart-list .item .choose {
   -webkit-box-flex: 0;
   flex: none;
-  width: 30px;
-  padding: 0 10px;
+  /* width: 30px; */
+  padding: 0 4px;
   height: 90px;
 }
-.cart-list .item .choose.checked {
+.cart-list .item .choose i {
+  font-size: 24px;
+  line-height: 90px;
+  color: #ddd;
+}
+.cart-list .item .choose.checked i {
+  color: #f56600;
+}
+/* .cart-list .item .choose.checked {
   background: url(//s1.mi.com/m/images/m/check_press.png) 50% 50% no-repeat;
   background-size: 20px 20px;
-}
+} */
 .cart-list .item .imgProduct {
   -webkit-box-flex: 0;
   flex: none;
