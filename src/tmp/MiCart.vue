@@ -333,8 +333,8 @@
           <a class="btn flex">去结算</a>
         </div>
         <div class="insurance-pop">
-          <div class="ui-mask" style="display:block;"></div>
-          <div class="pop" style="display:block;">
+          <div class="ui-mask" style="display:none;"></div>
+          <div class="pop" style="display:none;">
             <div class="close">
               <i class="image-icons iconfont icon-close"></i>
             </div>
