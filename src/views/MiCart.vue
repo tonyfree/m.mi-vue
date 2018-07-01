@@ -27,8 +27,10 @@
                     <div v-if="item.price" class="price-without">
                       <span>售价：</span>
                       <span>{{item.price}}元</span>
-                      <span>合计：</span>
-                      <span>80元</span>
+                      <template v-if="item.isService">
+                        <span>合计：</span>
+                        <span>{{item.price*item.num}}元</span>
+                      </template>
                     </div>
                     <div class="num">
                       <div class="xm-input-number">
