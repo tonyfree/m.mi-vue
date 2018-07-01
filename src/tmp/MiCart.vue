@@ -437,7 +437,7 @@
 .cart-list .item .choose {
   -webkit-box-flex: 0;
   flex: none;
-  /* width: 30px; */
+  width: 30px;
   padding: 0 4px;
   height: 90px;
 }

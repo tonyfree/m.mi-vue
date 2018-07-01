@@ -14,82 +14,19 @@
             <ol>
               <li v-for="item in cartList" :key="item.goodsId" class="item">
                 <div class="ui-flex align-center justify-center">
-                  <div class="choose flex checked">
-                    <i class="iconfont icon-roundcheckfill"></i>
+                  <div class="choose flex" :class="{checked:item.sel_status}">
+                    <i v-if="!item.parent_goodsId" class="iconfont" :class="item.sel_status?'icon-roundcheckfill':'icon-round'"></i>
                   </div>
-                  <a href="/commodity/detail/2175200009" class="imgProduct flex">
-                    <img src="//i1.mifile.cn/a1/pms_1516011154.79573723!180x1800.jpg" lazy="loaded">
-                  </a>
+                  <router-link :to="{name: 'detail', params: {id: item.goodsId}}" class="imgProduct flex">
+                    <img v-lazy="item.image_url">
+                  </router-link>
                   <div class="info flex">
                     <p class="name">
-                      <span class="flex">小米电视4A 50英寸 黑色 50英寸</span>
+                      <span class="flex">{{item.product_name}}</span>
                     </p>
-                    <div class="price-without">
+                    <div v-if="item.price" class="price-without">
                       <span>售价：</span>
-                      <span>1999元</span>
-                    </div>
-                    <div class="num">
-                      <div class="xm-input-number">
-                        <div class="input-sub">
-                          <i class="iconfont icon-move"></i>
-                        </div>
-                        <div class="input-num">
-                          <span>1</span>
-                        </div>
-                        <div class="input-add active">
-                          <i class="iconfont icon-add"></i>
-                        </div>
-                      </div>
-                      <div class="delete">
-                        <i class="iconfont icon-delete"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="append flex">
-                  <div>
-                    <div class="insurance">
-                      <div class="i1">
-                        <img src="//s1.mi.com/m/images/m/insurance.png" lazy="loaded">
-                      </div>
-                      <div class="i2">
-                        <span> 影视会员年卡 299元</span>
-                      </div>
-                      <div class="i3">
-                        <span>选购</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="insurance">
-                      <div class="i1">
-                        <img src="//s1.mi.com/m/images/m/insurance.png" lazy="loaded">
-                      </div>
-                      <div class="i2">
-                        <span> 电视挂装服务 190元</span>
-                      </div>
-                      <div class="i3">
-                        <span>选购</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="item">
-                <div class="ui-flex align-center justify-center">
-                  <div class="choose">
-                    <i class="iconfont icon-round"></i>
-                  </div>
-                  <a href="/commodity/detail/2180400002" class="imgProduct flex">
-                    <img src="//i1.mifile.cn/a1/pms_1523433952.48583019!180x1800.jpg" lazy="loaded">
-                  </a>
-                  <div class="info flex">
-                    <p class="name">
-                      <span class="flex">50-55英寸电视座装</span>
-                    </p>
-                    <div class="price-without">
-                      <span>售价：</span>
-                      <span>80元</span>
+                      <span>{{item.price}}元</span>
                       <span>合计：</span>
                       <span>80元</span>
                     </div>
@@ -99,41 +36,7 @@
                           <i class="iconfont icon-move"></i>
                         </div>
                         <div class="input-num">
-                          <span>1</span>
-                        </div>
-                        <div class="input-add">
-                          <i class="iconfont icon-add"></i>
-                        </div>
-                      </div>
-                      <div class="delete">
-                        <i class="iconfont icon-delete"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="append flex"></div>
-              </li>
-              <li class="item">
-                <div class="ui-flex align-center justify-center">
-                  <div class="choose flex checked"></div>
-                  <a href="/commodity/detail/2181500029" class="imgProduct flex">
-                    <img src="//i1.mifile.cn/a1/pms_1524621101.53792312!180x1800.jpg" lazy="loaded">
-                  </a>
-                  <div class="info flex">
-                    <p class="name">
-                      <span class="flex">小米6X 全网通版 4GB内存 64GB 樱花粉</span>
-                    </p>
-                    <div class="price-without">
-                      <span>售价：</span>
-                      <span>1599元</span>
-                    </div>
-                    <div class="num">
-                      <div class="xm-input-number">
-                        <div class="input-sub">
-                          <i class="iconfont icon-move"></i>
-                        </div>
-                        <div class="input-num">
-                          <span>1</span>
+                          <span>{{item.num}}</span>
                         </div>
                         <div class="input-add active">
                           <i class="iconfont icon-add"></i>
@@ -145,84 +48,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="append flex">
-                  <div></div>
-                </div>
-              </li>
-              <li class="item">
-                <div class="ui-flex align-center justify-center">
-                  <div class="choose"></div>
-                  <div class="imgProduct flex">
-                    <img src="//i1.mifile.cn/a1/pms_1524032278.1757986!180x1800.jpg" lazy="loaded">
-                  </div>
-                  <div class="info flex">
-                    <p class="name">
-                      <span class="flex">小米6X 意外保障服务</span>
-                    </p>
-                    <div class="price-without">
-                      <span>售价：</span>
-                      <span>179元</span>
-                    </div>
-                    <div class="num">
-                      <div class="xm-input-number">
-                        <div class="input-sub">
-                          <i class="iconfont icon-move"></i>
-                        </div>
-                        <div class="input-num">
-                          <span>1</span>
-                        </div>
-                        <div class="input-add">
-                          <i class="iconfont icon-add"></i>
-                        </div>
-                      </div>
-                      <div class="delete">
-                        <i class="iconfont icon-delete"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="append flex"></div>
-              </li>
-              <li class="item">
-                <div class="ui-flex align-center justify-center">
-                  <div class="choose flex checked"></div>
-                  <a href="/commodity/detail/2181500026" class="imgProduct flex">
-                    <img src="//i1.mifile.cn/a1/pms_1524621084.0039673!180x1800.jpg" lazy="loaded">
-                  </a>
-                  <div class="info flex">
-                    <p class="name">
-                      <span class="flex">小米6X 全网通版 4GB内存 64GB 流沙金</span>
-                    </p>
-                    <div class="price-without">
-                      <span>售价：</span>
-                      <span>1599元</span>
-                    </div>
-                    <div class="num">
-                      <div class="xm-input-number">
-                        <div class="input-sub active">
-                          <i class="iconfont icon-move"></i>
-                        </div>
-                        <div class="input-num">
-                          <span>2</span>
-                        </div>
-                        <div class="input-add">
-                          <i class="iconfont icon-add"></i>
-                        </div>
-                      </div>
-                      <div class="delete">
-                        <i class="iconfont icon-delete"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="append flex">
-                  <div>
+                <div v-if="item.sel_status" class="append flex">
+                  <div v-for="service in item.serviceList" :key="service.service_goods_id">
                     <div class="insurance">
                       <div class="i1">
-                        <img src="//s1.mi.com/m/images/m/insurance.png" lazy="loaded">
+                        <img v-lazy="service.service_image_url">
                       </div>
                       <div class="i2">
-                        <span> 意外保障服务 179元</span>
+                        <span> {{service.service_short_name}} {{service.service_price}}元</span>
                       </div>
                       <div class="i3">
                         <span>选购</span>
@@ -230,81 +63,6 @@
                     </div>
                   </div>
                 </div>
-              </li>
-              <li class="item">
-                <div class="ui-flex align-center justify-center">
-                  <div class="choose flex checked"></div>
-                  <a href="/commodity/detail/2181500025" class="imgProduct flex">
-                    <img src="//i1.mifile.cn/a1/pms_1524621078.90015819!180x1800.jpg" lazy="loaded">
-                  </a>
-                  <div class="info flex">
-                    <p class="name">
-                      <span class="flex">小米6X 全网通版 4GB内存 64GB 冰川蓝</span>
-                    </p>
-                    <div class="price-without">
-                      <span>售价：</span>
-                      <span>1599元</span>
-                    </div>
-                    <div class="num">
-                      <div class="xm-input-number">
-                        <div class="input-sub active">
-                          <i class="iconfont icon-move"></i>
-                        </div>
-                        <div class="input-num">
-                          <span>2</span>
-                        </div>
-                        <div class="input-add">
-                          <i class="iconfont icon-add"></i>
-                        </div>
-                      </div>
-                      <div class="delete">
-                        <i class="iconfont icon-delete"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="append flex">
-                  <div>
-                    <div class="insurance">
-                      <div class="i1">
-                        <img src="//s1.mi.com/m/images/m/insurance.png" lazy="loaded">
-                      </div>
-                      <div class="i2">
-                        <span> 意外保障服务 179元</span>
-                      </div>
-                      <div class="i3">
-                        <span>选购</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="item">
-                <div class="ui-flex align-center justify-center">
-                  <div class="choose"></div>
-                  <a href="/commodity/detail/2163700010" class="imgProduct flex">
-                    <img src="//i1.mifile.cn/a1/pms_1478248761.54944181!180x1800.jpg" lazy="loaded">
-                  </a>
-                  <div class="info flex">
-                    <p class="name">
-                      <span class="flex">小米蓝牙耳机青春版 白色</span>
-                    </p>
-                    <div class="num">
-                      <div class="xm-input-number">
-                        <div class="input-sub active">
-                          <i class="iconfont icon-move"></i>
-                        </div>
-                        <div class="input-num">
-                          <span>5</span>
-                        </div>
-                        <div class="input-add">
-                          <i class="iconfont icon-add"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="append flex"></div>
               </li>
             </ol>
             <div class="point-box">
@@ -440,7 +198,7 @@
 .cart-list .item .choose {
   -webkit-box-flex: 0;
   flex: none;
-  /* width: 30px; */
+  width: 30px;
   padding: 0 4px;
   height: 90px;
 }

@@ -58,6 +58,7 @@ let cartIndex = Mock.mock({
         "image_url": "//i1.mifile.cn/a1/pms_1527060176.9632373!180x1800.jpg",
         "buy_limit": 5,
         "sel_status": 1,
+        "price": 1299,
         "product_name": "小米电视4X 55英寸 黑色 55英寸",
         "num": 1,
         "service_info": [
