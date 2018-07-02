@@ -91,5 +91,45 @@ export default {
       })
       this.cartList = items
     },
+    cartSelect (item) {
+      let sel_status = item.sel_status ? 0 : 1
+      this.$fetch('cartSelect', {
+        goodsId: item.goodsId,
+        sel_status
+      }).then(res => {
+        item.sel_status = sel_status
+        if (!item.sel_status) {
+          this.cartList.forEach((list, index) => {
+            if (list.parent_goodsId === item.goodsId) {
+              this.cartList.splice(index, 1)
+            }
+          })
+          item.service_info.forEach(list => {
+            list.service_info.forEach(info => {
+              if (info.sel_status) {
+                info.sel_status = 0
+                item.serviceList.push(info)
+              }
+            })
+          })
+        }
+      })
+    },
+    cartEdit (item, num) {
+      if (num < 0 && item.num === 1) return
+      if (num > 0 && item.num == item.buy_limit) return
+      let consumption = num > 0 ? 2 : 1
+      this.$fetch('cartEdit', {
+        goodsId: item.goodsId,
+        consumption
+      }).then(res => {
+        item.num += num
+        this.cartList.forEach(list => {
+          if (list.parent_goodsId === item.goodsId) {
+            list.buy_limit = item.num
+          }
+        })
+      })
+    }
   }
 }
