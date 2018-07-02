@@ -2,7 +2,7 @@
   <div class="app-shell app-shell-bottom-navigation">
     <MiSearch title="购物车"/>
     <div class="app-view-wrapper">
-      <div class="container fluid app-view app-view-with-header">
+      <div class="container fluid app-view app-view-with-header app-view-with-footer">
         <div class="page-wrap">
           <div class="nologin">
             <a class="box-flex align-center justify-space-between">
@@ -86,6 +86,12 @@
             </div>
             <div class="ui-line"></div>
           </div>
+          <div class="noitems">
+            <a href="/" class="router-link-active">
+              <span>购物车还是空的</span>
+              <em>去逛逛</em>
+            </a>
+          </div>
         </div>
         <div class="bottom-submit box-flex">
           <div class="price-box flex">
@@ -148,6 +154,18 @@
             <div class="btn-bottom align-center justify-canter layout">
               <div class="flex">请选择服务类型</div>
               <div class="btn">确定</div>
+            </div>
+          </div>
+        </div>
+        <div class="xe-popup xe-toast xe-toast-fade-leave-active xe-toast-fade-leave-to" style="z-index: 100; display:none;">
+          <div class="xe-popup-box xe-popup-center">
+            <div class="xe-popup-content">
+              <div class="xe-toast-box-large">
+                <div class="xe-toast-icon warning">
+                  <i class="iconfont icon-warn"></i>
+                </div>
+                <div class="xe-toast-text">已达到最大购买数量</div>
+              </div>
             </div>
           </div>
         </div>
@@ -400,6 +418,34 @@
 .cart-list .point-box .point .act.act_special {
   background: #e53935;
 }
+.noitems {
+  background: #ebebeb;
+  padding: 10px;
+}
+.noitems>a {
+  height: 72px;
+  font-size: 12px;
+  text-decoration: none;
+  text-align: center;
+}
+.noitems>a span {
+  display: inline-block;
+  line-height: 40px;
+  background: url(../assets/images/cart_noitems.png) no-repeat 0;
+  background-size: auto 100%;
+  padding: 0 8px 0 48px;
+  color: rgba(0,0,0,.27);
+}
+.noitems>a em {
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,.15);
+  box-sizing: border-box;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 12px;
+  color: rgba(0,0,0,.87);
+  font-style: normal;
+}
 .bottom-submit {
   position: fixed;
   bottom: 0;
@@ -505,5 +551,67 @@
   color: #fff;
   font-size: 16px;
   line-height: 47px;
+}
+
+.xe-toast {
+  text-align: center;
+  opacity: 1;
+}
+.xe-popup {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.xe-popup .xe-popup-box {
+  transform: translate(100%, 100%);
+  z-index: 1000;
+}
+.xe-popup .xe-popup-box,
+.xe-popup .xe-popup-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.xe-popup .xe-popup-center .xe-popup-content {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: auto;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box
+}
+.xe-toast .xe-toast-box-large {
+  width: 160px;
+  height: 120px;
+  background: rgba(0,0,0,.7);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.xe-toast .xe-toast-icon {
+  width: 42px;
+  height: 42px;
+  margin: 22px auto 15px;
+  /* background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover; */
+}
+.xe-toast .xe-toast-icon i {
+  font-size: 42px;
+  line-height: 42px;
+  color: #fff;
+}
+.xe-toast .xe-toast-text {
+  padding: 0 12px;
+  /* min-width: 160px; */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  height: 20px;
+  line-height: 20px;
+  color: #fff;
 }
 </style>
