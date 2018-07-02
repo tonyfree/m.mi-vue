@@ -91,5 +91,23 @@ export default {
       })
       this.cartList = items
     },
+    cartSelect (item) {
+      item.sel_status = item.sel_status ? 0 : 1
+      if (!item.sel_status) {
+        this.cartList.forEach((list, index) => {
+          if (list.parent_goodsId === item.goodsId) {
+            this.cartList.splice(index, 1)
+          }
+        })
+        item.service_info.forEach(list => {
+          list.service_info.forEach(info => {
+            if (info.sel_status) {
+              info.sel_status = 0
+              item.serviceList.push(info)
+            }
+          })
+        })
+      }
+    }
   }
 }

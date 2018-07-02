@@ -14,7 +14,9 @@
             <ol>
               <li v-for="item in cartList" :key="item.goodsId" class="item">
                 <div class="ui-flex align-center justify-center">
-                  <div class="choose flex" :class="{checked:item.sel_status}">
+                  <div class="choose flex" 
+                    :class="{checked:item.sel_status}"
+                    @click="cartSelect(item)">
                     <i v-if="!item.parent_goodsId" class="iconfont" :class="item.sel_status?'icon-roundcheckfill':'icon-round'"></i>
                   </div>
                   <router-link :to="{name: 'detail', params: {id: item.goodsId}}" class="imgProduct flex">
