@@ -36,13 +36,13 @@
                     </div>
                     <div class="num">
                       <div class="xm-input-number">
-                        <div class="input-sub">
+                        <div class="input-sub" @click="cartEdit(item, -1)">
                           <i class="iconfont icon-move"></i>
                         </div>
                         <div class="input-num">
                           <span>{{item.num}}</span>
                         </div>
-                        <div class="input-add active">
+                        <div class="input-add active" @click="cartEdit(item, 1)">
                           <i class="iconfont icon-add"></i>
                         </div>
                       </div>
