@@ -155,7 +155,9 @@
           <div class="xe-popup-box xe-popup-center">
             <div class="xe-popup-content">
               <div class="xe-toast-box-large">
-                <div class="xe-toast-icon warning"></div>
+                <div class="xe-toast-icon warning">
+                  <i class="iconfont icon-warn"></i>
+                </div>
                 <div class="xe-toast-text">已达到最大购买数量</div>
               </div>
             </div>
@@ -557,14 +559,19 @@
   width: 42px;
   height: 42px;
   margin: 22px auto 15px;
-  background-color: transparent;
+  /* background-color: transparent;
   background-repeat: no-repeat;
   background-position: 50%;
-  background-size: cover;
+  background-size: cover; */
+}
+.xe-toast .xe-toast-icon i {
+  font-size: 42px;
+  line-height: 42px;
+  color: #fff;
 }
 .xe-toast .xe-toast-text {
   padding: 0 12px;
-  min-width: 210px;
+  /* min-width: 160px; */
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
