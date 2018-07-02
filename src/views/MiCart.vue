@@ -2,7 +2,7 @@
   <div class="app-shell app-shell-bottom-navigation">
     <MiSearch title="购物车"/>
     <div class="app-view-wrapper">
-      <div class="container fluid app-view app-view-with-header">
+      <div class="container fluid app-view app-view-with-header app-view-with-footer">
         <div class="page-wrap">
           <div class="nologin">
             <a class="box-flex align-center justify-space-between">
@@ -86,6 +86,12 @@
             </div>
             <div class="ui-line"></div>
           </div>
+          <div class="noitems">
+            <a href="/" class="router-link-active">
+              <span>购物车还是空的</span>
+              <em>去逛逛</em>
+            </a>
+          </div>
         </div>
         <div class="bottom-submit box-flex">
           <div class="price-box flex">
@@ -151,7 +157,7 @@
             </div>
           </div>
         </div>
-        <div class="xe-popup xe-toast xe-toast-fade-leave-active xe-toast-fade-leave-to" style="z-index: 100;">
+        <div class="xe-popup xe-toast xe-toast-fade-leave-active xe-toast-fade-leave-to" style="z-index: 100; display:none;">
           <div class="xe-popup-box xe-popup-center">
             <div class="xe-popup-content">
               <div class="xe-toast-box-large">
@@ -411,6 +417,34 @@
 }
 .cart-list .point-box .point .act.act_special {
   background: #e53935;
+}
+.noitems {
+  background: #ebebeb;
+  padding: 10px;
+}
+.noitems>a {
+  height: 72px;
+  font-size: 12px;
+  text-decoration: none;
+  text-align: center;
+}
+.noitems>a span {
+  display: inline-block;
+  line-height: 40px;
+  background: url(../assets/images/cart_noitems.png) no-repeat 0;
+  background-size: auto 100%;
+  padding: 0 8px 0 48px;
+  color: rgba(0,0,0,.27);
+}
+.noitems>a em {
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,.15);
+  box-sizing: border-box;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 12px;
+  color: rgba(0,0,0,.87);
+  font-style: normal;
 }
 .bottom-submit {
   position: fixed;
