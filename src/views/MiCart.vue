@@ -151,6 +151,16 @@
             </div>
           </div>
         </div>
+        <div class="xe-popup xe-toast xe-toast-fade-leave-active xe-toast-fade-leave-to" style="z-index: 100;">
+          <div class="xe-popup-box xe-popup-center">
+            <div class="xe-popup-content">
+              <div class="xe-toast-box-large">
+                <div class="xe-toast-icon warning"></div>
+                <div class="xe-toast-text">已达到最大购买数量</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -505,5 +515,62 @@
   color: #fff;
   font-size: 16px;
   line-height: 47px;
+}
+
+.xe-toast {
+  text-align: center;
+  opacity: 1;
+}
+.xe-popup {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.xe-popup .xe-popup-box {
+  transform: translate(100%, 100%);
+  z-index: 1000;
+}
+.xe-popup .xe-popup-box,
+.xe-popup .xe-popup-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.xe-popup .xe-popup-center .xe-popup-content {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: auto;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box
+}
+.xe-toast .xe-toast-box-large {
+  width: 160px;
+  height: 120px;
+  background: rgba(0,0,0,.7);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.xe-toast .xe-toast-icon {
+  width: 42px;
+  height: 42px;
+  margin: 22px auto 15px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+}
+.xe-toast .xe-toast-text {
+  padding: 0 12px;
+  min-width: 210px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  height: 20px;
+  line-height: 20px;
+  color: #fff;
 }
 </style>
