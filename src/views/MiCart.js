@@ -1,7 +1,6 @@
 import { cartIndex } from '@/mock/cart.js'
 import MiSearch from '@/components/MiSearch.vue'
 import fetch from '@/api/fetch.js'
-import { SIGTERM } from 'constants';
 
 export default {
   components: {
