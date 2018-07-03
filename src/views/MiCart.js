@@ -91,7 +91,7 @@ export default {
       })
       this.cartList = items
     },
-    cartSelect (item) {
+    cartSelect (item, index) {
       let sel_status = item.sel_status ? 0 : 1
       this.$fetch('cartSelect', {
         goodsId: item.goodsId,
@@ -112,6 +112,21 @@ export default {
               }
             })
           })
+        } else {
+            if (item.gift) {
+              item.gift.forEach(gift => {
+                this.cartList.splice(index + 1, 0, {
+                  buy_limit: item.num,
+                  goodsId: gift.actId,
+                  image_url: gift.image_url,
+                  num: item.num,
+                  product_name: gift.product_name,
+                  sel_status: 1,
+                  parent_goodsId: item.goodsId,
+                  isGift: true
+                })
+              })
+            }
         }
       })
     },
@@ -127,6 +142,9 @@ export default {
         this.cartList.forEach(list => {
           if (list.parent_goodsId === item.goodsId) {
             list.buy_limit = item.num
+            if (list.isGift) {
+              list.num = item.num
+            }
           }
         })
       })
