@@ -197,66 +197,76 @@ export default {
       this.serviceSelectCashArr = arr
     },
     serviceSelectSubmit () {
-      let arr = this.serviceSelectCashArr
       let cashItem = this.serviceSelectCashItem
-      if (arr.length) {
-        arr.forEach(list => {
-          let serviceListIndex = cashItem.serviceList.findIndex(service => {
-            return service.service_goods_id === list.service_goods_id
+      this.$fetch('cartSelService', {
+        parent_goodsId: cashItem.parent_goodsId,
+        service_goods_id: cashItem.goodsId,
+        sel_status: 1
+      }).then(res => {
+        let arr = this.serviceSelectCashArr
+        if (arr.length) {
+          arr.forEach(list => {
+            let serviceListIndex = cashItem.serviceList.findIndex(service => {
+              return service.service_goods_id === list.service_goods_id
+            })
+            cashItem.serviceList.splice(serviceListIndex, 1)
+  
+            cashItem.service_info.forEach(info => {
+              info.service_info.forEach(service => {
+                if (service.service_goods_id === list.service_goods_id) {
+                  service.sel_status =1
+                }
+              })
+            })
+  
+            let index = this.cartList.findIndex(item => {
+              return item.goodsId === cashItem.goodsId
+            })
+            this.cartList.splice(index + 1, 0, {
+              buy_limit: cashItem.num,
+              goodsId: list.service_goods_id,
+              image_url: list.service_image_url,
+              num: list.num,
+              price: list.service_price,
+              product_name: list.service_short_name,
+              sel_status: 1,
+              parent_goodsId: cashItem.goodsId,
+              isService: true
+            })
+  
           })
-          cashItem.serviceList.splice(serviceListIndex, 1)
-
-          cashItem.service_info.forEach(info => {
+        }
+        this.showServiceInfo = false
+      })
+    },
+    cartDelete (item, index) {
+      this.$fetch('cartDelete', {
+        goodsId: item.goodsId
+      }).then(res => {
+        this.cartList.splice(index, 1)
+        if (item.parent_goodsId) {
+          let listIndex = this.cartList.findIndex(list => {
+            return list.goodsId === item.parent_goodsId
+          })
+          this.cartList[listIndex].service_info.forEach(info => {
             info.service_info.forEach(service => {
-              if (service.service_goods_id === list.service_goods_id) {
-                service.sel_status =1
+              if (service.service_goods_id === item.goodsId) {
+                service.sel_status = 0
+                this.cartList[listIndex].serviceList.push(service)
               }
             })
           })
-
-          let index = this.cartList.findIndex(item => {
-            return item.goodsId === cashItem.goodsId
-          })
-          this.cartList.splice(index + 1, 0, {
-            buy_limit: cashItem.num,
-            goodsId: list.service_goods_id,
-            image_url: list.service_image_url,
-            num: list.num,
-            price: list.service_price,
-            product_name: list.service_short_name,
-            sel_status: 1,
-            parent_goodsId: cashItem.goodsId,
-            isService: true
-          })
-
-        })
-      }
-      this.showServiceInfo = false
-    },
-    cartDelete (item, index) {
-      this.cartList.splice(index, 1)
-      if (item.parent_goodsId) {
-        let listIndex = this.cartList.findIndex(list => {
-          return list.goodsId === item.parent_goodsId
-        })
-        this.cartList[listIndex].service_info.forEach(info => {
-          info.service_info.forEach(service => {
-            if (service.service_goods_id === item.goodsId) {
-              service.sel_status = 0
-              this.cartList[listIndex].serviceList.push(service)
-            }
-          })
-        })
-      }
-      let subIndex = this.cartList.findIndex(list => {
-        return list.parent_goodsId === item.goodsId
-      })
-      while (subIndex > -1) {
-        this.cartList.splice(subIndex, 1)
-        subIndex = this.cartList.findIndex(list => {
+        }
+        let subIndex = this.cartList.findIndex(list => {
           return list.parent_goodsId === item.goodsId
         })
-      }
+        while (subIndex > -1) {
+          this.cartList.splice(subIndex, 1)
+          subIndex = this.cartList.findIndex(list => {
+            return list.parent_goodsId === item.goodsId
+          })
+        }
+      })
     }
   }
 }
