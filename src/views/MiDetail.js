@@ -57,6 +57,7 @@ export default {
     },
     setProductData (res, id) {
       this.$NProgress.done()
+      this.$store.commit('setViewLoading', false)
       this.id = id
       let data = res.data
       let viewContent = data.view_content

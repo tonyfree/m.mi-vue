@@ -12,11 +12,11 @@
           </div>
           <div v-if="cartList&&cartList.length" class="cart-list">
             <ol>
-              <li v-for="item in cartList" :key="item.goodsId" class="item">
+              <li v-for="(item, index) in cartList" :key="item.goodsId" class="item">
                 <div class="ui-flex align-center justify-center">
                   <div class="choose flex" 
                     :class="{checked:item.sel_status}"
-                    @click="cartSelect(item)">
+                    @click="cartSelect(item, index)">
                     <i v-if="!item.parent_goodsId" class="iconfont" :class="item.sel_status?'icon-roundcheckfill':'icon-round'"></i>
                   </div>
                   <router-link :to="{name: 'detail', params: {id: item.goodsId}}" class="imgProduct flex">
@@ -46,14 +46,17 @@
                           <i class="iconfont icon-add"></i>
                         </div>
                       </div>
-                      <div class="delete">
+                      <div v-if="item.price" class="delete" @click="cartDelete(item, index)">
                         <i class="iconfont icon-delete"></i>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div v-if="item.sel_status" class="append flex">
-                  <div v-for="service in item.serviceList" :key="service.service_goods_id">
+                  <div
+                    v-for="service in item.serviceList"
+                    :key="service.service_goods_id"
+                    @click="toCartSelService(item)">
                     <div class="insurance">
                       <div class="i1">
                         <img v-lazy="service.service_image_url">
@@ -97,65 +100,50 @@
         </div>
         <div class="bottom-submit box-flex">
           <div class="price-box flex">
-            <span>共13件 金额：</span>
+            <span>共{{totalNumber}}件 金额：</span>
             <br>
-            <strong>10153</strong>
+            <strong>{{totalPrice}}</strong>
             <span>元</span>
           </div>
           <a href="/category" class="btn disable black flex">继续购物</a>
           <a class="btn flex">去结算</a>
         </div>
         <div class="insurance-pop">
-          <div class="ui-mask" style="display:none;"></div>
-          <div class="pop" style="display:none;">
-            <div class="close">
+          <div class="ui-mask" v-show="showServiceInfo"></div>
+          <div class="pop" v-show="showServiceInfo">
+            <div class="close" @click="showServiceInfo=false">
               <i class="image-icons iconfont icon-close"></i>
             </div>
             <div class="h1">购买服务</div>
             <div class="max5">
-              <div class="border-top-1px mt2x">
-                <div class="option-title pt32">
-                  会员服务
-                  <a href="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/72d5bc482304.html" class="service-url">
+              <div
+                v-for="list in serviceInfoList"
+                :key="list.type_name"
+                class="border-top-1px mt2x">
+                <div v-if="list.service_info.length" class="option-title pt32">
+                  {{list.type_name}}
+                  <a :href="list.service_url" class="service-url">
                     <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjhFNUZBNEJBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjhFNUZBNENBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGNEE0ODY5NEE2NzUxMUU3QkY4M0QxMUYzMTU1MkNERiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyOEU1RkE0QUE2ODYxMUU3QkY4M0QxMUYzMTU1MkNERiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqoKySAAAALWSURBVHjatJfPS1RRFMef9002Q9BiRlPIzE2TusgWQZQFFS364aJwUZBEYW3atAv6S1y0K3chSEUbqQaSQoqKirJGwppxMaZvIaSTaPo98L1xebxf900d+KDMu/d+7zn33PPOa3KSmQuKYA/YBQogy2d1sAgqoAy+gvW4BZtinufAEXAIzINpMAsWwIoxpgV0gW7QBl6ASWOMlfB+MEAPnoGfCaMjmzjBCD0C7xLOcxQ4D24xrGlN5t7mWirOYxkwBJrBPfDbacy2gcvgFxgFf8KEz4F2cCckQeQ8DzLJJMHyoAo8JtZUSGIOM0fGzR+19YHDFA3ytAPcBL0UzfH37UyoXibYZ7BmzNsAH8EZel4zhWWRq+AuM9Zv4tkNjpNMnQAl8IZCeW6gwCiWffPXed0ugFeyMS18nLt5GXJWQ/RKbAS8Z3g9eiAh7qF4F6/Smm+NJa6xA3xT9Fru6ZMQ0TzP1KFANWTclO9YguwptVzF+zbP6uNELOqFJI82z7fZIFukVjFD4emYBccSXJ2dxv9zEeNEa6/ihO8N3tcO5onDxKpGjP0hmuJxq0U5DLJ9YJAZX2WhiDIJdUuGb5l6StFBFhTt6WjUi4Emz7OZBjw9Zog+5r1ObIreZi1Fc8aZ2orK3LpipWpNkUy6ZJYs54rWgmJC7E4Z7nKKOaI15zLcB8Bri8mSIDOs00uWwqekxit2GG0s8DbCcfc1yAqs1V9cvraaWeQ/WZyx3qxnITzASM3olmSSjVrSVuc0uE5sWqFuav3thSR0D8Altiv/2raCi+ChLjBmB1Jjh9gP3vIIwmwL29wy/8b15FfYCJSSNHvSjaz+r2bP9Q0ULz+ATvZIlRTXxTzTa3zz3TdFg4S1uLwzl9kjtfMYli0a+rPgpFFON9J8whxlu1JjwZhlJ2F+whTYa/Xwmknv9jztJ0zQR1uRIcwbtXqFd7nCYpToo21TgAEAWy6shL93DD4AAAAASUVORK5CYII="> -->
                     <i class="iconfont icon-question"></i>
                   </a>
                 </div>
-                <div class="options-group">
+                <div
+                  v-for="service in list.service_info"
+                  :key="service.service_goods_id"
+                  class="options-group"
+                  @click="selectService(list, service)">
                   <div class="align-center justify-start layout wrap">
-                    <div class="option-item border-1px align-center justify-center ui-flex">
-                      <p>影视会员年卡  299元</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="border-top-1px mt2x">
-                <div class="option-title pt32">
-                  安装服务
-                  <a href="//cdn.cnbj0.fds.api.mi-img.com/b2c-data-mishop/a739137749cc.html" class="service-url">
-                    <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjhFNUZBNEJBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjhFNUZBNENBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGNEE0ODY5NEE2NzUxMUU3QkY4M0QxMUYzMTU1MkNERiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyOEU1RkE0QUE2ODYxMUU3QkY4M0QxMUYzMTU1MkNERiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqoKySAAAALWSURBVHjatJfPS1RRFMef9002Q9BiRlPIzE2TusgWQZQFFS364aJwUZBEYW3atAv6S1y0K3chSEUbqQaSQoqKirJGwppxMaZvIaSTaPo98L1xebxf900d+KDMu/d+7zn33PPOa3KSmQuKYA/YBQogy2d1sAgqoAy+gvW4BZtinufAEXAIzINpMAsWwIoxpgV0gW7QBl6ASWOMlfB+MEAPnoGfCaMjmzjBCD0C7xLOcxQ4D24xrGlN5t7mWirOYxkwBJrBPfDbacy2gcvgFxgFf8KEz4F2cCckQeQ8DzLJJMHyoAo8JtZUSGIOM0fGzR+19YHDFA3ytAPcBL0UzfH37UyoXibYZ7BmzNsAH8EZel4zhWWRq+AuM9Zv4tkNjpNMnQAl8IZCeW6gwCiWffPXed0ugFeyMS18nLt5GXJWQ/RKbAS8Z3g9eiAh7qF4F6/Smm+NJa6xA3xT9Fru6ZMQ0TzP1KFANWTclO9YguwptVzF+zbP6uNELOqFJI82z7fZIFukVjFD4emYBccSXJ2dxv9zEeNEa6/ihO8N3tcO5onDxKpGjP0hmuJxq0U5DLJ9YJAZX2WhiDIJdUuGb5l6StFBFhTt6WjUi4Emz7OZBjw9Zog+5r1ObIreZi1Fc8aZ2orK3LpipWpNkUy6ZJYs54rWgmJC7E4Z7nKKOaI15zLcB8Bri8mSIDOs00uWwqekxit2GG0s8DbCcfc1yAqs1V9cvraaWeQ/WZyx3qxnITzASM3olmSSjVrSVuc0uE5sWqFuav3thSR0D8Altiv/2raCi+ChLjBmB1Jjh9gP3vIIwmwL29wy/8b15FfYCJSSNHvSjaz+r2bP9Q0ULz+ATvZIlRTXxTzTa3zz3TdFg4S1uLwzl9kjtfMYli0a+rPgpFFON9J8whxlu1JjwZhlJ2F+whTYa/Xwmknv9jztJ0zQR1uRIcwbtXqFd7nCYpToo21TgAEAWy6shL93DD4AAAAASUVORK5CYII="> -->
-                    <i class="iconfont icon-question"></i>
-                  </a>
-                </div>
-                <div class="options-group">
-                  <div class="align-center justify-start layout wrap">
-                    <div class="option-item on border-1px align-center justify-center ui-flex">
-                      <p>电视座装服务  80元</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="options-group">
-                  <div class="align-center justify-start layout wrap">
-                    <div class="option-item border-1px align-center justify-center ui-flex">
-                      <p>电视挂装服务  190元</p>
+                    <div :class="{on:service.sel_status}"
+                      class="option-item border-1px align-center justify-center ui-flex">
+                      <p>{{service.service_short_name}}  {{service.service_price}}元</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="btn-bottom align-center justify-canter layout">
-              <div class="flex">请选择服务类型</div>
-              <div class="btn">确定</div>
+              <div class="flex">{{serviceSelectMessage}}</div>
+              <div class="btn" @click="serviceSelectSubmit">确定</div>
             </div>
           </div>
         </div>
@@ -582,7 +570,11 @@
   left: -50%;
   width: auto;
   transform: translate(-50%, -50%);
-  box-sizing: border-box
+  box-sizing: border-box;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 .xe-toast .xe-toast-box-large {
   width: 160px;
