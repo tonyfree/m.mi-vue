@@ -13,7 +13,26 @@ export default {
       showServiceInfo: false,
       serviceSelectMessage: '请选择服务类型',
       serviceSelectCashArr: [],
-      serviceSelectCashItem: null
+      serviceSelectCashItem: null,
+      totalNumber: 0,
+      totalPrice: 0
+    }
+  },
+  watch: {
+    cartList: {
+      deep: true,
+      handler (val) {
+        this.totalNumber = 0
+        this.totalPrice = 0
+        val.forEach(list => {
+          if (list.sel_status) {
+            this.totalNumber += list.num
+            if (list.price) {
+              this.totalPrice += list.num * list.price
+            }
+          }
+        })
+      }
     }
   },
   beforeRouteEnter (to, from, next) {

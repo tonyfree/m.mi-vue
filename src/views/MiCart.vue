@@ -100,9 +100,9 @@
         </div>
         <div class="bottom-submit box-flex">
           <div class="price-box flex">
-            <span>共13件 金额：</span>
+            <span>共{{totalNumber}}件 金额：</span>
             <br>
-            <strong>10153</strong>
+            <strong>{{totalPrice}}</strong>
             <span>元</span>
           </div>
           <a href="/category" class="btn disable black flex">继续购物</a>
@@ -570,7 +570,11 @@
   left: -50%;
   width: auto;
   transform: translate(-50%, -50%);
-  box-sizing: border-box
+  box-sizing: border-box;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 .xe-toast .xe-toast-box-large {
   width: 160px;
