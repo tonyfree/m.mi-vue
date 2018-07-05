@@ -10,10 +10,10 @@
         <div class="close" @click="close">
           <i class="image-icons iconfont icon-close"></i>
         </div>
-        <slot></slot> 
+        <slot></slot>
       </div>
-    </transition> 
-  </div>    
+    </transition>
+  </div>
 </template>
 
 <script>

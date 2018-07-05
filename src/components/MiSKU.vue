@@ -104,6 +104,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import {default_goods_id, buy_option, goods_info} from '@/mock/sku.js'
 export default {
   props: {
@@ -156,7 +157,7 @@ export default {
       })
       this.goodsInfo = goods_info
       this.selectedGood = this.goodsInfo.find(item => {
-        return item.goods_id === default_goods_id
+        return item.goods_id == default_goods_id
       })
       this.selectedGood.service_bargins.forEach(item => {
         item.selectedServiceDesc = ''
@@ -164,7 +165,7 @@ export default {
       this.serviceBargins = this.selectedGood.service_bargins
       this.selectedSKU = JSON.parse(JSON.stringify(this.selectedGood.prop_list))
       buyOption.forEach(item => {
-        item.hasPrice = item.list[0].price !== ''
+        item.hasPrice = item.list[0].price != ''
         item.list.forEach(list => {
           list.isOn = false
         })
