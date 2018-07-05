@@ -14,7 +14,7 @@
             <ol>
               <li v-for="(item, index) in cartList" :key="item.goodsId" class="item">
                 <div class="ui-flex align-center justify-center">
-                  <div class="choose flex" 
+                  <div class="choose flex"
                     :class="{checked:item.sel_status}"
                     @click="cartSelect(item, index)">
                     <i v-if="!item.parent_goodsId" class="iconfont" :class="item.sel_status?'icon-roundcheckfill':'icon-round'"></i>
