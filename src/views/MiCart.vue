@@ -36,13 +36,19 @@
                     </div>
                     <div class="num">
                       <div class="xm-input-number">
-                        <div class="input-sub" @click="cartEdit(item, -1)">
+                        <div
+                          :class="{active:item.num>1&&item.price}"
+                          class="input-sub"
+                          @click="cartEdit(item, -1)">
                           <i class="iconfont icon-move"></i>
                         </div>
                         <div class="input-num">
                           <span>{{item.num}}</span>
                         </div>
-                        <div class="input-add active" @click="cartEdit(item, 1)">
+                        <div
+                          :class="{active:item.num<item.buy_limit&&item.price}"
+                          class="input-add"
+                          @click="cartEdit(item, 1)">
                           <i class="iconfont icon-add"></i>
                         </div>
                       </div>
@@ -97,6 +103,7 @@
               <em>去逛逛</em>
             </router-link>
           </div>
+          <MiRecommend />
         </div>
         <div class="bottom-submit box-flex">
           <div class="price-box flex">
@@ -108,57 +115,41 @@
           <a href="/category" class="btn disable black flex">继续购物</a>
           <a class="btn flex">去结算</a>
         </div>
-        <div class="insurance-pop">
-          <div class="ui-mask" v-show="showServiceInfo"></div>
-          <div class="pop" v-show="showServiceInfo">
-            <div class="close" @click="showServiceInfo=false">
-              <i class="image-icons iconfont icon-close"></i>
-            </div>
-            <div class="h1">购买服务</div>
-            <div class="max5">
+        <MiPop v-model="showServiceInfo"
+          :close-on-click-overlay="true"
+          :overlay-style="{'background-color': 'rgba(0,0,0,.4)'}">
+          <div class="h1">购买服务</div>
+          <div class="max5">
+            <div
+              v-for="list in serviceInfoList"
+              :key="list.type_name"
+              class="border-top-1px mt2x">
+              <div v-if="list.service_info.length" class="option-title pt32">
+                {{list.type_name}}
+                <a :href="list.service_url" class="service-url">
+                  <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjhFNUZBNEJBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjhFNUZBNENBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGNEE0ODY5NEE2NzUxMUU3QkY4M0QxMUYzMTU1MkNERiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyOEU1RkE0QUE2ODYxMUU3QkY4M0QxMUYzMTU1MkNERiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqoKySAAAALWSURBVHjatJfPS1RRFMef9002Q9BiRlPIzE2TusgWQZQFFS364aJwUZBEYW3atAv6S1y0K3chSEUbqQaSQoqKirJGwppxMaZvIaSTaPo98L1xebxf900d+KDMu/d+7zn33PPOa3KSmQuKYA/YBQogy2d1sAgqoAy+gvW4BZtinufAEXAIzINpMAsWwIoxpgV0gW7QBl6ASWOMlfB+MEAPnoGfCaMjmzjBCD0C7xLOcxQ4D24xrGlN5t7mWirOYxkwBJrBPfDbacy2gcvgFxgFf8KEz4F2cCckQeQ8DzLJJMHyoAo8JtZUSGIOM0fGzR+19YHDFA3ytAPcBL0UzfH37UyoXibYZ7BmzNsAH8EZel4zhWWRq+AuM9Zv4tkNjpNMnQAl8IZCeW6gwCiWffPXed0ugFeyMS18nLt5GXJWQ/RKbAS8Z3g9eiAh7qF4F6/Smm+NJa6xA3xT9Fru6ZMQ0TzP1KFANWTclO9YguwptVzF+zbP6uNELOqFJI82z7fZIFukVjFD4emYBccSXJ2dxv9zEeNEa6/ihO8N3tcO5onDxKpGjP0hmuJxq0U5DLJ9YJAZX2WhiDIJdUuGb5l6StFBFhTt6WjUi4Emz7OZBjw9Zog+5r1ObIreZi1Fc8aZ2orK3LpipWpNkUy6ZJYs54rWgmJC7E4Z7nKKOaI15zLcB8Bri8mSIDOs00uWwqekxit2GG0s8DbCcfc1yAqs1V9cvraaWeQ/WZyx3qxnITzASM3olmSSjVrSVuc0uE5sWqFuav3thSR0D8Altiv/2raCi+ChLjBmB1Jjh9gP3vIIwmwL29wy/8b15FfYCJSSNHvSjaz+r2bP9Q0ULz+ATvZIlRTXxTzTa3zz3TdFg4S1uLwzl9kjtfMYli0a+rPgpFFON9J8whxlu1JjwZhlJ2F+whTYa/Xwmknv9jztJ0zQR1uRIcwbtXqFd7nCYpToo21TgAEAWy6shL93DD4AAAAASUVORK5CYII="> -->
+                  <i class="iconfont icon-question"></i>
+                </a>
+              </div>
               <div
-                v-for="list in serviceInfoList"
-                :key="list.type_name"
-                class="border-top-1px mt2x">
-                <div v-if="list.service_info.length" class="option-title pt32">
-                  {{list.type_name}}
-                  <a :href="list.service_url" class="service-url">
-                    <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjhFNUZBNEJBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjhFNUZBNENBNjg2MTFFN0JGODNEMTFGMzE1NTJDREYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGNEE0ODY5NEE2NzUxMUU3QkY4M0QxMUYzMTU1MkNERiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyOEU1RkE0QUE2ODYxMUU3QkY4M0QxMUYzMTU1MkNERiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqoKySAAAALWSURBVHjatJfPS1RRFMef9002Q9BiRlPIzE2TusgWQZQFFS364aJwUZBEYW3atAv6S1y0K3chSEUbqQaSQoqKirJGwppxMaZvIaSTaPo98L1xebxf900d+KDMu/d+7zn33PPOa3KSmQuKYA/YBQogy2d1sAgqoAy+gvW4BZtinufAEXAIzINpMAsWwIoxpgV0gW7QBl6ASWOMlfB+MEAPnoGfCaMjmzjBCD0C7xLOcxQ4D24xrGlN5t7mWirOYxkwBJrBPfDbacy2gcvgFxgFf8KEz4F2cCckQeQ8DzLJJMHyoAo8JtZUSGIOM0fGzR+19YHDFA3ytAPcBL0UzfH37UyoXibYZ7BmzNsAH8EZel4zhWWRq+AuM9Zv4tkNjpNMnQAl8IZCeW6gwCiWffPXed0ugFeyMS18nLt5GXJWQ/RKbAS8Z3g9eiAh7qF4F6/Smm+NJa6xA3xT9Fru6ZMQ0TzP1KFANWTclO9YguwptVzF+zbP6uNELOqFJI82z7fZIFukVjFD4emYBccSXJ2dxv9zEeNEa6/ihO8N3tcO5onDxKpGjP0hmuJxq0U5DLJ9YJAZX2WhiDIJdUuGb5l6StFBFhTt6WjUi4Emz7OZBjw9Zog+5r1ObIreZi1Fc8aZ2orK3LpipWpNkUy6ZJYs54rWgmJC7E4Z7nKKOaI15zLcB8Bri8mSIDOs00uWwqekxit2GG0s8DbCcfc1yAqs1V9cvraaWeQ/WZyx3qxnITzASM3olmSSjVrSVuc0uE5sWqFuav3thSR0D8Altiv/2raCi+ChLjBmB1Jjh9gP3vIIwmwL29wy/8b15FfYCJSSNHvSjaz+r2bP9Q0ULz+ATvZIlRTXxTzTa3zz3TdFg4S1uLwzl9kjtfMYli0a+rPgpFFON9J8whxlu1JjwZhlJ2F+whTYa/Xwmknv9jztJ0zQR1uRIcwbtXqFd7nCYpToo21TgAEAWy6shL93DD4AAAAASUVORK5CYII="> -->
-                    <i class="iconfont icon-question"></i>
-                  </a>
-                </div>
-                <div
-                  v-for="service in list.service_info"
-                  :key="service.service_goods_id"
-                  class="options-group"
-                  @click="selectService(list, service)">
-                  <div class="align-center justify-start layout wrap">
-                    <div :class="{on:service.sel_status}"
-                      class="option-item border-1px align-center justify-center ui-flex">
-                      <p>{{service.service_short_name}}  {{service.service_price}}元</p>
-                    </div>
+                v-for="service in list.service_info"
+                :key="service.service_goods_id"
+                class="options-group"
+                @click="selectService(list, service)">
+                <div class="align-center justify-start layout wrap">
+                  <div :class="{on:service.sel_status}"
+                    class="option-item border-1px align-center justify-center ui-flex">
+                    <p>{{service.service_short_name}}  {{service.service_price}}元</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="btn-bottom align-center justify-canter layout">
-              <div class="flex">{{serviceSelectMessage}}</div>
-              <div class="btn" @click="serviceSelectSubmit">确定</div>
-            </div>
           </div>
-        </div>
-        <div class="xe-popup xe-toast xe-toast-fade-leave-active xe-toast-fade-leave-to" style="z-index: 100; display:none;">
-          <div class="xe-popup-box xe-popup-center">
-            <div class="xe-popup-content">
-              <div class="xe-toast-box-large">
-                <div class="xe-toast-icon warning">
-                  <i class="iconfont icon-warn"></i>
-                </div>
-                <div class="xe-toast-text">已达到最大购买数量</div>
-              </div>
-            </div>
+          <div class="btn-bottom align-center justify-canter layout">
+            <div class="flex">{{serviceSelectMessage}}</div>
+            <div class="btn" @click="serviceSelectSubmit">确定</div>
           </div>
-        </div>
+        </MiPop>
       </div>
     </div>
   </div>
@@ -298,7 +289,7 @@
 }
 .cart-list .item .info .xm-input-number .input-add.active,
 .cart-list .item .info .xm-input-number .input-sub.active {
-  background-color: #f4f4f4;
+  background-color: #ddd;
 }
 .cart-list .item .info .xm-input-number .input-add.active .image-icon,
 .cart-list .item .info .xm-input-number .input-sub.active .image-icons {
@@ -468,14 +459,7 @@
   display: block;
   width: 100%;
 }
-.pop .close .icon-close {
-  /* width: 20px;
-  height: 20px;
-  background-image: url(../assets/images/icon-close.png); */
-  font-size: 20px;
-  line-height: 20px;
-  color: #bababa;
-}
+
 .pop .h1 {
   color: rgba(0,0,0,.87);
   font-size: 16px;
@@ -541,71 +525,5 @@
   color: #fff;
   font-size: 16px;
   line-height: 47px;
-}
-
-.xe-toast {
-  text-align: center;
-  opacity: 1;
-}
-.xe-popup {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-.xe-popup .xe-popup-box {
-  transform: translate(100%, 100%);
-  z-index: 1000;
-}
-.xe-popup .xe-popup-box,
-.xe-popup .xe-popup-mask {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.xe-popup .xe-popup-center .xe-popup-content {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: auto;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-}
-.xe-toast .xe-toast-box-large {
-  width: 160px;
-  height: 120px;
-  background: rgba(0,0,0,.7);
-  border-radius: 10px;
-  overflow: hidden;
-}
-.xe-toast .xe-toast-icon {
-  width: 42px;
-  height: 42px;
-  margin: 22px auto 15px;
-  /* background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: cover; */
-}
-.xe-toast .xe-toast-icon i {
-  font-size: 42px;
-  line-height: 42px;
-  color: #fff;
-}
-.xe-toast .xe-toast-text {
-  padding: 0 12px;
-  /* min-width: 160px; */
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 13px;
-  height: 20px;
-  line-height: 20px;
-  color: #fff;
 }
 </style>

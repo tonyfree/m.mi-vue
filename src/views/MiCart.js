@@ -1,10 +1,14 @@
 import { cartIndex } from '@/mock/cart.js'
 import MiSearch from '@/components/MiSearch.vue'
 import fetch from '@/api/fetch.js'
+import MiPop from '@/components/MiPop.vue'
+import MiRecommend from '@/components/MiRecommend.vue'
 
 export default {
   components: {
-    MiSearch
+    MiSearch,
+    MiPop,
+    MiRecommend
   },
   data () {
     return {
@@ -264,26 +268,27 @@ export default {
       }).then(res => {
         this.cartList.splice(index, 1)
         if (item.parent_goodsId) {
-          let listIndex = this.cartList.findIndex(list => {
+          let curGood = this.cartList.find(list => {
             return list.goodsId === item.parent_goodsId
           })
-          this.cartList[listIndex].service_info.forEach(info => {
+          curGood.service_info.forEach(info => {
             info.service_info.forEach(service => {
               if (service.service_goods_id === item.goodsId) {
                 service.sel_status = 0
-                this.cartList[listIndex].serviceList.push(service)
+                curGood.serviceList.push(service)
               }
             })
           })
-        }
-        let subIndex = this.cartList.findIndex(list => {
-          return list.parent_goodsId === item.goodsId
-        })
-        while (subIndex > -1) {
-          this.cartList.splice(subIndex, 1)
-          subIndex = this.cartList.findIndex(list => {
+        } else {
+          let subIndex = this.cartList.findIndex(list => {
             return list.parent_goodsId === item.goodsId
           })
+          while (subIndex > -1) {
+            this.cartList.splice(subIndex, 1)
+            subIndex = this.cartList.findIndex(list => {
+              return list.parent_goodsId === item.goodsId
+            })
+          }
         }
       })
     }

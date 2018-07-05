@@ -46,3 +46,13 @@ Refactor the mi mall with vue, vue-router, vex, etc.
 + mixin混入
 + 组件：用户评价、为你推荐(重构猜你喜欢)、SKU组件
 + 父子组件通信
+
+### [lesson09--购物车上](https://github.com/tonyfree/m.mi/tree/lesson09)
++ 加载状态组件：MiSkeleton.vue
++ 用Vuex管理加载状态viewLoading和过渡效果transitionName
++ 页面结构、数据结构和API接口分析
++ 数据结构修改和渲染
+
+### [lesson10--购物车下](https://github.com/tonyfree/m.mi/tree/lesson10)
++ 购物车操作：选择商品、修改数量、选择服务、删除商品
++ MiPop组件：在组件上使用v-model、通过插槽分发内容
