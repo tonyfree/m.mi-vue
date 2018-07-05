@@ -1,8 +1,12 @@
 <template>
   <div class="insurance-pop">
-    <div class="ui-mask" v-show="value&&overlay" @click="clickOverlay"></div>
+    <div v-show="value&&overlay"
+      :class="overlayClass"
+      :style="overlayStyle"
+      @click="clickOverlay">
+    </div>
     <transition :name="transition">
-      <div class="pop" v-show="value">
+      <div v-show="value" class="pop">
         <div class="close" @click="close">
           <i class="image-icons iconfont icon-close"></i>
         </div>
@@ -31,6 +35,13 @@ export default {
     transition: {
       type: String,
       default: 'bottom-up'
+    },
+    overlayClass: {
+      type: String,
+      default: 'ui-mask'
+    },
+    overlayStyle: {
+      type: Object
     }
   },
   methods: {

@@ -108,7 +108,9 @@
           <a href="/category" class="btn disable black flex">继续购物</a>
           <a class="btn flex">去结算</a>
         </div>
-        <MiPop v-model="showServiceInfo" :close-on-click-overlay="true">
+        <MiPop v-model="showServiceInfo"
+          :close-on-click-overlay="true"
+          :overlay-style="{'background-color': 'rgba(0,0,0,.4)'}">
           <div class="h1">购买服务</div>
           <div class="max5">
             <div
