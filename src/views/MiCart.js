@@ -57,8 +57,9 @@ export default {
     setCartList (res) {
       this.$NProgress.done()
       this.$store.commit('setViewLoading', false)
-      // this.cartList = res.data.data.items
-      let items = cartIndex.data.items
+      // this.cartList = res.data.items
+      // let items = cartIndex.data.items
+      let items = JSON.parse(JSON.stringify(cartIndex)).data.items
       let serviceSelect = []
       items.forEach(item => {
         if (item.service_info) {

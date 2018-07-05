@@ -100,10 +100,11 @@
         </div>
       </div>
     </div>
-  </transition>  
+  </transition>
 </template>
 
 <script>
+/* eslint-disable */
 import {default_goods_id, buy_option, goods_info} from '@/mock/sku.js'
 export default {
   props: {
@@ -122,7 +123,7 @@ export default {
       goodsInfo: null,
       selectedGood: null,
       selectedSKU: [],
-      serviceBargins: null,
+      serviceBargins: null
     }
   },
   watch: {
@@ -157,7 +158,7 @@ export default {
       this.goodsInfo = goods_info
       this.selectedGood = this.goodsInfo.find(item => {
         return item.goods_id == default_goods_id
-      })    
+      })
       this.selectedGood.service_bargins.forEach(item => {
         item.selectedServiceDesc = ''
       })
@@ -174,7 +175,7 @@ export default {
           return option.prop_cfg_id === item.prop_cfg_id
         })
         let curIndex = curOpion.list.findIndex(list => {
-          return list.prop_value_id === item.prop_value_id   
+          return list.prop_value_id === item.prop_value_id
         })
         curOpion.list[curIndex].isOn = true
       })
@@ -226,42 +227,6 @@ export default {
 </script>
 
 <style scoped>
-.pop {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  /* width: 375px; */
-  background-color: #fff;
-  color: #000;
-  padding: 16px 16px 66px;
-  z-index: 110;
-  min-height: 250px;
-  max-height: 480px;
-  text-align: left;
-}
-.pop .close {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 26px;
-  height: 26px;
-}
-.pop .close .icon-close {
-  /* width: 20px;
-  height: 20px;
-  background-image: url(../assets/images/icon-close.png); */
-  font-size: 20px;
-  line-height: 20px;
-  color: #bababa;
-}
-/* .image-icons {
-  display: inline-block;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: cover;
-} */
 .pop .pro-info {
   min-height: 75px;
 }
