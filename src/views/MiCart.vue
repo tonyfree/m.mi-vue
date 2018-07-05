@@ -103,6 +103,7 @@
               <em>去逛逛</em>
             </router-link>
           </div>
+          <MiRecommend />
         </div>
         <div class="bottom-submit box-flex">
           <div class="price-box flex">

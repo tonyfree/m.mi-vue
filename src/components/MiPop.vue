@@ -28,6 +28,13 @@ export default {
       type: Boolean,
       default: true
     },
+    overlayClass: {
+      type: String,
+      default: 'ui-mask'
+    },
+    overlayStyle: {
+      type: Object
+    },
     closeOnClickOverlay: {
       type: Boolean,
       default: false
@@ -35,13 +42,6 @@ export default {
     transition: {
       type: String,
       default: 'bottom-up'
-    },
-    overlayClass: {
-      type: String,
-      default: 'ui-mask'
-    },
-    overlayStyle: {
-      type: Object
     }
   },
   methods: {
