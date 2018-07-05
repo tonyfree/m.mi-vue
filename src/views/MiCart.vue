@@ -36,13 +36,19 @@
                     </div>
                     <div class="num">
                       <div class="xm-input-number">
-                        <div class="input-sub" @click="cartEdit(item, -1)">
+                        <div
+                          :class="{active:item.num>1&&item.price}"
+                          class="input-sub"
+                          @click="cartEdit(item, -1)">
                           <i class="iconfont icon-move"></i>
                         </div>
                         <div class="input-num">
                           <span>{{item.num}}</span>
                         </div>
-                        <div class="input-add active" @click="cartEdit(item, 1)">
+                        <div
+                          :class="{active:item.num<item.buy_limit&&item.price}"
+                          class="input-add"
+                          @click="cartEdit(item, 1)">
                           <i class="iconfont icon-add"></i>
                         </div>
                       </div>
@@ -143,18 +149,6 @@
             <div class="btn" @click="serviceSelectSubmit">确定</div>
           </div>
         </MiPop>
-        <div class="xe-popup xe-toast xe-toast-fade-leave-active xe-toast-fade-leave-to" style="z-index: 100; display:none;">
-          <div class="xe-popup-box xe-popup-center">
-            <div class="xe-popup-content">
-              <div class="xe-toast-box-large">
-                <div class="xe-toast-icon warning">
-                  <i class="iconfont icon-warn"></i>
-                </div>
-                <div class="xe-toast-text">已达到最大购买数量</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -294,7 +288,7 @@
 }
 .cart-list .item .info .xm-input-number .input-add.active,
 .cart-list .item .info .xm-input-number .input-sub.active {
-  background-color: #f4f4f4;
+  background-color: #ddd;
 }
 .cart-list .item .info .xm-input-number .input-add.active .image-icon,
 .cart-list .item .info .xm-input-number .input-sub.active .image-icons {
@@ -530,71 +524,5 @@
   color: #fff;
   font-size: 16px;
   line-height: 47px;
-}
-
-.xe-toast {
-  text-align: center;
-  opacity: 1;
-}
-.xe-popup {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-.xe-popup .xe-popup-box {
-  transform: translate(100%, 100%);
-  z-index: 1000;
-}
-.xe-popup .xe-popup-box,
-.xe-popup .xe-popup-mask {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.xe-popup .xe-popup-center .xe-popup-content {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: auto;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-}
-.xe-toast .xe-toast-box-large {
-  width: 160px;
-  height: 120px;
-  background: rgba(0,0,0,.7);
-  border-radius: 10px;
-  overflow: hidden;
-}
-.xe-toast .xe-toast-icon {
-  width: 42px;
-  height: 42px;
-  margin: 22px auto 15px;
-  /* background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: cover; */
-}
-.xe-toast .xe-toast-icon i {
-  font-size: 42px;
-  line-height: 42px;
-  color: #fff;
-}
-.xe-toast .xe-toast-text {
-  padding: 0 12px;
-  /* min-width: 160px; */
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 13px;
-  height: 20px;
-  line-height: 20px;
-  color: #fff;
 }
 </style>

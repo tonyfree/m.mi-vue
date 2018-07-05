@@ -376,7 +376,8 @@ export default {
   text-align: center;
   font-size: 16px;
 }
-.pop .xm-input-number .input-add, .pop .xm-input-number .input-sub {
+.pop .xm-input-number .input-add,
+.pop .xm-input-number .input-sub {
   display: inline-block;
   width: 30px;
   height: 30px;
@@ -385,7 +386,8 @@ export default {
   background-color: #fafafa;
   text-align: center;
 }
-.pop .xm-input-number .input-add.active, .pop .xm-input-number .input-sub.active {
+.pop .xm-input-number .input-add.active,
+.pop .xm-input-number .input-sub.active {
   background-color: #ddd;
 }
 .pop .service-url {
