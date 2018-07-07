@@ -26,16 +26,18 @@ export default {
     cartList: {
       deep: true,
       handler (val) {
-        this.totalNumber = 0
-        this.totalPrice = 0
+        let num = 0
+        let price = 0
         val.forEach(list => {
           if (list.sel_status) {
-            this.totalNumber += list.num
+            num += list.num
             if (list.price) {
-              this.totalPrice += list.num * list.price
+              price += list.num * list.price
             }
           }
         })
+        this.totalNumber = num
+        this.totalPrice = price
       }
     }
   },
