@@ -1,7 +1,9 @@
 import TheFooter from '@/components/TheFooter.vue'
+import MiTitle from '@/components/MiTitle.vue'
 const mixins = {
   components: {
-    TheFooter
+    TheFooter,
+    MiTitle
   },
   methods: {
     goback () {

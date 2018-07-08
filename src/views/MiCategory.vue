@@ -1,6 +1,6 @@
 <template>
   <div class="app-shell">
-    <MiSearch title="分类"/>
+    <MiTitle title="分类"/>
     <div class="app-view-wrapper">
       <div class="container app-view app-view-with-header app-view-with-footer">
         <div class="list-navbar">
@@ -44,13 +44,11 @@
 </template>
 
 <script>
-import MiSearch from '@/components/MiSearch.vue'
 import CategoryGroup from '@/components/CategoryGroup.vue'
 import fetch from '@/api/fetch.js'
 
 export default {
   components: {
-    MiSearch,
     CategoryGroup
   },
   data () {
