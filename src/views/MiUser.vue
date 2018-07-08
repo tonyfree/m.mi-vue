@@ -80,9 +80,9 @@
         <div class="ui-line"></div>
         <ul class="items">
           <li class="i-setting">
-            <a href="/user/set">
+            <router-link :to="{name: 'set'}">
               <cite>设置</cite>
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>
