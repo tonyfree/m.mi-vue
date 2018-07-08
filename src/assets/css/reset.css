@@ -17,8 +17,13 @@ ol, p {
   margin: 0;
 }
 
-ol {
+ol, ul {
   list-style-type: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
 }
 
 /* 加载进度条 */
