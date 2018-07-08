@@ -1,4 +1,4 @@
-import {login, getCode} from './login.js'
+import {login, userInfo, logout, getCode} from './login.js'
 import {navList, homePage} from './home.js'
 import {category} from './category.js'
 import {commodity} from './commodity.js'
@@ -9,6 +9,8 @@ import {cartIndex, cartSelect, cartEdit, cartAdd, cartDelete, cartSelService} fr
 
 export default {
   login,
+  userInfo,
+  logout,
   getCode,
   navList,
   homePage,

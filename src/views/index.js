@@ -5,6 +5,7 @@ const MiCart = () => import('./MiCart.vue')
 const MiUser = () => import('./MiUser.vue')
 const MiList = () => import('./MiList.vue')
 const MiDetail = () => import('./MiDetail.vue')
+const MiSetting = () => import('./MiSetting.vue')
 
 export default [
   {
@@ -57,5 +58,13 @@ export default [
     path: '/commodity/detail/:id',
     name: 'detail',
     component: MiDetail
+  },
+  {
+    path: '/user/set',
+    name: 'set',
+    component: MiSetting,
+    meta: {
+      requiresAuth: true
+    }
   }
 ]

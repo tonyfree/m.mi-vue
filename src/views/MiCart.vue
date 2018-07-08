@@ -1,6 +1,6 @@
 <template>
   <div class="app-shell app-shell-bottom-navigation">
-    <MiSearch title="购物车"/>
+    <MiTitle title="购物车"/>
     <div class="app-view-wrapper">
       <div class="container fluid app-view app-view-with-header app-view-with-footer">
         <div class="page-wrap">

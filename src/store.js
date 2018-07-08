@@ -1,12 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import fetch from '@/api/fetch.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     viewLoading: false,
-    transitionName: 'page-left'
+    transitionName: 'page-left',
+    userInfo: null
+  },
+  getters: {
+    isLogin: state => {
+      return !!state.userInfo
+    }
   },
   mutations: {
     setViewLoading (state, value) {
@@ -14,9 +21,16 @@ export default new Vuex.Store({
     },
     setTransitionName (state, value) {
       state.transitionName = value
+    },
+    setUserInfo (state, value) {
+      state.userInfo = value
     }
   },
   actions: {
-
+    getUserInfo ({commit}) {
+      fetch('userInfo').then(res => {
+        commit('setUserInfo', res.data.user)
+      })
+    }
   }
 })

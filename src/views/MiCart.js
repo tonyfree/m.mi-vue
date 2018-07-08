@@ -1,12 +1,10 @@
 import { cartIndex } from '@/mock/cart.js'
-import MiSearch from '@/components/MiSearch.vue'
 import fetch from '@/api/fetch.js'
 import MiPop from '@/components/MiPop.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
 
 export default {
   components: {
-    MiSearch,
     MiPop,
     MiRecommend
   },

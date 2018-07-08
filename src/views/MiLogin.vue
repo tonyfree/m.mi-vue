@@ -106,6 +106,10 @@ export default {
       }
     }
   },
+  created() {
+    this.$store.commit('setViewLoading', false)
+    this.$NProgress.done()
+  },
   methods: {
     changeBtn () {
       this.isSmsLogin = !this.isSmsLogin
@@ -177,10 +181,14 @@ export default {
         data.pwd = md5(this.pwd)
       }
       this.$fetch('login', data).then(res => {
-        let status = res.data.status
+        let status = res.status
         if (status === 200) {
-          // todo: 跳转到登录来源
-          console.log('跳转到登录来源')
+          console.log('成功登录')
+          this.$fetch('userInfo').then(res => {
+            this.$store.commit('setUserInfo', res.data.user)
+            let path = this.$route.query.redirect || '/user'
+            this.$router.push(path)
+          })
         } else {
           this.errMsg = res.data.message
         }
@@ -203,6 +211,7 @@ export default {
   padding: 0 28px;
   position: relative;
   box-sizing: border-box;
+  display: block;
 }
 .header_tit {
   padding: 30px 0 10px;
