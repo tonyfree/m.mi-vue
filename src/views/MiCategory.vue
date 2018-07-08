@@ -44,7 +44,6 @@
 </template>
 
 <script>
-import TheFooter from '@/components/TheFooter.vue'
 import MiSearch from '@/components/MiSearch.vue'
 import CategoryGroup from '@/components/CategoryGroup.vue'
 import fetch from '@/api/fetch.js'
@@ -52,8 +51,7 @@ import fetch from '@/api/fetch.js'
 export default {
   components: {
     MiSearch,
-    CategoryGroup,
-    TheFooter
+    CategoryGroup
   },
   data () {
     return {

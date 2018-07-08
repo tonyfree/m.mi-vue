@@ -4,7 +4,9 @@
     <div class="app-view-wrapper">
       <div class="app-view app-view-with-header app-view-with-footer">
         <ol>
-          <li
+          <router-link
+            tag="li"
+            :to="{name: 'detail', params: {id: list.product_id}}"
             v-for="list in commodityList"
             :key="list.product_id"
             class="item ui-flex align-center">
@@ -25,7 +27,7 @@
                 <span class="price">&nbsp;{{list.price}}</span>
               </div>
             </div>
-          </li>
+          </router-link>
         </ol>
         <MiRecommend />
       </div>
@@ -35,7 +37,6 @@
 </template>
 
 <script>
-import TheFooter from '@/components/TheFooter.vue'
 import MiSearch from '@/components/MiSearch.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
 import fetch from '@/api/fetch.js'
@@ -43,8 +44,7 @@ import DOMPurify from 'dompurify'
 export default {
   components: {
     MiRecommend,
-    MiSearch,
-    TheFooter
+    MiSearch
   },
   data () {
     return {
