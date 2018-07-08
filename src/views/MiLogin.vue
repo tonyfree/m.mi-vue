@@ -186,7 +186,8 @@ export default {
           console.log('成功登录')
           this.$fetch('userInfo').then(res => {
             this.$store.commit('setUserInfo', res.data.user)
-            this.$router.push(this.$route.query.redirect)
+            let path = this.$route.query.redirect || '/user'
+            this.$router.push(path)
           })
         } else {
           this.errMsg = res.data.message

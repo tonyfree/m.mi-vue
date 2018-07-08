@@ -3,17 +3,23 @@
     <div class="app-view-wrapper">
       <div class="content app-view app-view-with-footer">
         <header class="hd">
-          <div class="user ui-flex align-center">
+          <div v-if="isLogin" class="user ui-flex align-center">
             <div class="img">
-              <img src="//m.mi.com/static/img/avatar.76a75b8f17.png" lazy="loaded">
+              <img v-if="userInfo.icon" v-lazy="userInfo.icon">
+              <img v-else src="../assets/images/user-default.png">
             </div>
             <div class="name">
-              <p>1313124239</p>
-              <div class="account">1313124239</div>
+              <p>{{userInfo.userName}}</p>
+              <div class="account">{{userInfo.user_id}}</div>
             </div>
-            <!-- <div class="name">
+          </div>
+          <div v-else class="user ui-flex align-center">
+            <div class="img">
+              <img src="../assets/images/user-avatar.png">
+            </div>
+            <router-link :to="{name: 'login', query: {redirect: '/user'}}" tag="div" class="name">
               登录/注册
-            </div> -->
+            </router-link>
           </div>
         </header>
         <div class="b1 ui-flex align-center justify-space-between">
@@ -92,8 +98,12 @@
 </template>
 
 <script>
+import {mapGetters, mapState} from 'vuex'
 export default {
-  
+  computed: {
+    ...mapState(['userInfo']),
+    ...mapGetters(['isLogin'])
+  }
 }
 </script>
 
