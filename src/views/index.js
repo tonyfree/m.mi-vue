@@ -62,6 +62,9 @@ export default [
   {
     path: '/user/set',
     name: 'set',
-    component: MiSetting
+    component: MiSetting,
+    meta: {
+      requiresAuth: true
+    }
   }
 ]

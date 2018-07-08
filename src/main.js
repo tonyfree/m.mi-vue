@@ -22,7 +22,14 @@ Vue.config.productionTip = false
 router.beforeEach((to, from, next) => {
   store.commit('setViewLoading', true)
   NProgress.start()
-  next()
+  if (to.meta.requiresAuth && !store.getters.isLogin) {
+    next({
+      name: 'login',
+      query: {redirect: to.fullPath}
+    })
+  } else {
+    next()
+  }
 })
 
 new Vue({

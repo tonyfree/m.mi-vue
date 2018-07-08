@@ -9,7 +9,7 @@
           </li>
         </ol>
         <footer>
-          <a href="javascript:void(0);">退出账号</a>
+          <a @click="logout">退出账号</a>
         </footer>
       </div>
     </div>
@@ -21,6 +21,14 @@ export default {
   created() {
     this.$store.commit('setViewLoading', false)
     this.$NProgress.done()
+  },
+  methods: {
+    logout () {
+      this.$fetch('logout').then(res => {
+        this.$store.commit('setUserInfo', null)
+        this.$router.push({name: 'user'})
+      })
+    }
   }
 }
 </script>

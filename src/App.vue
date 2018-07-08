@@ -10,7 +10,7 @@
 
 <script>
 import MiSkeleton from '@/components/MiSkeleton.vue'
-import {mapState, mapMutations} from 'vuex'
+import {mapState, mapMutations, mapActions} from 'vuex'
 
 export default {
   components: {
@@ -30,8 +30,12 @@ export default {
       }
     }
   },
+  created () {
+    this.getUserInfo()
+  },
   methods: {
     ...mapMutations(['setTransitionName']),
+    ...mapActions(['getUserInfo']),
     afterLeave () {
       this.setTransitionName('page-left')
     }
