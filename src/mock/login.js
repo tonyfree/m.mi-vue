@@ -7,6 +7,12 @@ let login = Mock.mock({
   "data": {}
 })
 
+let logout = Mock.mock({
+  "status": 200,
+  "message": "退出成功",
+  "data": {}
+})
+
 let getCode = Mock.mock({
   "status": 200,
   "message": "已发送信息",
@@ -15,5 +21,6 @@ let getCode = Mock.mock({
 
 export {
   login,
+  logout,
   getCode
 }

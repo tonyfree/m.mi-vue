@@ -2,6 +2,7 @@ const host = 'http://rap2api.taobao.org/app/mock/13801'
 
 const url = {
   login: '/api/login',
+  logout: '/api/logout',
   getCode: '/api/getCode',
   navList: '/api/navList',
   homePage: '/api/homePage',
