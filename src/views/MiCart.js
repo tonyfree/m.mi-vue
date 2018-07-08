@@ -2,6 +2,7 @@ import { cartIndex } from '@/mock/cart.js'
 import fetch from '@/api/fetch.js'
 import MiPop from '@/components/MiPop.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
+import {mapGetters} from 'vuex'
 
 export default {
   components: {
@@ -20,6 +21,7 @@ export default {
       totalPrice: 0
     }
   },
+  computed: mapGetters(['isLogin']),
   watch: {
     cartList: {
       deep: true,
