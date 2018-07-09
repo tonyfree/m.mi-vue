@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <MiSkeleton v-show="viewLoading"/>
+    <MiSkeleton v-if="viewLoading"/>
     <transition v-show="!viewLoading"
       :name="transitionName" @after-leave="afterLeave">
       <router-view/>
