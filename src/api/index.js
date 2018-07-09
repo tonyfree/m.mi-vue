@@ -17,7 +17,13 @@ const url = {
   cartEdit: '/cart/edit',
   cartAdd: '/cart/add',
   cartDelete: '/cart/del',
-  cartSelService: '/cart/selService'
+  cartSelService: '/cart/selService',
+  addressList: '/address/list',
+  addressAdd: '/address/add',
+  addressSave: '/address/save',
+  addressView: '/address/view',
+  addressDel: '/address/del',
+  addressAll: '/address/all'
 }
 
 Object.keys(url).forEach(key => {
