@@ -26,6 +26,10 @@ ul {
   margin: 0;
 }
 
+button, input {
+  overflow: visible;
+}
+
 /* 加载进度条 */
 #nprogress .bar {
   background-color: rgba(237, 91, 0, 0.5);

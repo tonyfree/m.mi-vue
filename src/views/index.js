@@ -7,6 +7,7 @@ const MiList = () => import('./MiList.vue')
 const MiDetail = () => import('./MiDetail.vue')
 const MiSetting = () => import('./MiSetting.vue')
 const MiAddressList = () => import('./MiAddressList.vue')
+const MiAddressEdit = () => import('./MiAddressEdit.vue')
 
 export default [
   {
@@ -72,5 +73,10 @@ export default [
     path: '/address/list',
     name: 'addressList',
     component: MiAddressList
+  },
+  {
+    path: '/address/edit',
+    name: 'addressEdit',
+    component: MiAddressEdit
   }
 ]
