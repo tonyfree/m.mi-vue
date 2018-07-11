@@ -45,7 +45,7 @@
             <span>保存地址</span>
           </a>
         </div>
-        <MiAddressAll :show-regions="showRegions"/>
+        <MiAddressAll v-model="showRegions"/>
       </div>
     </div>
   </div>

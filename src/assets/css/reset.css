@@ -12,18 +12,13 @@ fieldset {
   border: 0;
 }
 
-ol, p {
+ol, ul, p, dd, dl {
   padding: 0;
   margin: 0;
 }
 
 ol, ul {
   list-style-type: none;
-}
-
-ul {
-  padding: 0;
-  margin: 0;
 }
 
 button, input {
