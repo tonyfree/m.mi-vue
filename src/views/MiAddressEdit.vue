@@ -45,10 +45,20 @@
             <span>保存地址</span>
           </a>
         </div>
+        <MiAddressAll />
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import MiAddressAll from '@/components/MiAddressAll.vue'
+export default {
+  components: {
+    MiAddressAll
+  }
+}  
+</script>
 
 <style scoped>
 .address-manager,
