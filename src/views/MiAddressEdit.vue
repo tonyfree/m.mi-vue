@@ -20,7 +20,7 @@
                 </li>
                 <li class="ui-list-item">
                   <div class="label">所在地区：</div>
-                  <div class="ui-input">
+                  <div class="ui-input" @click="showRegions=true">
                     <input placeholder="省 市 区 街道信息" name="pcd" maxlength="20" type="text" readonly="readonly">
                   </div>
                 </li>
@@ -45,7 +45,7 @@
             <span>保存地址</span>
           </a>
         </div>
-        <MiAddressAll />
+        <MiAddressAll v-model="showRegions"/>
       </div>
     </div>
   </div>
@@ -56,6 +56,11 @@ import MiAddressAll from '@/components/MiAddressAll.vue'
 export default {
   components: {
     MiAddressAll
+  },
+  data () {
+    return {
+      showRegions: false
+    }
   }
 }  
 </script>
