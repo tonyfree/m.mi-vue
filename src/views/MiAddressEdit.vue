@@ -45,7 +45,7 @@
             <span>保存地址</span>
           </a>
         </div>
-        <MiAddressAll v-model="showRegions"/>
+        <MiAddressAll v-model="showRegions" @region="changeRegion"/>
       </div>
     </div>
   </div>
@@ -59,7 +59,13 @@ export default {
   },
   data () {
     return {
-      showRegions: false
+      showRegions: false,
+      addressInfo: {}
+    }
+  },
+  methods: {
+    changeRegion (region) {
+      this.addressInfo = Object.assign({}, this.addressInfo, region)
     }
   }
 }  

@@ -1,9 +1,9 @@
 <template>
   <div class="popup-regions-box">
-    <div v-show="value" class="ui-mask"></div>
+    <div v-if="value" class="ui-mask"></div>
     <transition name="bottom-up">
-      <div v-show="value" class="ui-pop">
-        <div class="ui-pop-close" @click="$emit('input', false)">
+      <div v-if="value" class="ui-pop">
+        <div class="ui-pop-close" @click="close">
           <a>
             <i class="image-icons iconfont icon-close"></i>
           </a>
@@ -12,7 +12,7 @@
         <div class="ui-pop-conten">
           <div class="region-tab">
             <span
-              v-for="(item,index) in curReginos"
+              v-for="(item,index) in curRegions"
               :key="index"
               :class="{active:index==curIndex}"
               @click="changeTab(index)">{{item.name}}</span>
@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-    </transition>  
+    </transition>
   </div>
 </template>
 
@@ -43,35 +43,34 @@ export default {
   },
   data () {
     return {
-      regionsList: [],
       curIndex: 0,
-      curReginos: [
+      curRegions: [
         {
           id: 0, 
           name: '请选择',
-          child: []
+          list: []
         },
         {
           id: 0,
           name: '',
-          child: []
+          list: []
         },
         {
           id: 0,
           name: '',
-          child: []
+          list: []
         },
         {
           id: 0,
           name: '',
-          child: []
+          list: []
         }
       ]
     }
   },
   computed: {
     curList () {
-      return this.curReginos[this.curIndex].child
+      return this.curRegions[this.curIndex].list
     }
   },
   created () {
@@ -80,16 +79,58 @@ export default {
   methods: {
     getAll () {
       this.$fetch('addressAll').then(res => {
-        this.regionsList = addressAll.data
-        this.curReginos[this.curIndex].child = addressAll.data
+        this.curRegions[this.curIndex].list = addressAll.data
       })
     },
     select (list) {
-      if (this.curIndex)
-      this.curList = list.child
+      this.curRegions[this.curIndex].name = list.name
+      this.curRegions[this.curIndex].id = list.id
+      if (this.curIndex < 2) {
+        this.curIndex++
+        this.curRegions[this.curIndex].name = '请选择'
+        this.curRegions[this.curIndex].list = list.child
+      } else if (this.curIndex === 2) {
+        this.curIndex++
+        this.curRegions[this.curIndex].name = '请选择'
+        this.$fetch('addressRegion').then(res => {
+          this.curRegions[this.curIndex].list = res.data
+        })
+      } else {
+        let region = this.curRegions
+        this.$emit('region', {
+          province: region[0].name,
+          province_id: region[0].id,
+          city: region[1].name,
+          city_id: region[1].id,
+          district: region[2].name,
+          district_id: region[2].id,
+          area: region[3].name,
+          area_id: region[3].id
+        })
+        this.close()
+      }
     },
     changeTab (index) {
       this.curIndex = index
+      this.curRegions[this.curIndex].name = '请选择'
+      for (let i = index + 1; i < 4; i++) {
+        this.curRegions[i] = {
+          id: 0,
+          name: '',
+          list: []
+        }
+      }
+    },
+    close () {
+      this.curIndex = 0
+      for (let i = 1; i < 4; i++) {
+        this.curRegions[i] = {
+          id: 0,
+          name: '',
+          list: []
+        }
+      }
+      this.$emit('input', false)
     }
   }
 }

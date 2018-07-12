@@ -96,14 +96,13 @@ let addressDel = Mock.mock({
 
 let addressRegion = Mock.mock({
   "code": 0,
-  "data": {},
-  "result": "ok",
-  "regions|3": [
+  "data|3": [
     {
-      "region_id": "@id",
-      "region_name": "@order(翠香街道,拱北街道,梅华街道)"
+      "id": "@id",
+      "name": "@order(翠香街道,拱北街道,梅华街道)"
     }
-  ]
+  ],
+  "result": "ok"
 })
 
 export {
