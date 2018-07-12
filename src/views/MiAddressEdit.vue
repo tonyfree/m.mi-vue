@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="add">
-          <a href="javascript:;" class="btn ui-button ui-button-active" @click="submit">
+          <a class="btn ui-button ui-button-active" @click="submit">
             <span>保存地址</span>
           </a>
         </div>
@@ -80,14 +80,14 @@ export default {
     addressStr () {
       let info = this.addressInfo
       return `${info.province} ${info.city} ${info.district} ${info.area}`.trim()
-    },
-    submit () {
-      
     }
   },
   methods: {
     changeRegion (region) {
       this.addressInfo = Object.assign({}, this.addressInfo, region)
+    },
+    submit () {
+
     }
   }
 }  
