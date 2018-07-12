@@ -48,40 +48,20 @@ let addressSave = Mock.mock({
 let addressView = Mock.mock({
   "code": 0,
   "data": {
-    "address_id": "11000000008369815",
-    "address_name": "",
-    "consignee": "sdfsdf",
-    "country": {
-      "id": 1,
-      "name": "中国"
-    },
-    "province": {
-      "id": 2,
-      "name": "北京"
-    },
-    "city": {
-      "id": 36,
-      "name": "北京市"
-    },
-    "district": {
-      "id": 377,
-      "name": "东城区"
-    },
-    "area": {
-      "id": 377001,
-      "name": "安定门街道"
-    },
-    "address": "123131231",
+    "address_id": "@id",
+    "consignee": "tony",
+    "address": "华发国际花园",
     "zipcode": "100011",
     "tel": "131****5678",
-    "update_time": 1531144443,
-    "add_time": 0,
-    "used_count": 0,
-    "need_edit": false,
     "is_default": 1,
-    "is_invalid": false,
-    "remark": "default",
-    "tag_name": ""
+    "province": "广东",
+    "province_id": "@id",
+    "city": "珠海",
+    "city_id": "@id",
+    "district": "香洲区",
+    "district_id": "@id",
+    "area": "保税区",
+    "area_id": "@id"
   },
   "result": "ok"
 })

@@ -82,12 +82,31 @@ export default {
       return `${info.province} ${info.city} ${info.district} ${info.area}`.trim()
     }
   },
+  created () {
+    if (this.$route.query.address_id) {
+      this.getAddress()
+    }
+  },
   methods: {
+    getAddress () {
+      this.$fetch('addressView', {
+        address_id: this.$route.query.address_id
+      }).then(res => {
+        let info = res.data
+        info.is_default = info.is_default == 1
+        this.addressInfo = info
+      })
+    },
     changeRegion (region) {
       this.addressInfo = Object.assign({}, this.addressInfo, region)
     },
     submit () {
-
+      // 校验
+      this.addressInfo.is_default = this.addressInfo.is_default ? 1 : 2
+      let api = this.$route.query.address_id ? 'addressSave' : 'addressAdd'
+      this.$fetch(api).then(res => {
+        this.$router.go(-1)
+      })
     }
   }
 }  
