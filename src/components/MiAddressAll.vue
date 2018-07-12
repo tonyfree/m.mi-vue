@@ -11,30 +11,18 @@
         <div class="ui-pop-title">选择地址</div>
         <div class="ui-pop-conten">
           <div class="region-tab">
-            <span>北京</span>
-            <span>北京市</span>
-            <span>东城区</span>
-            <span class="active">请选择</span>
+            <span
+              v-for="(item,index) in curReginos"
+              :key="index"
+              :class="{active:index==curIndex}"
+              @click="changeTab(index)">{{item.name}}</span>
           </div>
           <div class="region-list">
             <dl class="rl1">
-              <dd>安定门街道</dd>
-              <dd>北新桥街道</dd>
-              <dd>朝阳门街道</dd>
-              <dd>崇文门外街道</dd>
-              <dd>东花市街道</dd>
-              <dd>东华门街道</dd>
-              <dd>东四街道</dd>
-              <dd>东直门街道</dd>
-              <dd>和平里街道</dd>
-              <dd>建国门街道</dd>
-              <dd>交道口街道</dd>
-              <dd>景山街道</dd>
-              <dd>龙潭街道</dd>
-              <dd>前门街道</dd>
-              <dd>体育馆路街道</dd>
-              <dd>天坛街道</dd>
-              <dd>永定门外街道</dd>
+              <dd
+                v-for="list in curList"
+                :key="list.id"
+                @click="select(list)">{{list.name}}</dd>
             </dl>
           </div>
         </div>
@@ -44,11 +32,64 @@
 </template>
 
 <script>
+import addressAll from '@/mock/addressAll.js'
+
 export default {
   props: {
     value: {
       type: Boolean,
       default: false
+    }
+  },
+  data () {
+    return {
+      regionsList: [],
+      curIndex: 0,
+      curReginos: [
+        {
+          id: 0, 
+          name: '请选择',
+          child: []
+        },
+        {
+          id: 0,
+          name: '',
+          child: []
+        },
+        {
+          id: 0,
+          name: '',
+          child: []
+        },
+        {
+          id: 0,
+          name: '',
+          child: []
+        }
+      ]
+    }
+  },
+  computed: {
+    curList () {
+      return this.curReginos[this.curIndex].child
+    }
+  },
+  created () {
+    this.getAll()
+  },
+  methods: {
+    getAll () {
+      this.$fetch('addressAll').then(res => {
+        this.regionsList = addressAll.data
+        this.curReginos[this.curIndex].child = addressAll.data
+      })
+    },
+    select (list) {
+      if (this.curIndex)
+      this.curList = list.child
+    },
+    changeTab (index) {
+      this.curIndex = index
     }
   }
 }
