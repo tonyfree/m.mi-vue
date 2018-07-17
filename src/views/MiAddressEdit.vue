@@ -1,6 +1,7 @@
 <template>
   <div class="app-shell app-shell-bottom-navigation">
     <div class="app-view-wrapper">
+      <MiTitle :title="title" :show-search-icon="false"/>
       <div class="container app-view app-view-with-header">
         <div class="page-wrap">
           <div class="address-manager">
@@ -53,9 +54,12 @@
 
 <script>
 import MiAddressAll from '@/components/MiAddressAll.vue'
+import MiTitle from '@/components/MiTitle.vue'
+import fetch from '@/api/fetch.js'
 export default {
   components: {
-    MiAddressAll
+    MiAddressAll,
+    MiTitle
   },
   data () {
     return {
@@ -72,7 +76,8 @@ export default {
         area: '',
         area_id: '',
         address: '',
-        is_default: false
+        is_default: false,
+        title: '新增地址'
       }
     }
   },
@@ -82,9 +87,29 @@ export default {
       return `${info.province} ${info.city} ${info.district} ${info.area}`.trim()
     }
   },
+  beforeRouteEnter (to, from, next) {
+    let id = to.query.address_id
+    if (id) {
+      if (from.name) {
+        fetch('addressView', {
+          address_id: id
+        }).then(res => {
+          next(vm => vm.setAddress(res))
+        })
+      } else {
+        next(vm => vm.getAddress())
+      }
+    } else {
+      next()
+    }
+  },
   created () {
     if (this.$route.query.address_id) {
-      this.getAddress()
+      this.title = '编辑地址'
+    } else {
+      this.title = '新增地址'
+      this.$store.commit('setViewLoading', false)
+      this.$NProgress.done()
     }
   },
   methods: {
@@ -92,10 +117,15 @@ export default {
       this.$fetch('addressView', {
         address_id: this.$route.query.address_id
       }).then(res => {
-        let info = res.data
-        info.is_default = info.is_default == 1
-        this.addressInfo = info
+        this.setAddress(res)
       })
+    },
+    setAddress (res) {
+      this.$store.commit('setViewLoading', false)
+      this.$NProgress.done()
+      let info = res.data
+      info.is_default = info.is_default == 1
+      this.addressInfo = info
     },
     changeRegion (region) {
       this.addressInfo = Object.assign({}, this.addressInfo, region)
