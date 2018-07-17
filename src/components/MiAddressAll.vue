@@ -1,9 +1,9 @@
 <template>
   <div class="popup-regions-box">
-    <div v-show="value" class="ui-mask"></div>
+    <div v-if="value" class="ui-mask"></div>
     <transition name="bottom-up">
-      <div v-show="value" class="ui-pop">
-        <div class="ui-pop-close" @click="$emit('input', false)">
+      <div v-if="value" class="ui-pop">
+        <div class="ui-pop-close" @click="close">
           <a>
             <i class="image-icons iconfont icon-close"></i>
           </a>
@@ -11,44 +11,126 @@
         <div class="ui-pop-title">选择地址</div>
         <div class="ui-pop-conten">
           <div class="region-tab">
-            <span>北京</span>
-            <span>北京市</span>
-            <span>东城区</span>
-            <span class="active">请选择</span>
+            <span
+              v-for="(item,index) in curRegions"
+              :key="index"
+              :class="{active:index==curIndex}"
+              @click="changeTab(index)">{{item.name}}</span>
           </div>
           <div class="region-list">
             <dl class="rl1">
-              <dd>安定门街道</dd>
-              <dd>北新桥街道</dd>
-              <dd>朝阳门街道</dd>
-              <dd>崇文门外街道</dd>
-              <dd>东花市街道</dd>
-              <dd>东华门街道</dd>
-              <dd>东四街道</dd>
-              <dd>东直门街道</dd>
-              <dd>和平里街道</dd>
-              <dd>建国门街道</dd>
-              <dd>交道口街道</dd>
-              <dd>景山街道</dd>
-              <dd>龙潭街道</dd>
-              <dd>前门街道</dd>
-              <dd>体育馆路街道</dd>
-              <dd>天坛街道</dd>
-              <dd>永定门外街道</dd>
+              <dd
+                v-for="list in curList"
+                :key="list.id"
+                @click="select(list)">{{list.name}}</dd>
             </dl>
           </div>
         </div>
       </div>
-    </transition>  
+    </transition>
   </div>
 </template>
 
 <script>
+import addressAll from '@/mock/addressAll.js'
+
 export default {
   props: {
     value: {
       type: Boolean,
       default: false
+    }
+  },
+  data () {
+    return {
+      curIndex: 0,
+      curRegions: [
+        {
+          id: 0,
+          name: '请选择',
+          list: []
+        },
+        {
+          id: 0,
+          name: '',
+          list: []
+        },
+        {
+          id: 0,
+          name: '',
+          list: []
+        },
+        {
+          id: 0,
+          name: '',
+          list: []
+        }
+      ]
+    }
+  },
+  computed: {
+    curList () {
+      return this.curRegions[this.curIndex].list
+    }
+  },
+  created () {
+    this.getAll()
+  },
+  methods: {
+    getAll () {
+      this.$fetch('addressAll').then(res => {
+        this.curRegions[this.curIndex].list = addressAll.data
+      })
+    },
+    select (list) {
+      this.curRegions[this.curIndex].name = list.name
+      this.curRegions[this.curIndex].id = list.id
+      if (this.curIndex < 2) {
+        this.curIndex++
+        this.curRegions[this.curIndex].name = '请选择'
+        this.curRegions[this.curIndex].list = list.child
+      } else if (this.curIndex === 2) {
+        this.curIndex++
+        this.curRegions[this.curIndex].name = '请选择'
+        this.$fetch('addressRegion').then(res => {
+          this.curRegions[this.curIndex].list = res.data
+        })
+      } else {
+        let region = this.curRegions
+        this.$emit('region', {
+          province: region[0].name,
+          province_id: region[0].id,
+          city: region[1].name,
+          city_id: region[1].id,
+          district: region[2].name,
+          district_id: region[2].id,
+          area: region[3].name,
+          area_id: region[3].id
+        })
+        this.close()
+      }
+    },
+    changeTab (index) {
+      this.curIndex = index
+      this.curRegions[this.curIndex].name = '请选择'
+      for (let i = index + 1; i < 4; i++) {
+        this.curRegions[i] = {
+          id: 0,
+          name: '',
+          list: []
+        }
+      }
+    },
+    close () {
+      this.curIndex = 0
+      for (let i = 1; i < 4; i++) {
+        this.curRegions[i] = {
+          id: 0,
+          name: '',
+          list: []
+        }
+      }
+      this.$emit('input', false)
     }
   }
 }

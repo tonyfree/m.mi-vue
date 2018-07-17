@@ -94,7 +94,7 @@
       </div>
     </div>
     <TheFooter />
-  </div> 
+  </div>
 </template>
 
 <script>

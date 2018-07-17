@@ -23,7 +23,8 @@ const url = {
   addressSave: '/address/save',
   addressView: '/address/view',
   addressDel: '/address/del',
-  addressAll: '/address/all'
+  addressAll: '/address/all',
+  addressRegion: '/address/region'
 }
 
 Object.keys(url).forEach(key => {

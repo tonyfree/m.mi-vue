@@ -1,48 +1,75 @@
 <template>
   <div class="app-shell app-shell-bottom-navigation">
     <div class="app-view-wrapper">
+      <MiTitle title="收货地址" :show-search-icon="false"/>
       <div class="container app-view app-view-with-header">
         <div class="page-wrap">
           <div class="address-manager">
             <div class="address-manager-list">
-              <div class="ui-card">
+              <div v-for="list in lists" :key="list.address_id" class="ui-card">
                 <ul class="ui-card-item ui-list">
                   <li class="ui-list-item identity">
                     <a href="javascript:;">删除</a>
-                    <span class="consignee">tony</span>
-                    <span>131****5678</span>
+                    <span class="consignee">{{list.consignee}}</span>
+                    <span>{{list.tel}}</span>
                   </li>
-                  <li class="ui-list-item edit">
-                    <p>北京 北京市 朝阳区 奥运村街道</p>
-                    <p>测试地址数据</p>
-                  </li>
-                </ul>
-              </div>
-              <div class="ui-card">
-                <ul class="ui-card-item ui-list">
-                  <li class="ui-list-item identity">
-                    <a href="javascript:;">删除</a>
-                    <span class="consignee">tony</span>
-                    <span>131****5678</span>
-                  </li>
-                  <li class="ui-list-item edit">
-                    <p>广东 珠海市 香洲区 保税区</p>
-                    <p>华发国际花园</p>
-                  </li>
+                  <router-link class="ui-list-item edit" :to="{name: 'addressEdit', query: {address_id: list.address_id}}" tag="li">
+                    <p>{{list.province}} {{list.city}} {{list.district}} {{list.area}}</p>
+                    <p>{{list.address}}</p>
+                  </router-link>
                 </ul>
               </div>
             </div>
           </div>
         </div>
         <div class="add">
-          <a href="javascript:;" class="btn ui-button ui-button-active">
+          <router-link href="javascript:;" class="btn ui-button ui-button-active" :to="{name: 'addressEdit'}">
             <span>新建地址</span>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import fetch from '@/api/fetch.js'
+import MiTitle from '@/components/MiTitle.vue'
+export default {
+  components: {
+    MiTitle
+  },
+  data () {
+    return {
+      lists: []
+    }
+  },
+  beforeRouteEnter (to, from, next) {
+    if (from.name) {
+      fetch('addressList').then(res => {
+        next(vm => vm.setLists(res))
+      })
+    } else {
+      next(vm => vm.getLists())
+    }
+  },
+  created () {
+    this.getLists()
+  },
+  methods: {
+    getLists () {
+      this.$fetch('addressList').then(res => {
+        this.setLists(res)
+      })
+    },
+    setLists (res) {
+      this.$store.commit('setViewLoading', false)
+      this.$NProgress.done()
+      this.lists = res.data
+    }
+  }
+}
+</script>
 
 <style scoped>
 .address-manager {

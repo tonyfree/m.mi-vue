@@ -5,7 +5,7 @@
       <div class="page-user-set app-view app-view-with-header">
         <ol>
           <li>
-            <a href="/address/list?type=user">地址管理</a>
+            <router-link :to="{name: 'addressList'}">地址管理</router-link>
           </li>
         </ol>
         <footer>
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  created() {
+  created () {
     this.$store.commit('setViewLoading', false)
     this.$NProgress.done()
   },
