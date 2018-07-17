@@ -46,7 +46,7 @@ export default {
       curIndex: 0,
       curRegions: [
         {
-          id: 0, 
+          id: 0,
           name: '请选择',
           list: []
         },

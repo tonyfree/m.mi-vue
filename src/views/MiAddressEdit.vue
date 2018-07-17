@@ -73,7 +73,7 @@ export default {
         area_id: '',
         address: '',
         is_default: false
-      },
+      }
     }
   },
   computed: {
@@ -109,7 +109,7 @@ export default {
       })
     }
   }
-}  
+}
 </script>
 
 <style scoped>

@@ -22,9 +22,9 @@
           </div>
         </div>
         <div class="add">
-          <a href="javascript:;" class="btn ui-button ui-button-active">
+          <router-link href="javascript:;" class="btn ui-button ui-button-active" :to="{name: 'addressEdit'}">
             <span>新建地址</span>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@ export default {
       })
     }
   }
-}  
+}
 </script>
 
 <style scoped>
