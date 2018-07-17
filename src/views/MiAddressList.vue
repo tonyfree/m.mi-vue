@@ -1,6 +1,7 @@
 <template>
   <div class="app-shell app-shell-bottom-navigation">
     <div class="app-view-wrapper">
+      <MiTitle title="收货地址" :show-search-icon="false"/>
       <div class="container app-view app-view-with-header">
         <div class="page-wrap">
           <div class="address-manager">
@@ -32,10 +33,24 @@
 </template>
 
 <script>
+import fetch from '@/api/fetch.js'
+import MiTitle from '@/components/MiTitle.vue'
 export default {
+  components: {
+    MiTitle
+  },
   data () {
     return {
       lists: []
+    }
+  },
+  beforeRouteEnter (to, from, next) {
+    if (from.name) {
+      fetch('addressList').then(res => {
+        next(vm => vm.setLists(res))
+      })
+    } else {
+      next(vm => vm.getLists())
     }
   },
   created () {
@@ -44,8 +59,13 @@ export default {
   methods: {
     getLists () {
       this.$fetch('addressList').then(res => {
-        this.lists = res.data
+        this.setLists(res)
       })
+    },
+    setLists (res) {
+      this.$store.commit('setViewLoading', false)
+      this.$NProgress.done()
+      this.lists = res.data
     }
   }
 }

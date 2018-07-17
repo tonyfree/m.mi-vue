@@ -11,7 +11,7 @@
       </div>
       <div class="app-header-right">
         <a class="app-header-item">
-          <i class="iconfont icon-search"></i>
+          <i class="iconfont icon-search" v-if="showSearchIcon"></i>
         </a>
       </div>
     </template>
@@ -24,6 +24,10 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    showSearchIcon: {
+      type: Boolean,
+      default: true
     }
   }
 }
