@@ -288,6 +288,26 @@ let productView = Mock.mock({
   }
 })
 
+let estDelivery = Mock.mock({
+  "code": 0,
+  "result": "ok",
+  "description": "success",
+  "data": {
+    "address": {},
+    "address_info": {
+      "address": "北京市 西城区",
+      "address_id": ""
+    },
+    "regions": {},
+    "datas|2": [
+      {
+        "stock_status": "有现货"
+      }
+    ]
+  }
+})
+
 export {
-  productView
+  productView,
+  estDelivery
 }
