@@ -4,6 +4,7 @@ import 'swiper/dist/css/swiper.min.css'
 import MiComment from '@/components/MiComment.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
 import MiSKU from '@/components/MiSKU.vue'
+import {mapGetters} from 'vuex'
 
 export default {
   components: {
@@ -27,6 +28,9 @@ export default {
       detailSwiper: null
     }
   },
+  computed: {
+    ...mapGetters(['isLogin'])
+  },
   beforeRouteEnter (to, from, next) {
     if (from.name) {
       fetch('productView', {
@@ -36,6 +40,13 @@ export default {
       })
     } else {
       next(vm => vm.getProductData())
+    }
+  },
+  created() {
+    if (this.isLogin) {
+      
+    } else {
+
     }
   },
   destroyed () {
