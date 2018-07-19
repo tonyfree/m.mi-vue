@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import fetch from '@/api/fetch.js'
+import address from './modules/address.js'
 
 Vue.use(Vuex)
 
@@ -32,5 +33,8 @@ export default new Vuex.Store({
         commit('setUserInfo', res.data.user)
       })
     }
+  },
+  modules: {
+    address
   }
 })

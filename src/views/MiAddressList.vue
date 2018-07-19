@@ -53,9 +53,6 @@ export default {
       next(vm => vm.getLists())
     }
   },
-  created () {
-    this.getLists()
-  },
   methods: {
     getLists () {
       this.$fetch('addressList').then(res => {
