@@ -4,7 +4,7 @@ import 'swiper/dist/css/swiper.min.css'
 import MiComment from '@/components/MiComment.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
 import MiSKU from '@/components/MiSKU.vue'
-import {mapGetters} from 'vuex'
+import {mapGetters, mapState, mapActions} from 'vuex'
 
 export default {
   components: {
@@ -29,7 +29,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['isLogin'])
+    ...mapGetters(['isLogin']),
+    ...mapState({
+      addressList: state => state.address.list
+    })
   },
   beforeRouteEnter (to, from, next) {
     if (from.name) {
@@ -44,7 +47,7 @@ export default {
   },
   created() {
     if (this.isLogin) {
-      
+      this.getAddressList()
     } else {
 
     }
@@ -59,6 +62,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      getAddressList: 'address/getList'
+    }),
     getProductData () {
       this.$fetch('productView', {
         commodity_id: this.$route.params.id

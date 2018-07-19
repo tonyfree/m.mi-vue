@@ -1,7 +1,7 @@
 import fetch from '@/api/fetch.js'
 
 class Address {
-  list () {
+  static list () {
     return fetch('addressList')
   }
 }
