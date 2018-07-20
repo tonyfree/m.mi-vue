@@ -76,12 +76,12 @@
 }
 .xe-dialog .xe-dialog-content .xe-dialog-title {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 24px;
   font-size: 18px;
   line-height: 18px;
 }
 .xe-dialog .xe-dialog-content .xe-dialog-text {
-  margin: 20px;
+  margin: 24px;
   line-height: 20px;
   color: #676767;
 }

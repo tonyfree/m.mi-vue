@@ -6,10 +6,10 @@
         <div class="page-wrap">
           <div class="address-manager">
             <div class="address-manager-list">
-              <div v-for="list in lists" :key="list.address_id" class="ui-card">
+              <div v-for="(list,index) in lists" :key="list.address_id" class="ui-card">
                 <ul class="ui-card-item ui-list">
                   <li class="ui-list-item identity">
-                    <a href="javascript:;">删除</a>
+                    <a href="javascript:;" @click="remove(list, index)">删除</a>
                     <span class="consignee">{{list.consignee}}</span>
                     <span>{{list.tel}}</span>
                   </li>
@@ -29,22 +29,29 @@
         </div>
       </div>
     </div>
-    <MiDialog />
+    <!-- <MiDialog
+      v-model="showDialog"
+      show-cancel-button
+      @confirm="removeAction">
+    </MiDialog>  -->
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import fetch from '@/api/fetch.js'
 import MiTitle from '@/components/MiTitle.vue'
-import MiDialog from '@/components/dialog/MiDialog.vue'
+import Dialog from '@/components/dialog'
+// Vue.use(Dialog)
+
 export default {
   components: {
-    MiTitle,
-    MiDialog
+    MiTitle
   },
   data () {
     return {
-      lists: []
+      lists: [],
+      showDialog: false
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -66,6 +73,27 @@ export default {
       this.$store.commit('setViewLoading', false)
       this.$NProgress.done()
       this.lists = res.data
+    },
+    remove (list, index) {
+      // this.removeCash = {
+      //   id: list.id,
+      //   index
+      // }
+      // this.showDialog = true
+      Dialog.confirm({
+        message: '确定删除当前地址?'
+      }).then(() => {
+        fetch('addressDel', {
+          address_id: list.address_id
+        }).then(res => {
+          this.lists.splice(index, 1)
+        })
+      }).catch(err => {
+        console.log(err)
+      })
+    },
+    removeAction () {
+      console.log('removeAction')
     }
   }
 }

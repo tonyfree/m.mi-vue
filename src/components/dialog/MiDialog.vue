@@ -1,18 +1,28 @@
 <template>
-  <div class="xe-popup xe-dialog">
+<transition name="bounce">
+  <div v-if="value" class="xe-popup xe-dialog">
     <div class="xe-popup-mask"></div>
     <div class="xe-popup-box xe-popup-center">
       <div class="xe-popup-content">
         <div class="xe-dialog-box">
           <div class="xe-dialog-content">
-            <div class="xe-dialog-title fz-m">提示</div>
-            <div class="xe-dialog-text fz-s">确定删除当前地址?</div>
+            <template v-if="!$slots.default">
+              <div class="xe-dialog-title fz-m">{{title}}</div>
+              <div class="xe-dialog-text fz-s">{{message}}</div>
+            </template>
+            <slot></slot>
           </div>
           <div class="xe-dialog-action box-flex bd-top-1px">
-            <div class="xe-button xe-cancel-button bd-right-1px flex">
+            <div
+              v-show="showCancelButton"
+              class="xe-button xe-cancel-button bd-right-1px flex"
+              @click="onClose('cancel')">
               <span class="fz-m">取消</span>
             </div>
-            <div class="xe-button xe-confirm-buttom flex">
+            <div
+              v-show="showConfirmButton"
+              class="xe-button xe-confirm-buttom flex"
+              @click="onClose('confirm')">
               <span class="fz-m">确认</span>
             </div>
           </div>
@@ -20,13 +30,48 @@
       </div>
     </div>
   </div>
+</transition>
 </template>
+
+<script>
+export default {
+  props: {
+    value: {
+      type: Boolean,
+      default: false
+    },
+    title: {
+      type: String,
+      default: '提示'
+    },
+    message: {
+      type: String
+    },
+    showCancelButton: {
+      type: Boolean,
+      default: false
+    },
+    showConfirmButton: {
+      type: Boolean,
+      default: true
+    },
+    callback: {
+      type: Function
+    }
+  },
+  methods: {
+    onClose(action) {
+      this.$emit('input', false)
+      // this.$emit(action)
+      this.callback && this.callback(action)
+    }
+  }
+}
+</script>
 
 <style scoped>
 .xe-dialog {
   text-align: center;
-  opacity: 1;
-  transform: scale(1);
 }
 .xe-popup {
   position: fixed;
@@ -76,12 +121,12 @@
 }
 .xe-dialog .xe-dialog-content .xe-dialog-title {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 24px;
   font-size: 18px;
   line-height: 18px;
 }
 .xe-dialog .xe-dialog-content .xe-dialog-text {
-  margin: 20px;
+  margin: 24px;
   line-height: 20px;
   color: #676767;
 }
@@ -116,6 +161,26 @@
 }
 .xe-dialog .xe-dialog-action .xe-confirm-buttom {
   color: #ff6700;
+}
+.bounce-enter-active {
+  animation: bounce-in .3s;
+}
+.bounce-leave-active {
+  animation: bounce-in .3s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 </style>
 
