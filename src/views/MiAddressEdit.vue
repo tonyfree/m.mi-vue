@@ -124,6 +124,7 @@ export default {
       this.$store.commit('setViewLoading', false)
       this.$NProgress.done()
       let info = res.data
+      // eslint-disable-next-line
       info.is_default = info.is_default == 1
       this.addressInfo = info
     },
@@ -134,7 +135,7 @@ export default {
       // 校验
       this.addressInfo.is_default = this.addressInfo.is_default ? 1 : 2
       let api = this.$route.query.address_id ? 'addressSave' : 'addressAdd'
-      this.$fetch(api).then(res => {
+      this.$fetch(api, this.addressInfo).then(res => {
         this.$router.go(-1)
       })
     }
