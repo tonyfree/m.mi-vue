@@ -29,15 +29,18 @@
         </div>
       </div>
     </div>
+    <MiDialog />
   </div>
 </template>
 
 <script>
 import fetch from '@/api/fetch.js'
 import MiTitle from '@/components/MiTitle.vue'
+import MiDialog from '@/components/dialog/MiDialog.vue'
 export default {
   components: {
-    MiTitle
+    MiTitle,
+    MiDialog
   },
   data () {
     return {
