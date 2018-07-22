@@ -29,11 +29,12 @@
         </div>
       </div>
     </div>
-    <!-- <MiDialog
+    <MiDialog
       v-model="showDialog"
+      message="确定删除当前地址?"
       show-cancel-button
-      @confirm="removeAction">
-    </MiDialog>  -->
+      :before-close="beforeClose">
+    </MiDialog> 
   </div>
 </template>
 
@@ -42,7 +43,7 @@ import Vue from 'vue'
 import fetch from '@/api/fetch.js'
 import MiTitle from '@/components/MiTitle.vue'
 import Dialog from '@/components/dialog'
-// Vue.use(Dialog)
+Vue.use(Dialog)
 
 export default {
   components: {
@@ -51,7 +52,8 @@ export default {
   data () {
     return {
       lists: [],
-      showDialog: false
+      showDialog: false,
+      removeCash: {}
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -75,25 +77,29 @@ export default {
       this.lists = res.data
     },
     remove (list, index) {
-      // this.removeCash = {
-      //   id: list.id,
-      //   index
-      // }
-      // this.showDialog = true
-      Dialog.confirm({
-        message: '确定删除当前地址?'
-      }).then(() => {
+      this.removeCash = {
+        id: list.id,
+        index
+      }
+      this.showDialog = true
+
+      // Dialog.confirm({
+      //   message: '确定删除当前地址?',
+      //   beforeClose: this.beforeClose
+      // })
+    },
+    beforeClose (action, done) {
+      let {id, index} = this.removeCash
+      if (action === 'confirm') {
         fetch('addressDel', {
-          address_id: list.address_id
+          address_id: id
         }).then(res => {
           this.lists.splice(index, 1)
+          done()
         })
-      }).catch(err => {
-        console.log(err)
-      })
-    },
-    removeAction () {
-      console.log('removeAction')
+      } else {
+        done()
+      }
     }
   }
 }

@@ -16,13 +16,13 @@
             <div
               v-show="showCancelButton"
               class="xe-button xe-cancel-button bd-right-1px flex"
-              @click="onClose('cancel')">
+              @click="handleAction('cancel')">
               <span class="fz-m">取消</span>
             </div>
             <div
               v-show="showConfirmButton"
               class="xe-button xe-confirm-buttom flex"
-              @click="onClose('confirm')">
+              @click="handleAction('confirm')">
               <span class="fz-m">确认</span>
             </div>
           </div>
@@ -55,15 +55,27 @@ export default {
       type: Boolean,
       default: true
     },
+    beforeClose: {
+      type: Function
+    },
     callback: {
       type: Function
     }
   },
   methods: {
+    handleAction (action) {
+      if (this.beforeClose) {
+        this.beforeClose(action, () => {
+          this.onClose(action)
+        })
+      } else {
+        this.onClose(action)
+      }
+    },
     onClose(action) {
       this.$emit('input', false)
       // this.$emit(action)
-      this.callback && this.callback(action)
+      // this.callback && this.callback(action)
     }
   }
 }
