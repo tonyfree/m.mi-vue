@@ -6,10 +6,10 @@
         <div class="page-wrap">
           <div class="address-manager">
             <div class="address-manager-list">
-              <div v-for="list in lists" :key="list.address_id" class="ui-card">
+              <div v-for="(list,index) in lists" :key="list.address_id" class="ui-card">
                 <ul class="ui-card-item ui-list">
                   <li class="ui-list-item identity">
-                    <a href="javascript:;">删除</a>
+                    <a href="javascript:;" @click="remove(list, index)">删除</a>
                     <span class="consignee">{{list.consignee}}</span>
                     <span>{{list.tel}}</span>
                   </li>
@@ -29,19 +29,31 @@
         </div>
       </div>
     </div>
+    <MiDialog
+      v-model="showDialog"
+      message="确定删除当前地址?"
+      show-cancel-button
+      :before-close="beforeClose">
+    </MiDialog> 
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import fetch from '@/api/fetch.js'
 import MiTitle from '@/components/MiTitle.vue'
+import Dialog from '@/components/dialog'
+Vue.use(Dialog)
+
 export default {
   components: {
     MiTitle
   },
   data () {
     return {
-      lists: []
+      lists: [],
+      showDialog: false,
+      removeCash: {}
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -63,6 +75,31 @@ export default {
       this.$store.commit('setViewLoading', false)
       this.$NProgress.done()
       this.lists = res.data
+    },
+    remove (list, index) {
+      this.removeCash = {
+        id: list.id,
+        index
+      }
+      this.showDialog = true
+
+      // Dialog.confirm({
+      //   message: '确定删除当前地址?',
+      //   beforeClose: this.beforeClose
+      // })
+    },
+    beforeClose (action, done) {
+      let {id, index} = this.removeCash
+      if (action === 'confirm') {
+        fetch('addressDel', {
+          address_id: id
+        }).then(res => {
+          this.lists.splice(index, 1)
+          done()
+        })
+      } else {
+        done()
+      }
     }
   }
 }
