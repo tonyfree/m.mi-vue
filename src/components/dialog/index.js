@@ -34,7 +34,6 @@ Dialog.defaultOptions = {
   value: false,
   title: '',
   message: '',
-  beforeClose: null,
   showConfirmButton: true,
   showCancelButton: false,
   callback: action => {

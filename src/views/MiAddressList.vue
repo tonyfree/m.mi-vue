@@ -33,7 +33,7 @@
       v-model="showDialog"
       message="确定删除当前地址?"
       show-cancel-button
-      :before-close="beforeClose">
+      @confirm="removeAction">
     </MiDialog> 
   </div>
 </template>
@@ -78,28 +78,28 @@ export default {
     },
     remove (list, index) {
       this.removeCash = {
-        id: list.id,
+        id: list.address_id,
         index
       }
       this.showDialog = true
-
       // Dialog.confirm({
-      //   message: '确定删除当前地址?',
-      //   beforeClose: this.beforeClose
+      //   title: '提示',
+      //   message: '确定删除当前地址?'
+      // }).then(() => {
+      //   fetch('addressDel', {
+      //     address_id: list.address_id
+      //   }).then(res => {
+      //     this.lists.splice(index, 1)
+      //   })
       // })
     },
-    beforeClose (action, done) {
+    removeAction () {
       let {id, index} = this.removeCash
-      if (action === 'confirm') {
-        fetch('addressDel', {
-          address_id: id
-        }).then(res => {
-          this.lists.splice(index, 1)
-          done()
-        })
-      } else {
-        done()
-      }
+      fetch('addressDel', {
+        address_id: id
+      }).then(res => {
+        this.lists.splice(index, 1)
+      })
     }
   }
 }
