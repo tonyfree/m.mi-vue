@@ -56,3 +56,8 @@ Refactor the mi mall with vue, vue-router, vex, etc.
 ### [lesson10--购物车下](https://github.com/tonyfree/m.mi/tree/lesson10)
 + 购物车操作：选择商品、修改数量、选择服务、删除商品
 + MiPop组件：在组件上使用v-model、通过插槽分发内容
+
+### [lesson11--个人中心](https://github.com/tonyfree/m.mi/tree/lesson11)
++ 混入处理：底部组件和标题组件
++ 状态管理：用户信息
++ 路由处理：登录权限
