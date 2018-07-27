@@ -4,12 +4,12 @@
     <div class="app-view-wrapper">
       <div class="container fluid app-view app-view-with-header app-view-with-footer">
         <div class="page-wrap">
-          <router-link v-if="!isLogin" :to="{name: 'login', query: {redirect: '/cart'}}" tag="div" class="nologin">
-            <a class="box-flex align-center justify-space-between">
+          <div v-if="!isLogin" class="nologin">
+            <router-link :to="{name: 'login', query: {redirect: '/cart'}}" class="box-flex align-center justify-space-between">
               <span class="flex">登录后享受更多优惠</span>
               <em class="flex">去登录</em>
-            </a>
-          </router-link>
+            </router-link>
+          <div>
           <div v-if="cartList&&cartList.length" class="cart-list">
             <ol>
               <li v-for="(item, index) in cartList" :key="item.goodsId" class="item">
