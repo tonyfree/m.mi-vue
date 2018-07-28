@@ -54,22 +54,22 @@
 
 <script>
 import MiAddressAll from '@/components/MiAddressAll.vue'
-import MiTitle from '@/components/MiTitle.vue'
 // import fetch from '@/api/fetch.js'
 import Address from '@/api/address.js'
+import fetch from '@/api/fetch.js'
 import Dialog from '@/components/dialog'
 
 export default {
   components: {
-    MiAddressAll,
-    MiTitle
+    MiAddressAll
   },
   data () {
     return {
+      title: '',
       showRegions: false,
       addressInfo: {
-        consignee: 'tony',
-        tel: '13112345678',
+        consignee: '',
+        tel: '',
         province: '',
         province_id: '',
         city: '',
@@ -78,9 +78,8 @@ export default {
         district_id: '',
         area: '',
         area_id: '',
-        address: '北京小胡同',
+        address: '',
         is_default: false,
-        title: '新增地址'
       },
       telplaceholder: '手机号'
     }
