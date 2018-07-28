@@ -96,7 +96,7 @@ export default {
     },
     removeAction () {
       let {id, index} = this.removeCash
-      Address.delete(id).then(res => {
+      Address.remove(id).then(res => {
         this.lists.splice(index, 1)
       })
     }

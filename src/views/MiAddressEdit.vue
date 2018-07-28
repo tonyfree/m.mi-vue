@@ -55,7 +55,8 @@
 <script>
 import MiAddressAll from '@/components/MiAddressAll.vue'
 import MiTitle from '@/components/MiTitle.vue'
-import fetch from '@/api/fetch.js'
+// import fetch from '@/api/fetch.js'
+import Address from '@/api/address.js'
 import Dialog from '@/components/dialog'
 
 export default {
@@ -93,9 +94,7 @@ export default {
     let id = to.query.address_id
     if (id) {
       if (from.name) {
-        fetch('addressView', {
-          address_id: id
-        }).then(res => {
+        Address.view(id).then(res => {
           next(vm => vm.setAddress(res))
         })
       } else {
