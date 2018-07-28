@@ -39,7 +39,7 @@
       message="确定删除当前地址?"
       show-cancel-button
       @confirm="removeAction">
-    </MiDialog> 
+    </MiDialog>
   </div>
 </template>
 

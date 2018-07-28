@@ -54,7 +54,6 @@ Dialog.confirm = options => Dialog({
   ...options
 })
 
-
 // 作为组件插件使用
 Dialog.install = () => {
   Vue.component('MiDialog', MiDialog)
