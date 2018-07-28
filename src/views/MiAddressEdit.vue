@@ -16,7 +16,7 @@
                 <li class="ui-list-item">
                   <div class="label">手机号码：</div>
                   <div class="ui-input">
-                    <input v-model.trim.number="addressInfo.tel" placeholder="手机号" name="tel" maxlength="11" id="tel" type="tel" autocomplete="off">
+                    <input v-model.trim.number="addressInfo.tel" :placeholder="telplaceholder" name="tel" maxlength="11" id="tel" type="tel" autocomplete="off">
                   </div>
                 </li>
                 <li class="ui-list-item">
@@ -81,7 +81,8 @@ export default {
         address: '北京小胡同',
         is_default: false,
         title: '新增地址'
-      }
+      },
+      telplaceholder: '手机号'
     }
   },
   computed: {
@@ -115,9 +116,7 @@ export default {
   },
   methods: {
     getAddress () {
-      this.$fetch('addressView', {
-        address_id: this.$route.query.address_id
-      }).then(res => {
+      Address.view(this.$route.query.address_id).then(res => {
         this.setAddress(res)
       })
     },
@@ -128,6 +127,8 @@ export default {
       // eslint-disable-next-line
       info.is_default = info.is_default == 1
       this.addressInfo = info
+      this.telplaceholder = info.tel
+      this.addressInfo.tel = ''
     },
     changeRegion (region) {
       this.addressInfo = Object.assign({}, this.addressInfo, region)
@@ -139,10 +140,17 @@ export default {
         this.submitValidate('请输入收货人姓名')
         return
       }
-      const reg = /^((1[3-8][0-9])+\d{8})$/
-      if (!ai.tel || !reg.test(ai.tel)) {
-        this.submitValidate('请输入11位手机号码')
-        return
+      if (this.$route.query.address_id) {
+        if (ai.tel) {
+          this.submitValidate('请输入11位手机号码')
+          return
+        }
+      } else {
+        const reg = /^((1[3-8][0-9])+\d{8})$/
+        if (!ai.tel || !reg.test(ai.tel)) {
+          this.submitValidate('请输入11位手机号码')
+          return
+        }
       }
       if (!this.addressStr) {
         this.submitValidate('请选择所在地区')
@@ -166,8 +174,8 @@ export default {
     },
     submitAction () {
       this.addressInfo.is_default = this.addressInfo.is_default ? 1 : 2
-      let api = this.$route.query.address_id ? 'addressSave' : 'addressAdd'
-      this.$fetch(api, this.addressInfo).then(res => {
+      let api = this.$route.query.address_id ? 'save' : 'add'
+      Address[api](this.addressInfo).then(res => {
         this.$router.go(-1)
       })
     }
