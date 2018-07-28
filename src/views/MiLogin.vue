@@ -106,7 +106,7 @@ export default {
       }
     }
   },
-  created() {
+  created () {
     this.$store.commit('setViewLoading', false)
     this.$NProgress.done()
   },

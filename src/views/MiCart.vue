@@ -9,7 +9,7 @@
               <span class="flex">登录后享受更多优惠</span>
               <em class="flex">去登录</em>
             </router-link>
-          <div>
+          </div>
           <div v-if="cartList&&cartList.length" class="cart-list">
             <ol>
               <li v-for="(item, index) in cartList" :key="item.goodsId" class="item">
