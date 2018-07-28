@@ -12,7 +12,7 @@
         <div class="ui-pop-conten">
           <div class="region-tab">
             <span
-              v-for="(item,index) in curRegions"
+              v-for="(item,index) in regions"
               :key="index"
               :class="{active:index==curIndex}"
               @click="changeTab(index)">{{item.name}}</span>
@@ -44,7 +44,7 @@ export default {
   data () {
     return {
       curIndex: 0,
-      curRegions: [
+      regions: [
         {
           id: 0,
           name: '请选择',
@@ -71,12 +71,12 @@ export default {
   },
   watch: {
     curIndex (val) {
-      this.curList = this.curRegions[this.curIndex].list
+      this.curList = this.regions[val].list
     },
-    curRegions: {
+    regions: {
       deep: true,
       handler (val) {
-        this.curList = this.curRegions[this.curIndex].list
+        this.curList = val[this.curIndex].list
       }
     }
   },
@@ -86,26 +86,27 @@ export default {
   methods: {
     getAll () {
       this.$fetch('addressAll').then(res => {
-        this.curRegions[this.curIndex].list = addressAll.data
+        this.regions[this.curIndex].list = addressAll.data
       })
     },
     select (list) {
-      this.curRegions[this.curIndex].name = list.name
-      this.curRegions[this.curIndex].id = list.id
+      this.regions[this.curIndex].name = list.name
+      this.regions[this.curIndex].id = list.id
       if (this.curIndex < 2) {
         this.curIndex++
-        this.curRegions[this.curIndex].name = '请选择'
-        this.curRegions[this.curIndex].list = list.child
+        this.regions[this.curIndex].name = '请选择'
+        this.regions[this.curIndex].list = list.child
       } else if (this.curIndex === 2) {
         this.curIndex++
-        this.curRegions[this.curIndex].name = '请选择'
-        this.$fetch('addressRegion').then(res => {
-          this.curRegions[this.curIndex].list = res.data
-          // watch不到curRegions的变化？
+        this.regions[this.curIndex].name = '请选择'
+        this.$fetch('addressRegion', {
+          parent: list.id
+        }).then(res => {
+          this.regions[this.curIndex].list = res.data
           this.curList = res.data
         })
       } else {
-        let region = this.curRegions
+        let region = this.regions
         this.$emit('region', {
           province: region[0].name,
           province_id: region[0].id,
@@ -121,9 +122,9 @@ export default {
     },
     changeTab (index) {
       this.curIndex = index
-      this.curRegions[this.curIndex].name = '请选择'
+      this.regions[index].name = '请选择'
       for (let i = index + 1; i < 4; i++) {
-        this.curRegions[i] = {
+        this.regions[i] = {
           id: 0,
           name: '',
           list: []
@@ -132,8 +133,9 @@ export default {
     },
     close () {
       this.curIndex = 0
+      this.regions[0].name = '请选择'
       for (let i = 1; i < 4; i++) {
-        this.curRegions[i] = {
+        this.regions[i] = {
           id: 0,
           name: '',
           list: []
