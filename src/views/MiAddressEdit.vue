@@ -126,8 +126,7 @@ export default {
       this.$store.commit('setViewLoading', false)
       this.$NProgress.done()
       let info = res.data
-      // eslint-disable-next-line
-      info.is_default = info.is_default == 1
+      info.is_default = info.is_default === 1
       this.addressInfo = info
     },
     changeRegion (region) {
