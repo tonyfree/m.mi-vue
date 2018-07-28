@@ -11,6 +11,7 @@
                     <a href="javascript:;">删除</a>
                     <span class="consignee">tony</span>
                     <span>131****5678</span>
+                    <em> [默认]</em>
                   </li>
                   <li class="ui-list-item edit">
                     <p>北京 北京市 朝阳区 奥运村街道</p>
@@ -76,6 +77,12 @@
 .address-manager .identity a {
   float: right;
   color: #999;
+}
+.address-manager .identity em {
+  color: #f60;
+  font-size: 10px;
+  font-style: normal;
+  margin-left: 3px;
 }
 .address-manager .consignee {
   margin-right: 30px;
