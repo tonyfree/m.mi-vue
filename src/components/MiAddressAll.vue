@@ -87,7 +87,7 @@ export default {
   methods: {
     getAll () {
       Address.all().then(res => {
-        this.curRegions[this.curIndex].list = addressAll.data
+        this.regions[this.curIndex].list = addressAll.data
       })
     },
     select (list) {
@@ -99,9 +99,9 @@ export default {
         this.regions[this.curIndex].list = list.child
       } else if (this.curIndex === 2) {
         this.curIndex++
-        this.curRegions[this.curIndex].name = '请选择'
+        this.regions[this.curIndex].name = '请选择'
         Address.region(list.id).then(res => {
-          this.curRegions[this.curIndex].list = res.data
+          this.regions[this.curIndex].list = res.data
           this.curList = res.data
         })
       } else {
