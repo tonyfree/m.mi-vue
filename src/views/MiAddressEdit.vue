@@ -135,42 +135,47 @@ export default {
       // 校验
       let ai = this.addressInfo
       if (!ai.consignee) {
-        this.submitValidate('请输入收货人姓名')
+         Dialog.alert({
+          message: '请输入收货人姓名'
+        })
         return
       }
+      const reg = /^((1[3-9][0-9])+\d{8})$/
       if (this.$route.query.address_id) {
-        if (ai.tel) {
-          this.submitValidate('请输入11位手机号码')
-          return
+        if (ai.tel && !reg.test(ai.tel)) {
+          Dialog.alert({
+            message: '请输入11位手机号码'
+          })
+        return
         }
       } else {
-        const reg = /^((1[3-8][0-9])+\d{8})$/
         if (!ai.tel || !reg.test(ai.tel)) {
-          this.submitValidate('请输入11位手机号码')
+          Dialog.alert({
+            message: '请输入11位手机号码'
+          })
           return
         }
       }
       if (!this.addressStr) {
-        this.submitValidate('请选择所在地区')
+        Dialog.alert({
+          message: '请选择所在地区'
+        })
         return
       }
       if (!ai.address) {
-        this.submitValidate('请输入详细地址')
+        Dialog.alert({
+          message: '请输入详细地址'
+        })
         return
       }
-      if (ai.address.length < 5 || ai.address.length > 120) {
-        this.submitValidate('抱歉，详细地址不能少于5个字，不能多于120个字')
+      let len = ai.address.length
+      if (len < 5 || len > 120) {
+        Dialog.alert({
+          message: '抱歉，详细地址不能少于5个字，不能多于120个字'
+        })
         return
       }
-      this.submitAction()
-    },
-    submitValidate (message) {
-      Dialog.alert({
-        title: '提示',
-        message
-      })
-    },
-    submitAction () {
+
       this.addressInfo.is_default = this.addressInfo.is_default ? 1 : 2
       let api = this.$route.query.address_id ? 'save' : 'add'
       Address[api](this.addressInfo).then(res => {
