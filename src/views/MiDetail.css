@@ -162,6 +162,9 @@ header .placeholder {
   line-height: 20px;
   padding-right: 10px;
 }
+.container .product-section .info .on {
+  color: #f56600;
+}
 .container .product-section .service-policy-item {
   font-size: 12px;
   line-height: 20px;
@@ -308,14 +311,15 @@ footer .action-box .buy-btn {
   padding: 8px 0;
 }
 .pop .address-item-line1 {
-  font-size: 14px;
+  font-size: 16px;
   color: rgba(0,0,0,.87);
+  line-height: 20px;
 }
 .pop .address-item-line1 .address-item-name {
   margin-right: 5px;
 }
 .pop .address-item-line2 {
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(0,0,0,.54);
   padding-left: 22px;
 }
@@ -324,4 +328,11 @@ footer .action-box .buy-btn {
   bottom: 0;
   left: 0;
   right: 0;
+}
+.icon-locationfill {
+  font-size: 14px;
+  margin-right: 8px;
+}
+.border-bottom-1px:before {
+  transform:  scaleY(0.2);
 }

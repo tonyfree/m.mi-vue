@@ -3,7 +3,14 @@ import Address from '@/api/address.js'
 export default {
   namespaced: true,
   state: {
-    list: 'list'
+    list: []
+  },
+  getters: {
+    default (state) {
+      return state.list.find(item => {
+        return item.is_default
+      })
+    }
   },
   mutations: {
     setList (state, list) {
@@ -11,9 +18,10 @@ export default {
     }
   },
   actions: {
-    getList ({commit}) {
+    getList ({commit}, callback) {
       Address.list().then(res => {
         commit('setList', res.data)
+        callback && callback()
       })
     }
   }

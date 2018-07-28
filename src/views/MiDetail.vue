@@ -57,9 +57,9 @@
             <div class="border-top-1px ui-flex align-start justify-start J_linksign-customize">
               <div class="title">送至</div>
               <div class="flex">
-                <div class="info">
-                  <span class="mr1x">珠海市 香洲区</span>
-                  <span class="on">有现货</span>
+                <div v-if="deliveryData" class="info">
+                  <span class="mr1x">{{deliveryData.address_info.address}}</span>
+                  <span class="on">{{deliveryData.datas.length?'有现货':'无现货'}}</span>
                 </div>
               </div>
             </div>
@@ -148,13 +148,17 @@
             <p>收货地址</p>
           </div>
           <div class="max5">
-            <div class="border-bottom-1px address-item">
+            <div
+              v-for="item in addressList"
+              :key="item.address_id"
+              @click="selectAddress(item)"
+              class="border-bottom-1px address-item">
               <div class="address-item-line1 layout align-center justify-start">
-                <i class="image-icons icon-location"></i>
-                <div class="address-item-name">tony</div>
-                <div class="address-item-province">北京</div>
+                <i class="iconfont icon-locationfill"></i>
+                <div class="address-item-name">{{item.consignee}}</div>
+                <div class="address-item-province">{{item.city}}</div>
               </div>
-              <div class="address-item-line2">北京小胡同</div>
+              <div class="address-item-line2">{{item.address}}</div>
             </div>
           </div>
           <div class="btn-bottom">

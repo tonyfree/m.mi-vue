@@ -28,11 +28,15 @@ export default {
       showSKU: false,
       selectedGood: null,
       detailSwiper: null,
-      showAddressPop: false
+      showAddressPop: false,
+      deliveryData: null
     }
   },
   computed: {
-    ...mapGetters(['isLogin']),
+    ...mapGetters({
+      isLogin: 'isLogin',
+      addressDefault: 'address/default'
+    }),
     ...mapState({
       addressList: state => state.address.list
     })
@@ -50,9 +54,26 @@ export default {
   },
   created() {
     if (this.isLogin) {
-      this.getAddressList()
+      this.getAddressList(() => {
+        if (this.addressDefault) {
+          this.$fetch('estDelivery', {
+            address_id: this.addressDefault.address_id
+          }).then(res => {
+            this.deliveryData = res.data
+          })
+        }
+      })
     } else {
-
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          this.$fetch('estDelivery', {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          }).then(res => {
+            this.deliveryData = res.data
+          })
+        })
+      }
     }
   },
   destroyed () {
@@ -68,6 +89,14 @@ export default {
     ...mapActions({
       getAddressList: 'address/getList'
     }),
+    selectAddress (item) {
+      this.$fetch('estDelivery', {
+        address_id: item.address_id
+      }).then(res => {
+        this.deliveryData = res.data
+        this.showAddressPop = false
+      })
+    },
     getProductData () {
       this.$fetch('productView', {
         commodity_id: this.$route.params.id
