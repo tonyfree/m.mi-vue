@@ -72,11 +72,17 @@ export default [
   {
     path: '/address/list',
     name: 'addressList',
-    component: MiAddressList
+    component: MiAddressList,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/address/edit',
     name: 'addressEdit',
-    component: MiAddressEdit
+    component: MiAddressEdit,
+    meta: {
+      requiresAuth: true
+    }
   }
 ]

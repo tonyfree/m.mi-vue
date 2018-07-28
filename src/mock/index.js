@@ -6,7 +6,7 @@ import {forRecommend} from './forRecommend.js'
 import {productView, estDelivery} from './productView.js'
 import {recommend} from './recommend.js'
 import {cartIndex, cartSelect, cartEdit, cartAdd, cartDelete, cartSelService} from './cart.js'
-import {addressList, addressAdd, addressSave, addressView, addressDel,addressRegion} from './address.js'
+import {addressList, addressAdd, addressSave, addressView, addressDel, addressRegion} from './address.js'
 import addressAll from './addressAll.js'
 
 export default {
