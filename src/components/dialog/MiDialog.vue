@@ -60,7 +60,7 @@ export default {
     }
   },
   methods: {
-    onClose(action) {
+    onClose (action) {
       this.$emit('input', false)
       this.$emit(action)
       this.callback && this.callback(action)
@@ -183,4 +183,3 @@ export default {
   }
 }
 </style>
-

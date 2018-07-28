@@ -27,18 +27,20 @@
           </div>
         </div>
         <div class="add">
-          <router-link :to="{name: 'addressEdit'}" class="btn ui-button ui-button-active">
+          <router-link
+            :to="{name: 'addressEdit'}"
+            class="btn ui-button ui-button-active">
             <span>新建地址</span>
           </router-link>
         </div>
       </div>
     </div>
-    <MiDialog
+    <!-- <MiDialog
       v-model="showDialog"
       message="确定删除当前地址?"
       show-cancel-button
       @confirm="removeAction">
-    </MiDialog>
+    </MiDialog> -->
   </div>
 </template>
 
@@ -48,7 +50,7 @@ import Vue from 'vue'
 import Address from '@/api/address.js'
 import MiTitle from '@/components/MiTitle.vue'
 import Dialog from '@/components/dialog'
-Vue.use(Dialog)
+// Vue.use(Dialog)
 
 export default {
   components: {
@@ -82,28 +84,29 @@ export default {
       this.lists = res.data
     },
     remove (list, index) {
-      this.removeCash = {
-        id: list.address_id,
-        index
-      }
-      this.showDialog = true
-      // Dialog.confirm({
-      //   title: '提示',
-      //   message: '确定删除当前地址?'
-      // }).then(() => {
-      //   fetch('addressDel', {
-      //     address_id: list.address_id
-      //   }).then(res => {
-      //     this.lists.splice(index, 1)
-      //   })
-      // })
-    },
-    removeAction () {
-      let {id, index} = this.removeCash
-      Address.remove(id).then(res => {
-        this.lists.splice(index, 1)
+      // this.removeCash = {
+      //   id: list.address_id,
+      //   index
+      // }
+      // this.showDialog = true
+      Dialog.confirm({
+        message: '确定删除当前地址?'
+      }).then(() => {
+        fetch('addressDel', {
+          address_id: list.address_id
+        }).then(res => {
+          this.lists.splice(index, 1)
+        })
       })
-    }
+    },
+    // removeAction () {
+    //   let {id, index} = this.removeCash
+    //   fetch('addressDel', {
+    //     address_id: id
+    //   }).then(res => {
+    //     this.lists.splice(index, 1)
+    //   })
+    // }
   }
 }
 </script>

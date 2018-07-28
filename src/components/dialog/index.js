@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import MiDialog from './MiDialog.vue'
 
-// 函数调用
+// 函数调用：1.创建实例 2.挂载 3.v-model的处理 4.事件监听：promise+callback
 let instance
 
 const initInstance = () => {
@@ -53,7 +53,6 @@ Dialog.confirm = options => Dialog({
   value: true,
   ...options
 })
-
 
 // 作为组件插件使用
 Dialog.install = () => {
