@@ -9,11 +9,14 @@
               <div v-for="(list,index) in lists" :key="list.address_id" class="ui-card">
                 <ul class="ui-card-item ui-list">
                   <li class="ui-list-item identity">
-                    <a href="javascript:;" @click="remove(list, index)">删除</a>
+                    <a @click="remove(list, index)">删除</a>
                     <span class="consignee">{{list.consignee}}</span>
                     <span>{{list.tel}}</span>
                   </li>
-                  <router-link class="ui-list-item edit" :to="{name: 'addressEdit', query: {address_id: list.address_id}}" tag="li">
+                  <router-link
+                    :to="{name: 'addressEdit', query: {address_id: list.address_id}}"
+                    tag="li"
+                    class="ui-list-item edit">
                     <p>{{list.province}} {{list.city}} {{list.district}} {{list.area}}</p>
                     <p>{{list.address}}</p>
                   </router-link>
@@ -23,7 +26,9 @@
           </div>
         </div>
         <div class="add">
-          <router-link href="javascript:;" class="btn ui-button ui-button-active" :to="{name: 'addressEdit'}">
+          <router-link
+            :to="{name: 'addressEdit'}"
+            class="btn ui-button ui-button-active">
             <span>新建地址</span>
           </router-link>
         </div>
