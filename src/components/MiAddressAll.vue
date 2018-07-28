@@ -33,6 +33,7 @@
 
 <script>
 import addressAll from '@/mock/addressAll.js'
+import Address from '@/api/address.js'
 
 export default {
   props: {
@@ -85,7 +86,7 @@ export default {
   },
   methods: {
     getAll () {
-      this.$fetch('addressAll').then(res => {
+      Address.all().then(res => {
         this.curRegions[this.curIndex].list = addressAll.data
       })
     },
@@ -99,7 +100,7 @@ export default {
       } else if (this.curIndex === 2) {
         this.curIndex++
         this.curRegions[this.curIndex].name = '请选择'
-        this.$fetch('addressRegion').then(res => {
+        Address.region().then(res => {
           this.curRegions[this.curIndex].list = res.data
           // watch不到curRegions的变化？
           this.curList = res.data
