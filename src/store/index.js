@@ -14,6 +14,7 @@ export default new Vuex.Store({
   getters: {
     isLogin: state => {
       return !!state.userInfo
+      // return false
     }
   },
   mutations: {
