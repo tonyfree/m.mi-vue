@@ -53,7 +53,7 @@
               </div>
             </div>
           </div>
-          <div class="product-section more padding-16-32">
+          <div class="product-section more padding-16-32" @click="showAddressPop=true">
             <div class="border-top-1px ui-flex align-start justify-start J_linksign-customize">
               <div class="title">送至</div>
               <div class="flex">
@@ -140,7 +140,29 @@
           :showSKU="showSKU"
           :productData="productData"
           @close="closeSKU"
-          @selectSKU="selectSKU"/>
+          @selectSKU="selectSKU"
+        />
+
+        <MiPop v-model="showAddressPop">
+          <div class="h1">
+            <p>收货地址</p>
+          </div>
+          <div class="max5">
+            <div class="border-bottom-1px address-item">
+              <div class="address-item-line1 layout align-center justify-start">
+                <i class="image-icons icon-location"></i>
+                <div class="address-item-name">tony</div>
+                <div class="address-item-province">北京</div>
+              </div>
+              <div class="address-item-line2">北京小胡同</div>
+            </div>
+          </div>
+          <div class="btn-bottom">
+            <div class="action-box flex">
+              <a href="/address/position?from=product&amp;product_id=8274" class="btn buy-btn">选择新地址</a>
+            </div>
+          </div>
+        </MiPop>
       </div>
     </div>
   </div>

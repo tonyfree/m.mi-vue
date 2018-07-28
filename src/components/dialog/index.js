@@ -41,6 +41,12 @@ Dialog.defaultOptions = {
   }
 }
 
+Dialog.alert = options => Dialog({
+  ...Dialog.defaultOptions,
+  value: true,
+  ...options
+})
+
 Dialog.confirm = options => Dialog({
   ...Dialog.defaultOptions,
   showCancelButton: true,
