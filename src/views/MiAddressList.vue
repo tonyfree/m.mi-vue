@@ -40,7 +40,8 @@
 
 <script>
 import Vue from 'vue'
-import fetch from '@/api/fetch.js'
+// import fetch from '@/api/fetch.js'
+import Address from '@/api/address.js'
 import MiTitle from '@/components/MiTitle.vue'
 import Dialog from '@/components/dialog'
 Vue.use(Dialog)
@@ -58,7 +59,7 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
     if (from.name) {
-      fetch('addressList').then(res => {
+      Address.list().then(res => {
         next(vm => vm.setLists(res))
       })
     } else {
@@ -67,7 +68,7 @@ export default {
   },
   methods: {
     getLists () {
-      this.$fetch('addressList').then(res => {
+      Address.list().then(res => {
         this.setLists(res)
       })
     },
@@ -95,9 +96,7 @@ export default {
     },
     removeAction () {
       let {id, index} = this.removeCash
-      fetch('addressDel', {
-        address_id: id
-      }).then(res => {
+      Address.delete(id).then(res => {
         this.lists.splice(index, 1)
       })
     }
