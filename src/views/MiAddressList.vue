@@ -12,6 +12,7 @@
                     <a href="javascript:;" @click="remove(list, index)">删除</a>
                     <span class="consignee">{{list.consignee}}</span>
                     <span>{{list.tel}}</span>
+                    <em v-if="list.is_default"> [默认]</em>
                   </li>
                   <router-link class="ui-list-item edit" :to="{name: 'addressEdit', query: {address_id: list.address_id}}" tag="li">
                     <p>{{list.province}} {{list.city}} {{list.district}} {{list.area}}</p>
@@ -136,6 +137,12 @@ export default {
 .address-manager .identity a {
   float: right;
   color: #999;
+}
+.address-manager .identity em {
+  color: #f60;
+  font-size: 10px;
+  font-style: normal;
+  margin-left: 3px;
 }
 .address-manager .consignee {
   margin-right: 30px;
