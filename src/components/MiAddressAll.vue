@@ -65,12 +65,19 @@ export default {
           name: '',
           list: []
         }
-      ]
+      ],
+      curList: []
     }
   },
-  computed: {
-    curList () {
-      return this.curRegions[this.curIndex].list
+  watch: {
+    curIndex (val) {
+      this.curList = this.curRegions[this.curIndex].list
+    },
+    curRegions: {
+      deep: true,
+      handler (val) {
+        this.curList = this.curRegions[this.curIndex].list
+      }
     }
   },
   created () {
@@ -94,6 +101,8 @@ export default {
         this.curRegions[this.curIndex].name = '请选择'
         this.$fetch('addressRegion').then(res => {
           this.curRegions[this.curIndex].list = res.data
+          // watch不到curRegions的变化？
+          this.curList = res.data
         })
       } else {
         let region = this.curRegions

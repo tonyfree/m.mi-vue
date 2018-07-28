@@ -10,25 +10,25 @@
                 <li class="ui-list-item">
                   <div class="label">收货人：</div>
                   <div class="ui-input">
-                    <input v-model="addressInfo.consignee" placeholder="真实姓名" name="consignee" maxlength="15" type="text" autocomplete="off">
+                    <input v-model.trim="addressInfo.consignee" placeholder="真实姓名" name="consignee" maxlength="15" type="text" autocomplete="off">
                   </div>
                 </li>
                 <li class="ui-list-item">
                   <div class="label">手机号码：</div>
                   <div class="ui-input">
-                    <input v-model="addressInfo.tel" placeholder="手机号" name="tel" maxlength="11" id="tel" type="tel" autocomplete="off">
+                    <input v-model.trim.number="addressInfo.tel" placeholder="手机号" name="tel" maxlength="11" id="tel" type="tel" autocomplete="off">
                   </div>
                 </li>
                 <li class="ui-list-item">
                   <div class="label">所在地区：</div>
                   <div class="ui-input" @click="showRegions=true">
-                    <input v-model="addressStr" placeholder="省 市 区 街道信息" name="pcd" maxlength="20" type="text" readonly="readonly">
+                    <input :value="addressStr" placeholder="省 市 区 街道信息" name="pcd" maxlength="20" type="text" readonly="readonly">
                   </div>
                 </li>
                 <li class="ui-list-item">
                   <div class="label">详细地址：</div>
                   <div class="ui-input">
-                    <input v-model="addressInfo.address" placeholder="详细地址" id="address" name="address" maxlength="40" type="text" autocomplete="off">
+                    <input v-model.trim="addressInfo.address" placeholder="详细地址" id="address" name="address" maxlength="40" type="text" autocomplete="off">
                   </div>
                 </li>
                 <li class="ui-list-item">
@@ -56,6 +56,8 @@
 import MiAddressAll from '@/components/MiAddressAll.vue'
 import MiTitle from '@/components/MiTitle.vue'
 import fetch from '@/api/fetch.js'
+import Dialog from '@/components/dialog'
+
 export default {
   components: {
     MiAddressAll,
@@ -65,8 +67,8 @@ export default {
     return {
       showRegions: false,
       addressInfo: {
-        consignee: '',
-        tel: '',
+        consignee: 'tony',
+        tel: '13112345678',
         province: '',
         province_id: '',
         city: '',
@@ -75,7 +77,7 @@ export default {
         district_id: '',
         area: '',
         area_id: '',
-        address: '',
+        address: '北京小胡同',
         is_default: false,
         title: '新增地址'
       }
@@ -133,6 +135,37 @@ export default {
     },
     submit () {
       // 校验
+      let ai = this.addressInfo
+      if (!ai.consignee) {
+        this.submitValidate('请输入收货人姓名')
+        return
+      }
+      const reg = /^((1[3-8][0-9])+\d{8})$/
+      if (!ai.tel || !reg.test(ai.tel)) {
+        this.submitValidate('请输入11位手机号码')
+        return
+      }
+      if (!this.addressStr) {
+        this.submitValidate('请选择所在地区')
+        return
+      }
+      if (!ai.address) {
+        this.submitValidate('请输入详细地址')
+        return
+      }
+      if (ai.address.length < 5 || ai.address.length > 120) {
+        this.submitValidate('抱歉，详细地址不能少于5个字，不能多于120个字')
+        return
+      }
+      this.submitAction()
+    },
+    submitValidate (message) {
+      Dialog.alert({
+        title: '提示',
+        message
+      })
+    },
+    submitAction () {
       this.addressInfo.is_default = this.addressInfo.is_default ? 1 : 2
       let api = this.$route.query.address_id ? 'addressSave' : 'addressAdd'
       this.$fetch(api, this.addressInfo).then(res => {

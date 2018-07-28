@@ -4,13 +4,15 @@ import 'swiper/dist/css/swiper.min.css'
 import MiComment from '@/components/MiComment.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
 import MiSKU from '@/components/MiSKU.vue'
+import MiPop from '@/components/MiPop.vue'
 import {mapGetters, mapState, mapActions} from 'vuex'
 
 export default {
   components: {
     MiComment,
     MiRecommend,
-    MiSKU
+    MiSKU,
+    MiPop
   },
   data () {
     return {
@@ -25,7 +27,8 @@ export default {
       showMask: false,
       showSKU: false,
       selectedGood: null,
-      detailSwiper: null
+      detailSwiper: null,
+      showAddressPop: false
     }
   },
   computed: {

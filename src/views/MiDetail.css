@@ -290,3 +290,38 @@ footer .action-box .buy-btn {
   height: 52px;
   line-height: 52px;
 }
+
+/* 地址pop */
+.pop .h1 {
+  color: rgba(0,0,0,.87);
+  font-size: 16px;
+  text-align: center;
+  padding: 12px 0;
+}
+.max5 {
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.pop .address-item {
+  text-align: left;
+  padding: 8px 0;
+}
+.pop .address-item-line1 {
+  font-size: 14px;
+  color: rgba(0,0,0,.87);
+}
+.pop .address-item-line1 .address-item-name {
+  margin-right: 5px;
+}
+.pop .address-item-line2 {
+  font-size: 12px;
+  color: rgba(0,0,0,.54);
+  padding-left: 22px;
+}
+.pop .btn-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
