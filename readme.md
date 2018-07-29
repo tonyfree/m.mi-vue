@@ -1,14 +1,11 @@
-### 地址操作
-+ 地址列表展示
-+ 新增地址
-+ 编辑地址
-+ 删除地址
-+ 选择省市区
+### API的Service封装
++ 把同一模块的接口封装到到一个Service
++ 具体使用场景不再关心接口的url和请求参数的字段
 
-### MiDialog组件
-+ 组件调用：[插件](https://cn.vuejs.org/v2/guide/plugins.html)
-+ 函数调用
-+ 参考：[vant-dialog](https://youzan.github.io/vant/#/zh-CN/dialog)
-+ 使用场景：删除确认弹框、保存地址校验弹框
+### 状态管理的模块
++ 地址管理：地址列表和默认地址
++ 模块的命名空间：getters和state的映射
 
-
+### MiDetail组件中地址管理
++ 新增--icon:位置、api:选择地址是否有货
++ [geolocation](https://developer.mozilla.org/zh-CN/docs/Web/API/Geolocation/Using_geolocation)、[逆地址编码](http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad)
