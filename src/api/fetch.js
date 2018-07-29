@@ -7,7 +7,7 @@ function fetch (api, data) {
     axios.post(url[api], data).then(res => {
       resolve(res.data)
     }).catch(err => {
-      reject(err)
+      // reject(err)
       console.error(err)
       resolve(mock[api])
     })
