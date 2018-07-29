@@ -56,7 +56,6 @@
 import MiAddressAll from '@/components/MiAddressAll.vue'
 // import fetch from '@/api/fetch.js'
 import Address from '@/api/address.js'
-import fetch from '@/api/fetch.js'
 import Dialog from '@/components/dialog'
 
 export default {
@@ -79,7 +78,7 @@ export default {
         area: '',
         area_id: '',
         address: '',
-        is_default: false,
+        is_default: false
       },
       telplaceholder: '手机号'
     }
@@ -135,7 +134,7 @@ export default {
       // 校验
       let ai = this.addressInfo
       if (!ai.consignee) {
-         Dialog.alert({
+        Dialog.alert({
           message: '请输入收货人姓名'
         })
         return
@@ -146,7 +145,7 @@ export default {
           Dialog.alert({
             message: '请输入11位手机号码'
           })
-        return
+          return
         }
       } else {
         if (!ai.tel || !reg.test(ai.tel)) {

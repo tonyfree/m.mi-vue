@@ -12,7 +12,7 @@
                     <a @click="remove(list, index)">删除</a>
                     <span class="consignee">{{list.consignee}}</span>
                     <span>{{list.tel}}</span>
-                    <em v-if="list.is_default"> [默认]</em> 
+                    <em v-if="list.is_default"> [默认]</em>
                   </li>
                   <router-link
                     :to="{name: 'addressEdit', query: {address_id: list.address_id}}"
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
+// import Vue from 'vue'
 // import fetch from '@/api/fetch.js'
 import Address from '@/api/address.js'
 import MiTitle from '@/components/MiTitle.vue'
@@ -98,7 +98,7 @@ export default {
           this.lists.splice(index, 1)
         })
       })
-    },
+    }
     // removeAction () {
     //   let {id, index} = this.removeCash
     //   fetch('addressDel', {
