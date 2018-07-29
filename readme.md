@@ -61,3 +61,12 @@ Refactor the mi mall with vue, vue-router, vex, etc.
 + 混入处理：底部组件和标题组件
 + 状态管理：用户信息
 + 路由处理：登录权限
+
+### [lesson12--地址管理上](https://github.com/tonyfree/m.mi/tree/lesson12)
++ 地址操作：列表展示、新增编辑、删除、选择省市区
++ MiDialog组件：组件调用、插件调用、函数调用
+
+### [lesson13--地址管理下](https://github.com/tonyfree/m.mi/tree/lesson13)
++ API的Service封装
++ vuex之Module
++ MiDetail组件中地址管理
