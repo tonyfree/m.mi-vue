@@ -9,3 +9,6 @@
 ### MiDetail组件中地址管理
 + 新增--icon:位置、api:选择地址是否有货
 + [geolocation](https://developer.mozilla.org/zh-CN/docs/Web/API/Geolocation/Using_geolocation)、[逆地址编码](http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad)
+
+### 作业
++ 根据这个课的内容对其他业务做相应处理(Service的封装、状态管理的模块等)
