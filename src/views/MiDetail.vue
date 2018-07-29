@@ -163,10 +163,12 @@
           </div>
           <div class="btn-bottom">
             <div class="action-box flex">
-              <a href="/address/position?from=product&amp;product_id=8274" class="btn buy-btn">选择新地址</a>
+              <a class="btn buy-btn" @click="showRegions=true,showAddressPop=false">选择新地址</a>
             </div>
           </div>
         </MiPop>
+
+        <MiAddressAll v-model="showRegions" @region="changeRegion"/>
       </div>
     </div>
   </div>

@@ -6,13 +6,15 @@ import MiRecommend from '@/components/MiRecommend.vue'
 import MiSKU from '@/components/MiSKU.vue'
 import MiPop from '@/components/MiPop.vue'
 import {mapGetters, mapState, mapActions} from 'vuex'
+import MiAddressAll from '@/components/MiAddressAll.vue'
 
 export default {
   components: {
     MiComment,
     MiRecommend,
     MiSKU,
-    MiPop
+    MiPop,
+    MiAddressAll
   },
   data () {
     return {
@@ -29,7 +31,8 @@ export default {
       selectedGood: null,
       detailSwiper: null,
       showAddressPop: false,
-      deliveryData: null
+      deliveryData: null,
+      showRegions: false
     }
   },
   computed: {
@@ -146,6 +149,17 @@ export default {
     },
     selectSKU (val) {
       this.selectedGood = val
+    },
+    changeRegion (region) {
+      let {province_id, city_id, district_id, area_id} = region
+      this.$fetch('estDelivery', {
+        province_id,
+        city_id,
+        district_id,
+        area_id
+      }).then(res => {
+        this.deliveryData = res.data
+      })
     }
   }
 }
