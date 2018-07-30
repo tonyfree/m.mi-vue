@@ -1,17 +1,18 @@
 const host = 'http://rap2api.taobao.org/app/mock/13801'
 
 const url = {
-  login: '/api/login',
-  logout: '/api/logout',
-  userInfo: '/api/userInfo',
-  getCode: '/api/getCode',
-  navList: '/api/navList',
-  homePage: '/api/homePage',
-  category: '/api/category',
-  commodity: '/api/commodityList',
-  forRecommend: '/api/forRecommend',
-  productView: '/api/productView',
-  recommend: '/api/recommend',
+  login: '/user/login',
+  logout: '/user/logout',
+  userInfo: '/user/userInfo',
+  getCode: '/user/getCode',
+  navList: '/home/navList',
+  homePage: '/home/homePage',
+  category: '/home/category',
+  commodity: '/home/commodityList',
+  forRecommend: '/home/forRecommend',
+  productView: '/product/productView',
+  recommend: '/product/recommend',
+  estDelivery: '/product/estDelivery',
   cartIndex: '/cart/index',
   cartSelect: '/cart/selcart',
   cartEdit: '/cart/edit',
@@ -25,8 +26,7 @@ const url = {
   addressView: '/address/view',
   addressDel: '/address/del',
   addressAll: '/address/all',
-  addressRegion: '/address/region',
-  estDelivery: '/product/estDelivery'
+  addressRegion: '/address/region'
 }
 
 Object.keys(url).forEach(key => {
