@@ -9,7 +9,8 @@ export default new Vuex.Store({
   state: {
     viewLoading: false,
     transitionName: 'page-left',
-    userInfo: null
+    userInfo: null,
+    cartCount: 0
   },
   getters: {
     isLogin: state => {
@@ -18,14 +19,17 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    setViewLoading (state, value) {
-      state.viewLoading = value
+    setViewLoading (state, isLoading) {
+      state.viewLoading = isLoading
     },
-    setTransitionName (state, value) {
-      state.transitionName = value
+    setTransitionName (state, name) {
+      state.transitionName = name
     },
-    setUserInfo (state, value) {
-      state.userInfo = value
+    setUserInfo (state, info) {
+      state.userInfo = info
+    },
+    setCartCount (state, count) {
+      state.cartCount = count
     }
   },
   actions: {
@@ -33,6 +37,9 @@ export default new Vuex.Store({
       fetch('userInfo').then(res => {
         commit('setUserInfo', res.data.user)
       })
+    },
+    getCartCount ({commit}) {
+      fetch('')
     }
   },
   modules: {

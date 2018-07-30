@@ -18,6 +18,7 @@ const url = {
   cartAdd: '/cart/add',
   cartDelete: '/cart/del',
   cartSelService: '/cart/selService',
+  cartCount: '/cart/count',
   addressList: '/address/list',
   addressAdd: '/address/add',
   addressSave: '/address/save',
