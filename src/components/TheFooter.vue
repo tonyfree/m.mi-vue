@@ -9,13 +9,14 @@
         :to="{name: nav.link}">
         <i class="iconfont" :class="nav.link==$route.name?nav.iconon:nav.icon"></i>
         <span>{{nav.name}}</span>
-        <em v-if="nav.link=='cart'" class="bubble">22</em>
+        <em v-if="nav.link=='cart'&&count" class="bubble">{{count}}</em>
       </router-link>
     </div>
   </footer>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 const navigation = [
   {
     name: '首页',
@@ -47,7 +48,10 @@ export default {
     return {
       navigation
     }
-  }
+  },
+  computed: mapState({
+    count: state => state.cart.count
+  })
 }
 </script>
 
