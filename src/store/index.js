@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import fetch from '@/api/fetch.js'
 import address from './modules/address.js'
+import cart from './modules/cart.js'
 
 Vue.use(Vuex)
 
@@ -9,8 +10,7 @@ export default new Vuex.Store({
   state: {
     viewLoading: false,
     transitionName: 'page-left',
-    userInfo: null,
-    cartCount: 0
+    userInfo: null
   },
   getters: {
     isLogin: state => {
@@ -27,9 +27,6 @@ export default new Vuex.Store({
     },
     setUserInfo (state, info) {
       state.userInfo = info
-    },
-    setCartCount (state, count) {
-      state.cartCount = count
     }
   },
   actions: {
@@ -37,12 +34,10 @@ export default new Vuex.Store({
       fetch('userInfo').then(res => {
         commit('setUserInfo', res.data.user)
       })
-    },
-    getCartCount ({commit}) {
-      fetch('')
     }
   },
   modules: {
-    address
+    address,
+    cart
   }
 })
