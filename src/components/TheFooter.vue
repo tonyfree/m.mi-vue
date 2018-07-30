@@ -50,7 +50,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="stylus">
 .app-shell-footer {
   position: fixed;
   z-index: 9999;
@@ -86,6 +86,6 @@ export default {
   font-size: 12px;
 }
 .on {
-  color: #ff6700;
+  color: $theme_color;
 }
 </style>

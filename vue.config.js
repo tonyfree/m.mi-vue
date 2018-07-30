@@ -1,12 +1,16 @@
-const fs = require('fs')
+const path = require('path')
 
 module.exports = {
   css: {
     loaderOptions: {
       stylus: {
-        // data: `@import "@/variables.scss";`
-        data: fs.readFileSync('src/assets/css/variables.styl', 'utf-8')
-      }
+        import: [
+          path.join(__dirname, "src/assets/css/variables.styl")
+        ]
+      },
+      // sass: {
+      //   data: `@import "@/assets/css/variables.scss";`
+      // }
     }
   }
 }
