@@ -1,4 +1,8 @@
-const host = 'http://rap2api.taobao.org/app/mock/13801'
+let host = ''
+
+if (process.env.NODE_ENV === 'production' && process.env.VUE_APP_API === 'rap') {
+  host = 'http://rap2api.taobao.org/app/mock/13801'
+}
 
 const url = {
   login: '/user/login',
