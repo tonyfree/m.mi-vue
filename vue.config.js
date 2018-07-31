@@ -12,5 +12,13 @@ module.exports = {
       //   data: `@import "@/assets/css/variables.scss";`
       // }
     }
-  }
+  },
+  // devServer: {
+  //   proxy: {
+  //     '/': {
+  //       target: 'http://10.10.100.191:8080',
+  //       changeOrigin: true
+  //     }
+  //   }
+  // }
 }
