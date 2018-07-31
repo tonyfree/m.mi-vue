@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "build": "vue-cli-service build",
+    "build": "cross-env VUE_APP_FETCH=mock vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
     "@vue/cli-plugin-eslint": "^3.0.0-beta.11",
     "@vue/cli-service": "3.0.0-beta.11",
     "@vue/eslint-config-standard": "^3.0.0-beta.11",
+    "cross-env": "^5.2.0",
     "cssnano": "^3.10.0",
     "cssnano-preset-advanced": "^4.0.0-rc.2",
     "postcss-aspect-ratio-mini": "^0.0.2",
