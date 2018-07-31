@@ -9,12 +9,14 @@
         :to="{name: nav.link}">
         <i class="iconfont" :class="nav.link==$route.name?nav.iconon:nav.icon"></i>
         <span>{{nav.name}}</span>
+        <em v-if="nav.link=='cart'&&count" class="bubble">{{count}}</em>
       </router-link>
     </div>
   </footer>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 const navigation = [
   {
     name: '首页',
@@ -46,11 +48,14 @@ export default {
     return {
       navigation
     }
-  }
+  },
+  computed: mapState({
+    count: state => state.cart.count
+  })
 }
 </script>
 
-<style scoped>
+<style scoped lang="stylus">
 .app-shell-footer {
   position: fixed;
   z-index: 9999;
@@ -85,7 +90,25 @@ export default {
 .flex span {
   font-size: 12px;
 }
+.bubble {
+  position: absolute;
+  min-width: 14px;
+  line-height: 14px;
+  height: 14px;
+  box-sizing: border-box;
+  padding: 0 3px;
+  font-size: 10px;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 10px;
+  background: #ed4d41;
+  color: #fff;
+  top: 0;
+  left: 50%;
+  transform: translate3d(50px,10%,0);
+  font-style: normal;
+}
 .on {
-  color: #ff6700;
+  color: $theme_color;
 }
 </style>

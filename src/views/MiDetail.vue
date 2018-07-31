@@ -128,6 +128,7 @@
             <router-link :to="{name:'cart'}" class="footer-btn">
               <i class="iconfont icon-cart"></i>
               <span>购物车</span>
+              <em v-if="count" class="bubble">{{count}}</em>
             </router-link>
             <div class="action-box flex" @click="showMask=true,showSKU=true">
               <a class="btn buy-btn">加入购物车</a>

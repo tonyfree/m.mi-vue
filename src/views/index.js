@@ -1,5 +1,5 @@
-const MiLogin = () => import('./MiLogin.vue')
-const MiHome = () => import('./MiHome.vue')
+import MiHome from './MiHome.vue'
+const MiLogin = () => import(/* webpackChunkName: "login" */ './MiLogin.vue')
 const MiCategory = () => import('./MiCategory.vue')
 const MiCart = () => import('./MiCart.vue')
 const MiUser = () => import('./MiUser.vue')

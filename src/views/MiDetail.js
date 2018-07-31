@@ -41,7 +41,8 @@ export default {
       addressDefault: 'address/default'
     }),
     ...mapState({
-      addressList: state => state.address.list
+      addressList: state => state.address.list,
+      count: state => state.cart.count
     })
   },
   beforeRouteEnter (to, from, next) {

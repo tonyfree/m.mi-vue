@@ -177,6 +177,13 @@ let response = {
   "result": "ok"
 }
 
+let cartCount = Mock.mock({
+  "code": 0,
+  "result": "ok",
+  "description": "success",
+  "data|1-50": 1
+})
+
 let cartSelect = Mock.mock(response)
 let cartEdit = Mock.mock(response)
 let cartAdd = Mock.mock(response)
@@ -189,5 +196,6 @@ export {
   cartEdit,
   cartAdd,
   cartDelete,
-  cartSelService
+  cartSelService,
+  cartCount
 }

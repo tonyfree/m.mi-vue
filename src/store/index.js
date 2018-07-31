@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import fetch from '@/api/fetch.js'
 import address from './modules/address.js'
+import cart from './modules/cart.js'
 
 Vue.use(Vuex)
 
@@ -18,14 +19,14 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    setViewLoading (state, value) {
-      state.viewLoading = value
+    setViewLoading (state, isLoading) {
+      state.viewLoading = isLoading
     },
-    setTransitionName (state, value) {
-      state.transitionName = value
+    setTransitionName (state, name) {
+      state.transitionName = name
     },
-    setUserInfo (state, value) {
-      state.userInfo = value
+    setUserInfo (state, info) {
+      state.userInfo = info
     }
   },
   actions: {
@@ -36,6 +37,7 @@ export default new Vuex.Store({
     }
   },
   modules: {
-    address
+    address,
+    cart
   }
 })
