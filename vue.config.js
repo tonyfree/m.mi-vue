@@ -36,16 +36,8 @@ module.exports = {
                 priority: 10
               },
               vendor: {
-                test (chunks) {
-                  return chunks.resource && chunks.resource.includes('node_modules') && !chunks.resource.includes('vue')
-                }, 
                 chunks: 'initial',
-                name: 'vendor',    
-                priority: 8
-              },
-              commons: {
-                chunks: 'initial',
-                name: 'commons',
+                name: 'vendor',
                 minSize: 0
               }
             }
