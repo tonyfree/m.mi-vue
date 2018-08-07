@@ -56,7 +56,7 @@ export default {
       next(vm => vm.getProductData())
     }
   },
-  created() {
+  created () {
     if (this.isLogin) {
       this.getAddressList(() => {
         if (this.addressDefault) {
@@ -131,7 +131,7 @@ export default {
       this.canJoinActs = this.titleView.canJoinActs[0]
       this.commentView = viewContent.commentView.commentView
       this.descTabsView = descTabsView
-     
+      
       this.$nextTick(() => {
         this.detailSwiper = new Swiper('.swiper-container', {
           pagination: {

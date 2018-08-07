@@ -1,13 +1,14 @@
-import MiHome from './MiHome.vue'
+// import MiHome from './MiHome.vue'
+const MiHome = () => import(/* webpackChunkName: "home" */ './MiHome.vue')
 const MiLogin = () => import(/* webpackChunkName: "login" */ './MiLogin.vue')
-const MiCategory = () => import('./MiCategory.vue')
-const MiCart = () => import('./MiCart.vue')
-const MiUser = () => import('./MiUser.vue')
-const MiList = () => import('./MiList.vue')
-const MiDetail = () => import('./MiDetail.vue')
-const MiSetting = () => import('./MiSetting.vue')
-const MiAddressList = () => import('./MiAddressList.vue')
-const MiAddressEdit = () => import('./MiAddressEdit.vue')
+const MiCategory = () => import(/* webpackChunkName: "category" */ './MiCategory.vue')
+const MiCart = () => import(/* webpackChunkName: "cart" */ './MiCart.vue')
+const MiUser = () => import(/* webpackChunkName: "user" */ './MiUser.vue')
+const MiList = () => import(/* webpackChunkName: "list" */ './MiList.vue')
+const MiDetail = () => import(/* webpackChunkName: "detail" */ './MiDetail.vue')
+const MiSetting = () => import(/* webpackChunkName: "setting" */ './MiSetting.vue')
+const MiAddressList = () => import(/* webpackChunkName: "addressList" */ './MiAddressList.vue')
+const MiAddressEdit = () => import(/* webpackChunkName: "addressEdit" */ './MiAddressEdit.vue')
 
 export default [
   {
