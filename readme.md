@@ -1,9 +1,11 @@
+### api
++ url跟线上统一
++ restful
+
 ### 底部导航购物车数量
 + API Service
 + vuex module
 + App组件初始化数据、Footer组件展示、SKU和Cart组件更新数据
-
-### api的url跟线上统一
 
 ### 未实现功能
 + 首页：回到顶部、tab内容
