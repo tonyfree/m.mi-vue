@@ -351,7 +351,7 @@ footer .action-box .buy-btn {
   background: #ed4d41;
   color: #fff;
   top: 0;
-  left: 50%;
-  transform: translate3d(5px,-20%,0);
+  /* left: 50%; */
+  transform: translate3d(40px,2px,0);
   font-style: normal;
 }
