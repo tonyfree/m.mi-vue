@@ -32,13 +32,11 @@ export default {
   },
   created () {
     this.getUserInfo()
-    this.getCount()
   },
   methods: {
     ...mapMutations(['setTransitionName']),
     ...mapActions({
-      getUserInfo: 'getUserInfo',
-      getCount: 'cart/getCount'
+      getUserInfo: 'getUserInfo'
     }),
     afterLeave () {
       this.setTransitionName('page-left')
