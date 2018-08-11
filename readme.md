@@ -36,3 +36,5 @@ yarn add stylus,stylus-loader -D
 + [easyapi](https://www.easyapi.com/)
 + [doclever](http://doclever.cn)
 
+### 作业
++ [Vue CLI文档](https://cli.vuejs.org/zh/guide/)
