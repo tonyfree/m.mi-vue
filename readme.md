@@ -1,14 +1,35 @@
-### API的Service封装
-+ 把同一模块的接口封装到到一个Service
-+ 具体使用场景不再关心接口的url和请求参数的字段
+### 底部导航购物车数量
++ API Service
++ vuex module
++ App组件初始化数据、Footer组件展示、SKU和Cart组件更新数据
 
-### 状态管理的模块
-+ 地址管理：地址列表和默认地址
-+ 模块的命名空间：getters和state的映射
+### api的url跟线上统一
 
-### MiDetail组件中地址管理
-+ 新增--icon:位置、api:选择地址是否有货
-+ [geolocation](https://developer.mozilla.org/zh-CN/docs/Web/API/Geolocation/Using_geolocation)、[逆地址编码](http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad)
+### 未实现功能
++ 首页：回到顶部、tab内容
++ 搜索路由
++ 商品详情页：分享、优惠券
++ 商品评论路由
++ 结算路由
++ 个人中心
 
-### 作业
-+ 对其他业务模块做相应处理(Service的封装、状态管理的模块等)
+### css预处理stylus
++ 安装插件
+```
+yarn add stylus,stylus-loader -D
+```
++ 可以省略花括号、冒号、分号，可以嵌套
++ 全局变量（混合、方法）处理
++ 配置vue.config.js
+
+### 联调阶段：代理
+
+### 打包部署：
++ chunk name
++ 不再使用本地mock
+
+### 支持https的接口管理平台
++ [eolinker](https://www.eolinker.com)
++ [easyapi](https://www.easyapi.com/)
++ [doclever](http://doclever.cn)
+
