@@ -27,6 +27,7 @@ yarn add stylus,stylus-loader -D
 ### 打包部署：
 + chunk name
 + 不再使用本地mock
++ 把vue相关的模块单独打包
 
 ### 支持https的接口管理平台
 + [eolinker](https://www.eolinker.com)
