@@ -143,15 +143,16 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.header
-  position fixed
-  top -1px
-  left 0
-  right 0
-  z-index 99
-  box-shadow 0 2px 4px -1px rgba(0,0,0,.2)
-  background #f2f2f2
+<style scoped>
+.header {
+  position: fixed;
+  top: -1px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.2);
+  background: #f2f2f2;
+}
 
 .app-header-item img {
   width: 80%;
@@ -187,17 +188,17 @@ export default {
   display: inline-block;
   padding: 0 14px;
   width: auto !important;
-  span {
-    display: inline-block;
-    line-height: 32px;
-    border-bottom: 2px solid rgba(237, 91, 0, 0);
-    color: rgb(116, 116, 116);
-    border-color: rgb(242, 242, 242);
-  }
-  &.nav_active span {
-    color: rgb(237, 91, 0);
-    border-color: rgb(237, 91, 0);
-  }
+}
+.nav .nav-item span {
+  display: inline-block;
+  line-height: 32px;
+  border-bottom: 2px solid rgba(237, 91, 0, 0);
+  color: rgb(116, 116, 116);
+  border-color: rgb(242, 242, 242);
+}
+.nav-item.nav_active span {
+  color: rgb(237, 91, 0);
+  border-color: rgb(237, 91, 0);
 }
 .page-wrap {
   position: relative;
