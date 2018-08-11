@@ -24,7 +24,9 @@ yarn add stylus,stylus-loader -D
 + 全局变量（混合、方法）处理
 + 配置vue.config.js
 
-### 联调阶段：代理
+### 联调阶段
++ webpack devServe:proxy
++ nginx:proxy(本地映射域名)
 
 ### 打包部署：
 + chunk name
