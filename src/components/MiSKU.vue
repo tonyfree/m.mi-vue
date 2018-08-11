@@ -106,6 +106,7 @@
 <script>
 /* eslint-disable */
 import {default_goods_id, buy_option, goods_info} from '@/mock/sku.js'
+import {mapMutations} from 'vuex'
 export default {
   props: {
     showSKU: {
@@ -138,6 +139,9 @@ export default {
     this.init()
   },
   methods: {
+    ...mapMutations({
+         addCartCount: 'cart/addCount'
+    }),
     init () {
       // let productData = JSON.parse(JSON.stringify(this.productData))
       // let goods_info = productData.goods_info
@@ -217,6 +221,7 @@ export default {
     },
     addToCart () {
       // todo:放到购物车模块实现
+      this.addCartCount(this.selectedGood.buyNumber)
       this.closeSKU()
     },
     closeSKU () {

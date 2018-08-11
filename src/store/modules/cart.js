@@ -8,6 +8,9 @@ export default {
   mutations: {
     setCount (state, count) {
       state.count = count
+    },
+    addCount (state, number) {
+      state.count += number
     }
   },
   actions: {
