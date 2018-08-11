@@ -2,7 +2,7 @@ import { cartIndex } from '@/mock/cart.js'
 import fetch from '@/api/fetch.js'
 import MiPop from '@/components/MiPop.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
-import {mapGetters} from 'vuex'
+import {mapGetters, mapMutations} from 'vuex'
 
 export default {
   components: {
@@ -38,6 +38,7 @@ export default {
         })
         this.totalNumber = num
         this.totalPrice = price
+        this.setCartCount(num)
       }
     }
   },
@@ -51,6 +52,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      setCartCount: 'cart/setCount'
+    }),
     getCartList () {
       this.$fetch('cartIndex').then(res => {
         this.setCartList(res)
