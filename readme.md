@@ -70,3 +70,9 @@ Refactor the mi mall with vue, vue-router, vex, etc.
 + API的Service封装
 + vuex之Module
 + MiDetail组件中地址管理
+
+### [lesson14--联调和打包](https://github.com/tonyfree/m.mi/tree/lesson15)
++ 底部导航购物车数量
++ css预处理stylus
++ 联调配置
++ 打包部署
