@@ -9,6 +9,8 @@ const MiDetail = () => import(/* webpackChunkName: "detail" */ './MiDetail.vue')
 const MiSetting = () => import(/* webpackChunkName: "setting" */ './MiSetting.vue')
 const MiAddressList = () => import(/* webpackChunkName: "addressList" */ './MiAddressList.vue')
 const MiAddressEdit = () => import(/* webpackChunkName: "addressEdit" */ './MiAddressEdit.vue')
+const OrderCheckout = () => import(/* webpackChunkName: "orderCheckout" */ './OrderCheckout.vue')
+
 
 export default [
   {
@@ -84,6 +86,14 @@ export default [
     component: MiAddressEdit,
     meta: {
       requiresAuth: true
+    }
+  },
+  {
+    path: '/order/checkout',
+    name: 'orderCheckout',
+    component: OrderCheckout,
+    meta: {
+      // requiresAuth: true
     }
   }
 ]
