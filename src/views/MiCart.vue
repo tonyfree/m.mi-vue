@@ -113,7 +113,7 @@
             <span>元</span>
           </div>
           <router-link :to="{name: 'category'}" class="btn disable black flex">继续购物</router-link>
-          <a class="btn flex">去结算</a>
+          <router-link :to="{name: 'orderCheckout'}" class="btn flex" >去结算</router-link>
         </div>
         <MiPop v-model="showServiceInfo"
           :close-on-click-overlay="true"

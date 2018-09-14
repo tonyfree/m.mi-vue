@@ -30,7 +30,8 @@ const url = {
   addressView: '/address/view',
   addressDel: '/address/del',
   addressAll: '/address/all',
-  addressRegion: '/address/region'
+  addressRegion: '/address/region',
+  orderCheckout: '/order/checkout'
 }
 
 Object.keys(url).forEach(key => {

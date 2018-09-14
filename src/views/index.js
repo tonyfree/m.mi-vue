@@ -93,7 +93,7 @@ export default [
     name: 'orderCheckout',
     component: OrderCheckout,
     meta: {
-      // requiresAuth: true
+      requiresAuth: true
     }
   }
 ]

@@ -5,28 +5,64 @@
       <div class="checkout app-view app-view-with-header">
         <div class="page-wrap">
           <div class="b1 more">
-            <router-link :to="{name: 'addressList', query:{type: 'checkout'}}" v-if="address.address_id">
+            <!-- <a>
               <div class="b11">
                 <p>
-                  <span>{{address.consignee}}</span>
-                  <span>{{address.tel}}</span>
+                  <span>tony</span>
+                  <span>131****5678</span>
                 </p>
               </div>
               <div class="b13">
-                <p>{{address.province}} {{address.city}} {{address.district}} {{address.area}} {{address.address}} ({{address.zipcode}})</p>
+                <p>北京 北京市 西城区 白纸坊街道 程序员之家 (100032)</p>
               </div>
-            </router-link>
-            <router-link :to="{name: 'addressEdit', query:{type: 'checkout'}}" v-else>
+            </a> -->
+            <a>
               <div class="b14">添加收货地址</div>
-            </router-link>
+            </a>
           </div>
           <div class="ui-line"></div>
           <div class="b2">
             <ul class="">
-              <li v-for="pay in paymethod" :key="pay.type">
-                <div class="item ui-flex align-center" :class="{on:pay.checked}">
-                  <a href="javascript:;" :class="pay.type">{{pay.value}}</a>
-                  <div class="flex">{{pay.subtitle}}</div>
+              <li>
+                <div class="item ui-flex align-center">
+                  <a href="javascript:;" class="weixin_wap">微信支付</a>
+                  <div class="flex"></div>
+                </div>
+              </li>
+              <li>
+                <div class="item ui-flex align-center">
+                  <a href="javascript:;" class="alipaywap">支付宝</a>
+                  <div class="flex">支付订单，赢1999元红包</div>
+                </div>
+              </li>
+              <li>
+                <div class="item ui-flex align-center on">
+                  <a href="javascript:;" class="micash_wap">小米钱包</a>
+                  <div class="flex">绑新卡支付，享最高立减99元</div>
+                </div>
+              </li>
+              <li>
+                <div class="item ui-flex align-center">
+                  <a href="javascript:;" class="unionpaywap">银联支付</a>
+                  <div class="flex"></div>
+                </div>
+              </li>
+              <li>
+                <div class="item ui-flex align-center">
+                  <a href="javascript:;" class="bestpay_wap">翼支付</a>
+                  <div class="flex"></div>
+                </div>
+              </li>
+              <li>
+                <div class="item ui-flex align-center">
+                  <a href="javascript:;" class="mifinanceinstal_m">小米分期</a>
+                  <div class="flex"></div>
+                </div>
+              </li>
+              <li>
+                <div class="item ui-flex align-center">
+                  <a href="javascript:;" class="antinstal_m">花呗分期</a>
+                  <div class="flex"></div>
                 </div>
               </li>
             </ul>
@@ -62,7 +98,7 @@
               <div class="gap-line" style="margin: 0px 0.4rem;"></div>
             </dl>
           </div>
-          <div class="b3">
+          <div class="b3 J_linksign">
             <dl>
               <dt class="ui-flex align-center justify-space-between">
                 <strong>优惠券</strong>
@@ -75,24 +111,76 @@
           </div>
           <div class="ui-line"></div>
           <div class="b8">
-            <div class="b8w" v-for="list in cartList" :key="list.goodsId">
+            <div class="b8w">
               <div class="b81">
-                <img :src="list.image_url">
+                <img src="//i1.mifile.cn/a1/pms_1527060327.66235934!80x80.jpg">
               </div>
               <div class="b82">
                 <div class="name">
                   <p>
-                    <span>{{list.short_name}}</span>
+                    <span>小米电视4C 32英寸 黑色 32英寸</span>
                   </p>
                 </div>
               </div>
               <div class="b83">
                 <div class="item-price">
-                  <span v-if="list.num>1">x {{list.num}} = </span>
-                  <strong>{{list.subtotal}}</strong>
+                  <strong>899.00</strong>
                 </div>
               </div>
             </div>
+            <div class="b8w">
+              <div class="b81">
+                <img src="//i1.mifile.cn/a1/pms_1528719455.74358029!80x80.jpg">
+              </div>
+              <div class="b82">
+                <div class="name">
+                  <p>
+                    <span>红米6A 全网通版 2GB内存 16GB 樱花粉</span>
+                  </p>
+                </div>
+              </div>
+              <div class="b83">
+                <div class="item-price">
+                  <span>x 2 = </span>
+                  <strong>1098.00</strong>
+                </div>
+              </div>
+            </div>
+            <div class="b8w">
+              <div class="b81">
+                <img src="//i1.mifile.cn/a1/pms_1482321205.78014235!80x80.jpg">
+              </div>
+              <div class="b82">
+                <div class="name">
+                  <p>
+                    <span>小米活塞耳机 清新版 银色</span>
+                  </p>
+                </div>
+              </div>
+              <div class="b83">
+                <div class="item-price">
+                  <span>x 2 = </span>
+                  <strong>0.00</strong>
+                </div>
+              </div>
+            </div>
+            <div class="b8w">
+              <div class="b81">
+                <img src="//i1.mifile.cn/a1/pms_1501236937.96732594!80x80.jpg">
+              </div>
+              <div class="b82">
+                <div class="name">
+                  <p>
+                    <span>米粉卡日租卡</span>
+                  </p>
+                </div>
+              </div>
+              <div class="b83">
+                <div class="item-price">
+                  <strong>0.00</strong>
+                </div>
+              </div>
+            </div>  
           </div>
           <div class="ui-line"></div>
           <div class="b5">
@@ -121,15 +209,15 @@
       <div class="ui-mask" style="display: none;"></div>
       <div class="b7">
         <div class="info-tips">
-          <p>配送至：{{address.province}} {{address.city}} {{address.district}} {{address.area}} {{address.address}}</p>
+          <p>配送至：北京 北京市 西城区 白纸坊街道 程序员之家</p>
         </div>
         <div class="ui-flex">
           <div class="b71 ui-box-flex">
-            <span>共{{total}}件 合计: </span>
-            <strong>{{productMoney}}</strong>
+            <span>共6件 合计: </span>
+            <strong>1997.00</strong>
           </div>
           <div class="b72 ui-box-flex">
-            <a class="ui-button" @click="toPay">
+            <a href="javascript:;" class="ui-button">
               <span>去付款</span>
             </a>
           </div>
@@ -138,56 +226,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import Order from '../api/order'
-import Dialog from '@/components/dialog'
-export default {
-  data () {
-    return {
-      cartList: [],
-      address: {},
-      paymethod: [],
-      productMoney: 0,
-      total: 0
-    }
-  },
-  beforeRouteEnter (to, from, next) {
-    if (from.name) {
-      Order.checkout().then(res => {
-        next(vm => vm.setData(res))
-      })
-    } else {
-      next(vm => vm.getData())
-    }
-  },
-  methods: {
-    getData () {
-      Order.checkout().then(res => {
-        this.setData(res)
-      })
-    },
-    setData (res) {
-      this.$NProgress.done()
-      let data = res.data
-      this.cartList =  data.cartlist.items
-      this.address =  data.address
-      this.paymethod =  data.paymethod
-      this.productMoney =  data.productMoney
-      this.total =  data.total
-    },
-    toPay () {
-      if (!this.address.address_id) {
-        Dialog.alert({
-          title: '温馨提示',
-          message: '请添加收货地址'
-        })
-        return
-      }
-    }
-  }
-}
-</script>
 
 <style scoped>
 .checkout {
@@ -206,7 +244,6 @@ export default {
 .b1 a {
   display: block;
   text-align: left;
-  color: #3c3c3c;
 }
 .b1 .b11 {
   font-size: 15px;

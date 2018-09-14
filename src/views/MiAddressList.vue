@@ -9,18 +9,15 @@
               <div v-for="(list,index) in lists" :key="list.address_id" class="ui-card">
                 <ul class="ui-card-item ui-list">
                   <li class="ui-list-item identity">
-                    <a @click="remove(list, index)">删除</a>
+                    <a v-if="isEdit" @click="remove(list, index)">删除</a>
                     <span class="consignee">{{list.consignee}}</span>
                     <span>{{list.tel}}</span>
                     <em v-if="list.is_default"> [默认]</em>
                   </li>
-                  <router-link
-                    :to="{name: 'addressEdit', query: {address_id: list.address_id}}"
-                    tag="li"
-                    class="ui-list-item edit">
+                  <li class="ui-list-item edit" @click="clickHandler(list)">
                     <p>{{list.province}} {{list.city}} {{list.district}} {{list.area}}</p>
                     <p>{{list.address}}</p>
-                  </router-link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -60,7 +57,8 @@ export default {
     return {
       lists: [],
       showDialog: false,
-      removeCash: {}
+      removeCash: {},
+      isEdit: !this.$route.query.type
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -98,6 +96,17 @@ export default {
           this.lists.splice(index, 1)
         })
       })
+    },
+    clickHandler (list) {
+      if (!this.isEdit) {
+        this.$router.go(-1)
+      } else {
+        // 调用接口/address/cartDelivery
+        this.$router.push({
+          name: 'addressEdit', 
+          query: {address_id: list.address_id}
+        })
+      }
     }
     // removeAction () {
     //   let {id, index} = this.removeCash
