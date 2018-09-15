@@ -71,6 +71,9 @@ export default {
 </script>
 
 <style scoped>
+.space-top {
+  margin-top: 15px;
+}
 .recommend-box {
   background: #fff;
   text-align: left;

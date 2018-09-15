@@ -4,56 +4,83 @@
     <div class="app-view-wrapper">
       <div class="page-order-list app-view app-view-with-header app-view-with-footer">
         <ol class="tab">
-          <li :class="{active:type==1}" @click="changeTab(1)"><a>全部</a></li>
-          <li :class="{active:type==7}" @click="changeTab(7)"><a>待付款</a></li>
-          <li :class="{active:type==8}" @click="changeTab(8)"><a>待收货</a></li>
+          <li class="active"><a>全部</a></li>
+          <li class=""><a>待付款</a></li>
+          <li class=""><a>待收货</a></li>
         </ol>
         <div class="page-con">
           <div class="page-con-items" style="">
-            <div v-if="orderList.length>0" class="container">
+            <div class="container">
               <div class="order-list">
                 <ol>
-                  <li v-for="order in orderList" :key="order.order_id">
+                  <li>
                     <div class="order-item">
                       <div class="item-box-top">
                         <div class="top-left">
                           <p class="order-data">
                             <strong>订单日期：</strong>
-                            <span>{{order.add_time}}</span>
+                            <span>2018/09/14  17:21</span>
                           </p>
                           <p class="order-num">
                             <strong>订单编号：</strong>
-                            <span>{{order.order_id}}</span>
+                            <span>5180914734400865</span>
                           </p>
                         </div>
-                        <div class="top-right">{{order.order_status_info}}</div>
+                        <div class="top-right">等待付款</div>
                       </div>
-                      <div
-                        v-for="product in order.product"
-                        :key="product.goods_id"
-                        class="item-box-center ui-flex align-center">
-                        <img v-lazy="product.image_url" class="lazy">
-                        <span class="flex">{{product.product_name}}</span>
+                      <div class="item-box-center ui-flex align-center">
+                        <img src="//i1.mifile.cn/a1/pms_1527060327.66235934!180x1800.jpg" class="lazy">
+                        <span class="flex">小米电视4C 32英寸 黑色 32英寸</span>
+                      </div>
+                      <div class="item-box-center ui-flex align-center">
+                        <img src="//i1.mifile.cn/a1/pms_1527735134.03584233!180x1800.jpg" class="lazy">
+                        <span class="flex">小米8 全网通版 6GB内存 64GB 黑色</span>
+                      </div>
+                      <div class="item-box-center ui-flex align-center">
+                        <img src="//i1.mifile.cn/a1/pms_1501236937.96732594!180x1800.jpg" class="lazy">
+                        <span class="flex">米粉卡日租卡</span>
                       </div>
                       <div class="item-box-bottom">
-                        <span>共{{order.goods_numbers}}件商品</span>
+                        <span>共4件商品</span>
                         <span>总金额：</span>
-                        <strong>{{order.goods_amount}}元</strong>
+                        <strong>6097元</strong>
                       </div>
                     </div>
                     <div class="item-box-btn">
-                      <template v-if="order.order_status==3">
-                        <a class="btn btn-bordered btn-gray">取消订单</a>
-                        <a class="btn btn-bordered">立即付款</a>
-                      </template>
+                      <a href="javascript:;" class="btn btn-bordered btn-gray">取消订单</a>
+                      <a href="javascript:;" class="btn btn-bordered">立即付款</a>
                     </div>
+                  </li>
+                  <li>
+                    <div class="order-item">
+                      <div class="item-box-top">
+                        <div class="top-left">
+                          <p class="order-data">
+                            <strong>订单日期：</strong>
+                            <span>2018/08/03  11:39</span>
+                          </p>
+                          <p class="order-num">
+                            <strong>订单编号：</strong>
+                            <span>5180803963902874</span>
+                          </p>
+                        </div>
+                        <div class="top-right">已退款</div>
+                      </div>
+                      <div class="item-box-center ui-flex align-center">
+                        <img src="//i1.mifile.cn/a1/T1PXhgBbdT1RXrhCrK!180x1800.jpg" class="lazy">
+                        <span class="flex">九号平衡车 白色</span>
+                      </div>
+                      <div class="item-box-bottom">
+                        <span>共1件商品</span>
+                        <span>总金额：</span>
+                        <strong>1949元</strong>
+                      </div>
+                    </div>
+                    <div class="item-box-btn"></div>
                   </li>
                 </ol>
               </div>
-            </div>
-            <div v-else class="container">
-               <div class="empty">您还没有 {{typeName}} 订单</div>
-               <MiRecommend />
+              <div class="empty">您还没有 待付款 订单</div>
             </div>
           </div>
         </div>
@@ -62,68 +89,6 @@
     <TheFooter />
   </div>  
 </template>
-
-<script>
-import Order from '../api/order'
-import MiRecommend from '@/components/MiRecommend.vue'
-export default {
-  components: {
-    MiRecommend
-  },
-  data () {
-    return {
-      orderList: [],
-      type: this.$route.query.type || 1
-    }
-  },
-  computed: {
-    typeName () {
-      switch(parseInt(this.type)) {
-        case 1:
-          return ''
-        case 7:
-          return '待付款'
-        case 8:
-          return '待收货'
-      }
-    }
-  },
-  beforeRouteEnter (to, from, next) {
-    if (from.name) {
-      Order.list({
-        type: to.query.type || 1
-      }).then(res => {
-        next(vm => vm.setList(res))
-      })
-    } else {
-      next(vm => vm.getList())
-    }
-  },
-  methods: {
-    getList () {
-      Order.list({
-        type: this.type
-      }).then(res => {
-        this.setList(res)
-      })
-    },
-    setList (res) {
-      this.$NProgress.done()
-      let list = res.data.list
-      list.forEach(order => {
-        order.goods_numbers = order.product.reduce((accumulator, currentValue) => {
-          return accumulator + currentValue.product_count
-        }, 0)
-      })
-      this.orderList = list
-    },
-    changeTab (type) {
-      this.type = type
-      this.getList()
-    }
-  }
-}
-</script>
 
 <style>
 .page-order-list .tab {

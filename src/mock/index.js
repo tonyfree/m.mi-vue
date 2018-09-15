@@ -8,7 +8,7 @@ import {recommend} from './recommend.js'
 import {cartIndex, cartSelect, cartEdit, cartAdd, cartDelete, cartSelService, cartCount} from './cart.js'
 import {addressList, addressAdd, addressSave, addressView, addressDel, addressRegion} from './address.js'
 import addressAll from './addressAll.js'
-import {orderCheckout} from './order'
+import {orderCheckout, orderList} from './order'
 
 export default {
   login,
@@ -37,5 +37,6 @@ export default {
   addressAll,
   addressRegion,
   estDelivery,
-  orderCheckout
+  orderCheckout,
+  orderList
 }

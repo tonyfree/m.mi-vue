@@ -41,6 +41,32 @@ let orderCheckout = Mock.mock({
   }
 })
 
+let orderList = Mock.mock({
+  "code": 0,
+  "result": "ok",
+  "description": "success",
+  "data": {
+    "list|2": [
+      {
+        "order_id": "@id",
+        "order_status": "@order(3,39)",
+        "goods_amount": "@order(6077.00,1949.00)",
+        "add_time": "@datetime('yyyy/MM/dd  HH:mm:ss')",
+        "order_status_info": "@order(等待付款,已退款)",
+        "product|3": [
+          {
+            "goods_id": "@id",
+            "image_url": "@order(//i1.mifile.cn/a1/pms_1527060327.66235934!180x1800.jpg,//i1.mifile.cn/a1/pms_1527735134.03584233!180x1800.jpg,//i1.mifile.cn/a1/pms_1501236937.96732594!180x1800.jpg)",
+            "product_name": "@order(小米电视4C 32英寸 黑色 32英寸,小米8 全网通版 6GB内存 64GB 黑色,米粉卡日租卡)",
+            "product_count": "@order(1,2,1)"
+          }
+        ]
+      }
+    ]
+  }
+})
+
 export {
-  orderCheckout
+  orderCheckout,
+  orderList
 }
