@@ -102,7 +102,7 @@ export default [
     name: 'orderList',
     component: OrderList,
     meta: {
-      // requiresAuth: true
+      requiresAuth: true
     }
   },
   {
