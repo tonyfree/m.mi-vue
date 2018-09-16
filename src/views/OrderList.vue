@@ -4,158 +4,70 @@
     <div class="app-view-wrapper">
       <div class="page-order-list app-view app-view-with-header app-view-with-footer">
         <ol class="tab">
-          <li :class="{active:type==1}" @click="changeTab(1)"><a>全部</a></li>
-          <li :class="{active:type==7}" @click="changeTab(7)"><a>待付款</a></li>
-          <li :class="{active:type==8}" @click="changeTab(8)"><a>待收货</a></li>
+          <li
+            v-for="list in types"
+            :key="list.type"
+            :class="{active:type==list.type}"
+            @click="changeTab(list.type)">
+            <a>{{list.name}}</a>
+          </li>
         </ol>
         <div class="page-con">
-          <transition :name="transitionName">
-            <div class="page-con-items" v-show="type==1">
-              <div v-if="orderList.length>0" class="container">
-                <div class="order-list">
-                  <ol>
-                    <li v-for="order in orderList" :key="order.order_id">
-                      <div class="order-item">
-                        <div class="item-box-top">
-                          <div class="top-left">
-                            <p class="order-data">
-                              <strong>订单日期：</strong>
-                              <span>{{order.add_time}}</span>
-                            </p>
-                            <p class="order-num">
-                              <strong>订单编号：</strong>
-                              <span>{{order.order_id}}</span>
-                            </p>
+          <div v-for="list in types" :key="list.type">
+            <transition :name="transitionName">
+              <div v-show="type==list.type" class="page-con-items">
+                <div v-if="orderList.length>0" class="container">
+                  <div class="order-list">
+                    <ol>
+                      <router-link
+                        :to="{name: 'orderView',  params: {id: order.order_id}}"
+                        tag="li"
+                        v-for="order in orderList"
+                        :key="order.order_id">
+                        <div class="order-item">
+                          <div class="item-box-top">
+                            <div class="top-left">
+                              <p class="order-data">
+                                <strong>订单日期：</strong>
+                                <span>{{order.add_time}}</span>
+                              </p>
+                              <p class="order-num">
+                                <strong>订单编号：</strong>
+                                <span>{{order.order_id}}</span>
+                              </p>
+                            </div>
+                            <div class="top-right">{{order.order_status_info}}</div>
                           </div>
-                          <div class="top-right">{{order.order_status_info}}</div>
+                          <div
+                            v-for="product in order.product"
+                            :key="product.goods_id"
+                            class="item-box-center ui-flex align-center">
+                            <img v-lazy="product.image_url" class="lazy">
+                            <span class="flex">{{product.product_name}}</span>
+                          </div>
+                          <div class="item-box-bottom">
+                            <span>共{{order.goods_numbers}}件商品</span>
+                            <span>总金额：</span>
+                            <strong>{{order.goods_amount}}元</strong>
+                          </div>
                         </div>
-                        <div
-                          v-for="product in order.product"
-                          :key="product.goods_id"
-                          class="item-box-center ui-flex align-center">
-                          <img v-lazy="product.image_url" class="lazy">
-                          <span class="flex">{{product.product_name}}</span>
+                        <div class="item-box-btn">
+                          <template v-if="order.order_status==3">
+                            <a class="btn btn-bordered btn-gray">取消订单</a>
+                            <a class="btn btn-bordered">立即付款</a>
+                          </template>
                         </div>
-                        <div class="item-box-bottom">
-                          <span>共{{order.goods_numbers}}件商品</span>
-                          <span>总金额：</span>
-                          <strong>{{order.goods_amount}}元</strong>
-                        </div>
-                      </div>
-                      <div class="item-box-btn">
-                        <template v-if="order.order_status==3">
-                          <a class="btn btn-bordered btn-gray">取消订单</a>
-                          <a class="btn btn-bordered">立即付款</a>
-                        </template>
-                      </div>
-                    </li>
-                  </ol>
+                      </router-link>
+                    </ol>
+                  </div>
+                </div>
+                <div v-else class="container">
+                  <div class="empty">您还没有 {{typeName}} 订单</div>
+                  <MiRecommend />
                 </div>
               </div>
-              <div v-else class="container">
-                <div class="empty">您还没有 {{typeName}} 订单</div>
-                <MiRecommend />
-              </div>
-            </div>
-          </transition>
-          <transition :name="transitionName">
-            <div class="page-con-items" v-show="type==7">
-              <div v-if="orderList.length>0" class="container">
-                <div class="order-list">
-                  <ol>
-                    <li v-for="order in orderList" :key="order.order_id">
-                      <div class="order-item">
-                        <div class="item-box-top">
-                          <div class="top-left">
-                            <p class="order-data">
-                              <strong>订单日期：</strong>
-                              <span>{{order.add_time}}</span>
-                            </p>
-                            <p class="order-num">
-                              <strong>订单编号：</strong>
-                              <span>{{order.order_id}}</span>
-                            </p>
-                          </div>
-                          <div class="top-right">{{order.order_status_info}}</div>
-                        </div>
-                        <div
-                          v-for="product in order.product"
-                          :key="product.goods_id"
-                          class="item-box-center ui-flex align-center">
-                          <img v-lazy="product.image_url" class="lazy">
-                          <span class="flex">{{product.product_name}}</span>
-                        </div>
-                        <div class="item-box-bottom">
-                          <span>共{{order.goods_numbers}}件商品</span>
-                          <span>总金额：</span>
-                          <strong>{{order.goods_amount}}元</strong>
-                        </div>
-                      </div>
-                      <div class="item-box-btn">
-                        <template v-if="order.order_status==3">
-                          <a class="btn btn-bordered btn-gray">取消订单</a>
-                          <a class="btn btn-bordered">立即付款</a>
-                        </template>
-                      </div>
-                    </li>
-                  </ol>
-                </div>
-              </div>
-              <div v-else class="container">
-                <div class="empty">您还没有 {{typeName}} 订单</div>
-                <MiRecommend />
-              </div>
-            </div>
-          </transition>
-          <transition :name="transitionName">
-            <div class="page-con-items" v-show="type==8">
-              <div v-if="orderList.length>0" class="container">
-                <div class="order-list">
-                  <ol>
-                    <li v-for="order in orderList" :key="order.order_id">
-                      <div class="order-item">
-                        <div class="item-box-top">
-                          <div class="top-left">
-                            <p class="order-data">
-                              <strong>订单日期：</strong>
-                              <span>{{order.add_time}}</span>
-                            </p>
-                            <p class="order-num">
-                              <strong>订单编号：</strong>
-                              <span>{{order.order_id}}</span>
-                            </p>
-                          </div>
-                          <div class="top-right">{{order.order_status_info}}</div>
-                        </div>
-                        <div
-                          v-for="product in order.product"
-                          :key="product.goods_id"
-                          class="item-box-center ui-flex align-center">
-                          <img v-lazy="product.image_url" class="lazy">
-                          <span class="flex">{{product.product_name}}</span>
-                        </div>
-                        <div class="item-box-bottom">
-                          <span>共{{order.goods_numbers}}件商品</span>
-                          <span>总金额：</span>
-                          <strong>{{order.goods_amount}}元</strong>
-                        </div>
-                      </div>
-                      <div class="item-box-btn">
-                        <template v-if="order.order_status==3">
-                          <a class="btn btn-bordered btn-gray">取消订单</a>
-                          <a class="btn btn-bordered">立即付款</a>
-                        </template>
-                      </div>
-                    </li>
-                  </ol>
-                </div>
-              </div>
-              <div v-else class="container">
-                <div class="empty">您还没有 {{typeName}} 订单</div>
-                <MiRecommend />
-              </div>
-            </div>
-          </transition>
+            </transition>
+          </div>
         </div>
       </div>
     </div>
@@ -173,12 +85,23 @@ export default {
   data () {
     return {
       orderList: [],
-      type: this.$route.query.type || 1
+      type: parseInt(this.$route.query.type) || 1,
+      types: [{
+        type: 1,
+        name: '全部'
+      }, {
+        type: 7,
+        name: '待付款'
+      }, {
+        type: 8,
+        name: '待收货'
+      }],
+      transitionName: 'page-left'
     }
   },
   computed: {
     typeName () {
-      switch(parseInt(this.type)) {
+      switch(this.type) {
         case 1:
           return ''
         case 7:
