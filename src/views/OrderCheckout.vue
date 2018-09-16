@@ -23,8 +23,11 @@
           <div class="ui-line"></div>
           <div class="b2">
             <ul class="">
-              <li v-for="pay in paymethod" :key="pay.type">
-                <div class="item ui-flex align-center" :class="{on:pay.checked}">
+              <li v-for="(pay,index) in paymethod" :key="pay.type">
+                <div
+                  class="item ui-flex align-center"
+                  :class="{on:pay.checked}"
+                  @click="chosePay(index)">
                   <a href="javascript:;" :class="pay.type">{{pay.value}}</a>
                   <div class="flex">{{pay.subtitle}}</div>
                 </div>
@@ -176,6 +179,11 @@ export default {
       this.paymethod =  data.paymethod
       this.productMoney =  data.productMoney
       this.total =  data.total
+    },
+    chosePay (index) {
+      this.paymethod.forEach((pay, i) => {
+        pay.checked = i === index
+      })
     },
     toPay () {
       if (!this.address.address_id) {
