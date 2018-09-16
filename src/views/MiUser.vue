@@ -25,22 +25,22 @@
         <div class="b1 ui-flex align-center justify-space-between">
           <div class="cite">我的订单</div>
           <div class="span ui-flex align-center">
-            <a href="/order/list" class="">全部订单</a>
+            <router-link :to="{name: 'orderList'}" class="">全部订单</router-link>
           </div>
         </div>
         <ul class="b2 ui-flex align-center justify-space-between">
           <li class="dfk">
-            <a href="/order/list?type=7">
+            <router-link :to="{name: 'orderList', query:{type: 7}}">
               <div class="icon"></div>
               <span>待付款</span>
               <em>1</em>
-            </a>
+            </router-link>
           </li>
           <li class="dah">
-            <a href="/order/list?type=8">
+            <router-link :to="{name: 'orderList', query:{type: 8}}">
               <div class="icon"></div>
               <span>待收货</span>
-            </a>
+            </router-link>
           </li>
           <li class="thx">
             <a href="/legacy/#/aftersale/list">

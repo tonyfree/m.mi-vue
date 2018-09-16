@@ -76,3 +76,8 @@ Refactor the mi mall with vue, vue-router, vex, etc.
 + css预处理stylus
 + 联调配置
 + 打包部署
+
+### [lesson15--订单]
++ 订单提交：登录验证、地址操作
++ 订单列表：焦点状态、tab切换、不同状态对应的操作
++ 订单详情

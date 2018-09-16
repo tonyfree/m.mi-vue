@@ -242,3 +242,10 @@
   line-height: 20px;
   color: #bababa;
 }
+
+.ui-line {
+  height: 10px;
+  background: #f5f5f5;
+  overflow: hidden;
+  clear: both;
+}
