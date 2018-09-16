@@ -16,14 +16,13 @@
           <div v-for="list in types" :key="list.type">
             <transition :name="transitionName">
               <div v-show="type==list.type" class="page-con-items">
-                <div v-if="orderList.length>0" class="container">
+                <div v-if="orderList&&orderList.length>0" class="container">
                   <div class="order-list">
                     <ol>
-                      <router-link
-                        :to="{name: 'orderView',  params: {id: order.order_id}}"
-                        tag="li"
+                      <li
                         v-for="order in orderList"
-                        :key="order.order_id">
+                        :key="order.order_id"
+                        @click="toView(order)">
                         <div class="order-item">
                           <div class="item-box-top">
                             <div class="top-left">
@@ -57,11 +56,11 @@
                             <a class="btn btn-bordered">立即付款</a>
                           </template>
                         </div>
-                      </router-link>
+                      </li>
                     </ol>
                   </div>
                 </div>
-                <div v-else class="container">
+                <div v-if="orderList&&orderList.length==0" class="container">
                   <div class="empty">您还没有 {{typeName}} 订单</div>
                   <MiRecommend />
                 </div>
@@ -84,7 +83,7 @@ export default {
   },
   data () {
     return {
-      orderList: [],
+      orderList: null,
       type: parseInt(this.$route.query.type) || 1,
       types: [{
         type: 1,
@@ -131,7 +130,6 @@ export default {
       })
     },
     setList (res) {
-      this.$NProgress.done()
       let list = res.data.list
       list.forEach(order => {
         order.goods_numbers = order.product.reduce((accumulator, currentValue) => {
@@ -139,11 +137,19 @@ export default {
         }, 0)
       })
       this.orderList = list
+      this.$NProgress.done()
+      this.$store.commit('setViewLoading', false)
     },
     changeTab (type) {
       this.transitionName = type > this.type ? 'page-left' : 'page-right' 
       this.type = type
       this.getList()
+    },
+    toView (order) {
+      this.$router.push({
+        name: 'orderView',
+        params: {id: order.order_id}
+      })
     }
   }
 }

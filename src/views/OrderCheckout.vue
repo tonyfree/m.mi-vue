@@ -168,6 +168,7 @@ export default {
       })
     },
     setData (res) {
+      this.$store.commit('setViewLoading', false)
       this.$NProgress.done()
       let data = res.data
       this.cartList =  data.cartlist.items

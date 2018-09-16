@@ -10,7 +10,7 @@
               <em class="flex">去登录</em>
             </router-link>
           </div>
-          <div v-if="cartList&&cartList.length" class="cart-list">
+          <div v-if="cartList&&cartList.length>0" class="cart-list">
             <ol>
               <li v-for="(item, index) in cartList" :key="item.goodsId" class="item">
                 <div class="ui-flex align-center justify-center">
@@ -97,7 +97,7 @@
             </div>
             <div class="ui-line"></div>
           </div>
-          <div v-else class="noitems">
+          <div v-if="cartList&&cartList.length==0" class="noitems">
             <router-link :to="{name: 'home'}" class="router-link-active">
               <span>购物车还是空的</span>
               <em>去逛逛</em>

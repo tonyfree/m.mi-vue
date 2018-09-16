@@ -66,7 +66,56 @@ let orderList = Mock.mock({
   }
 })
 
+let orderView = Mock.mock({
+  "code": 0,
+  "result": "ok",
+  "description": "success",
+  "data": {
+    "order_id": "@id",
+    "order_status": "3",
+    "consignee": "tony",
+    "country": "中国",
+    "province": "北京",
+    "city": "北京市",
+    "district": "东城区",
+    "area": "安定门街道",
+    "address": "程序员之家",
+    "tel": "131****5678",
+    "best_time": "不限送货时间",
+    "invoice_title": "个人",
+    "invoice_type": "4",
+    "invoice_type_name": "电子发票",
+    "original_price": "6097",
+    "goods_amount": "6077",
+    "reduce_price": "20",
+    "shipment_expense": "0",
+    "add_time": "@datetime('yyyy/MM/dd HH:mm:ss')",
+    "product|3": [
+      {
+        "goods_id": "@id",
+        "image_url": "@order(//i1.mifile.cn/a1/pms_1527060327.66235934!180x1800.jpg,//i1.mifile.cn/a1/pms_1527735134.03584233!180x1800.jpg,//i1.mifile.cn/a1/pms_1501236937.96732594!180x1800.jpg)",
+        "mode": 0,
+        "product_name": "@order(小米电视4C 32英寸 黑色 32英寸,小米8 全网通版 6GB内存 64GB 黑色,米粉卡日租卡)",
+        "product_count": "@order(1,2,1)",
+        "price": "@order(899,2599,0)",
+        "subtotal": "@order(899,5198,0)"
+      }
+    ],
+    "order_status_info": {
+      "trace|5": [
+        {
+          "info": "",
+          "text": "@order(下单,付款,配货,出库,交易成功)",
+          "time": "@order(2018/09/16  10:31,,,,)"
+        }
+      ],
+      "info": "等待付款"
+    }
+  }
+})
+
 export {
   orderCheckout,
-  orderList
+  orderList,
+  orderView
 }
