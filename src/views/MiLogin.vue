@@ -127,7 +127,7 @@ export default {
         return
       }
       if (this.countdown !== 60) return
-      this.$fetch('getCode', {username: this.username}).then(res => {
+      this.$fetch('getCode', { username: this.username }).then(res => {
         this.timer = setInterval(() => {
           this.codeMsg = `重新发送${this.countdown}`
           this.countdown--

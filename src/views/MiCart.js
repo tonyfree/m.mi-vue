@@ -2,7 +2,7 @@ import { cartIndex } from '@/mock/cart.js'
 import fetch from '@/api/fetch.js'
 import MiPop from '@/components/MiPop.vue'
 import MiRecommend from '@/components/MiRecommend.vue'
-import {mapGetters, mapMutations} from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   components: {
@@ -113,6 +113,7 @@ export default {
       })
       giftSelect.forEach(gift => {
         let index = items.findIndex(item => {
+          // eslint-disable-next-line
           return item.goodsId == gift.parent_goodsId
         })
         items.splice(index + 1, 0, {
@@ -129,17 +130,19 @@ export default {
       this.cartList = items
     },
     cartSelect (item, index) {
+      // eslint-disable-next-line
       let sel_status = item.sel_status ? 0 : 1
       this.$fetch('cartSelect', {
         goodsId: item.goodsId,
         sel_status
       }).then(res => {
+        // eslint-disable-next-line
         item.sel_status = sel_status
         if (!item.sel_status) {
           let subIndex = this.cartList.findIndex(list => {
             return list.parent_goodsId === item.goodsId
           })
-          while(subIndex > -1) {
+          while (subIndex > -1) {
             this.cartList.splice(subIndex, 1)
             subIndex = this.cartList.findIndex(list => {
               return list.parent_goodsId === item.goodsId
@@ -154,25 +157,26 @@ export default {
             })
           })
         } else {
-            if (item.gift) {
-              item.gift.forEach(gift => {
-                this.cartList.splice(index + 1, 0, {
-                  buy_limit: item.num,
-                  goodsId: gift.actId,
-                  image_url: gift.image_url,
-                  num: item.num,
-                  product_name: gift.product_name,
-                  sel_status: 1,
-                  parent_goodsId: item.goodsId,
-                  isGift: true
-                })
+          if (item.gift) {
+            item.gift.forEach(gift => {
+              this.cartList.splice(index + 1, 0, {
+                buy_limit: item.num,
+                goodsId: gift.actId,
+                image_url: gift.image_url,
+                num: item.num,
+                product_name: gift.product_name,
+                sel_status: 1,
+                parent_goodsId: item.goodsId,
+                isGift: true
               })
-            }
+            })
+          }
         }
       })
     },
     cartEdit (item, num) {
       if (num < 0 && item.num === 1) return
+      // eslint-disable-next-line
       if (num > 0 && item.num == item.buy_limit) return
       let consumption = num > 0 ? 2 : 1
       this.$fetch('cartEdit', {
@@ -240,15 +244,13 @@ export default {
               return service.service_goods_id === list.service_goods_id
             })
             cashItem.serviceList.splice(serviceListIndex, 1)
-  
             cashItem.service_info.forEach(info => {
               info.service_info.forEach(service => {
                 if (service.service_goods_id === list.service_goods_id) {
-                  service.sel_status =1
+                  service.sel_status = 1
                 }
               })
             })
-  
             let index = this.cartList.findIndex(item => {
               return item.goodsId === cashItem.goodsId
             })
@@ -263,7 +265,6 @@ export default {
               parent_goodsId: cashItem.goodsId,
               isService: true
             })
-  
           })
         }
         this.showServiceInfo = false

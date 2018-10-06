@@ -25,7 +25,7 @@ router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !store.getters.isLogin) {
     next({
       name: 'login',
-      query: {redirect: to.fullPath}
+      query: { redirect: to.fullPath }
     })
   } else {
     next()

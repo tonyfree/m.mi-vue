@@ -18,7 +18,7 @@ export default {
     }
   },
   actions: {
-    getList ({commit}, callback) {
+    getList ({ commit }, callback) {
       Address.list().then(res => {
         commit('setList', res.data)
         callback && callback()

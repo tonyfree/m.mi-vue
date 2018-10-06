@@ -1,7 +1,7 @@
 # m.mi
 Refactor the mi mall with vue, vue-router, vex, etc.
 
-> 2018.10.06 有同学反馈基于初始的vue-cli@3.0.0-beta.11版本，用npm安装依赖报错"api.genCacheConfig is not a function"，解决方案：1.用最新版本的vue-cli创建项目；2.直接clone项目用yarn安装依赖
+> 2018.10.06 有同学反馈基于初始的vue-cli@3.0.0-beta.11版本，用npm安装依赖报错"api.genCacheConfig is not a function"，解决方案：1.用最新版本的vue-cli创建项目；2.直接clone项目用yarn安装依赖。现已把master分支的相应模块升级到3.0.4。
 
 
 ### [lesson01--项目创建](https://github.com/tonyfree/m.mi/tree/lesson01)

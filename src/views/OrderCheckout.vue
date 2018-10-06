@@ -174,11 +174,11 @@ export default {
       this.$store.commit('setViewLoading', false)
       this.$NProgress.done()
       let data = res.data
-      this.cartList =  data.cartlist.items
-      this.address =  data.address
-      this.paymethod =  data.paymethod
-      this.productMoney =  data.productMoney
-      this.total =  data.total
+      this.cartList = data.cartlist.items
+      this.address = data.address
+      this.paymethod = data.paymethod
+      this.productMoney = data.productMoney
+      this.total = data.total
     },
     chosePay (index) {
       this.paymethod.forEach((pay, i) => {
@@ -191,7 +191,7 @@ export default {
           title: '温馨提示',
           message: '请添加收货地址'
         })
-        return
+        return false
       }
     }
   }
@@ -456,6 +456,3 @@ strong {
   color: #fff;
 }
 </style>
-
-
-

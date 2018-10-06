@@ -14,7 +14,7 @@ export default {
     }
   },
   actions: {
-    getCount ({commit}) {
+    getCount ({ commit }) {
       Cart.count().then(res => {
         commit('setCount', res.data)
       })

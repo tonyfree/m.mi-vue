@@ -109,5 +109,5 @@ export default [
     path: '/order/view/:id',
     name: 'orderView',
     component: OrderView
-  },
+  }
 ]

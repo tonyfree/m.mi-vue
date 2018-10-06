@@ -10,7 +10,7 @@
 
 <script>
 import MiSkeleton from '@/components/MiSkeleton.vue'
-import {mapState, mapMutations, mapActions} from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 
 export default {
   components: {

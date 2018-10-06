@@ -30,7 +30,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    getUserInfo ({commit}) {
+    getUserInfo ({ commit }) {
       fetch('userInfo').then(res => {
         commit('setUserInfo', res.data.user)
       })

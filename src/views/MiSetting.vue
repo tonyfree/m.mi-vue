@@ -26,7 +26,7 @@ export default {
     logout () {
       this.$fetch('logout').then(res => {
         this.$store.commit('setUserInfo', null)
-        this.$router.push({name: 'user'})
+        this.$router.push({ name: 'user' })
       })
     }
   }
