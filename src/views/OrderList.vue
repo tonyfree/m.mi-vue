@@ -71,7 +71,7 @@
       </div>
     </div>
     <TheFooter />
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -100,7 +100,7 @@ export default {
   },
   computed: {
     typeName () {
-      switch(this.type) {
+      switch (this.type) {
         case 1:
           return ''
         case 7:
@@ -141,14 +141,14 @@ export default {
       this.$store.commit('setViewLoading', false)
     },
     changeTab (type) {
-      this.transitionName = type > this.type ? 'page-left' : 'page-right' 
+      this.transitionName = type > this.type ? 'page-left' : 'page-right'
       this.type = type
       this.getList()
     },
     toView (order) {
       this.$router.push({
         name: 'orderView',
-        params: {id: order.order_id}
+        params: { id: order.order_id }
       })
     }
   }
@@ -290,4 +290,3 @@ export default {
   border: 1px solid #ff6700;
 }
 </style>
-

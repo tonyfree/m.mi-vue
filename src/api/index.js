@@ -1,5 +1,5 @@
 let host = ''
-let {NODE_ENV, VUE_APP_API} = process.env
+let { NODE_ENV, VUE_APP_API } = process.env
 if (NODE_ENV === 'development' || (NODE_ENV === 'production' && VUE_APP_API === 'rap')) {
   host = 'http://rap2api.taobao.org/app/mock/13801'
 }

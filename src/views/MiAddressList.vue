@@ -103,8 +103,8 @@ export default {
       } else {
         // 调用接口/address/cartDelivery
         this.$router.push({
-          name: 'addressEdit', 
-          query: {address_id: list.address_id}
+          name: 'addressEdit',
+          query: { address_id: list.address_id }
         })
       }
     }
